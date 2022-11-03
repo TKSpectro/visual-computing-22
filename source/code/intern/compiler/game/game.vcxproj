@@ -160,10 +160,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\game\main.cpp" />
-    <ClCompile Include="application.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\core\core.vcxproj">
       <Project>{dda1782a-6700-4813-b9b2-01baadcddf7b}</Project>
     </ProjectReference>
@@ -181,7 +177,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="application.h" />
+    <ClInclude Include="..\..\src\game\application.h" />
+    <ClInclude Include="..\..\src\game\phase.h" />
+    <ClInclude Include="..\..\src\game\play.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\game\application.cpp" />
+    <ClCompile Include="..\..\src\game\phase.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
