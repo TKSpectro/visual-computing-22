@@ -2,7 +2,7 @@
 
 namespace Game {
     class Phase {
-        public:
+    public:
         enum Type {
             STARTUP,
             MAIN_MENU,
@@ -14,15 +14,15 @@ namespace Game {
             Undefined = -1,
         };
 
-        public:
+    public:
         int OnEnter();
         int OnRun();
         int OnLeave();
 
-        protected:
-        virtual ~Phase();
+    protected:
+        //virtual ~Phase();
 
-        private:
+    private:
         virtual int InternOnEnter() = 0;
         virtual int InternOnRun() = 0;
         virtual int InternOnLeave() = 0;
