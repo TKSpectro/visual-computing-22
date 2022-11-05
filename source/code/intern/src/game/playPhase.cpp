@@ -5,20 +5,25 @@
 
 #include "application.h"
 
-namespace Game {
-    int PlayPhase::InternOnEnter() {
+namespace Game
+{
+    int PlayPhase::InternOnEnter()
+    {
         std::cout << "PLAY::Enter" << std::endl;
 
         return 0;
     }
 
-    int PlayPhase::InternOnRun() {
-        if (counter % 100 == 0) {
+    int PlayPhase::InternOnRun()
+    {
+        if (counter % 100 == 0)
+        {
             std::cout << "PLAY::Run::" << counter << std::endl;
         }
 
         counter++;
-        if (counter > 2000) {
+        if (counter > 2000)
+        {
             return Type::UNLOAD_MAP;
         }
 
@@ -53,7 +58,8 @@ namespace Game {
         return Type::PLAY;
     }
 
-    int PlayPhase::InternOnLeave() {
+    int PlayPhase::InternOnLeave()
+    {
         std::cout << "PLAY::Leave" << std::endl;
 
         return 0;

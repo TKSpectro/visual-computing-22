@@ -1,9 +1,12 @@
 #pragma once
 
-namespace Game {
-    class Phase {
+namespace Game
+{
+    class Phase
+    {
     public:
-        enum Type {
+        enum Type
+        {
             STARTUP,
             MAIN_MENU,
             LOAD_MAP,

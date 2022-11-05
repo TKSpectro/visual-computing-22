@@ -10,7 +10,8 @@
 #include "unloadPhase.h"
 #include "shutdownPhase.h"
 
-namespace Game {
+namespace Game
+{
     Application::Application()
         : m_IndexOfCurrentPhase(Phase::Undefined),
         m_pPhases{
@@ -20,11 +21,13 @@ namespace Game {
         &PlayPhase::GetInstance(),
         &UnloadPhase::GetInstance(),
         &ShutdownPhase::GetInstance()
-    } {
+    }
+    {
 
     }
 
-    void Application::Initialize() {
+    void Application::Initialize()
+    {
         // Enable fancy anitaliasing
         sf::ContextSettings settings;
         settings.antialiasingLevel = 8;
@@ -35,36 +38,44 @@ namespace Game {
         m_pPhases[m_IndexOfCurrentPhase]->OnEnter();
     }
 
-    void Application::Run() {
-        for (;;) {
-            if (m_window.isOpen() == false) {
+    void Application::Run()
+    {
+        for (;;)
+        {
+            if (m_window.isOpen() == false)
+            {
                 break;
             }
 
             // check all the window's events that were triggered since the last iteration of the loop
             sf::Event event;
-            while (m_window.pollEvent(event)) {
+            while (m_window.pollEvent(event))
+            {
                 // "close requested" event: we close the m_window
                 if (event.type == sf::Event::Closed)
                     m_window.close();
             }
 
-            if (RunPhase() == false) {
+            if (RunPhase() == false)
+            {
                 break;
             }
         }
     }
 
-    bool Application::RunPhase() {
+    bool Application::RunPhase()
+    {
         Phase* pCurrentPhase = m_pPhases[m_IndexOfCurrentPhase];
         assert(pCurrentPhase != nullptr);
 
         int indexOfNextPhase = pCurrentPhase->OnRun();
 
-        if (indexOfNextPhase != m_IndexOfCurrentPhase) {
+        if (indexOfNextPhase != m_IndexOfCurrentPhase)
+        {
             pCurrentPhase->OnLeave();
 
-            if (m_IndexOfCurrentPhase == Phase::SHUTDOWN) {
+            if (m_IndexOfCurrentPhase == Phase::SHUTDOWN)
+            {
                 return false;
             }
 
@@ -82,7 +93,8 @@ namespace Game {
 
 }
 
-int main() {
+int main()
+{
     Game::Application::GetInstance().Initialize();
 
     Game::Application::GetInstance().Run();

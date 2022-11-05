@@ -4,10 +4,13 @@
 #include "phase.h"
 #include <SFML/Graphics/RenderWindow.hpp>
 
-namespace Game {
-    class Application {
+namespace Game
+{
+    class Application
+    {
     public:
-        static Application& GetInstance() {
+        static Application& GetInstance()
+        {
             static Application instance;
             return instance;
         };

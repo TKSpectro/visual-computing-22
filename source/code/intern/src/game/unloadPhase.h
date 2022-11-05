@@ -1,10 +1,13 @@
 #pragma once
 #include "phase.h"
 
-namespace Game {
-    class UnloadPhase : public Phase {
+namespace Game
+{
+    class UnloadPhase : public Phase
+    {
     public:
-        static UnloadPhase& GetInstance() {
+        static UnloadPhase& GetInstance()
+        {
             static UnloadPhase instance;
             return instance;
         };
@@ -13,7 +16,8 @@ namespace Game {
         UnloadPhase& operator = (const UnloadPhase&) = delete;
 
     private:
-        UnloadPhase() {};
+        UnloadPhase()
+        {};
 
         int counter = 0;
 

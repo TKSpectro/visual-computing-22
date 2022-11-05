@@ -2,25 +2,30 @@
 #include <iostream>
 #include "application.h"
 
-namespace Game {
-    int ShutdownPhase::InternOnEnter() {
+namespace Game
+{
+    int ShutdownPhase::InternOnEnter()
+    {
         std::cout << "SHUTDOWN::Enter" << std::endl;
 
         return 0;
     }
 
-    int ShutdownPhase::InternOnRun() {
+    int ShutdownPhase::InternOnRun()
+    {
         std::cout << "SHUTDOWN::Run" << std::endl;
 
         counter++;
-        if (counter > 4) {
+        if (counter > 4)
+        {
             return Type::Undefined;
         }
 
         return Type::SHUTDOWN;
     }
 
-    int ShutdownPhase::InternOnLeave() {
+    int ShutdownPhase::InternOnLeave()
+    {
         std::cout << "SHUTDOWN::Leave" << std::endl;
 
 
