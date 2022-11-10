@@ -33,6 +33,7 @@ namespace Game
         settings.antialiasingLevel = 8;
 
         m_window.create(sf::VideoMode(800, 450), "vc22 - Tom Kaeppler", sf::Style::Default, settings);
+        std::cout << "[APPLICATION] Window created" << std::endl;
 
         m_IndexOfCurrentPhase = Phase::STARTUP;
         m_pPhases[m_IndexOfCurrentPhase]->OnEnter();
@@ -95,9 +96,11 @@ namespace Game
 
 int main()
 {
-    Game::Application::GetInstance().Initialize();
+    Game::Application& application = Game::Application::GetInstance();
 
-    Game::Application::GetInstance().Run();
+    application.Initialize();
+
+    application.Run();
 
     return 0;
 }
