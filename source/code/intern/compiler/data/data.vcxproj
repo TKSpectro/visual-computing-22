@@ -157,12 +157,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\data\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\core\core.vcxproj">
       <Project>{dda1782a-6700-4813-b9b2-01baadcddf7b}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\data\data.mainMenuPhase.cpp" />
+    <ClCompile Include="..\..\src\data\data.shutdownPhase.cpp" />
+    <ClCompile Include="..\..\src\data\data.startupPhase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\data\data.mainMenuPhase.h" />
+    <ClInclude Include="..\..\src\data\data.shutdownPhase.h" />
+    <ClInclude Include="..\..\src\data\data.startupPhase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="..\..\src\game\application.h" />
-    <ClInclude Include="..\..\src\game\phase.h" />
-    <ClInclude Include="..\..\src\game\playPhase.h" />
-    <ClInclude Include="..\..\src\game\shutdownPhase.h" />
-    <ClInclude Include="..\..\src\game\startupPhase.h" />
-    <ClInclude Include="..\..\src\game\mainMenuPhase.h" />
-    <ClInclude Include="..\..\src\game\loadPhase.h" />
-    <ClInclude Include="..\..\src\game\unloadPhase.h" />
+    <ClInclude Include="..\..\src\game\game.application.h" />
+    <ClInclude Include="..\..\src\game\game.phase.h" />
+    <ClInclude Include="..\..\src\game\game.playPhase.h" />
+    <ClInclude Include="..\..\src\game\game.shutdownPhase.h" />
+    <ClInclude Include="..\..\src\game\game.startupPhase.h" />
+    <ClInclude Include="..\..\src\game\game.mainMenuPhase.h" />
+    <ClInclude Include="..\..\src\game\game.loadPhase.h" />
+    <ClInclude Include="..\..\src\game\game.unloadPhase.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\game\application.cpp" />
-    <ClCompile Include="..\..\src\game\phase.cpp" />
-    <ClCompile Include="..\..\src\game\unloadPhase.cpp" />
-    <ClCompile Include="..\..\src\game\loadPhase.cpp" />
-    <ClCompile Include="..\..\src\game\mainMenuPhase.cpp" />
-    <ClCompile Include="..\..\src\game\startupPhase.cpp" />
-    <ClCompile Include="..\..\src\game\shutdownPhase.cpp" />
-    <ClCompile Include="..\..\src\game\playPhase.cpp" />
+    <ClCompile Include="..\..\src\game\game.application.cpp" />
+    <ClCompile Include="..\..\src\game\game.phase.cpp" />
+    <ClCompile Include="..\..\src\game\game.unloadPhase.cpp" />
+    <ClCompile Include="..\..\src\game\game.loadPhase.cpp" />
+    <ClCompile Include="..\..\src\game\game.mainMenuPhase.cpp" />
+    <ClCompile Include="..\..\src\game\game.startupPhase.cpp" />
+    <ClCompile Include="..\..\src\game\game.shutdownPhase.cpp" />
+    <ClCompile Include="..\..\src\game\game.playPhase.cpp" />
   </ItemGroup>
 </Project>

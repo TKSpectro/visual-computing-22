@@ -157,7 +157,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\logic\logic.cpp" />
+    <ClCompile Include="..\..\src\logic\logic.loadPhase.cpp" />
+    <ClCompile Include="..\..\src\logic\logic.shutdownPhase.cpp" />
+    <ClCompile Include="..\..\src\logic\logic.startupPhase.cpp" />
+    <ClCompile Include="..\..\src\logic\logic.unloadPhase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\core\core.vcxproj">
@@ -166,6 +169,12 @@
     <ProjectReference Include="..\data\data.vcxproj">
       <Project>{7459d886-e981-40c0-910b-f904af7cbd9c}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\logic\logic.loadPhase.h" />
+    <ClInclude Include="..\..\src\logic\logic.shutdownPhase.h" />
+    <ClInclude Include="..\..\src\logic\logic.startupPhase.h" />
+    <ClInclude Include="..\..\src\logic\logic.unloadPhase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

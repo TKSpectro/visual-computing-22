@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\src\graphics\main.cpp" />
+    <ClCompile Include="..\..\src\graphics\gfx.loadPhase.cpp" />
+    <ClCompile Include="..\..\src\graphics\gfx.shutdownPhase.cpp" />
+    <ClCompile Include="..\..\src\graphics\gfx.startupPhase.cpp" />
+    <ClCompile Include="..\..\src\graphics\gfx.unloadPhase.cpp" />
+    <ClCompile Include="..\..\src\graphics\gfx.mainMenuPhase.cpp" />
+    <ClCompile Include="..\..\src\graphics\gfx.playPhase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\graphics\gfx.loadPhase.h" />
+    <ClInclude Include="..\..\src\graphics\gfx.shutdownPhase.h" />
+    <ClInclude Include="..\..\src\graphics\gfx.startupPhase.h" />
+    <ClInclude Include="..\..\src\graphics\gfx.unloadPhase.h" />
+    <ClInclude Include="..\..\src\graphics\gfx.mainMenuPhase.h" />
+    <ClInclude Include="..\..\src\graphics\gfx.playPhase.h" />
   </ItemGroup>
 </Project>

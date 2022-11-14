@@ -159,15 +159,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\graphics\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\core\core.vcxproj">
       <Project>{dda1782a-6700-4813-b9b2-01baadcddf7b}</Project>
     </ProjectReference>
     <ProjectReference Include="..\data\data.vcxproj">
       <Project>{7459d886-e981-40c0-910b-f904af7cbd9c}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\graphics\gfx.loadPhase.cpp" />
+    <ClCompile Include="..\..\src\graphics\gfx.mainMenuPhase.cpp" />
+    <ClCompile Include="..\..\src\graphics\gfx.playPhase.cpp" />
+    <ClCompile Include="..\..\src\graphics\gfx.shutdownPhase.cpp" />
+    <ClCompile Include="..\..\src\graphics\gfx.startupPhase.cpp" />
+    <ClCompile Include="..\..\src\graphics\gfx.unloadPhase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\graphics\gfx.loadPhase.h" />
+    <ClInclude Include="..\..\src\graphics\gfx.mainMenuPhase.h" />
+    <ClInclude Include="..\..\src\graphics\gfx.playPhase.h" />
+    <ClInclude Include="..\..\src\graphics\gfx.shutdownPhase.h" />
+    <ClInclude Include="..\..\src\graphics\gfx.startupPhase.h" />
+    <ClInclude Include="..\..\src\graphics\gfx.unloadPhase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
