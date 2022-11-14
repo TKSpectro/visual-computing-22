@@ -159,12 +159,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\gui\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\core\core.vcxproj">
       <Project>{dda1782a-6700-4813-b9b2-01baadcddf7b}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\gui\gui.loadPhase.cpp" />
+    <ClCompile Include="..\..\src\gui\gui.mainMenuPhase.cpp" />
+    <ClCompile Include="..\..\src\gui\gui.playPhase.cpp" />
+    <ClCompile Include="..\..\src\gui\gui.shutdownPhase.cpp" />
+    <ClCompile Include="..\..\src\gui\gui.startupPhase.cpp" />
+    <ClCompile Include="..\..\src\gui\gui.unloadPhase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\gui\gui.loadPhase.h" />
+    <ClInclude Include="..\..\src\gui\gui.mainMenuPhase.h" />
+    <ClInclude Include="..\..\src\gui\gui.playPhase.h" />
+    <ClInclude Include="..\..\src\gui\gui.shutdownPhase.h" />
+    <ClInclude Include="..\..\src\gui\gui.startupPhase.h" />
+    <ClInclude Include="..\..\src\gui\gui.unloadPhase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
