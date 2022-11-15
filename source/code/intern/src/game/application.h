@@ -32,6 +32,7 @@ namespace Game
     public:
         void Initialize();
         void Run();
+        void Finalize();
 
     private:
         bool RunPhase();

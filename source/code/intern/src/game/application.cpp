@@ -28,6 +28,8 @@ namespace Game
 
     void Application::Initialize()
     {
+        std::cout << "[APPLICATION] Initialize" << std::endl;
+
         // Enable fancy anitaliasing
         sf::ContextSettings settings;
         settings.antialiasingLevel = 8;
@@ -41,6 +43,11 @@ namespace Game
 
     void Application::Run()
     {
+        std::cout << "[APPLICATION] Run" << std::endl;
+
+        // check all the window's events that were triggered since the last iteration of the loop
+        sf::Event event;
+
         for (;;)
         {
             if (m_window.isOpen() == false)
@@ -48,13 +55,13 @@ namespace Game
                 break;
             }
 
-            // check all the window's events that were triggered since the last iteration of the loop
-            sf::Event event;
             while (m_window.pollEvent(event))
             {
                 // "close requested" event: we close the m_window
                 if (event.type == sf::Event::Closed)
+                {
                     m_window.close();
+                }
             }
 
             if (RunPhase() == false)
@@ -62,6 +69,11 @@ namespace Game
                 break;
             }
         }
+    }
+
+    void Application::Finalize()
+    {
+        std::cout << "[APPLICATION] Finalize" << std::endl;
     }
 
     bool Application::RunPhase()
@@ -101,6 +113,8 @@ int main()
     application.Initialize();
 
     application.Run();
+
+    application.Finalize();
 
     return 0;
 }
