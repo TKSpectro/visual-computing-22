@@ -16,7 +16,7 @@
 
 #pragma once
 
-#include "core/core_constants.h"
+#include "core_constants.h"
 
 #include <math.h>
 
@@ -61,7 +61,7 @@ namespace Core
     inline float ArcTan(float _Value1, float _Value2);
     inline double ArcTan(double _Value1, double _Value2);
 
-    inline float RadiansToDegrees(float  _Radians) ;
+    inline float RadiansToDegrees(float  _Radians);
     inline double RadiansToDegrees(double _Radians);
     inline float DegreesToRadians(float _Degrees);
     inline double DegreesToRadians(double _Degrees);
@@ -91,14 +91,14 @@ namespace Core
 {
     inline float Round(float _Value)
     {
-        return (_Value > 0.0f) ? RoundDown(_Value + 0.5f) : RoundUp(_Value - 0.5f); 
+        return (_Value > 0.0f) ? RoundDown(_Value + 0.5f) : RoundUp(_Value - 0.5f);
     }
 
     // -----------------------------------------------------------------------------
 
     inline double Round(double _Value)
     {
-        return (_Value > 0.0) ? RoundDown(_Value + 0.5) : RoundUp(_Value - 0.5); 
+        return (_Value > 0.0) ? RoundDown(_Value + 0.5) : RoundUp(_Value - 0.5);
     }
 
     // -----------------------------------------------------------------------------
@@ -132,28 +132,28 @@ namespace Core
     // -----------------------------------------------------------------------------
 
     inline float Square(float _Value)
-    { 
+    {
         return _Value * _Value;
     }
 
     // -----------------------------------------------------------------------------
 
     inline double Square(double _Value)
-    { 
+    {
         return _Value * _Value;
     }
 
     // -----------------------------------------------------------------------------
 
     inline float SquareRoot(float _Value)
-    { 
+    {
         return sqrtf(_Value);
     }
 
     // -----------------------------------------------------------------------------
 
     inline double SquareRoot(double _Value)
-    { 
+    {
         return sqrt(_Value);
     }
 
@@ -271,30 +271,30 @@ namespace Core
 
     // -----------------------------------------------------------------------------
 
-    inline float RadiansToDegrees(float  _Radians) 
-    { 
-        return (180.0f / SConstants<float>::s_Pi) * _Radians; 
+    inline float RadiansToDegrees(float  _Radians)
+    {
+        return (180.0f / SConstants<float>::s_Pi) * _Radians;
     }
 
     // -----------------------------------------------------------------------------
 
-    inline double RadiansToDegrees(double _Radians) 
-    { 
-        return (180.0 / SConstants<double>::s_Pi) * _Radians; 
+    inline double RadiansToDegrees(double _Radians)
+    {
+        return (180.0 / SConstants<double>::s_Pi) * _Radians;
     }
 
     // -----------------------------------------------------------------------------
 
-    inline float DegreesToRadians(float _Degrees) 
-    { 
-        return (SConstants<float>::s_Pi / 180.0f) * _Degrees; 
+    inline float DegreesToRadians(float _Degrees)
+    {
+        return (SConstants<float>::s_Pi / 180.0f) * _Degrees;
     }
 
     // -----------------------------------------------------------------------------
 
-    inline double DegreesToRadians(double _Degrees) 
-    { 
-        return (SConstants<double>::s_Pi / 180.0) * _Degrees; 
+    inline double DegreesToRadians(double _Degrees)
+    {
+        return (SConstants<double>::s_Pi / 180.0) * _Degrees;
     }
 
     // -----------------------------------------------------------------------------

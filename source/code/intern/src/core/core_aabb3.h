@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "core/core_vector3.h"
+#include "core_vector3.h"
 
 #include <assert.h>
 
@@ -10,111 +10,111 @@ namespace Core
     template <typename T>
     class CAABB3
     {
-        public:
+    public:
 
-            using CThis     = CAABB3<T>;
-            using X         = T;
-            using XPtr      = T*;
-            using XConstPtr = const T*;
-            using XRef      = T&;
-            using XConstRef = const T&;
-            using CCorner   = CVector3<T>;
+        using CThis = CAABB3<T>;
+        using X = T;
+        using XPtr = T*;
+        using XConstPtr = const T*;
+        using XRef = T&;
+        using XConstRef = const T&;
+        using CCorner = CVector3<T>;
 
-        public:
+    public:
 
-            enum EUninitialized  
-            { 
-                Uninitialized,
-            };
+        enum EUninitialized
+        {
+            Uninitialized,
+        };
 
-        public:
+    public:
 
-            enum
-            {
-                Min             = 0,
-                Max             = 1,
-                NumberOfCorners = 2,
-            };
+        enum
+        {
+            Min = 0,
+            Max = 1,
+            NumberOfCorners = 2,
+        };
 
-        public:
+    public:
 
-            inline CAABB3();
-            inline CAABB3(const CThis& _rAABB);
-            inline explicit CAABB3(EUninitialized);
-            inline CAABB3(const CCorner& _rMin, const CCorner& _rMax);
+        inline CAABB3();
+        inline CAABB3(const CThis& _rAABB);
+        inline explicit CAABB3(EUninitialized);
+        inline CAABB3(const CCorner& _rMin, const CCorner& _rMax);
 
-        public:
+    public:
 
-            inline CThis& operator = (const CThis& _rAABB);
+        inline CThis& operator = (const CThis& _rAABB);
 
-        public:
+    public:
 
-            inline CCorner& operator [] (int _Index);
-            inline const CCorner& operator [] (int _Index) const;
+        inline CCorner& operator [] (int _Index);
+        inline const CCorner& operator [] (int _Index) const;
 
-        public:
+    public:
 
-            inline bool operator == (const CThis& _rAABB) const;
-            inline bool operator != (const CThis& _rAABB) const;
+        inline bool operator == (const CThis& _rAABB) const;
+        inline bool operator != (const CThis& _rAABB) const;
 
-        public:
+    public:
 
-            inline void SetMin(const CCorner& _rMin);
-            inline CCorner& GetMin();
-            inline const CCorner& GetMin() const;
+        inline void SetMin(const CCorner& _rMin);
+        inline CCorner& GetMin();
+        inline const CCorner& GetMin() const;
 
-            inline void SetMax(const CCorner& _rMax);
-            inline CCorner& GetMax();
-            inline const CCorner& GetMax() const;
+        inline void SetMax(const CCorner& _rMax);
+        inline CCorner& GetMax();
+        inline const CCorner& GetMax() const;
 
-        public:
+    public:
 
-            inline bool Intersects(const CThis& _rAABB) const;
-            inline bool Contains(const CThis& _rAABB) const;
-            inline bool Contains(const CCorner& _rVector) const;
+        inline bool Intersects(const CThis& _rAABB) const;
+        inline bool Contains(const CThis& _rAABB) const;
+        inline bool Contains(const CCorner& _rVector) const;
 
-        public:
+    public:
 
-            inline CThis Union(const CThis& _rAABB) const;
-            inline CThis Intersection(const CThis& _rAABB) const;
+        inline CThis Union(const CThis& _rAABB) const;
+        inline CThis Intersection(const CThis& _rAABB) const;
 
-        public:
+    public:
 
-            inline CCorner GetCentre() const;
-            inline float GetDistance(const CCorner& _rPosition) const;
+        inline CCorner GetCentre() const;
+        inline float GetDistance(const CCorner& _rPosition) const;
 
-        private:
+    private:
 
-            enum
-            {
-                MinX               = 0,
-                MinY               = 1,
-                MinZ               = 2,
-                MaxX               = 3,
-                MaxY               = 4,
-                MaxZ               = 5,
-                NumberOfComponents = 6,
-            };
+        enum
+        {
+            MinX = 0,
+            MinY = 1,
+            MinZ = 2,
+            MaxX = 3,
+            MaxY = 4,
+            MaxZ = 5,
+            NumberOfComponents = 6,
+        };
 
-        private:
+    private:
 
-            X m_V[NumberOfComponents];
+        X m_V[NumberOfComponents];
 
-        private:
+    private:
 
-            inline explicit CAABB3(XConstPtr _pV);
+        inline explicit CAABB3(XConstPtr _pV);
 
-        private:
+    private:
 
-            inline bool IsValid() const;
-            inline bool IsValid(const CCorner& _rMin, const CCorner& _rMax) const;
+        inline bool IsValid() const;
+        inline bool IsValid(const CCorner& _rMin, const CCorner& _rMax) const;
     };
 }
 
 namespace Core
 {
     template <typename T>
-    inline CAABB3<T>::CAABB3() 
+    inline CAABB3<T>::CAABB3()
     {
         (*this)[Min] = CCorner();
         (*this)[Max] = CCorner();
@@ -123,7 +123,7 @@ namespace Core
     // -----------------------------------------------------------------------------
 
     template <typename T>
-    inline CAABB3<T>::CAABB3(const CThis& _rAABB) 
+    inline CAABB3<T>::CAABB3(const CThis& _rAABB)
     {
         (*this)[Min] = _rAABB[Min];
         (*this)[Max] = _rAABB[Max];
@@ -132,14 +132,13 @@ namespace Core
     // -----------------------------------------------------------------------------
 
     template <typename T>
-    inline CAABB3<T>::CAABB3(EUninitialized) 
-    {
-    }
+    inline CAABB3<T>::CAABB3(EUninitialized)
+    {}
 
     // -----------------------------------------------------------------------------
 
     template <typename T>
-    inline CAABB3<T>::CAABB3(const CCorner& _rMin, const CCorner& _rMax) 
+    inline CAABB3<T>::CAABB3(const CCorner& _rMin, const CCorner& _rMax)
     {
         (*this)[Min] = _rMin;
         (*this)[Max] = _rMax;
@@ -148,7 +147,7 @@ namespace Core
     // -----------------------------------------------------------------------------
 
     template <typename T>
-    inline CAABB3<T>::CAABB3(XConstPtr _pV) 
+    inline CAABB3<T>::CAABB3(XConstPtr _pV)
     {
         m_V[MinX] = _pV[MinX];
         m_V[MinY] = _pV[MinY];
@@ -273,12 +272,12 @@ namespace Core
     {
         assert(IsValid() && _rAABB.IsValid());
 
-        return (m_V[MinX] <= _rAABB.m_V[MinX]) && 
-               (m_V[MinY] <= _rAABB.m_V[MinY]) &&
-               (m_V[MinZ] <= _rAABB.m_V[MinZ]) &&
-               (m_V[MaxX] >= _rAABB.m_V[MaxX]) &&
-               (m_V[MaxY] >= _rAABB.m_V[MaxY]) &&
-               (m_V[MaxZ] >= _rAABB.m_V[MaxZ]);
+        return (m_V[MinX] <= _rAABB.m_V[MinX]) &&
+            (m_V[MinY] <= _rAABB.m_V[MinY]) &&
+            (m_V[MinZ] <= _rAABB.m_V[MinZ]) &&
+            (m_V[MaxX] >= _rAABB.m_V[MaxX]) &&
+            (m_V[MaxY] >= _rAABB.m_V[MaxY]) &&
+            (m_V[MaxZ] >= _rAABB.m_V[MaxZ]);
     }
 
     // -----------------------------------------------------------------------------
@@ -289,11 +288,11 @@ namespace Core
         assert(IsValid());
 
         return (_rVector[0] >= m_V[MinX]) &&
-               (_rVector[1] >= m_V[MinY]) && 
-               (_rVector[2] >= m_V[MinZ]) && 
-               (_rVector[0] <= m_V[MaxX]) && 
-               (_rVector[1] <= m_V[MaxY]) &&
-               (_rVector[2] <= m_V[MaxZ]);
+            (_rVector[1] >= m_V[MinY]) &&
+            (_rVector[2] >= m_V[MinZ]) &&
+            (_rVector[0] <= m_V[MaxX]) &&
+            (_rVector[1] <= m_V[MaxY]) &&
+            (_rVector[2] <= m_V[MaxZ]);
     }
 
     // -----------------------------------------------------------------------------
@@ -308,8 +307,7 @@ namespace Core
         if (m_V[MinX] < _rAABB.m_V[MinX])
         {
             V[MinX] = m_V[MinX];
-        }
-        else
+        } else
         {
             V[MinX] = _rAABB.m_V[MinX];
         }
@@ -317,8 +315,7 @@ namespace Core
         if (m_V[MinY] < _rAABB.m_V[MinY])
         {
             V[MinY] = m_V[MinY];
-        }
-        else
+        } else
         {
             V[MinY] = _rAABB.m_V[MinY];
         }
@@ -326,8 +323,7 @@ namespace Core
         if (m_V[MinZ] < _rAABB.m_V[MinZ])
         {
             V[MinZ] = m_V[MinZ];
-        }
-        else
+        } else
         {
             V[MinZ] = _rAABB.m_V[MinZ];
         }
@@ -335,8 +331,7 @@ namespace Core
         if (m_V[MaxX] > _rAABB.m_V[MaxX])
         {
             V[MaxX] = m_V[MaxX];
-        }
-        else
+        } else
         {
             V[MaxX] = _rAABB.m_V[MaxX];
         }
@@ -344,8 +339,7 @@ namespace Core
         if (m_V[MaxY] > _rAABB.m_V[MaxY])
         {
             V[MaxY] = m_V[MaxY];
-        }
-        else
+        } else
         {
             V[MaxY] = _rAABB.m_V[MaxY];
         }
@@ -353,8 +347,7 @@ namespace Core
         if (m_V[MaxZ] > _rAABB.m_V[MaxZ])
         {
             V[MaxZ] = m_V[MaxZ];
-        }
-        else
+        } else
         {
             V[MaxZ] = _rAABB.m_V[MaxZ];
         }
@@ -374,8 +367,7 @@ namespace Core
         if (m_V[MinX] > _rAABB.m_V[MinX])
         {
             V[MinX] = m_V[MinX];
-        }
-        else
+        } else
         {
             V[MinX] = _rAABB.m_V[MinX];
         }
@@ -383,8 +375,7 @@ namespace Core
         if (m_V[MinY] > _rAABB.m_V[MinY])
         {
             V[MinY] = m_V[MinY];
-        }
-        else
+        } else
         {
             V[MinY] = _rAABB.m_V[MinY];
         }
@@ -392,8 +383,7 @@ namespace Core
         if (m_V[MinZ] > _rAABB.m_V[MinZ])
         {
             V[MinZ] = m_V[MinZ];
-        }
-        else
+        } else
         {
             V[MinZ] = _rAABB.m_V[MinZ];
         }
@@ -401,8 +391,7 @@ namespace Core
         if (m_V[MaxX] < _rAABB.m_V[MaxX])
         {
             V[MaxX] = m_V[MaxX];
-        }
-        else
+        } else
         {
             V[MaxX] = _rAABB.m_V[MaxX];
         }
@@ -410,8 +399,7 @@ namespace Core
         if (m_V[MaxY] < _rAABB.m_V[MaxY])
         {
             V[MaxY] = m_V[MaxY];
-        }
-        else
+        } else
         {
             V[MaxY] = _rAABB.m_V[MaxY];
         }
@@ -419,8 +407,7 @@ namespace Core
         if (m_V[MaxZ] < _rAABB.m_V[MaxZ])
         {
             V[MaxZ] = m_V[MaxZ];
-        }
-        else
+        } else
         {
             V[MaxZ] = _rAABB.m_V[MaxZ];
         }
@@ -444,10 +431,10 @@ namespace Core
     inline float CAABB3<T>::GetDistance(const CCorner& _rPosition) const
     {
         if (Contains(_rPosition))
-        { 
-            return 0.0f; 
+        {
+            return 0.0f;
         }
-        
+
         CCorner ClosestCorner(0.0f);
 
         ClosestCorner[0] = m_V[MinX] > _rPosition[0] ? m_V[MinX] : m_V[MaxX] < _rPosition[0] ? m_V[MaxX] : _rPosition[0];

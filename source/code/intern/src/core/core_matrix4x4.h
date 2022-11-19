@@ -16,9 +16,9 @@
 
 #pragma once
 
-#include "core/core_constants.h"
-#include "core/core_operations.h"
-#include "core/core_swap.h"
+#include "core_constants.h"
+#include "core_operations.h"
+#include "core_swap.h"
 
 #include <assert.h>
 
@@ -37,163 +37,163 @@ namespace Core
     template <typename T>
     class CMatrix4x4
     {
-        public:
+    public:
 
-            static const CMatrix4x4<T> s_Zero;
-            static const CMatrix4x4<T> s_Identity;
+        static const CMatrix4x4<T> s_Zero;
+        static const CMatrix4x4<T> s_Identity;
 
-        public:
+    public:
 
-            using CThis     = CMatrix4x4<T>;
-            using CLine3    = CVector3<T>;
-            using CLine4    = CVector4<T>;
-            using X         = T;
-            using XPtr      = T*;
-            using XConstPtr = const T*;
-            using XRef      = T&;
-            using XConstRef = const T&;
+        using CThis = CMatrix4x4<T>;
+        using CLine3 = CVector3<T>;
+        using CLine4 = CVector4<T>;
+        using X = T;
+        using XPtr = T*;
+        using XConstPtr = const T*;
+        using XRef = T&;
+        using XConstRef = const T&;
 
-        public:
+    public:
 
-            static constexpr size_t s_NumberOfRows       = 4;
-            static constexpr size_t s_NumberOfColumns    = 4;
-            static constexpr size_t s_NumberOfComponents = s_NumberOfRows * s_NumberOfColumns;
+        static constexpr size_t s_NumberOfRows = 4;
+        static constexpr size_t s_NumberOfColumns = 4;
+        static constexpr size_t s_NumberOfComponents = s_NumberOfRows * s_NumberOfColumns;
 
-        public:
+    public:
 
-            enum EUninitialized  
-            { 
-                Uninitialized,
-            };
+        enum EUninitialized
+        {
+            Uninitialized,
+        };
 
-        public:
+    public:
 
-            enum EIndices
-            {
-                A11, A12, A13, A14,
-                A21, A22, A23, A24,
-                A31, A32, A33, A34,
-                A41, A42, A43, A44,
-            };
+        enum EIndices
+        {
+            A11, A12, A13, A14,
+            A21, A22, A23, A24,
+            A31, A32, A33, A34,
+            A41, A42, A43, A44,
+        };
 
-        public:
+    public:
 
-            inline CMatrix4x4();
-            inline CMatrix4x4(const CThis& _rMatrix);		
-            inline explicit CMatrix4x4(EUninitialized);
-            inline explicit CMatrix4x4(XConstPtr _pCoefficients);
-            inline explicit CMatrix4x4(const CLine4* _pRows);
-            inline CMatrix4x4(const CLine4& _rRow0, const CLine4& _rRow1, const CLine4& _rRow2, const CLine4& _rRow3);
-            inline CMatrix4x4(X _11, X _12, X _13, X _14, X _21, X _22, X _23, X _24, X _31, X _32, X _33, X _34, X _41, X _42, X _43, X _44);
+        inline CMatrix4x4();
+        inline CMatrix4x4(const CThis& _rMatrix);
+        inline explicit CMatrix4x4(EUninitialized);
+        inline explicit CMatrix4x4(XConstPtr _pCoefficients);
+        inline explicit CMatrix4x4(const CLine4* _pRows);
+        inline CMatrix4x4(const CLine4& _rRow0, const CLine4& _rRow1, const CLine4& _rRow2, const CLine4& _rRow3);
+        inline CMatrix4x4(X _11, X _12, X _13, X _14, X _21, X _22, X _23, X _24, X _31, X _32, X _33, X _34, X _41, X _42, X _43, X _44);
 
-        public:
+    public:
 
-            inline CThis& operator = (const CMatrix3x3<X>& _rMatrix);
-            inline CThis& operator = (const CThis& _rMatrix);
+        inline CThis& operator = (const CMatrix3x3<X>& _rMatrix);
+        inline CThis& operator = (const CThis& _rMatrix);
 
-        public:
+    public:
 
-            inline CLine4& operator [] (size_t _Index);
-            inline const CLine4& operator [] (size_t _Index) const;
+        inline CLine4& operator [] (size_t _Index);
+        inline const CLine4& operator [] (size_t _Index) const;
 
-        public:
+    public:
 
-            inline CThis& operator += (const CThis& _rMatrix);
-            inline CThis& operator -= (const CThis& _rMatrix);
-            inline CThis& operator *= (const CThis& _rMatrix);
+        inline CThis& operator += (const CThis& _rMatrix);
+        inline CThis& operator -= (const CThis& _rMatrix);
+        inline CThis& operator *= (const CThis& _rMatrix);
 
-            inline CThis& operator *= (X _Scalar);
-            inline CThis& operator /= (X _Scalar);
+        inline CThis& operator *= (X _Scalar);
+        inline CThis& operator /= (X _Scalar);
 
-            inline CThis operator + (const CThis& _rMatrix) const;
-            inline CThis operator - (const CThis& _rMatrix) const;
-            inline CThis operator * (const CThis& _rMatrix) const;
+        inline CThis operator + (const CThis& _rMatrix) const;
+        inline CThis operator - (const CThis& _rMatrix) const;
+        inline CThis operator * (const CThis& _rMatrix) const;
 
-            inline CThis operator * (X _Scalar) const;
-            inline CThis operator / (X _Scalar) const;
+        inline CThis operator * (X _Scalar) const;
+        inline CThis operator / (X _Scalar) const;
 
-            inline CLine3 operator * (const CLine3& _rVector) const;
-            inline CLine4 operator * (const CLine4& _rVector) const;
+        inline CLine3 operator * (const CLine3& _rVector) const;
+        inline CLine4 operator * (const CLine4& _rVector) const;
 
-            inline CThis operator - () const;
+        inline CThis operator - () const;
 
-        public:
+    public:
 
-            inline bool operator == (const CThis& _rMatrix) const;
-            inline bool operator != (const CThis& _rMatrix) const;
+        inline bool operator == (const CThis& _rMatrix) const;
+        inline bool operator != (const CThis& _rMatrix) const;
 
-        public:
+    public:
 
-            inline CThis& Set(const CThis& _rMatrix);
-            inline CThis& Set(XConstPtr _pCoefficients);
-            inline CThis& Set(const CLine4* _pRows);
-            inline CThis& Set(const CLine4& _rRow0, const CLine4& _rRow1, const CLine4& _rRow2, const CLine4& _rRow3);
-            inline CThis& Set(X _11, X _12, X _13, X _14, X _21, X _22, X _23, X _24, X _31, X _32, X _33, X _34, X _41, X _42, X _43, X _44);
+        inline CThis& Set(const CThis& _rMatrix);
+        inline CThis& Set(XConstPtr _pCoefficients);
+        inline CThis& Set(const CLine4* _pRows);
+        inline CThis& Set(const CLine4& _rRow0, const CLine4& _rRow1, const CLine4& _rRow2, const CLine4& _rRow3);
+        inline CThis& Set(X _11, X _12, X _13, X _14, X _21, X _22, X _23, X _24, X _31, X _32, X _33, X _34, X _41, X _42, X _43, X _44);
 
-            inline CThis& SetZero();
-            inline CThis& SetIdentity();
+        inline CThis& SetZero();
+        inline CThis& SetIdentity();
 
-            inline CThis& SetRow(size_t _Index, X _A0, X _A1, X _A2, X _A3);
-            inline CThis& SetRow(size_t _Index, const CLine4& _rVector);
-            inline CThis& SetRow(size_t _Index, const CLine3& _rVector, X _A3 = 1);
+        inline CThis& SetRow(size_t _Index, X _A0, X _A1, X _A2, X _A3);
+        inline CThis& SetRow(size_t _Index, const CLine4& _rVector);
+        inline CThis& SetRow(size_t _Index, const CLine3& _rVector, X _A3 = 1);
 
-            inline CLine4& GetRow(size_t _Index);
-            inline const CLine4& GetRow(size_t _Index) const;
+        inline CLine4& GetRow(size_t _Index);
+        inline const CLine4& GetRow(size_t _Index) const;
 
-            inline CThis& SetColumn(size_t _Index, X _A0, X _A1, X _A2, X _A3);
-            inline CThis& SetColumn(size_t _Index, const CLine4& _rVector);
-            inline CThis& SetColumn(size_t _Index, const CLine3& _rVector, X _A3 = 1);
+        inline CThis& SetColumn(size_t _Index, X _A0, X _A1, X _A2, X _A3);
+        inline CThis& SetColumn(size_t _Index, const CLine4& _rVector);
+        inline CThis& SetColumn(size_t _Index, const CLine3& _rVector, X _A3 = 1);
 
-            inline CLine4 GetColumn(size_t _Index) const;
+        inline CLine4 GetColumn(size_t _Index) const;
 
-        public:
+    public:
 
-            inline CThis& Transpose();
-            inline CThis GetTransposed() const;
+        inline CThis& Transpose();
+        inline CThis GetTransposed() const;
 
-            inline CThis& Invert();
-            inline CThis GetInverted() const;
+        inline CThis& Invert();
+        inline CThis GetInverted() const;
 
-        public:
+    public:
 
-            inline CThis& SetTranslation(float _X, float _Y, float _Z);
-            inline CThis& SetTranslation(const CLine3& _rVector);
-            inline CThis& SetTranslation(const CLine4& _rVector);
+        inline CThis& SetTranslation(float _X, float _Y, float _Z);
+        inline CThis& SetTranslation(const CLine3& _rVector);
+        inline CThis& SetTranslation(const CLine4& _rVector);
 
-            inline CLine3 GetTranslation3() const;
-            inline CLine4 GetTranslation4() const;
+        inline CLine3 GetTranslation3() const;
+        inline CLine4 GetTranslation4() const;
 
-            inline CThis& SetScale(X _Scale);
-            inline CThis& SetScale(X _ScaleX, X _ScaleY, X _ScaleZ);
-            inline CThis& SetScale(const CLine3& _rScale);
+        inline CThis& SetScale(X _Scale);
+        inline CThis& SetScale(X _ScaleX, X _ScaleY, X _ScaleZ);
+        inline CThis& SetScale(const CLine3& _rScale);
 
-            inline CLine3 GetScale() const;
+        inline CLine3 GetScale() const;
 
-            inline CThis& SetRotationX(float _Angle);
-            inline CThis& SetRotationY(float _Angle);
-            inline CThis& SetRotationZ(float _Angle);
-            inline CThis& SetRotation(float _AngleX, float _AngleY, float _AngleZ);
-            inline CThis& SetRotation(float _AxisX, float _AxisY, float _AxisZ, float _Angle);
-            inline CThis& SetRotation(const CLine3& _rAxis, float _Angle);
-            inline CThis& SetRotation(const CLine3& _rVectorX, const CLine3& _rVectorY, const CLine3& _rVectorZ);
-            inline CThis& SetRotation(const CMatrix3x3<X>& _rMatrix);
+        inline CThis& SetRotationX(float _Angle);
+        inline CThis& SetRotationY(float _Angle);
+        inline CThis& SetRotationZ(float _Angle);
+        inline CThis& SetRotation(float _AngleX, float _AngleY, float _AngleZ);
+        inline CThis& SetRotation(float _AxisX, float _AxisY, float _AxisZ, float _Angle);
+        inline CThis& SetRotation(const CLine3& _rAxis, float _Angle);
+        inline CThis& SetRotation(const CLine3& _rVectorX, const CLine3& _rVectorY, const CLine3& _rVectorZ);
+        inline CThis& SetRotation(const CMatrix3x3<X>& _rMatrix);
 
-            inline CMatrix3x3<T> GetRotation() const;
+        inline CMatrix3x3<T> GetRotation() const;
 
-            inline void GetEulerAngles(float& _rAngleX, float& _rAngleY, float& _rAngleZ) const;
-            inline CLine3 GetEulerAngles() const;
+        inline void GetEulerAngles(float& _rAngleX, float& _rAngleY, float& _rAngleZ) const;
+        inline CLine3 GetEulerAngles() const;
 
-        public:
+    public:
 
-            inline CThis& SetPerspective(X _Width, X _Height, X _Near, X _Far);
-            inline CThis& SetPerspective(X _Left, X _Right, X _Bottom, X _Top, X _Near, X _Far);
-            inline CThis& SetFieldOfView(X _FOVY, X _Aspect, X _Near, X _Far);
-            inline CThis& SetOrthographic(X _Width, X _Height, X _Near, X _Far);
-            inline CThis& SetOrthographic(X _Left, X _Right, X _Bottom, X _Top, X _Near, X _Far);
+        inline CThis& SetPerspective(X _Width, X _Height, X _Near, X _Far);
+        inline CThis& SetPerspective(X _Left, X _Right, X _Bottom, X _Top, X _Near, X _Far);
+        inline CThis& SetFieldOfView(X _FOVY, X _Aspect, X _Near, X _Far);
+        inline CThis& SetOrthographic(X _Width, X _Height, X _Near, X _Far);
+        inline CThis& SetOrthographic(X _Left, X _Right, X _Bottom, X _Top, X _Near, X _Far);
 
-        private:
+    private:
 
-            X m_A[s_NumberOfComponents];
+        X m_A[s_NumberOfComponents];
     };
 } // namespace Core
 
@@ -204,7 +204,7 @@ namespace Core
 namespace Core
 {
     template <typename T>
-    const CMatrix4x4<T> CMatrix4x4<T>::s_Zero     = CMatrix4x4(T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0));
+    const CMatrix4x4<T> CMatrix4x4<T>::s_Zero = CMatrix4x4(T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0));
     template <typename T>
     const CMatrix4x4<T> CMatrix4x4<T>::s_Identity = CMatrix4x4(T(1), T(0), T(0), T(0), T(0), T(1), T(0), T(0), T(0), T(0), T(1), T(0), T(0), T(0), T(0), T(1));
 } // namespace Core
@@ -229,8 +229,7 @@ namespace Core
 
     template <typename T>
     inline CMatrix4x4<T>::CMatrix4x4(EUninitialized)
-    {
-    }
+    {}
 
     // -----------------------------------------------------------------------------
 
@@ -398,7 +397,7 @@ namespace Core
 
     // -----------------------------------------------------------------------------
 
-    template <typename T> 
+    template <typename T>
     inline typename CMatrix4x4<T>::CLine3 CMatrix4x4<T>::operator * (const CLine3& _rVector) const
     {
         X V[CLine3::s_NumberOfComponents];
@@ -573,9 +572,9 @@ namespace Core
     {
         assert(_Index < s_NumberOfColumns);
 
-        m_A[ 0 + _Index] = _A0;
-        m_A[ 4 + _Index] = _A1;
-        m_A[ 8 + _Index] = _A2;
+        m_A[0 + _Index] = _A0;
+        m_A[4 + _Index] = _A1;
+        m_A[8 + _Index] = _A2;
         m_A[12 + _Index] = _A3;
 
         return *this;
@@ -606,9 +605,9 @@ namespace Core
 
         assert(_Index < s_NumberOfColumns);
 
-        V[0] = m_A[ 0 + _Index];
-        V[1] = m_A[ 4 + _Index];
-        V[2] = m_A[ 8 + _Index];
+        V[0] = m_A[0 + _Index];
+        V[1] = m_A[4 + _Index];
+        V[2] = m_A[8 + _Index];
         V[3] = m_A[12 + _Index];
 
         return CLine4(V[0], V[1], V[2], V[3]);
@@ -670,16 +669,16 @@ namespace Core
         X A[s_NumberOfComponents];
         X V[18];
 
-        V[ 0] = m_A[A21] * m_A[A32] - m_A[A22] * m_A[A31];
-        V[ 1] = m_A[A21] * m_A[A33] - m_A[A23] * m_A[A31];
-        V[ 2] = m_A[A21] * m_A[A34] - m_A[A24] * m_A[A31];
-        V[ 3] = m_A[A22] * m_A[A33] - m_A[A23] * m_A[A32];
-        V[ 4] = m_A[A22] * m_A[A34] - m_A[A24] * m_A[A32];
-        V[ 5] = m_A[A23] * m_A[A34] - m_A[A24] * m_A[A33];
-        V[ 6] = m_A[A21] * m_A[A42] - m_A[A22] * m_A[A41];
-        V[ 7] = m_A[A21] * m_A[A43] - m_A[A23] * m_A[A41];
-        V[ 8] = m_A[A21] * m_A[A44] - m_A[A24] * m_A[A41];
-        V[ 9] = m_A[A22] * m_A[A43] - m_A[A23] * m_A[A42];
+        V[0] = m_A[A21] * m_A[A32] - m_A[A22] * m_A[A31];
+        V[1] = m_A[A21] * m_A[A33] - m_A[A23] * m_A[A31];
+        V[2] = m_A[A21] * m_A[A34] - m_A[A24] * m_A[A31];
+        V[3] = m_A[A22] * m_A[A33] - m_A[A23] * m_A[A32];
+        V[4] = m_A[A22] * m_A[A34] - m_A[A24] * m_A[A32];
+        V[5] = m_A[A23] * m_A[A34] - m_A[A24] * m_A[A33];
+        V[6] = m_A[A21] * m_A[A42] - m_A[A22] * m_A[A41];
+        V[7] = m_A[A21] * m_A[A43] - m_A[A23] * m_A[A41];
+        V[8] = m_A[A21] * m_A[A44] - m_A[A24] * m_A[A41];
+        V[9] = m_A[A22] * m_A[A43] - m_A[A23] * m_A[A42];
         V[10] = m_A[A22] * m_A[A44] - m_A[A24] * m_A[A42];
         V[11] = m_A[A23] * m_A[A44] - m_A[A24] * m_A[A43];
         V[12] = m_A[A31] * m_A[A42] - m_A[A32] * m_A[A41];
@@ -691,21 +690,21 @@ namespace Core
 
         A[A11] = m_A[A22] * V[17] - m_A[A23] * V[16] + m_A[A24] * V[15];
         A[A12] = m_A[A13] * V[16] - m_A[A12] * V[17] - m_A[A14] * V[15];
-        A[A13] = m_A[A12] * V[11] - m_A[A13] * V[10] + m_A[A14] * V[ 9];
-        A[A14] = m_A[A13] * V[ 4] - m_A[A12] * V[ 5] - m_A[A14] * V[ 3];
+        A[A13] = m_A[A12] * V[11] - m_A[A13] * V[10] + m_A[A14] * V[9];
+        A[A14] = m_A[A13] * V[4] - m_A[A12] * V[5] - m_A[A14] * V[3];
         A[A21] = m_A[A23] * V[14] - m_A[A21] * V[17] - m_A[A24] * V[13];
         A[A22] = m_A[A11] * V[17] - m_A[A13] * V[14] + m_A[A14] * V[13];
-        A[A23] = m_A[A13] * V[ 8] - m_A[A11] * V[11] - m_A[A14] * V[ 7];
-        A[A24] = m_A[A11] * V[ 5] - m_A[A13] * V[ 2] + m_A[A14] * V[ 1];
+        A[A23] = m_A[A13] * V[8] - m_A[A11] * V[11] - m_A[A14] * V[7];
+        A[A24] = m_A[A11] * V[5] - m_A[A13] * V[2] + m_A[A14] * V[1];
         A[A31] = m_A[A21] * V[16] - m_A[A22] * V[14] + m_A[A24] * V[12];
         A[A32] = m_A[A12] * V[14] - m_A[A11] * V[16] - m_A[A14] * V[12];
-        A[A33] = m_A[A11] * V[10] - m_A[A12] * V[ 8] + m_A[A14] * V[ 6];
-        A[A34] = m_A[A12] * V[ 2] - m_A[A11] * V[ 4] - m_A[A14] * V[ 0];
+        A[A33] = m_A[A11] * V[10] - m_A[A12] * V[8] + m_A[A14] * V[6];
+        A[A34] = m_A[A12] * V[2] - m_A[A11] * V[4] - m_A[A14] * V[0];
         A[A41] = m_A[A22] * V[13] - m_A[A21] * V[15] - m_A[A23] * V[12];
         A[A42] = m_A[A11] * V[15] - m_A[A12] * V[13] + m_A[A13] * V[12];
-        A[A43] = m_A[A12] * V[ 7] - m_A[A11] * V[ 9] - m_A[A13] * V[ 6];
-        A[A44] = m_A[A11] * V[ 3] - m_A[A12] * V[ 1] + m_A[A13] * V[ 0];
-        
+        A[A43] = m_A[A12] * V[7] - m_A[A11] * V[9] - m_A[A13] * V[6];
+        A[A44] = m_A[A11] * V[3] - m_A[A12] * V[1] + m_A[A13] * V[0];
+
         // ------------------------------------------------------------------------------
         // Calculate the determinant.
         // ------------------------------------------------------------------------------
@@ -733,16 +732,16 @@ namespace Core
         X A[s_NumberOfComponents];
         X V[18];
 
-        V[ 0] = m_A[A21] * m_A[A32] - m_A[A22] * m_A[A31];
-        V[ 1] = m_A[A21] * m_A[A33] - m_A[A23] * m_A[A31];
-        V[ 2] = m_A[A21] * m_A[A34] - m_A[A24] * m_A[A31];
-        V[ 3] = m_A[A22] * m_A[A33] - m_A[A23] * m_A[A32];
-        V[ 4] = m_A[A22] * m_A[A34] - m_A[A24] * m_A[A32];
-        V[ 5] = m_A[A23] * m_A[A34] - m_A[A24] * m_A[A33];
-        V[ 6] = m_A[A21] * m_A[A42] - m_A[A22] * m_A[A41];
-        V[ 7] = m_A[A21] * m_A[A43] - m_A[A23] * m_A[A41];
-        V[ 8] = m_A[A21] * m_A[A44] - m_A[A24] * m_A[A41];
-        V[ 9] = m_A[A22] * m_A[A43] - m_A[A23] * m_A[A42];
+        V[0] = m_A[A21] * m_A[A32] - m_A[A22] * m_A[A31];
+        V[1] = m_A[A21] * m_A[A33] - m_A[A23] * m_A[A31];
+        V[2] = m_A[A21] * m_A[A34] - m_A[A24] * m_A[A31];
+        V[3] = m_A[A22] * m_A[A33] - m_A[A23] * m_A[A32];
+        V[4] = m_A[A22] * m_A[A34] - m_A[A24] * m_A[A32];
+        V[5] = m_A[A23] * m_A[A34] - m_A[A24] * m_A[A33];
+        V[6] = m_A[A21] * m_A[A42] - m_A[A22] * m_A[A41];
+        V[7] = m_A[A21] * m_A[A43] - m_A[A23] * m_A[A41];
+        V[8] = m_A[A21] * m_A[A44] - m_A[A24] * m_A[A41];
+        V[9] = m_A[A22] * m_A[A43] - m_A[A23] * m_A[A42];
         V[10] = m_A[A22] * m_A[A44] - m_A[A24] * m_A[A42];
         V[11] = m_A[A23] * m_A[A44] - m_A[A24] * m_A[A43];
         V[12] = m_A[A31] * m_A[A42] - m_A[A32] * m_A[A41];
@@ -754,20 +753,20 @@ namespace Core
 
         A[A11] = m_A[A22] * V[17] - m_A[A23] * V[16] + m_A[A24] * V[15];
         A[A12] = m_A[A13] * V[16] - m_A[A12] * V[17] - m_A[A14] * V[15];
-        A[A13] = m_A[A12] * V[11] - m_A[A13] * V[10] + m_A[A14] * V[ 9];
-        A[A14] = m_A[A13] * V[ 4] - m_A[A12] * V[ 5] - m_A[A14] * V[ 3];
+        A[A13] = m_A[A12] * V[11] - m_A[A13] * V[10] + m_A[A14] * V[9];
+        A[A14] = m_A[A13] * V[4] - m_A[A12] * V[5] - m_A[A14] * V[3];
         A[A21] = m_A[A23] * V[14] - m_A[A21] * V[17] - m_A[A24] * V[13];
         A[A22] = m_A[A11] * V[17] - m_A[A13] * V[14] + m_A[A14] * V[13];
-        A[A23] = m_A[A13] * V[ 8] - m_A[A11] * V[11] - m_A[A14] * V[ 7];
-        A[A24] = m_A[A11] * V[ 5] - m_A[A13] * V[ 2] + m_A[A14] * V[ 1];
+        A[A23] = m_A[A13] * V[8] - m_A[A11] * V[11] - m_A[A14] * V[7];
+        A[A24] = m_A[A11] * V[5] - m_A[A13] * V[2] + m_A[A14] * V[1];
         A[A31] = m_A[A21] * V[16] - m_A[A22] * V[14] + m_A[A24] * V[12];
         A[A32] = m_A[A12] * V[14] - m_A[A11] * V[16] - m_A[A14] * V[12];
-        A[A33] = m_A[A11] * V[10] - m_A[A12] * V[ 8] + m_A[A14] * V[ 6];
-        A[A34] = m_A[A12] * V[ 2] - m_A[A11] * V[ 4] - m_A[A14] * V[ 0];
+        A[A33] = m_A[A11] * V[10] - m_A[A12] * V[8] + m_A[A14] * V[6];
+        A[A34] = m_A[A12] * V[2] - m_A[A11] * V[4] - m_A[A14] * V[0];
         A[A41] = m_A[A22] * V[13] - m_A[A21] * V[15] - m_A[A23] * V[12];
         A[A42] = m_A[A11] * V[15] - m_A[A12] * V[13] + m_A[A13] * V[12];
-        A[A43] = m_A[A12] * V[ 7] - m_A[A11] * V[ 9] - m_A[A13] * V[ 6];
-        A[A44] = m_A[A11] * V[ 3] - m_A[A12] * V[ 1] + m_A[A13] * V[ 0];
+        A[A43] = m_A[A12] * V[7] - m_A[A11] * V[9] - m_A[A13] * V[6];
+        A[A44] = m_A[A11] * V[3] - m_A[A12] * V[1] + m_A[A13] * V[0];
 
         // ------------------------------------------------------------------------------
         // Calculate the determinant.
@@ -879,15 +878,15 @@ namespace Core
         float Cosinus;
         float Sinus;
 
-        Rad     = ::Core::DegreesToRadians(_Angle);
+        Rad = ::Core::DegreesToRadians(_Angle);
         Cosinus = ::Core::Cos(Rad);
-        Sinus   = ::Core::Sin(Rad);
+        Sinus = ::Core::Sin(Rad);
 
-        m_A[A11]                                  =  static_cast<X>(1);
-        m_A[A12] = m_A[A21] = m_A[A13] = m_A[A31] =  static_cast<X>(0);
-        m_A[A22] = m_A[A33]                       =  Cosinus;
-        m_A[A23]                                  =  Sinus;
-        m_A[A32]                                  = -Sinus;
+        m_A[A11] = static_cast<X>(1);
+        m_A[A12] = m_A[A21] = m_A[A13] = m_A[A31] = static_cast<X>(0);
+        m_A[A22] = m_A[A33] = Cosinus;
+        m_A[A23] = Sinus;
+        m_A[A32] = -Sinus;
 
         return *this;
     }
@@ -901,15 +900,15 @@ namespace Core
         float Cosinus;
         float Sinus;
 
-        Rad     = ::Core::DegreesToRadians(_Angle);
+        Rad = ::Core::DegreesToRadians(_Angle);
         Cosinus = ::Core::Cos(Rad);
-        Sinus   = ::Core::Sin(Rad);
+        Sinus = ::Core::Sin(Rad);
 
-        m_A[A22]                                  =  static_cast<X>(1);
-        m_A[A12] = m_A[A21] = m_A[A23] = m_A[A32] =  static_cast<X>(0);
-        m_A[A11] = m_A[A33]                       =  Cosinus;
-        m_A[A31]                                  =  Sinus;
-        m_A[A13]                                  = -Sinus;
+        m_A[A22] = static_cast<X>(1);
+        m_A[A12] = m_A[A21] = m_A[A23] = m_A[A32] = static_cast<X>(0);
+        m_A[A11] = m_A[A33] = Cosinus;
+        m_A[A31] = Sinus;
+        m_A[A13] = -Sinus;
 
         return *this;
     }
@@ -923,15 +922,15 @@ namespace Core
         float Cosinus;
         float Sinus;
 
-        Rad     = ::Core::DegreesToRadians(_Angle);
+        Rad = ::Core::DegreesToRadians(_Angle);
         Cosinus = ::Core::Cos(Rad);
-        Sinus   = ::Core::Sin(Rad);
+        Sinus = ::Core::Sin(Rad);
 
-        m_A[A33]                                  =  static_cast<X>(1);
-        m_A[A13] = m_A[A31] = m_A[A23] = m_A[A32] =  static_cast<X>(0);
-        m_A[A11] = m_A[A22]                       =  Cosinus;
-        m_A[A12]                                  =  Sinus;
-        m_A[A21]                                  = -Sinus;
+        m_A[A33] = static_cast<X>(1);
+        m_A[A13] = m_A[A31] = m_A[A23] = m_A[A32] = static_cast<X>(0);
+        m_A[A11] = m_A[A22] = Cosinus;
+        m_A[A12] = Sinus;
+        m_A[A21] = -Sinus;
 
         return *this;
     }
@@ -965,17 +964,17 @@ namespace Core
         CosY = ::Core::Cos(RadY);
         CosZ = ::Core::Cos(RadZ);
 
-        m_A[A11] =  CosY * CosZ;
-        m_A[A21] =  SinX * SinY * CosZ - CosX * SinZ;
-        m_A[A31] =  CosX * SinY * CosZ + SinX * SinZ;
+        m_A[A11] = CosY * CosZ;
+        m_A[A21] = SinX * SinY * CosZ - CosX * SinZ;
+        m_A[A31] = CosX * SinY * CosZ + SinX * SinZ;
 
-        m_A[A12] =  CosY * SinZ;
-        m_A[A22] =  SinX * SinY * SinZ + CosX * CosZ;
-        m_A[A32] =  CosX * SinY * SinZ - SinX * CosZ;
+        m_A[A12] = CosY * SinZ;
+        m_A[A22] = SinX * SinY * SinZ + CosX * CosZ;
+        m_A[A32] = CosX * SinY * SinZ - SinX * CosZ;
 
         m_A[A13] = -SinY;
-        m_A[A23] =  SinX * CosY;
-        m_A[A33] =  CosX * CosY;
+        m_A[A23] = SinX * CosY;
+        m_A[A33] = CosX * CosY;
 
         return *this;
     }
@@ -1007,9 +1006,9 @@ namespace Core
             _AxisZ *= ReciprocalSquareNorm;
         }
 
-        Rad          = ::Core::DegreesToRadians(_Angle);
-        Cosinus      = ::Core::Cos(Rad);
-        Sinus        = ::Core::Sin(Rad);
+        Rad = ::Core::DegreesToRadians(_Angle);
+        Cosinus = ::Core::Cos(Rad);
+        Sinus = ::Core::Sin(Rad);
         ComplCosinus = static_cast<X>(1) - Cosinus;
 
         m_A[A11] = ComplCosinus * ::Core::Square(_AxisX) + Cosinus;
@@ -1038,17 +1037,17 @@ namespace Core
     template <typename T>
     inline typename CMatrix4x4<T>::CThis& CMatrix4x4<T>::SetRotation(const CLine3& _rVectorX, const CLine3& _rVectorY, const CLine3& _rVectorZ)
     {
-        m_A[A11] = _rVectorX[0]; 
+        m_A[A11] = _rVectorX[0];
         m_A[A12] = _rVectorX[1];
-        m_A[A13] = _rVectorX[2]; 
+        m_A[A13] = _rVectorX[2];
 
-        m_A[A21] = _rVectorY[0]; 
-        m_A[A22] = _rVectorY[1]; 
-        m_A[A23] = _rVectorY[2]; 
+        m_A[A21] = _rVectorY[0];
+        m_A[A22] = _rVectorY[1];
+        m_A[A23] = _rVectorY[2];
 
-        m_A[A31] = _rVectorZ[0]; 
-        m_A[A32] = _rVectorZ[1]; 
-        m_A[A33] = _rVectorZ[2]; 
+        m_A[A31] = _rVectorZ[0];
+        m_A[A32] = _rVectorZ[1];
+        m_A[A33] = _rVectorZ[2];
 
         return *this;
     }
@@ -1058,9 +1057,9 @@ namespace Core
     template <typename T>
     inline typename CMatrix4x4<T>::CThis& CMatrix4x4<T>::SetRotation(const CMatrix3x3<X>& _rMatrix)
     {
-        m_A[A11] = _rMatrix.m_A[A11]; 
-        m_A[A12] = _rMatrix.m_A[A12]; 
-        m_A[A13] = _rMatrix.m_A[A13]; 
+        m_A[A11] = _rMatrix.m_A[A11];
+        m_A[A12] = _rMatrix.m_A[A12];
+        m_A[A13] = _rMatrix.m_A[A13];
 
         m_A[A21] = _rMatrix.m_A[A21];
         m_A[A22] = _rMatrix.m_A[A22];
@@ -1095,8 +1094,7 @@ namespace Core
             RadianX = ::Core::ArcTan(m_A[A23], m_A[A33]);
             RadianY = ::Core::ArcSin(-m_A[A13]);
             RadianZ = ::Core::ArcTan(m_A[A12], m_A[A11]);
-        }
-        else
+        } else
         {
             RadianX = static_cast<X>(0);
             RadianY = m_A[A13] >= static_cast<X>(1) ? -SConstants<X>::s_HalfPi : SConstants<X>::s_HalfPi;
@@ -1127,10 +1125,10 @@ namespace Core
     template <typename T>
     inline typename CMatrix4x4<T>::CThis& CMatrix4x4<T>::SetPerspective(X _Width, X _Height, X _Near, X _Far)
     {
-        m_A[A11] = X(2) * _Near / _Width; m_A[A12] = X(0)                  ; m_A[A13] = X(0)                         ; m_A[A14] = X( 0);
-        m_A[A21] = X(0)                 ; m_A[A22] = X(2) * _Near / _Height; m_A[A23] = X(0)                         ; m_A[A24] = X( 0);
-        m_A[A31] = X(0)                 ; m_A[A32] = X(0)                  ; m_A[A33] = _Far / (_Near - _Far)        ; m_A[A34] = X(-1);
-        m_A[A41] = X(0)                 ; m_A[A42] = X(0)                  ; m_A[A43] = _Near * _Far / (_Near - _Far); m_A[A44] = X( 0);
+        m_A[A11] = X(2) * _Near / _Width; m_A[A12] = X(0); m_A[A13] = X(0); m_A[A14] = X(0);
+        m_A[A21] = X(0); m_A[A22] = X(2) * _Near / _Height; m_A[A23] = X(0); m_A[A24] = X(0);
+        m_A[A31] = X(0); m_A[A32] = X(0); m_A[A33] = _Far / (_Near - _Far); m_A[A34] = X(-1);
+        m_A[A41] = X(0); m_A[A42] = X(0); m_A[A43] = _Near * _Far / (_Near - _Far); m_A[A44] = X(0);
 
         return *this;
     }
@@ -1140,10 +1138,10 @@ namespace Core
     template <typename T>
     inline typename CMatrix4x4<T>::CThis& CMatrix4x4<T>::SetPerspective(X _Left, X _Right, X _Bottom, X _Top, X _Near, X _Far)
     {
-        m_A[A11] = X(2) * _Near / (_Right - _Left)     ; m_A[A12] = X(0)                               ; m_A[A13] = X(0)                         ; m_A[A14] = X( 0);
-        m_A[A21] = X(0)                                ; m_A[A22] = X(2) * _Near / (_Top - _Bottom)    ; m_A[A23] = X(0)                         ; m_A[A24] = X( 0);
-        m_A[A31] = (_Left + _Right ) / (_Right - _Left); m_A[A32] = (_Top + _Bottom) / (_Top - _Bottom); m_A[A33] = _Far / (_Near - _Far)        ; m_A[A34] = X(-1);
-        m_A[A41] = X(0)                                ; m_A[A42] = X(0)                               ; m_A[A43] = _Near * _Far / (_Near - _Far); m_A[A44] = X( 0);
+        m_A[A11] = X(2) * _Near / (_Right - _Left); m_A[A12] = X(0); m_A[A13] = X(0); m_A[A14] = X(0);
+        m_A[A21] = X(0); m_A[A22] = X(2) * _Near / (_Top - _Bottom); m_A[A23] = X(0); m_A[A24] = X(0);
+        m_A[A31] = (_Left + _Right) / (_Right - _Left); m_A[A32] = (_Top + _Bottom) / (_Top - _Bottom); m_A[A33] = _Far / (_Near - _Far); m_A[A34] = X(-1);
+        m_A[A41] = X(0); m_A[A42] = X(0); m_A[A43] = _Near * _Far / (_Near - _Far); m_A[A44] = X(0);
 
         return *this;
     }
@@ -1161,10 +1159,10 @@ namespace Core
         ScaleY = ::Core::Cos(Radian) / ::Core::Sin(Radian);
         ScaleX = ScaleY / _Aspect;
 
-        m_A[A11] = ScaleX; m_A[A12] = X(0)  ; m_A[A13] = X(0)                         ; m_A[A14] = X( 0); 
-        m_A[A21] = X(0)  ; m_A[A22] = ScaleY; m_A[A23] = X(0)                         ; m_A[A24] = X( 0);
-        m_A[A31] = X(0)  ; m_A[A32] = X(0)  ; m_A[A33] = _Far / (_Near - _Far)        ; m_A[A34] = X(-1); 
-        m_A[A41] = X(0)  ; m_A[A42] = X(0)  ; m_A[A43] = _Near * _Far / (_Near - _Far); m_A[A44] = X( 0);
+        m_A[A11] = ScaleX; m_A[A12] = X(0); m_A[A13] = X(0); m_A[A14] = X(0);
+        m_A[A21] = X(0); m_A[A22] = ScaleY; m_A[A23] = X(0); m_A[A24] = X(0);
+        m_A[A31] = X(0); m_A[A32] = X(0); m_A[A33] = _Far / (_Near - _Far); m_A[A34] = X(-1);
+        m_A[A41] = X(0); m_A[A42] = X(0); m_A[A43] = _Near * _Far / (_Near - _Far); m_A[A44] = X(0);
 
         return *this;
     }
@@ -1174,10 +1172,10 @@ namespace Core
     template <typename T>
     inline typename CMatrix4x4<T>::CThis& CMatrix4x4<T>::SetOrthographic(X _Width, X _Height, X _Near, X _Far)
     {
-        m_A[A11] = X(2) / _Width; m_A[A12] = X(0)          ; m_A[A13] = X(0)                  ; m_A[A14] = X(0);
-        m_A[A21] = X(0)         ; m_A[A22] = X(2) / _Height; m_A[A23] = X(0)                  ; m_A[A24] = X(0);
-        m_A[A31] = X(0)         ; m_A[A32] = X(0)          ; m_A[A33] = X(1) / (_Near - _Far) ; m_A[A34] = X(0);
-        m_A[A41] = X(0)         ; m_A[A42] = X(0)          ; m_A[A43] = _Near / (_Near - _Far); m_A[A44] = X(1);
+        m_A[A11] = X(2) / _Width; m_A[A12] = X(0); m_A[A13] = X(0); m_A[A14] = X(0);
+        m_A[A21] = X(0); m_A[A22] = X(2) / _Height; m_A[A23] = X(0); m_A[A24] = X(0);
+        m_A[A31] = X(0); m_A[A32] = X(0); m_A[A33] = X(1) / (_Near - _Far); m_A[A34] = X(0);
+        m_A[A41] = X(0); m_A[A42] = X(0); m_A[A43] = _Near / (_Near - _Far); m_A[A44] = X(1);
 
         return *this;
     }
@@ -1187,9 +1185,9 @@ namespace Core
     template <typename T>
     inline typename CMatrix4x4<T>::CThis& CMatrix4x4<T>::SetOrthographic(X _Left, X _Right, X _Bottom, X _Top, X _Near, X _Far)
     {
-        m_A[A11] = X(2) / (_Right - _Left)            ; m_A[A12] = X(0)                               ; m_A[A13] = X(0)                  ; m_A[A14] = X(0);
-        m_A[A21] = X(0)                               ; m_A[A22] = X(2) / (_Top - _Bottom)            ; m_A[A23] = X(0)                  ; m_A[A24] = X(0);
-        m_A[A31] = X(0)                               ; m_A[A32] = X(0)                               ; m_A[A33] = X(1) / (_Near - _Far) ; m_A[A34] = X(0);
+        m_A[A11] = X(2) / (_Right - _Left); m_A[A12] = X(0); m_A[A13] = X(0); m_A[A14] = X(0);
+        m_A[A21] = X(0); m_A[A22] = X(2) / (_Top - _Bottom); m_A[A23] = X(0); m_A[A24] = X(0);
+        m_A[A31] = X(0); m_A[A32] = X(0); m_A[A33] = X(1) / (_Near - _Far); m_A[A34] = X(0);
         m_A[A41] = (_Left + _Right) / (_Left - _Right); m_A[A42] = (_Top + _Bottom) / (_Bottom - _Top); m_A[A43] = _Near / (_Near - _Far); m_A[A44] = X(1);
 
         return *this;

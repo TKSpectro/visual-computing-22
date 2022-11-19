@@ -16,8 +16,8 @@
 
 #pragma once
 
-#include "core/core_constants.h"
-#include "core/core_operations.h"
+#include "core_constants.h"
+#include "core_operations.h"
 
 #include <assert.h>
 
@@ -32,201 +32,201 @@ namespace Core
     template <typename T>
     class CVector4
     {
-        public:
+    public:
 
-            static const CVector4<T> s_Zero;
-            static const CVector4<T> s_One;
-            static const CVector4<T> s_AxisX;
-            static const CVector4<T> s_AxisY;
-            static const CVector4<T> s_AxisZ;
-            static const CVector4<T> s_AxisW;
+        static const CVector4<T> s_Zero;
+        static const CVector4<T> s_One;
+        static const CVector4<T> s_AxisX;
+        static const CVector4<T> s_AxisY;
+        static const CVector4<T> s_AxisZ;
+        static const CVector4<T> s_AxisW;
 
-        public:
+    public:
 
-            using CThis = CVector4<T>;
-            using X     = T;
+        using CThis = CVector4<T>;
+        using X = T;
 
-        public:
+    public:
 
-            static constexpr size_t s_NumberOfComponents = 4;
+        static constexpr size_t s_NumberOfComponents = 4;
 
-        public:
+    public:
 
-            enum EUninitialized  
-            { 
-                Uninitialized,
-            };
+        enum EUninitialized
+        {
+            Uninitialized,
+        };
 
-        public:
+    public:
 
-            inline CVector4();
-            inline CVector4(const CThis& _rVector);
-            inline explicit CVector4(EUninitialized);
-            inline explicit CVector4(X _Value);
-            inline CVector4(X _Value0, X _Value1, X _Value2, X _Value3);
+        inline CVector4();
+        inline CVector4(const CThis& _rVector);
+        inline explicit CVector4(EUninitialized);
+        inline explicit CVector4(X _Value);
+        inline CVector4(X _Value0, X _Value1, X _Value2, X _Value3);
 
-        public:
+    public:
 
-            inline CThis& operator = (const CThis& _rVector);
+        inline CThis& operator = (const CThis& _rVector);
 
-        public:
+    public:
 
-            inline X& operator [] (size_t _Index);
-            inline const X& operator [] (size_t _Index) const;
+        inline X& operator [] (size_t _Index);
+        inline const X& operator [] (size_t _Index) const;
 
-        public:
+    public:
 
-            inline CThis& operator += (const CThis& _rVector);
-            inline CThis& operator -= (const CThis& _rVector);
-            inline CThis& operator *= (const CThis& _rVector);
-            inline CThis& operator /= (const CThis& _rVector);
+        inline CThis& operator += (const CThis& _rVector);
+        inline CThis& operator -= (const CThis& _rVector);
+        inline CThis& operator *= (const CThis& _rVector);
+        inline CThis& operator /= (const CThis& _rVector);
 
-            inline CThis& operator *= (X _Scalar);
-            inline CThis& operator /= (X _Scalar);
+        inline CThis& operator *= (X _Scalar);
+        inline CThis& operator /= (X _Scalar);
 
-            inline CThis& operator *= (const CMatrix4x4<X>& _rMatrix);
+        inline CThis& operator *= (const CMatrix4x4<X>& _rMatrix);
 
-            inline CThis operator + (const CThis& _rVector) const;
-            inline CThis operator - (const CThis& _rVector) const;
-            inline CThis operator * (const CThis& _rVector) const;
-            inline CThis operator / (const CThis& _rVector) const;
+        inline CThis operator + (const CThis& _rVector) const;
+        inline CThis operator - (const CThis& _rVector) const;
+        inline CThis operator * (const CThis& _rVector) const;
+        inline CThis operator / (const CThis& _rVector) const;
 
-            inline CThis operator * (X _Scalar) const;
-            inline CThis operator / (X _Scalar) const;
+        inline CThis operator * (X _Scalar) const;
+        inline CThis operator / (X _Scalar) const;
 
-            inline CThis operator * (const CMatrix4x4<X>& _rMatrix) const;
+        inline CThis operator * (const CMatrix4x4<X>& _rMatrix) const;
 
-            inline CThis operator - () const;
+        inline CThis operator - () const;
 
-        public:
+    public:
 
-            inline bool operator == (const CThis& _rVector) const;
-            inline bool operator != (const CThis& _rVector) const;
-            inline bool operator <  (const CThis& _rVector) const;
-            inline bool operator <= (const CThis& _rVector) const;
-            inline bool operator >  (const CThis& _rVector) const;
-            inline bool operator >= (const CThis& _rVector) const;
+        inline bool operator == (const CThis& _rVector) const;
+        inline bool operator != (const CThis& _rVector) const;
+        inline bool operator <  (const CThis& _rVector) const;
+        inline bool operator <= (const CThis& _rVector) const;
+        inline bool operator >  (const CThis& _rVector) const;
+        inline bool operator >= (const CThis& _rVector) const;
 
-        public:
+    public:
 
-            inline CThis& Set(const CThis& _rVector);
-            inline CThis& Set(X _Value);
-            inline CThis& Set(X _Value0, X _Value1, X _Value2, X _Value3);
+        inline CThis& Set(const CThis& _rVector);
+        inline CThis& Set(X _Value);
+        inline CThis& Set(X _Value0, X _Value1, X _Value2, X _Value3);
 
-        public:
+    public:
 
-            inline CThis& Normalize();
-            inline CThis& Normalize2();
-            inline CThis& Normalize3();
-            inline CThis& Normalize4();
-            inline CThis GetNormalized() const;
-            inline CThis GetNormalized2() const;
-            inline CThis GetNormalized3() const;
-            inline CThis GetNormalized4() const;
+        inline CThis& Normalize();
+        inline CThis& Normalize2();
+        inline CThis& Normalize3();
+        inline CThis& Normalize4();
+        inline CThis GetNormalized() const;
+        inline CThis GetNormalized2() const;
+        inline CThis GetNormalized3() const;
+        inline CThis GetNormalized4() const;
 
-            inline bool IsNormalized() const;
+        inline bool IsNormalized() const;
 
-            inline X GetLength() const;
-            inline X GetLength2() const;
-            inline X GetLength3() const;
-            inline X GetLength4() const;
+        inline X GetLength() const;
+        inline X GetLength2() const;
+        inline X GetLength3() const;
+        inline X GetLength4() const;
 
-            inline X GetSquaredLength() const;
-            inline X GetSquaredLength2() const;
-            inline X GetSquaredLength3() const;
-            inline X GetSquaredLength4() const;
+        inline X GetSquaredLength() const;
+        inline X GetSquaredLength2() const;
+        inline X GetSquaredLength3() const;
+        inline X GetSquaredLength4() const;
 
-            inline CThis& Reciprocal();
-            inline CThis GetReciprocal() const;
+        inline CThis& Reciprocal();
+        inline CThis GetReciprocal() const;
 
-            inline CThis& Round();
-            inline CThis GetRounded() const;
+        inline CThis& Round();
+        inline CThis GetRounded() const;
 
-            inline CThis& Clamp(const CThis& _rMin, const CThis& _rMax);
-            inline CThis GetClamped(const CThis& _rMin, const CThis& _rMax) const;
+        inline CThis& Clamp(const CThis& _rMin, const CThis& _rMax);
+        inline CThis GetClamped(const CThis& _rMin, const CThis& _rMax) const;
 
-            inline CThis& Saturate();
-            inline CThis GetSaturated() const;
+        inline CThis& Saturate();
+        inline CThis GetSaturated() const;
 
-            inline CThis& Min(const CThis& _rVector);
-            inline CThis GetMin(const CThis& _rVector) const;
+        inline CThis& Min(const CThis& _rVector);
+        inline CThis GetMin(const CThis& _rVector) const;
 
-            inline CThis& Max(const CThis& _rVector);
-            inline CThis GetMax(const CThis& _rVector) const;
+        inline CThis& Max(const CThis& _rVector);
+        inline CThis GetMax(const CThis& _rVector) const;
 
-            inline CThis& Neg();
-            inline CThis GetNeg() const;
+        inline CThis& Neg();
+        inline CThis GetNeg() const;
 
-            inline CThis& MulAdd(const CThis& _rVector1, const CThis& _rVector2);
-            inline CThis GetMulAdd(const CThis& _rVector1, const CThis& _rVector2) const;
+        inline CThis& MulAdd(const CThis& _rVector1, const CThis& _rVector2);
+        inline CThis GetMulAdd(const CThis& _rVector1, const CThis& _rVector2) const;
 
-            inline CThis& MulSub(const CThis& _rVector1, const CThis& _rVector2);
-            inline CThis GetMulSub(const CThis& _rVector1, const CThis& _rVector2) const;
+        inline CThis& MulSub(const CThis& _rVector1, const CThis& _rVector2);
+        inline CThis GetMulSub(const CThis& _rVector1, const CThis& _rVector2) const;
 
-            inline CThis& Lerp(const CThis& _rTarget, const CThis& _rWeight);
-            inline CThis GetLerped(const CThis& _rTarget, const CThis& _rWeight) const;
-            inline CThis& Lerp(const CThis& _rTarget, X _Weight);
-            inline CThis GetLerped(const CThis& _rTarget, X _Weight) const;
+        inline CThis& Lerp(const CThis& _rTarget, const CThis& _rWeight);
+        inline CThis GetLerped(const CThis& _rTarget, const CThis& _rWeight) const;
+        inline CThis& Lerp(const CThis& _rTarget, X _Weight);
+        inline CThis GetLerped(const CThis& _rTarget, X _Weight) const;
 
-            inline CThis& Splat(X _Value);
-            inline CThis GetSplatted(X _Value) const;
+        inline CThis& Splat(X _Value);
+        inline CThis GetSplatted(X _Value) const;
 
-            inline CThis& CrossProduct(const CThis& _rVector);
-            inline CThis GetCrossProduct(const CThis& _rVector) const;
+        inline CThis& CrossProduct(const CThis& _rVector);
+        inline CThis GetCrossProduct(const CThis& _rVector) const;
 
-            inline X GetDotProduct(const CThis& _rVector) const;
-            inline X GetDotProduct2(const CThis& _rVector) const;
-            inline X GetDotProduct3(const CThis& _rVector) const;
-            inline X GetDotProduct4(const CThis& _rVector) const;
+        inline X GetDotProduct(const CThis& _rVector) const;
+        inline X GetDotProduct2(const CThis& _rVector) const;
+        inline X GetDotProduct3(const CThis& _rVector) const;
+        inline X GetDotProduct4(const CThis& _rVector) const;
 
-            template <size_t TIndex0, size_t TIndex1, size_t TIndex2, size_t TIndex3>
-            inline CThis& Swizzle();
-            template <size_t TIndex0, size_t TIndex1, size_t TIndex2, size_t TIndex3>
-            inline CThis GetSwizzled() const;
+        template <size_t TIndex0, size_t TIndex1, size_t TIndex2, size_t TIndex3>
+        inline CThis& Swizzle();
+        template <size_t TIndex0, size_t TIndex1, size_t TIndex2, size_t TIndex3>
+        inline CThis GetSwizzled() const;
 
-            template <size_t TIndex0, size_t TIndex1, size_t TIndex2, size_t TIndex3>
-            inline CThis& Permute(const CThis& _rVector);
-            template <size_t TIndex0, size_t TIndex1, size_t TIndex2, size_t TIndex3>
-            inline CThis GetPermuted(const CThis& _rVector) const;
+        template <size_t TIndex0, size_t TIndex1, size_t TIndex2, size_t TIndex3>
+        inline CThis& Permute(const CThis& _rVector);
+        template <size_t TIndex0, size_t TIndex1, size_t TIndex2, size_t TIndex3>
+        inline CThis GetPermuted(const CThis& _rVector) const;
 
-            inline CThis& TestEqual(const CThis& _rVector);
-            inline CThis GetTestEqual(const CThis& _rVector) const;
+        inline CThis& TestEqual(const CThis& _rVector);
+        inline CThis GetTestEqual(const CThis& _rVector) const;
 
-            inline CThis& TestNotEqual(const CThis& _rVector);
-            inline CThis GetTestNotEqual(const CThis& _rVector) const;
+        inline CThis& TestNotEqual(const CThis& _rVector);
+        inline CThis GetTestNotEqual(const CThis& _rVector) const;
 
-            inline CThis& TestLesser(const CThis& _rVector);
-            inline CThis GetTestLesser(const CThis& _rVector) const;
+        inline CThis& TestLesser(const CThis& _rVector);
+        inline CThis GetTestLesser(const CThis& _rVector) const;
 
-            inline CThis& TestLesserEqual(const CThis& _rVector);
-            inline CThis GetTestLesserEqual(const CThis& _rVector) const;
+        inline CThis& TestLesserEqual(const CThis& _rVector);
+        inline CThis GetTestLesserEqual(const CThis& _rVector) const;
 
-            inline CThis& TestGreater(const CThis& _rVector);
-            inline CThis GetTestGreater(const CThis& _rVector) const;
+        inline CThis& TestGreater(const CThis& _rVector);
+        inline CThis GetTestGreater(const CThis& _rVector) const;
 
-            inline CThis& TestGreaterEqual(const CThis& _rVector);
-            inline CThis GetTestGreaterEqual(const CThis& _rVector) const;
+        inline CThis& TestGreaterEqual(const CThis& _rVector);
+        inline CThis GetTestGreaterEqual(const CThis& _rVector) const;
 
-        private:
+    private:
 
-            X m_V[s_NumberOfComponents];
+        X m_V[s_NumberOfComponents];
     };
 } // namespace Core
 
 namespace Core
 {
-    using SChar4     = CVector4<signed char>;
-    using UChar4     = CVector4<unsigned char>;
-    using SShort4    = CVector4<signed short>;
-    using UShort4    = CVector4<unsigned short>;
-    using SInt4      = CVector4<signed int>;
-    using UInt4      = CVector4<unsigned int>;
-    using SLong4     = CVector4<signed long>;
-    using ULong4     = CVector4<unsigned long>;
+    using SChar4 = CVector4<signed char>;
+    using UChar4 = CVector4<unsigned char>;
+    using SShort4 = CVector4<signed short>;
+    using UShort4 = CVector4<unsigned short>;
+    using SInt4 = CVector4<signed int>;
+    using UInt4 = CVector4<unsigned int>;
+    using SLong4 = CVector4<signed long>;
+    using ULong4 = CVector4<unsigned long>;
     using SLongLong4 = CVector4<signed long long>;
     using ULongLong4 = CVector4<unsigned long>;
-    using Float4     = CVector4<float>;
-    using Double4    = CVector4<double>;
+    using Float4 = CVector4<float>;
+    using Double4 = CVector4<double>;
 } // namespace Core
 
 #include "core/core_matrix4x4.h"
@@ -234,9 +234,9 @@ namespace Core
 namespace Core
 {
     template <typename T>
-    const CVector4<T> CVector4<T>::s_Zero  = CVector4(T(0));
+    const CVector4<T> CVector4<T>::s_Zero = CVector4(T(0));
     template <typename T>
-    const CVector4<T> CVector4<T>::s_One   = CVector4(T(1));
+    const CVector4<T> CVector4<T>::s_One = CVector4(T(1));
     template <typename T>
     const CVector4<T> CVector4<T>::s_AxisX = CVector4(T(1), T(0), T(0), T(0));
     template <typename T>
@@ -267,14 +267,13 @@ namespace Core
         m_V[1] = _rVector.m_V[1];
         m_V[2] = _rVector.m_V[2];
         m_V[3] = _rVector.m_V[3];
-   }
+    }
 
     // -----------------------------------------------------------------------------
 
     template <typename T>
     inline CVector4<T>::CVector4(EUninitialized)
-    {
-    }
+    {}
 
     // -----------------------------------------------------------------------------
 

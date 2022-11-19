@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "core/core_link.h"
+#include "core_link.h"
 
 #include <assert.h>
 
@@ -10,78 +10,76 @@ namespace Core
     template <typename T, Core::CLink T::* TMtr>
     class CIterator
     {
-        public:
-            
-            using CThis     = CIterator<T, TMtr>;
-            using X         = T;
-            using XPtr      = T*;
-            using XConstPtr = const T*;
-            using XRef      = T&;
-            using XConstRef = const T&;
+    public:
 
-        public:
-            
-            CIterator()
-                : m_pLink(nullptr)
-            {
-            }
+        using CThis = CIterator<T, TMtr>;
+        using X = T;
+        using XPtr = T*;
+        using XConstPtr = const T*;
+        using XRef = T&;
+        using XConstRef = const T&;
 
-            explicit CIterator(CLink* _pLink)
-                : m_pLink(_pLink)
-            {
-            }
+    public:
 
-        public:
+        CIterator()
+            : m_pLink(nullptr)
+        {}
 
-            CThis& operator = (CLink* _pLink)
-            {
-                m_pLink = _pLink;
+        explicit CIterator(CLink* _pLink)
+            : m_pLink(_pLink)
+        {}
 
-                return *this;
-            }
+    public:
 
-            XRef operator * () const
-            {
-                assert(m_pLink != nullptr);
+        CThis& operator = (CLink* _pLink)
+        {
+            m_pLink = _pLink;
 
-                return CLink::GetOwner<X>(*m_pLink, TMtr);
-            }
+            return *this;
+        }
 
-            XPtr operator -> () const
-            {
-                return &CLink::GetOwner<X>(*m_pLink, TMtr);
-            }
+        XRef operator * () const
+        {
+            assert(m_pLink != nullptr);
 
-            CThis& operator ++ ()
-            {
-                assert(m_pLink != nullptr);
+            return CLink::GetOwner<X>(*m_pLink, TMtr);
+        }
 
-                m_pLink = m_pLink->GetNext();
+        XPtr operator -> () const
+        {
+            return &CLink::GetOwner<X>(*m_pLink, TMtr);
+        }
 
-                return *this;
-            }
+        CThis& operator ++ ()
+        {
+            assert(m_pLink != nullptr);
 
-            CThis operator ++ (int)
-            {
-                CThis Iterator(m_pLink);
+            m_pLink = m_pLink->GetNext();
 
-                ++ (*this);
+            return *this;
+        }
 
-                return Iterator;
-            }
+        CThis operator ++ (int)
+        {
+            CThis Iterator(m_pLink);
 
-            bool operator == (const CThis& _rIterator) const
-            {
-                return m_pLink == _rIterator.m_pLink;
-            }
+            ++(*this);
 
-            bool operator != (const CThis& _rIterator) const
-            {
-                return m_pLink != _rIterator.m_pLink;
-            }
+            return Iterator;
+        }
 
-        private:
+        bool operator == (const CThis& _rIterator) const
+        {
+            return m_pLink == _rIterator.m_pLink;
+        }
 
-            CLink* m_pLink;
+        bool operator != (const CThis& _rIterator) const
+        {
+            return m_pLink != _rIterator.m_pLink;
+        }
+
+    private:
+
+        CLink* m_pLink;
     };
 } // namespace Core

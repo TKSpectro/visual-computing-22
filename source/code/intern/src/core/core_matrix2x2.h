@@ -16,9 +16,9 @@
 
 #pragma once
 
-#include "core/core_constants.h"
-#include "core/core_operations.h"
-#include "core/core_swap.h"
+#include "core_constants.h"
+#include "core_operations.h"
+#include "core_swap.h"
 
 #include <assert.h>
 
@@ -33,129 +33,129 @@ namespace Core
     template <typename T>
     class CMatrix2x2
     {
-        public:
+    public:
 
-            static const CMatrix2x2<T> s_Zero;
-            static const CMatrix2x2<T> s_Identity;
+        static const CMatrix2x2<T> s_Zero;
+        static const CMatrix2x2<T> s_Identity;
 
-        public:
+    public:
 
-            using CThis     = CMatrix2x2<T>;
-            using CLine2    = CVector2<T>;
-            using X         = T;
-            using XPtr      = T*;
-            using XConstPtr = const T*;
-            using XRef      = T&;
-            using XConstRef = const T&;
+        using CThis = CMatrix2x2<T>;
+        using CLine2 = CVector2<T>;
+        using X = T;
+        using XPtr = T*;
+        using XConstPtr = const T*;
+        using XRef = T&;
+        using XConstRef = const T&;
 
-        public:
+    public:
 
-            static constexpr size_t s_NumberOfRows       = 2;
-            static constexpr size_t s_NumberOfColumns    = 2;
-            static constexpr size_t s_NumberOfComponents = s_NumberOfRows * s_NumberOfColumns;
+        static constexpr size_t s_NumberOfRows = 2;
+        static constexpr size_t s_NumberOfColumns = 2;
+        static constexpr size_t s_NumberOfComponents = s_NumberOfRows * s_NumberOfColumns;
 
-        public:
+    public:
 
-            enum EUninitialized  
-            { 
-                Uninitialized,
-            };
+        enum EUninitialized
+        {
+            Uninitialized,
+        };
 
-        public:
+    public:
 
-            enum EIndices
-            {
-                A11, A12,
-                A21, A22,
-            };
+        enum EIndices
+        {
+            A11, A12,
+            A21, A22,
+        };
 
-        public:
+    public:
 
-            inline CMatrix2x2();
-            inline CMatrix2x2(const CThis& _rMatrix);		
-            inline explicit CMatrix2x2(EUninitialized);
-            inline explicit CMatrix2x2(XConstPtr _pCoefficients);
-            inline explicit CMatrix2x2(const CLine2* _pRows);
-            inline CMatrix2x2(const CLine2& _rRow0, const CLine2& _rRow1);
-            inline CMatrix2x2(X _11, X _12, X _21, X _22);
+        inline CMatrix2x2();
+        inline CMatrix2x2(const CThis& _rMatrix);
+        inline explicit CMatrix2x2(EUninitialized);
+        inline explicit CMatrix2x2(XConstPtr _pCoefficients);
+        inline explicit CMatrix2x2(const CLine2* _pRows);
+        inline CMatrix2x2(const CLine2& _rRow0, const CLine2& _rRow1);
+        inline CMatrix2x2(X _11, X _12, X _21, X _22);
 
-        public:
+    public:
 
-            inline CThis& operator = (const CThis& _rMatrix);
+        inline CThis& operator = (const CThis& _rMatrix);
 
-        public:
+    public:
 
-            inline CLine2& operator [] (size_t _Index);
-            inline const CLine2& operator [] (size_t _Index) const;
+        inline CLine2& operator [] (size_t _Index);
+        inline const CLine2& operator [] (size_t _Index) const;
 
-        public:
+    public:
 
-            inline CThis& operator += (const CThis& _rMatrix);
-            inline CThis& operator -= (const CThis& _rMatrix);
-            inline CThis& operator *= (const CThis& _rMatrix);
+        inline CThis& operator += (const CThis& _rMatrix);
+        inline CThis& operator -= (const CThis& _rMatrix);
+        inline CThis& operator *= (const CThis& _rMatrix);
 
-            inline CThis& operator *= (X _Scalar);
-            inline CThis& operator /= (X _Scalar);
+        inline CThis& operator *= (X _Scalar);
+        inline CThis& operator /= (X _Scalar);
 
-            inline CThis operator + (const CThis& _rMatrix) const;
-            inline CThis operator - (const CThis& _rMatrix) const;
-            inline CThis operator * (const CThis& _rMatrix) const;
+        inline CThis operator + (const CThis& _rMatrix) const;
+        inline CThis operator - (const CThis& _rMatrix) const;
+        inline CThis operator * (const CThis& _rMatrix) const;
 
-            inline CThis operator * (X _Scalar) const;
-            inline CThis operator / (X _Scalar) const;
+        inline CThis operator * (X _Scalar) const;
+        inline CThis operator / (X _Scalar) const;
 
-            inline CLine2 operator * (const CLine2& _rVector) const;
+        inline CLine2 operator * (const CLine2& _rVector) const;
 
-            inline CThis operator - () const;
+        inline CThis operator - () const;
 
-        public:
+    public:
 
-            inline bool operator == (const CThis& _rMatrix) const;
-            inline bool operator != (const CThis& _rMatrix) const;
+        inline bool operator == (const CThis& _rMatrix) const;
+        inline bool operator != (const CThis& _rMatrix) const;
 
-        public:
+    public:
 
-            inline CThis& Set(const CThis& _rMatrix);
-            inline CThis& Set(XConstPtr _pCoefficients);
-            inline CThis& Set(const CLine2* _pRows);
-            inline CThis& Set(const CLine2& _rRow0, const CLine2& _rRow1);
-            inline CThis& Set(X _11, X _12, X _21, X _22);
+        inline CThis& Set(const CThis& _rMatrix);
+        inline CThis& Set(XConstPtr _pCoefficients);
+        inline CThis& Set(const CLine2* _pRows);
+        inline CThis& Set(const CLine2& _rRow0, const CLine2& _rRow1);
+        inline CThis& Set(X _11, X _12, X _21, X _22);
 
-            inline CThis& SetZero();
-            inline CThis& SetIdentity();
+        inline CThis& SetZero();
+        inline CThis& SetIdentity();
 
-            inline CThis& SetRow(size_t _Index, X _A0, X _A1);
-            inline CThis& SetRow(size_t _Index, const CLine2& _rVector);
+        inline CThis& SetRow(size_t _Index, X _A0, X _A1);
+        inline CThis& SetRow(size_t _Index, const CLine2& _rVector);
 
-            inline CLine2& GetRow(size_t _Index);
-            inline const CLine2& GetRow(size_t _Index) const;
+        inline CLine2& GetRow(size_t _Index);
+        inline const CLine2& GetRow(size_t _Index) const;
 
-            inline CThis& SetColumn(size_t _Index, X _A0, X _A1);
-            inline CThis& SetColumn(size_t _Index, const CLine2& _rVector);
+        inline CThis& SetColumn(size_t _Index, X _A0, X _A1);
+        inline CThis& SetColumn(size_t _Index, const CLine2& _rVector);
 
-            inline CLine2 GetColumn(size_t _Index) const;
+        inline CLine2 GetColumn(size_t _Index) const;
 
-        public:
+    public:
 
-            inline CThis& Transpose();
-            inline CThis GetTransposed() const;
+        inline CThis& Transpose();
+        inline CThis GetTransposed() const;
 
-            inline CThis& Invert();
-            inline CThis GetInverted() const;
+        inline CThis& Invert();
+        inline CThis GetInverted() const;
 
-        public:
+    public:
 
-            inline CThis& SetScale(X _Scale);
-            inline CThis& SetScale(X _ScaleX, X _ScaleY);
-            inline CThis& SetScale(const CLine2& _rScale);
+        inline CThis& SetScale(X _Scale);
+        inline CThis& SetScale(X _ScaleX, X _ScaleY);
+        inline CThis& SetScale(const CLine2& _rScale);
 
-            inline CLine2 GetScale() const;
+        inline CLine2 GetScale() const;
 
-            inline CThis& SetRotation(float _Angle);
+        inline CThis& SetRotation(float _Angle);
 
-        private:
+    private:
 
-            X m_A[s_NumberOfComponents];
+        X m_A[s_NumberOfComponents];
     };
 } // namespace Core
 
@@ -164,7 +164,7 @@ namespace Core
 namespace Core
 {
     template <typename T>
-    const CMatrix2x2<T> CMatrix2x2<T>::s_Zero     = CMatrix2x2(T(0), T(0), T(0), T(0));
+    const CMatrix2x2<T> CMatrix2x2<T>::s_Zero = CMatrix2x2(T(0), T(0), T(0), T(0));
     template <typename T>
     const CMatrix2x2<T> CMatrix2x2<T>::s_Identity = CMatrix2x2(T(1), T(0), T(0), T(1));
 } // namespace Core
@@ -189,8 +189,7 @@ namespace Core
 
     template <typename T>
     inline CMatrix2x2<T>::CMatrix2x2(EUninitialized)
-    {
-    }
+    {}
 
     // -----------------------------------------------------------------------------
 
@@ -544,8 +543,8 @@ namespace Core
 
         Swap(m_A[A11], m_A[A22]);
 
-        m_A[A11] *=  ReciprocalDeterminant; m_A[A12] *= -ReciprocalDeterminant;
-        m_A[A21] *= -ReciprocalDeterminant; m_A[A22] *=  ReciprocalDeterminant;
+        m_A[A11] *= ReciprocalDeterminant; m_A[A12] *= -ReciprocalDeterminant;
+        m_A[A21] *= -ReciprocalDeterminant; m_A[A22] *= ReciprocalDeterminant;
 
         return *this;
     }
@@ -565,8 +564,8 @@ namespace Core
 
         ReciprocalDeterminant = static_cast<X>(1) / Determinant;
 
-        A[A11] = m_A[A22] *   ReciprocalDeterminant ; A[A12] = m_A[A12] * (-ReciprocalDeterminant);
-        A[A21] = m_A[A21] * (-ReciprocalDeterminant); A[A22] = m_A[A11] *   ReciprocalDeterminant ;
+        A[A11] = m_A[A22] * ReciprocalDeterminant; A[A12] = m_A[A12] * (-ReciprocalDeterminant);
+        A[A21] = m_A[A21] * (-ReciprocalDeterminant); A[A22] = m_A[A11] * ReciprocalDeterminant;
 
         return CThis(A);
     }
@@ -610,13 +609,13 @@ namespace Core
         float Cosinus;
         float Sinus;
 
-        Rad     = ::Core::DegreesToRadians(_Angle);
+        Rad = ::Core::DegreesToRadians(_Angle);
         Cosinus = ::Core::Cos(Rad);
-        Sinus   = ::Core::Sin(Rad);
+        Sinus = ::Core::Sin(Rad);
 
-        m_A[A11] = m_A[A22] =  Cosinus;
-        m_A[A12]            =  Sinus;
-        m_A[A21]            = -Sinus;
+        m_A[A11] = m_A[A22] = Cosinus;
+        m_A[A12] = Sinus;
+        m_A[A21] = -Sinus;
 
         return *this;
     }

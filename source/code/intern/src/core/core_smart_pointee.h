@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "core/core_uncopyable.h"
+#include "core_uncopyable.h"
 
 #include <assert.h>
 
@@ -9,52 +9,51 @@ namespace Core
 {
     class CSmartPointee : private CUncopyable
     {
-        public:
+    public:
 
-            CSmartPointee()
-                : m_NumberOfReferences(0)
+        CSmartPointee()
+            : m_NumberOfReferences(0)
+        {}
+
+        virtual ~CSmartPointee()
+        {
+            assert(m_NumberOfReferences == 0);
+        }
+
+    public:
+
+        int GetNumberOfReferences() const
+        {
+            return m_NumberOfReferences;
+        }
+
+        int AddRef()
+        {
+            ++m_NumberOfReferences;
+
+            return m_NumberOfReferences;
+        }
+
+        int Release()
+        {
+            assert(m_NumberOfReferences > 0);
+
+            --m_NumberOfReferences;
+
+            if (m_NumberOfReferences == 0)
             {
+                FreeResource();
             }
 
-            virtual ~CSmartPointee()
-            {
-                assert(m_NumberOfReferences == 0);
-            }
+            return m_NumberOfReferences;
+        }
 
-        public:
+    private:
 
-            int GetNumberOfReferences() const
-            {
-                return m_NumberOfReferences;
-            }
+        int m_NumberOfReferences;
 
-            int AddRef()
-            {
-                ++ m_NumberOfReferences;
+    private:
 
-                return m_NumberOfReferences;
-            }
-
-            int Release()
-            {
-                assert(m_NumberOfReferences > 0);
-
-                -- m_NumberOfReferences;
-
-                if (m_NumberOfReferences == 0)
-                {
-                    FreeResource();
-                }
-
-                return m_NumberOfReferences;
-            }
-
-        private:
-
-            int m_NumberOfReferences;
-
-        private:
-
-            virtual void FreeResource() = 0;
+        virtual void FreeResource() = 0;
     };
 } // namespace Core

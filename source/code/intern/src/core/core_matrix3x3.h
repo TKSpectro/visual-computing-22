@@ -16,9 +16,9 @@
 
 #pragma once
 
-#include "core/core_constants.h"
-#include "core/core_operations.h"
-#include "core/core_swap.h"
+#include "core_constants.h"
+#include "core_operations.h"
+#include "core_swap.h"
 
 #include <assert.h>
 
@@ -35,146 +35,146 @@ namespace Core
     template <typename T>
     class CMatrix3x3
     {
-        public:
+    public:
 
-            static const CMatrix3x3<T> s_Zero;
-            static const CMatrix3x3<T> s_Identity;
+        static const CMatrix3x3<T> s_Zero;
+        static const CMatrix3x3<T> s_Identity;
 
-        public:
+    public:
 
-            using CThis     = CMatrix3x3<T>;
-            using CLine2    = CVector2<T>;
-            using CLine3    = CVector3<T>;
-            using X         = T;
-            using XPtr      = T*;
-            using XConstPtr = const T*;
-            using XRef      = T&;
-            using XConstRef = const T&;
+        using CThis = CMatrix3x3<T>;
+        using CLine2 = CVector2<T>;
+        using CLine3 = CVector3<T>;
+        using X = T;
+        using XPtr = T*;
+        using XConstPtr = const T*;
+        using XRef = T&;
+        using XConstRef = const T&;
 
-        public:
+    public:
 
-            static constexpr size_t s_NumberOfRows       = 3;
-            static constexpr size_t s_NumberOfColumns    = 3;
-            static constexpr size_t s_NumberOfComponents = s_NumberOfRows * s_NumberOfColumns;
+        static constexpr size_t s_NumberOfRows = 3;
+        static constexpr size_t s_NumberOfColumns = 3;
+        static constexpr size_t s_NumberOfComponents = s_NumberOfRows * s_NumberOfColumns;
 
-        public:
+    public:
 
-            enum EUninitialized  
-            { 
-                Uninitialized,
-            };
+        enum EUninitialized
+        {
+            Uninitialized,
+        };
 
-        public:
+    public:
 
-            enum EIndices
-            {
-                A11, A12, A13,
-                A21, A22, A23,
-                A31, A32, A33,
-            };
+        enum EIndices
+        {
+            A11, A12, A13,
+            A21, A22, A23,
+            A31, A32, A33,
+        };
 
-        public:
+    public:
 
-            inline CMatrix3x3();
-            inline CMatrix3x3(const CThis& _rMatrix);		
-            inline explicit CMatrix3x3(EUninitialized);
-            inline explicit CMatrix3x3(XConstPtr _pCoefficients);
-            inline explicit CMatrix3x3(const CLine3* _pRows);
-            inline CMatrix3x3(const CLine3& _rRow0, const CLine3& _rRow1, const CLine3& _rRow2);
-            inline CMatrix3x3(X _11, X _12, X _13, X _21, X _22, X _23, X _31, X _32, X _33);
+        inline CMatrix3x3();
+        inline CMatrix3x3(const CThis& _rMatrix);
+        inline explicit CMatrix3x3(EUninitialized);
+        inline explicit CMatrix3x3(XConstPtr _pCoefficients);
+        inline explicit CMatrix3x3(const CLine3* _pRows);
+        inline CMatrix3x3(const CLine3& _rRow0, const CLine3& _rRow1, const CLine3& _rRow2);
+        inline CMatrix3x3(X _11, X _12, X _13, X _21, X _22, X _23, X _31, X _32, X _33);
 
-        public:
+    public:
 
-            inline CThis& operator = (const CThis& _rMatrix);
+        inline CThis& operator = (const CThis& _rMatrix);
 
-        public:
+    public:
 
-            inline CLine3& operator [] (size_t _Index);
-            inline const CLine3& operator [] (size_t _Index) const;
+        inline CLine3& operator [] (size_t _Index);
+        inline const CLine3& operator [] (size_t _Index) const;
 
-        public:
+    public:
 
-            inline CThis& operator += (const CThis& _rMatrix);
-            inline CThis& operator -= (const CThis& _rMatrix);
-            inline CThis& operator *= (const CThis& _rMatrix);
+        inline CThis& operator += (const CThis& _rMatrix);
+        inline CThis& operator -= (const CThis& _rMatrix);
+        inline CThis& operator *= (const CThis& _rMatrix);
 
-            inline CThis& operator *= (X _Scalar);
-            inline CThis& operator /= (X _Scalar);
+        inline CThis& operator *= (X _Scalar);
+        inline CThis& operator /= (X _Scalar);
 
-            inline CThis operator + (const CThis& _rMatrix) const;
-            inline CThis operator - (const CThis& _rMatrix) const;
-            inline CThis operator * (const CThis& _rMatrix) const;
+        inline CThis operator + (const CThis& _rMatrix) const;
+        inline CThis operator - (const CThis& _rMatrix) const;
+        inline CThis operator * (const CThis& _rMatrix) const;
 
-            inline CThis operator * (X _Scalar) const;
-            inline CThis operator / (X _Scalar) const;
+        inline CThis operator * (X _Scalar) const;
+        inline CThis operator / (X _Scalar) const;
 
-            inline CLine2 operator * (const CLine2& _rVector) const;
-            inline CLine3 operator * (const CLine3& _rVector) const;
+        inline CLine2 operator * (const CLine2& _rVector) const;
+        inline CLine3 operator * (const CLine3& _rVector) const;
 
-            inline CThis operator - () const;
+        inline CThis operator - () const;
 
-        public:
+    public:
 
-            inline bool operator == (const CThis& _rMatrix) const;
-            inline bool operator != (const CThis& _rMatrix) const;
+        inline bool operator == (const CThis& _rMatrix) const;
+        inline bool operator != (const CThis& _rMatrix) const;
 
-        public:
+    public:
 
-            inline CThis& Set(const CThis& _rMatrix);
-            inline CThis& Set(XConstPtr _pCoefficients);
-            inline CThis& Set(const CLine3* _pRows);
-            inline CThis& Set(const CLine3& _rRow0, const CLine3& _rRow1, const CLine3& _rRow2);
-            inline CThis& Set(X _11, X _12, X _13, X _21, X _22, X _23, X _31, X _32, X _33);
+        inline CThis& Set(const CThis& _rMatrix);
+        inline CThis& Set(XConstPtr _pCoefficients);
+        inline CThis& Set(const CLine3* _pRows);
+        inline CThis& Set(const CLine3& _rRow0, const CLine3& _rRow1, const CLine3& _rRow2);
+        inline CThis& Set(X _11, X _12, X _13, X _21, X _22, X _23, X _31, X _32, X _33);
 
-            inline CThis& SetZero();
-            inline CThis& SetIdentity();
+        inline CThis& SetZero();
+        inline CThis& SetIdentity();
 
-            inline CThis& SetRow(size_t _Index, X _A0, X _A1, X _A2);
-            inline CThis& SetRow(size_t _Index, const CLine3& _rVector);
-            inline CThis& SetRow(size_t _Index, const CLine2& _rVector, X _A2 = 1);
+        inline CThis& SetRow(size_t _Index, X _A0, X _A1, X _A2);
+        inline CThis& SetRow(size_t _Index, const CLine3& _rVector);
+        inline CThis& SetRow(size_t _Index, const CLine2& _rVector, X _A2 = 1);
 
-            inline CLine3& GetRow(size_t _Index);
-            inline const CLine3& GetRow(size_t _Index) const;
+        inline CLine3& GetRow(size_t _Index);
+        inline const CLine3& GetRow(size_t _Index) const;
 
-            inline CThis& SetColumn(size_t _Index, X _A0, X _A1, X _A2);
-            inline CThis& SetColumn(size_t _Index, const CLine3& _rVector);
-            inline CThis& SetColumn(size_t _Index, const CLine2& _rVector, X _A2 = 1);
+        inline CThis& SetColumn(size_t _Index, X _A0, X _A1, X _A2);
+        inline CThis& SetColumn(size_t _Index, const CLine3& _rVector);
+        inline CThis& SetColumn(size_t _Index, const CLine2& _rVector, X _A2 = 1);
 
-            inline CLine3 GetColumn(size_t _Index) const;
+        inline CLine3 GetColumn(size_t _Index) const;
 
-        public:
+    public:
 
-            inline CThis& Transpose();
-            inline CThis GetTransposed() const;
+        inline CThis& Transpose();
+        inline CThis GetTransposed() const;
 
-            inline CThis& Invert();
-            inline CThis GetInverted() const;
+        inline CThis& Invert();
+        inline CThis GetInverted() const;
 
-        public:
+    public:
 
-            inline CThis& SetScale(X _Scale);
-            inline CThis& SetScale(X _ScaleX, X _ScaleY, X _ScaleZ);
-            inline CThis& SetScale(const CLine3& _rScale);
+        inline CThis& SetScale(X _Scale);
+        inline CThis& SetScale(X _ScaleX, X _ScaleY, X _ScaleZ);
+        inline CThis& SetScale(const CLine3& _rScale);
 
-            inline CLine3 GetScale() const;
+        inline CLine3 GetScale() const;
 
-            inline CThis& SetRotationX(float _Angle);
-            inline CThis& SetRotationY(float _Angle);
-            inline CThis& SetRotationZ(float _Angle);
-            inline CThis& SetRotation(float _AngleX, float _AngleY, float _AngleZ);
-            inline CThis& SetRotation(float _AxisX, float _AxisY, float _AxisZ, float _Angle);
-            inline CThis& SetRotation(const CLine3& _rAxis, float _Angle);
-            inline CThis& SetRotation(const CLine3& _rVectorX, const CLine3& _rVectorY, const CLine3& _rVectorZ);
-            inline CThis& SetRotation(const CThis& _rMatrix);
+        inline CThis& SetRotationX(float _Angle);
+        inline CThis& SetRotationY(float _Angle);
+        inline CThis& SetRotationZ(float _Angle);
+        inline CThis& SetRotation(float _AngleX, float _AngleY, float _AngleZ);
+        inline CThis& SetRotation(float _AxisX, float _AxisY, float _AxisZ, float _Angle);
+        inline CThis& SetRotation(const CLine3& _rAxis, float _Angle);
+        inline CThis& SetRotation(const CLine3& _rVectorX, const CLine3& _rVectorY, const CLine3& _rVectorZ);
+        inline CThis& SetRotation(const CThis& _rMatrix);
 
-            inline const CThis& GetRotation() const;
+        inline const CThis& GetRotation() const;
 
-            inline void GetEulerAngles(float& _rAngleX, float& _rAngleY, float& _rAngleZ) const;
-            inline CLine3 GetEulerAngles() const;
+        inline void GetEulerAngles(float& _rAngleX, float& _rAngleY, float& _rAngleZ) const;
+        inline CLine3 GetEulerAngles() const;
 
-        private:
+    private:
 
-            X m_A[s_NumberOfComponents];
+        X m_A[s_NumberOfComponents];
     };
 } // namespace Core
 
@@ -184,7 +184,7 @@ namespace Core
 namespace Core
 {
     template <typename T>
-    const CMatrix3x3<T> CMatrix3x3<T>::s_Zero     = CMatrix3x3(T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0));
+    const CMatrix3x3<T> CMatrix3x3<T>::s_Zero = CMatrix3x3(T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0), T(0));
     template <typename T>
     const CMatrix3x3<T> CMatrix3x3<T>::s_Identity = CMatrix3x3(T(1), T(0), T(0), T(0), T(1), T(0), T(0), T(0), T(1));
 } // namespace Core
@@ -209,8 +209,7 @@ namespace Core
 
     template <typename T>
     inline CMatrix3x3<T>::CMatrix3x3(EUninitialized)
-    {
-    }
+    {}
 
     // -----------------------------------------------------------------------------
 
@@ -352,7 +351,7 @@ namespace Core
 
     // -----------------------------------------------------------------------------
 
-    template <typename T> 
+    template <typename T>
     inline typename CMatrix3x3<T>::CLine2 CMatrix3x3<T>::operator * (const CLine2& _rVector) const
     {
         X V[CLine2::s_NumberOfComponents];
@@ -710,15 +709,15 @@ namespace Core
     template <typename T>
     inline typename CMatrix3x3<T>::CThis& CMatrix3x3<T>::SetRotationX(float _Angle)
     {
-        float Rad     = ::Core::DegreesToRadians(_Angle);
+        float Rad = ::Core::DegreesToRadians(_Angle);
         float Cosinus = ::Core::Cos(Rad);
-        float Sinus   = ::Core::Sin(Rad);
+        float Sinus = ::Core::Sin(Rad);
 
-        m_A[A11]                                  =  static_cast<X>(1);
-        m_A[A12] = m_A[A21] = m_A[A13] = m_A[A31] =  static_cast<X>(0);
-        m_A[A22] = m_A[A33]                       =  Cosinus;
-        m_A[A23]                                  =  Sinus;
-        m_A[A32]                                  = -Sinus;
+        m_A[A11] = static_cast<X>(1);
+        m_A[A12] = m_A[A21] = m_A[A13] = m_A[A31] = static_cast<X>(0);
+        m_A[A22] = m_A[A33] = Cosinus;
+        m_A[A23] = Sinus;
+        m_A[A32] = -Sinus;
 
         return *this;
     }
@@ -728,15 +727,15 @@ namespace Core
     template <typename T>
     inline typename CMatrix3x3<T>::CThis& CMatrix3x3<T>::SetRotationY(float _Angle)
     {
-        float Rad     = ::Core::DegreesToRadians(_Angle);
+        float Rad = ::Core::DegreesToRadians(_Angle);
         float Cosinus = ::Core::Cos(Rad);
-        float Sinus   = ::Core::Sin(Rad);
+        float Sinus = ::Core::Sin(Rad);
 
-        m_A[A22]                                  =  static_cast<X>(1);
-        m_A[A12] = m_A[A21] = m_A[A23] = m_A[A32] =  static_cast<X>(0);
-        m_A[A11] = m_A[A33]                       =  Cosinus;
-        m_A[A31]                                  =  Sinus;
-        m_A[A13]                                  = -Sinus;
+        m_A[A22] = static_cast<X>(1);
+        m_A[A12] = m_A[A21] = m_A[A23] = m_A[A32] = static_cast<X>(0);
+        m_A[A11] = m_A[A33] = Cosinus;
+        m_A[A31] = Sinus;
+        m_A[A13] = -Sinus;
 
         return *this;
     }
@@ -746,15 +745,15 @@ namespace Core
     template <typename T>
     inline typename CMatrix3x3<T>::CThis& CMatrix3x3<T>::SetRotationZ(float _Angle)
     {
-        float Rad     = ::Core::DegreesToRadians(_Angle);
+        float Rad = ::Core::DegreesToRadians(_Angle);
         float Cosinus = ::Core::Cos(Rad);
-        float Sinus   = ::Core::Sin(Rad);
+        float Sinus = ::Core::Sin(Rad);
 
-        m_A[A33]                                  =  static_cast<X>(1);
-        m_A[A13] = m_A[A31] = m_A[A23] = m_A[A32] =  static_cast<X>(0);
-        m_A[A11] = m_A[A22]                       =  Cosinus;
-        m_A[A12]                                  =  Sinus;
-        m_A[A21]                                  = -Sinus;
+        m_A[A33] = static_cast<X>(1);
+        m_A[A13] = m_A[A31] = m_A[A23] = m_A[A32] = static_cast<X>(0);
+        m_A[A11] = m_A[A22] = Cosinus;
+        m_A[A12] = Sinus;
+        m_A[A21] = -Sinus;
 
         return *this;
     }
@@ -788,17 +787,17 @@ namespace Core
         CosY = ::Core::Cos(RadY);
         CosZ = ::Core::Cos(RadZ);
 
-        m_A[A11] =  CosY * CosZ;
-        m_A[A21] =  SinX * SinY * CosZ - CosX * SinZ;
-        m_A[A31] =  CosX * SinY * CosZ + SinX * SinZ;
+        m_A[A11] = CosY * CosZ;
+        m_A[A21] = SinX * SinY * CosZ - CosX * SinZ;
+        m_A[A31] = CosX * SinY * CosZ + SinX * SinZ;
 
-        m_A[A12] =  CosY * SinZ;
-        m_A[A22] =  SinX * SinY * SinZ + CosX * CosZ;
-        m_A[A32] =  CosX * SinY * SinZ - SinX * CosZ;
+        m_A[A12] = CosY * SinZ;
+        m_A[A22] = SinX * SinY * SinZ + CosX * CosZ;
+        m_A[A32] = CosX * SinY * SinZ - SinX * CosZ;
 
         m_A[A13] = -SinY;
-        m_A[A23] =  SinX * CosY;
-        m_A[A33] =  CosX * CosY;
+        m_A[A23] = SinX * CosY;
+        m_A[A33] = CosX * CosY;
 
         return *this;
     }
@@ -830,9 +829,9 @@ namespace Core
             _AxisZ *= ReciprocalSquareNorm;
         }
 
-        Rad          = ::Core::DegreesToRadians(_Angle);
-        Cosinus      = ::Core::Cos(Rad);
-        Sinus        = ::Core::Sin(Rad);
+        Rad = ::Core::DegreesToRadians(_Angle);
+        Cosinus = ::Core::Cos(Rad);
+        Sinus = ::Core::Sin(Rad);
         ComplCosinus = static_cast<X>(1) - Cosinus;
 
         m_A[A11] = ComplCosinus * ::Core::Square(_AxisX) + Cosinus;
@@ -861,17 +860,17 @@ namespace Core
     template <typename T>
     inline typename CMatrix3x3<T>::CThis& CMatrix3x3<T>::SetRotation(const CLine3& _rVectorX, const CLine3& _rVectorY, const CLine3& _rVectorZ)
     {
-        m_A[A11] = _rVectorX[0]; 
+        m_A[A11] = _rVectorX[0];
         m_A[A12] = _rVectorX[1];
-        m_A[A13] = _rVectorX[2]; 
+        m_A[A13] = _rVectorX[2];
 
-        m_A[A21] = _rVectorY[0]; 
-        m_A[A22] = _rVectorY[1]; 
-        m_A[A23] = _rVectorY[2]; 
+        m_A[A21] = _rVectorY[0];
+        m_A[A22] = _rVectorY[1];
+        m_A[A23] = _rVectorY[2];
 
-        m_A[A31] = _rVectorZ[0]; 
-        m_A[A32] = _rVectorZ[1]; 
-        m_A[A33] = _rVectorZ[2]; 
+        m_A[A31] = _rVectorZ[0];
+        m_A[A32] = _rVectorZ[1];
+        m_A[A33] = _rVectorZ[2];
 
         return *this;
     }
@@ -906,8 +905,7 @@ namespace Core
             RadianX = ::Core::ArcTan(m_A[A23], m_A[A33]);
             RadianY = ::Core::ArcSin(-m_A[A13]);
             RadianZ = ::Core::ArcTan(m_A[A12], m_A[A11]);
-        }
-        else
+        } else
         {
             RadianX = static_cast<X>(0);
             RadianY = m_A[A13] >= static_cast<X>(1) ? -SConstants<X>::s_HalfPi : SConstants<X>::s_HalfPi;
