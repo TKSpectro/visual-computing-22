@@ -167,6 +167,7 @@
     <ClCompile Include="..\..\src\data\data.startupPhase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\data\data.entity.h" />
     <ClInclude Include="..\..\src\data\data.mainMenuPhase.h" />
     <ClInclude Include="..\..\src\data\data.shutdownPhase.h" />
     <ClInclude Include="..\..\src\data\data.startupPhase.h" />

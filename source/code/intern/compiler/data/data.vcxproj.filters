@@ -9,5 +9,6 @@
     <ClInclude Include="..\..\src\data\data.shutdownPhase.h" />
     <ClInclude Include="..\..\src\data\data.startupPhase.h" />
     <ClInclude Include="..\..\src\data\data.mainMenuPhase.h" />
+    <ClInclude Include="..\..\src\data\data.entity.h" />
   </ItemGroup>
 </Project>
