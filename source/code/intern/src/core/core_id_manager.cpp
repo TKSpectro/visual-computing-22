@@ -1,6 +1,5 @@
 
-#include "core/core_id_manager.h"
-
+#include "core_id_manager.h"
 #include <assert.h>
 
 namespace Core

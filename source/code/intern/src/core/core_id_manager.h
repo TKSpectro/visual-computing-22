@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "core/core_uncopyable.h"
+#include "core_uncopyable.h"
 
 #include <string>
 #include <unordered_map>
@@ -11,44 +11,44 @@ namespace Core
 {
     class CIDManager : private CUncopyable
     {
-        public:
+    public:
 
-            using BID = unsigned int;
+        using BID = unsigned int;
 
-        public:
+    public:
 
-            static constexpr BID s_InvalidID = BID(-1);
+        static constexpr BID s_InvalidID = BID(-1);
 
-        public:
+    public:
 
-            CIDManager();
-           ~CIDManager();
+        CIDManager();
+        ~CIDManager();
 
-        public:
+    public:
 
-            BID Register(const std::string& _rString);
+        BID Register(const std::string& _rString);
 
-            bool ContainsName(const std::string& _rString) const;
+        bool ContainsName(const std::string& _rString) const;
 
-            const std::string& GetName(BID _ID) const;
+        const std::string& GetName(BID _ID) const;
 
-            size_t GetNumberOfNames() const;
+        size_t GetNumberOfNames() const;
 
-        public:
+    public:
 
-            void Clear();
+        void Clear();
 
-        private:
+    private:
 
-            using CIDsByName         = std::unordered_map<std::string, BID>;
-            using SIDsByNameItem     = std::pair<std::string, BID>;
-            using CIDsByNameIterator = CIDsByName::iterator;
-            using CIDsByNameResult   = std::pair<CIDsByNameIterator, bool>;
-            using CNamesByID         = std::vector<CIDsByNameIterator>;
+        using CIDsByName = std::unordered_map<std::string, BID>;
+        using SIDsByNameItem = std::pair<std::string, BID>;
+        using CIDsByNameIterator = CIDsByName::iterator;
+        using CIDsByNameResult = std::pair<CIDsByNameIterator, bool>;
+        using CNamesByID = std::vector<CIDsByNameIterator>;
 
-        private:
+    private:
 
-            CIDsByName m_IDsByName;
-            CNamesByID m_NamesByID;
+        CIDsByName m_IDsByName;
+        CNamesByID m_NamesByID;
     };
 } // namespace Core

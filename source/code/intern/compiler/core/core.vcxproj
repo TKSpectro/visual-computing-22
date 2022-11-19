@@ -19,7 +19,39 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\core\main.cpp" />
+    <ClInclude Include="..\..\src\core\core_aabb.h" />
+    <ClInclude Include="..\..\src\core\core_aabb2.h" />
+    <ClInclude Include="..\..\src\core\core_aabb3.h" />
+    <ClInclude Include="..\..\src\core\core_allocator.h" />
+    <ClInclude Include="..\..\src\core\core_constants.h" />
+    <ClInclude Include="..\..\src\core\core_id_manager.h" />
+    <ClInclude Include="..\..\src\core\core_item_manager.h" />
+    <ClInclude Include="..\..\src\core\core_iterator.h" />
+    <ClInclude Include="..\..\src\core\core_link.h" />
+    <ClInclude Include="..\..\src\core\core_log.h" />
+    <ClInclude Include="..\..\src\core\core_matrix.h" />
+    <ClInclude Include="..\..\src\core\core_matrix2x2.h" />
+    <ClInclude Include="..\..\src\core\core_matrix3x3.h" />
+    <ClInclude Include="..\..\src\core\core_matrix4x4.h" />
+    <ClInclude Include="..\..\src\core\core_operations.h" />
+    <ClInclude Include="..\..\src\core\core_pointer.h" />
+    <ClInclude Include="..\..\src\core\core_pool.h" />
+    <ClInclude Include="..\..\src\core\core_smart_pointee.h" />
+    <ClInclude Include="..\..\src\core\core_smart_ptr.h" />
+    <ClInclude Include="..\..\src\core\core_swap.h" />
+    <ClInclude Include="..\..\src\core\core_time.h" />
+    <ClInclude Include="..\..\src\core\core_uncopyable.h" />
+    <ClInclude Include="..\..\src\core\core_unused.h" />
+    <ClInclude Include="..\..\src\core\core_user_event.h" />
+    <ClInclude Include="..\..\src\core\core_vector.h" />
+    <ClInclude Include="..\..\src\core\core_vector2.h" />
+    <ClInclude Include="..\..\src\core\core_vector3.h" />
+    <ClInclude Include="..\..\src\core\core_vector4.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\core\core_id_manager.cpp" />
+    <ClCompile Include="..\..\src\core\core_log.cpp" />
+    <ClCompile Include="..\..\src\core\core_time.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -1,6 +1,6 @@
 
-#include "core\core_time.h"
-#include "core\core_uncopyable.h"
+#include "core_time.h"
+#include "core_uncopyable.h"
 
 #include <assert.h>
 #include <vector>
@@ -12,21 +12,21 @@ namespace
 {
     class CTicker : private CUncopyable
     {
-        public:
+    public:
 
-            static CTicker& GetInstance();
+        static CTicker& GetInstance();
 
-        public:
+    public:
 
-            double GetTick() const;
+        double GetTick() const;
 
-        private:
+    private:
 
-            double m_SecondsPerTick;
+        double m_SecondsPerTick;
 
-        private:
+    private:
 
-            CTicker();
+        CTicker();
     };
 } // namespace
 
@@ -34,66 +34,66 @@ namespace
 {
     class CClock : private CUncopyable
     {
-        public:
+    public:
 
-            static const size_t s_MaxNumberOfDurations = 8;
+        static const size_t s_MaxNumberOfDurations = 8;
 
-        public:
+    public:
 
-            static CClock& GetInstance();
+        static CClock& GetInstance();
 
-        public:
+    public:
 
-            void Reset();
+        void Reset();
 
-            void OnFrame();
+        void OnFrame();
 
-            double GetTime() const;
-            double GetDurationOfFrame() const;
-            size_t GetNumberOfFrame() const;
-            float GetFrameRate() const;
+        double GetTime() const;
+        double GetDurationOfFrame() const;
+        size_t GetNumberOfFrame() const;
+        float GetFrameRate() const;
 
-        public:
+    public:
 
-            void AddTimer(CTimer& _rTimer);
-            void RemoveTimer(CTimer& _rTimer);
+        void AddTimer(CTimer& _rTimer);
+        void RemoveTimer(CTimer& _rTimer);
 
-        private:
+    private:
 
-            static const double s_MaxPeak;
+        static const double s_MaxPeak;
 
-        private:
+    private:
 
-            using CTimerVector = std::vector<CTimer*>;
+        using CTimerVector = std::vector<CTimer*>;
 
-        private:
+    private:
 
-            double       m_LastTick;
-            double       m_DefaultDurationOfFrame;
-            double       m_PredictedDurationOfFrame;
-            double       m_CurrentTime;
-            size_t       m_NumberOfFrames;
-            size_t       m_IndexOfHistory;
-            double       m_History[s_MaxNumberOfDurations];
-            CTimerVector m_Timers;
+        double       m_LastTick;
+        double       m_DefaultDurationOfFrame;
+        double       m_PredictedDurationOfFrame;
+        double       m_CurrentTime;
+        size_t       m_NumberOfFrames;
+        size_t       m_IndexOfHistory;
+        double       m_History[s_MaxNumberOfDurations];
+        CTimerVector m_Timers;
 
-        private:
+    private:
 
-            CClock();
+        CClock();
 
-        private:
+    private:
 
-            double CalcDurationOfLastFrame();
-            double CalcDurationOfNextFrame() const;
-            void AddDurationToHistory(double _DurationOfFrame);
+        double CalcDurationOfLastFrame();
+        double CalcDurationOfNextFrame() const;
+        void AddDurationToHistory(double _DurationOfFrame);
 
-        private:
+    private:
 
-            void NotifyTimer(double _DurationOfFrame);
+        void NotifyTimer(double _DurationOfFrame);
 
-        private:
+    private:
 
-            CTimerVector::iterator FindTimer(CTimer& _rTimer);
+        CTimerVector::iterator FindTimer(CTimer& _rTimer);
     };
 } // namespace
 
@@ -147,13 +147,13 @@ namespace
     // -----------------------------------------------------------------------------
 
     CClock::CClock()
-        : m_LastTick                (0.0)
-        , m_DefaultDurationOfFrame  (0.03)
+        : m_LastTick(0.0)
+        , m_DefaultDurationOfFrame(0.03)
         , m_PredictedDurationOfFrame(0.0)
-        , m_CurrentTime             (0.0)
-        , m_NumberOfFrames          (0)
-        , m_IndexOfHistory          (0)
-        , m_Timers                  ()
+        , m_CurrentTime(0.0)
+        , m_NumberOfFrames(0)
+        , m_IndexOfHistory(0)
+        , m_Timers()
     {
         m_Timers.reserve(8);
 
@@ -184,7 +184,7 @@ namespace
         // -----------------------------------------------------------------------------
         m_CurrentTime += m_PredictedDurationOfFrame;
 
-        ++ m_NumberOfFrames;
+        ++m_NumberOfFrames;
 
         // -----------------------------------------------------------------------------
         // Notify all timer about the frame step.
@@ -256,7 +256,7 @@ namespace
         {
             DurationOfFrames += m_History[IndexOfHistory];
 
-            ++ IndexOfHistory; IndexOfHistory &= s_MaxNumberOfDurations - 1;
+            ++IndexOfHistory; IndexOfHistory &= s_MaxNumberOfDurations - 1;
         }
 
         return DurationOfFrames / s_MaxNumberOfDurations;
@@ -266,7 +266,7 @@ namespace
 
     void CClock::AddDurationToHistory(double _DurationOfFrame)
     {
-        m_History[m_IndexOfHistory ++] = _DurationOfFrame;
+        m_History[m_IndexOfHistory++] = _DurationOfFrame;
 
         m_IndexOfHistory &= s_MaxNumberOfDurations - 1;
     }
@@ -275,16 +275,16 @@ namespace
 
     void CClock::Reset()
     {
-        for (m_IndexOfHistory = 0; m_IndexOfHistory < s_MaxNumberOfDurations; ++ m_IndexOfHistory)
+        for (m_IndexOfHistory = 0; m_IndexOfHistory < s_MaxNumberOfDurations; ++m_IndexOfHistory)
         {
             m_History[m_IndexOfHistory] = m_DefaultDurationOfFrame;
         }
 
-        m_LastTick                 = CTicker::GetInstance().GetTick();
+        m_LastTick = CTicker::GetInstance().GetTick();
         m_PredictedDurationOfFrame = m_DefaultDurationOfFrame;
-        m_CurrentTime              = 0.0;
-        m_NumberOfFrames           = 0;
-        m_IndexOfHistory           = 0;
+        m_CurrentTime = 0.0;
+        m_NumberOfFrames = 0;
+        m_IndexOfHistory = 0;
     }
 
     // -----------------------------------------------------------------------------
@@ -318,7 +318,7 @@ namespace
 
         const CTimerVector::iterator TimerEndIterator = m_Timers.end();
 
-        for (CTimerVector::iterator TimerIterator = m_Timers.begin(); TimerIterator != TimerEndIterator; ++ TimerIterator)
+        for (CTimerVector::iterator TimerIterator = m_Timers.begin(); TimerIterator != TimerEndIterator; ++TimerIterator)
         {
             pTimer = *TimerIterator;
 
@@ -341,7 +341,7 @@ namespace
 
         const CTimerVector::iterator TimerEndIterator = m_Timers.end();
 
-        for (CTimerVector::iterator TimerIterator = m_Timers.begin(); TimerIterator != TimerEndIterator; ++ TimerIterator)
+        for (CTimerVector::iterator TimerIterator = m_Timers.begin(); TimerIterator != TimerEndIterator; ++TimerIterator)
         {
             pTimer = *TimerIterator;
 
@@ -355,10 +355,10 @@ namespace
 namespace Core
 {
     CTimer::CTimer()
-        : m_CurrentTime             (0.0)
+        : m_CurrentTime(0.0)
         , m_PredictedDurationOfFrame(0.0)
-        , m_TimeScale               (1.0f)
-        , m_IsPaused                (false)
+        , m_TimeScale(1.0f)
+        , m_IsPaused(false)
     {
         CClock::GetInstance().AddTimer(*this);
     }
@@ -434,46 +434,46 @@ namespace Core
 
 namespace Core
 {
-namespace Time
-{
-    void Reset()
+    namespace Time
     {
-        CClock::GetInstance().Reset();
-    }
+        void Reset()
+        {
+            CClock::GetInstance().Reset();
+        }
 
-    // -----------------------------------------------------------------------------
+        // -----------------------------------------------------------------------------
 
-    void OnFrame()
-    {
-        CClock::GetInstance().OnFrame();
-    }
+        void OnFrame()
+        {
+            CClock::GetInstance().OnFrame();
+        }
 
-    // -----------------------------------------------------------------------------
+        // -----------------------------------------------------------------------------
 
-    double GetTime()
-    {
-        return CClock::GetInstance().GetTime();
-    }
+        double GetTime()
+        {
+            return CClock::GetInstance().GetTime();
+        }
 
-    // -----------------------------------------------------------------------------
+        // -----------------------------------------------------------------------------
 
-    double GetDurationOfFrame()
-    {
-        return CClock::GetInstance().GetDurationOfFrame();
-    }
+        double GetDurationOfFrame()
+        {
+            return CClock::GetInstance().GetDurationOfFrame();
+        }
 
-    // -----------------------------------------------------------------------------
+        // -----------------------------------------------------------------------------
 
-    size_t GetNumberOfFrame()
-    {
-        return CClock::GetInstance().GetNumberOfFrame();
-    }
+        size_t GetNumberOfFrame()
+        {
+            return CClock::GetInstance().GetNumberOfFrame();
+        }
 
-    // -----------------------------------------------------------------------------
+        // -----------------------------------------------------------------------------
 
-    float GetFrameRate()
-    {
-        return CClock::GetInstance().GetFrameRate();
-    }
-} // namespace Time
+        float GetFrameRate()
+        {
+            return CClock::GetInstance().GetFrameRate();
+        }
+    } // namespace Time
 } // namespace Core
