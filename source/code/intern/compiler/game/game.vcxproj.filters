@@ -2,22 +2,55 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\src\game\game.application.h" />
-    <ClInclude Include="..\..\src\game\game.phase.h" />
-    <ClInclude Include="..\..\src\game\game.playPhase.h" />
-    <ClInclude Include="..\..\src\game\game.shutdownPhase.h" />
-    <ClInclude Include="..\..\src\game\game.startupPhase.h" />
-    <ClInclude Include="..\..\src\game\game.mainMenuPhase.h" />
-    <ClInclude Include="..\..\src\game\game.loadPhase.h" />
-    <ClInclude Include="..\..\src\game\game.unloadPhase.h" />
+    <ClInclude Include="..\..\src\game\game.loadPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\game.mainMenuPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\game.phase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\game.playPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\game.shutdownPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\game.startupPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game\game.unloadPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\game\game.application.cpp" />
-    <ClCompile Include="..\..\src\game\game.phase.cpp" />
-    <ClCompile Include="..\..\src\game\game.unloadPhase.cpp" />
-    <ClCompile Include="..\..\src\game\game.loadPhase.cpp" />
-    <ClCompile Include="..\..\src\game\game.mainMenuPhase.cpp" />
-    <ClCompile Include="..\..\src\game\game.startupPhase.cpp" />
-    <ClCompile Include="..\..\src\game\game.shutdownPhase.cpp" />
-    <ClCompile Include="..\..\src\game\game.playPhase.cpp" />
+    <ClCompile Include="..\..\src\game\game.loadPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\game.mainMenuPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\game.phase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\game.playPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\game.shutdownPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\game.startupPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game\game.unloadPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="phases">
+      <UniqueIdentifier>{d278ef2c-8e67-438b-a6ef-96034b5c442b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

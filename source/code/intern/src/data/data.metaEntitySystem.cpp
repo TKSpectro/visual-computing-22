@@ -7,10 +7,11 @@ using namespace tinyxml2;
 
 int Data::MetaEntitySystem::Initialize(tinyxml2::XMLDocument& doc)
 {
-    XMLElement* metaEntities = doc.FirstChildElement("meta-entities");
-
     int metaEntityCount = 0;
+
+    XMLElement* metaEntities = doc.FirstChildElement("meta-entities");
     XMLElement* metaEntity = metaEntities->FirstChildElement("meta-entity");
+
     for (;;)
     {
         if (metaEntity == nullptr)
@@ -18,12 +19,16 @@ int Data::MetaEntitySystem::Initialize(tinyxml2::XMLDocument& doc)
             break;
         }
 
-        const char* name = metaEntity->FindAttribute("name")->Value();
+        std::string name = metaEntity->FindAttribute("name")->Value();
+
         XMLElement* dataElement = metaEntity->FirstChildElement("data");
         float size = dataElement->FirstChildElement("size")->FindAttribute("value")->FloatValue();
 
-        std::cout << "Name: " << name << std::endl;
-        std::cout << "Size: " << size << std::endl;
+        Core::CIDManager::BID id = idManager.Register(name);
+
+        MetaEntity& item = itemManager.CreateItem(id);
+        item.name = name;
+        item.size = size;
 
         metaEntityCount++;
 

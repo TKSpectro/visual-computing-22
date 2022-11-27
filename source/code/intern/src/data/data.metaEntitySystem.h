@@ -1,6 +1,8 @@
 #pragma once
 #include <tinyxml2.h>
 
+#include "../core/core_id_manager.h"
+#include "../core/core_item_manager.h"
 #include "data.metaEntity.h"
 
 namespace Data
@@ -32,5 +34,9 @@ namespace Data
     private:
         MetaEntitySystem()
         {};
+
+    private:
+        Core::CIDManager idManager;
+        Core::CItemManager<MetaEntity> itemManager;
     };
 }
