@@ -1,19 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\src\graphics\gfx.loadPhase.cpp" />
-    <ClCompile Include="..\..\src\graphics\gfx.shutdownPhase.cpp" />
-    <ClCompile Include="..\..\src\graphics\gfx.startupPhase.cpp" />
-    <ClCompile Include="..\..\src\graphics\gfx.unloadPhase.cpp" />
-    <ClCompile Include="..\..\src\graphics\gfx.mainMenuPhase.cpp" />
-    <ClCompile Include="..\..\src\graphics\gfx.playPhase.cpp" />
+    <ClCompile Include="..\..\src\graphics\gfx.loadPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\gfx.mainMenuPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\gfx.playPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\gfx.shutdownPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\gfx.startupPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\gfx.unloadPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\graphics\gfx.loadPhase.h" />
-    <ClInclude Include="..\..\src\graphics\gfx.shutdownPhase.h" />
-    <ClInclude Include="..\..\src\graphics\gfx.startupPhase.h" />
-    <ClInclude Include="..\..\src\graphics\gfx.unloadPhase.h" />
-    <ClInclude Include="..\..\src\graphics\gfx.mainMenuPhase.h" />
-    <ClInclude Include="..\..\src\graphics\gfx.playPhase.h" />
+    <ClInclude Include="..\..\src\graphics\gfx.loadPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\gfx.mainMenuPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\gfx.playPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\gfx.shutdownPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\gfx.startupPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\gfx.unloadPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="phases">
+      <UniqueIdentifier>{f30ec366-0d02-4f35-b5c7-15e32ddec537}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

@@ -1,19 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\src\gui\gui.loadPhase.cpp" />
-    <ClCompile Include="..\..\src\gui\gui.mainMenuPhase.cpp" />
-    <ClCompile Include="..\..\src\gui\gui.playPhase.cpp" />
-    <ClCompile Include="..\..\src\gui\gui.shutdownPhase.cpp" />
-    <ClCompile Include="..\..\src\gui\gui.startupPhase.cpp" />
-    <ClCompile Include="..\..\src\gui\gui.unloadPhase.cpp" />
+    <ClCompile Include="..\..\src\gui\gui.loadPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gui\gui.mainMenuPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gui\gui.playPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gui\gui.shutdownPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gui\gui.startupPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gui\gui.unloadPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\gui\gui.loadPhase.h" />
-    <ClInclude Include="..\..\src\gui\gui.mainMenuPhase.h" />
-    <ClInclude Include="..\..\src\gui\gui.playPhase.h" />
-    <ClInclude Include="..\..\src\gui\gui.shutdownPhase.h" />
-    <ClInclude Include="..\..\src\gui\gui.startupPhase.h" />
-    <ClInclude Include="..\..\src\gui\gui.unloadPhase.h" />
+    <ClInclude Include="..\..\src\gui\gui.loadPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gui\gui.mainMenuPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gui\gui.playPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gui\gui.shutdownPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gui\gui.startupPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gui\gui.unloadPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="phases">
+      <UniqueIdentifier>{79bce0c7-8181-4647-b3e5-984471b33013}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
