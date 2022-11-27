@@ -24,9 +24,7 @@ int Data::MetaEntitySystem::Initialize(tinyxml2::XMLDocument& doc)
         XMLElement* dataElement = metaEntity->FirstChildElement("data");
         float size = dataElement->FirstChildElement("size")->FindAttribute("value")->FloatValue();
 
-        Core::CIDManager::BID id = idManager.Register(name);
-
-        MetaEntity& item = itemManager.CreateItem(id);
+        MetaEntity& item = CreateMetaEntity(name);
         item.name = name;
         item.size = size;
 
@@ -36,4 +34,27 @@ int Data::MetaEntitySystem::Initialize(tinyxml2::XMLDocument& doc)
     }
 
     return metaEntityCount;
+}
+
+Data::MetaEntity& Data::MetaEntitySystem::CreateMetaEntity(std::string name)
+{
+    Core::CIDManager::BID id = idManager.Register(name);
+
+    return itemManager.CreateItem(id);
+}
+
+void Data::MetaEntitySystem::DestroyMetaEntity(MetaEntity& metaEntity)
+{
+    // TODO
+}
+
+void Data::MetaEntitySystem::DestoryAllMetaEntities()
+{
+    itemManager.Clear();
+    idManager.Clear();
+}
+
+Data::MetaEntity& Data::MetaEntitySystem::SearchMetaEntity(std::string name)
+{
+    return itemManager.GetItem(idManager.GetByName(name));
 }

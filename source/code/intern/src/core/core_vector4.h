@@ -229,7 +229,7 @@ namespace Core
     using Double4 = CVector4<double>;
 } // namespace Core
 
-#include "core/core_matrix4x4.h"
+#include "core_matrix4x4.h"
 
 namespace Core
 {
@@ -273,7 +273,8 @@ namespace Core
 
     template <typename T>
     inline CVector4<T>::CVector4(EUninitialized)
-    {}
+    {
+    }
 
     // -----------------------------------------------------------------------------
 

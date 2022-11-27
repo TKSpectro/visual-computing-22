@@ -197,9 +197,9 @@ namespace Core
     };
 } // namespace Core
 
-#include "core/core_matrix3x3.h"
-#include "core/core_vector3.h"
-#include "core/core_vector4.h"
+#include "core_matrix3x3.h"
+#include "core_vector3.h"
+#include "core_vector4.h"
 
 namespace Core
 {
@@ -229,7 +229,8 @@ namespace Core
 
     template <typename T>
     inline CMatrix4x4<T>::CMatrix4x4(EUninitialized)
-    {}
+    {
+    }
 
     // -----------------------------------------------------------------------------
 
@@ -997,8 +998,7 @@ namespace Core
 
         assert(SquareNorm >= s_Epsilon);
 
-        if (::Core::Abs(SquareNorm - static_cast<X>(1)) > s_Epsilon)
-        {
+        if (::Core::Abs(SquareNorm - static_cast<X>(1)) > s_Epsilon) {
             ReciprocalSquareNorm = static_cast<X>(1) / ::Core::SquareRoot(SquareNorm);
 
             _AxisX *= ReciprocalSquareNorm;
@@ -1089,13 +1089,11 @@ namespace Core
         float RadianY;
         float RadianZ;
 
-        if (::Core::Abs(m_A[A13]) < static_cast<X>(1))
-        {
+        if (::Core::Abs(m_A[A13]) < static_cast<X>(1)) {
             RadianX = ::Core::ArcTan(m_A[A23], m_A[A33]);
             RadianY = ::Core::ArcSin(-m_A[A13]);
             RadianZ = ::Core::ArcTan(m_A[A12], m_A[A11]);
-        } else
-        {
+        } else {
             RadianX = static_cast<X>(0);
             RadianY = m_A[A13] >= static_cast<X>(1) ? -SConstants<X>::s_HalfPi : SConstants<X>::s_HalfPi;
             RadianZ = ::Core::ArcTan(-m_A[A32], m_A[A22]);

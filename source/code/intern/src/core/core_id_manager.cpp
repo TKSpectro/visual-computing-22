@@ -44,6 +44,11 @@ namespace Core
         return m_IDsByName.find(_rString) != m_IDsByName.end();
     }
 
+    CIDManager::BID CIDManager::GetByName(const std::string& _rString) const
+    {
+        return m_IDsByName.at(_rString);
+    }
+
     // -----------------------------------------------------------------------------
 
     const std::string& CIDManager::GetName(BID _ID) const

@@ -21,10 +21,10 @@ namespace Data
 
     public:
         int Initialize(tinyxml2::XMLDocument& doc);
-        MetaEntity& CreateMetaEntity(const char* _pName);
-        void DestroyMetaEntity(MetaEntity& _rMetaEntity);
+        MetaEntity& CreateMetaEntity(std::string name);
+        void DestroyMetaEntity(MetaEntity& metaEntity);
         void DestoryAllMetaEntities();
-        MetaEntity& SearchMetaEntity(const char* _pName);
+        MetaEntity& SearchMetaEntity(std::string name);
         //MetaEntity& GetMetaEntity(CMetaEntityID _ID);
         //bool ContainsMetaEntity(const char* _pName);
         //CMetaEntityID GetMetaEntityID(const char* _pName);

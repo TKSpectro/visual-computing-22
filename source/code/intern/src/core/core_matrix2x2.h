@@ -159,7 +159,7 @@ namespace Core
     };
 } // namespace Core
 
-#include "core/core_vector2.h"
+#include "core_vector2.h"
 
 namespace Core
 {
@@ -189,7 +189,8 @@ namespace Core
 
     template <typename T>
     inline CMatrix2x2<T>::CMatrix2x2(EUninitialized)
-    {}
+    {
+    }
 
     // -----------------------------------------------------------------------------
 

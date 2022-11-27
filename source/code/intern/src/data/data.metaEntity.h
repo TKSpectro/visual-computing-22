@@ -3,6 +3,8 @@
 #include <sstream>
 #include <ostream>
 
+#include "../core/core_aabb.h"
+
 namespace Data
 {
     // Lightweight class with only member variables and getter and setters
@@ -25,19 +27,10 @@ namespace Data
         int id;
         std::string name;
         float size;
-        // Data      -        - Name/Id
-        // Data      -        - Type
-        // Data      -        - Position
-        // Data      -        - Stats (HP, Attack, Defense) -> Base Stats are global, Buffs and Debuffs are specific
-        // Data      -        - Orientation
-        // Data      -        - AABB (World) - Axis Aligned Bounding Box (World Coordinates)
-        // Data      -        - Size
-        // Data      - global - AABB (Local) - Axis Aligned Bounding Box (Local Coordinates)
-        // Logic     -        - (Animation-)State (Walking, Running, Sleep)
-        // Gfx       - global - Model
-        // Gfx       - global - Textures
-        // Gfx/Logic - global - Animations
-        // Besitz
+        Core::AABB2Float aabb;
+
+        void* facetes[2];
+
     public:
         std::string toString()
         {

@@ -28,7 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\..\src\data\data.meta-entity.xml" />
-    <Xml Include="..\..\src\data\data.map_1.xml" />
+    <Xml Include="..\..\src\data\data.map-1.xml" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="phases">

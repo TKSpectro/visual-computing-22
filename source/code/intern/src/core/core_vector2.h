@@ -218,8 +218,8 @@ namespace Core
     using Double2 = CVector2<double>;
 } // namespace Core
 
-#include "core/core_matrix2x2.h"
-#include "core/core_matrix3x3.h"
+#include "core_matrix2x2.h"
+#include "core_matrix3x3.h"
 
 namespace Core
 {

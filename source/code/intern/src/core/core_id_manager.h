@@ -34,6 +34,8 @@ namespace Core
 
         size_t GetNumberOfNames() const;
 
+        BID GetByName(const std::string& _rString) const;
+
     public:
 
         void Clear();
