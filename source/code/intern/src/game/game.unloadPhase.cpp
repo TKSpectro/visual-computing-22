@@ -5,14 +5,14 @@ namespace Game
 {
     int UnloadPhase::InternOnEnter()
     {
-        std::cout << "UNLOAD::Enter" << std::endl;
+        std::cout << "GAME::UNLOAD::Enter" << std::endl;
 
         return 0;
     }
 
     int UnloadPhase::InternOnRun()
     {
-        std::cout << "UNLOAD::Run" << std::endl;
+        std::cout << "GAME::UNLOAD::Run" << std::endl;
 
         counter++;
         if (counter > 4)
@@ -25,7 +25,7 @@ namespace Game
 
     int UnloadPhase::InternOnLeave()
     {
-        std::cout << "UNLOAD::Leave" << std::endl;
+        std::cout << "GAME::UNLOAD::Leave" << std::endl;
 
         return 0;
     }

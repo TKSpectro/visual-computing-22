@@ -43,8 +43,7 @@ namespace
         : m_FileName("Log.txt")
         , m_Logfile()
     {
-        if (!m_Logfile.is_open())
-        {
+        if (!m_Logfile.is_open()) {
             m_Logfile.open(m_FileName.c_str(), ios::out);
         }
 
@@ -55,8 +54,7 @@ namespace
 
     void CLogger::Log(const string& _Msg)
     {
-        if (!m_Logfile.is_open())
-        {
+        if (!m_Logfile.is_open()) {
             m_Logfile.open(m_FileName.c_str(), ios::out | ios::app);
         }
 

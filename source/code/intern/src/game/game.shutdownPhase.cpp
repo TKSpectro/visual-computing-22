@@ -6,14 +6,14 @@ namespace Game
 {
     int ShutdownPhase::InternOnEnter()
     {
-        std::cout << "SHUTDOWN::Enter" << std::endl;
+        std::cout << "GAME::SHUTDOWN::Enter" << std::endl;
 
         return 0;
     }
 
     int ShutdownPhase::InternOnRun()
     {
-        std::cout << "SHUTDOWN::Run" << std::endl;
+        std::cout << "GAME::SHUTDOWN::Run" << std::endl;
 
         counter++;
         if (counter > 4)
@@ -26,13 +26,10 @@ namespace Game
 
     int ShutdownPhase::InternOnLeave()
     {
-        std::cout << "SHUTDOWN::Leave" << std::endl;
+        std::cout << "GAME::SHUTDOWN::Leave" << std::endl;
 
 
-        Application& app = Application::GetInstance();
-        std::cout << "Window open: " << app.m_window.isOpen() << std::endl;
-        app.m_window.close();
-        std::cout << "Window open: " << app.m_window.isOpen() << std::endl;
+        Application::GetInstance().window.close();
 
         return 0;
     }

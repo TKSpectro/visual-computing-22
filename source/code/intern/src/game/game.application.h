@@ -22,12 +22,12 @@ namespace Game
         Application();
 
     private:
-        int m_IndexOfCurrentPhase;
-        Phase* m_pPhases[Phase::NumberOfTypes];
+        int indexOfCurrentPhase;
+        Phase* phases[Phase::NumberOfTypes];
         //std::array<Phase*, Phase::NumberOfTypes> m_pPhases;
 
     public:
-        sf::RenderWindow m_window;
+        sf::RenderWindow window;
 
     public:
         void Initialize();

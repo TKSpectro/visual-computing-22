@@ -13,8 +13,8 @@
 namespace Game
 {
     Application::Application()
-        : m_IndexOfCurrentPhase(Phase::Undefined),
-        m_pPhases{
+        : indexOfCurrentPhase(Phase::Undefined),
+        phases{
         &StartupPhase::GetInstance(),
         &MainMenuPhase::GetInstance(),
         &LoadPhase::GetInstance(),
@@ -28,39 +28,39 @@ namespace Game
 
     void Application::Initialize()
     {
-        std::cout << "[APPLICATION] Initialize" << std::endl;
+        std::cout << "GAME::APPLICATION::Initialize" << std::endl;
 
         // Enable fancy anitaliasing
         sf::ContextSettings settings;
         settings.antialiasingLevel = 8;
 
-        m_window.create(sf::VideoMode(800, 450), "vc22 - Tom Kaeppler", sf::Style::Default, settings);
-        std::cout << "[APPLICATION] Window created" << std::endl;
+        window.create(sf::VideoMode(800, 450), "vc22 - Tom Kaeppler", sf::Style::Default, settings);
+        std::cout << "GAME::APPLICATION::Initialize Window created" << std::endl;
 
-        m_IndexOfCurrentPhase = Phase::STARTUP;
-        m_pPhases[m_IndexOfCurrentPhase]->OnEnter();
+        indexOfCurrentPhase = Phase::STARTUP;
+        phases[indexOfCurrentPhase]->OnEnter();
     }
 
     void Application::Run()
     {
-        std::cout << "[APPLICATION] Run" << std::endl;
+        std::cout << "GAME::APPLICATION::Run" << std::endl;
 
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
 
         for (;;)
         {
-            if (m_window.isOpen() == false)
+            if (window.isOpen() == false)
             {
                 break;
             }
 
-            while (m_window.pollEvent(event))
+            while (window.pollEvent(event))
             {
                 // "close requested" event: we close the m_window
                 if (event.type == sf::Event::Closed)
                 {
-                    m_window.close();
+                    window.close();
                 }
             }
 
@@ -73,32 +73,32 @@ namespace Game
 
     void Application::Finalize()
     {
-        std::cout << "[APPLICATION] Finalize" << std::endl;
+        std::cout << "GAME::APPLICATION::Finalize" << std::endl;
     }
 
     bool Application::RunPhase()
     {
-        Phase* pCurrentPhase = m_pPhases[m_IndexOfCurrentPhase];
-        assert(pCurrentPhase != nullptr);
+        Phase* currentPhase = phases[indexOfCurrentPhase];
+        assert(currentPhase != nullptr);
 
-        int indexOfNextPhase = pCurrentPhase->OnRun();
+        int indexOfNextPhase = currentPhase->OnRun();
 
-        if (indexOfNextPhase != m_IndexOfCurrentPhase)
+        if (indexOfNextPhase != indexOfCurrentPhase)
         {
-            pCurrentPhase->OnLeave();
+            currentPhase->OnLeave();
 
-            if (m_IndexOfCurrentPhase == Phase::SHUTDOWN)
+            if (indexOfCurrentPhase == Phase::SHUTDOWN)
             {
                 return false;
             }
 
-            m_IndexOfCurrentPhase = indexOfNextPhase;
+            indexOfCurrentPhase = indexOfNextPhase;
 
-            pCurrentPhase = m_pPhases[m_IndexOfCurrentPhase];
+            currentPhase = phases[indexOfCurrentPhase];
 
-            assert(pCurrentPhase != nullptr);
+            assert(currentPhase != nullptr);
 
-            pCurrentPhase->OnEnter();
+            currentPhase->OnEnter();
         }
 
         return true;

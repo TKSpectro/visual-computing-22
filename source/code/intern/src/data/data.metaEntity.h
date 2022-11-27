@@ -7,8 +7,6 @@
 
 namespace Data
 {
-    // Lightweight class with only member variables and getter and setters
-
     class MetaEntity
     {
     public:
@@ -18,9 +16,9 @@ namespace Data
             :id(_id), name(_name), size(_size)
         {}
 
-        friend std::ostream& operator << (std::ostream& os, const MetaEntity& s)
+        friend std::ostream& operator << (std::ostream& os, const MetaEntity& metaEntity)
         {
-            return (os << "Id: " << s.id << "\n Name: " << s.name << "\n Size: " << s.size << std::endl);
+            return (os << "Id: " << metaEntity.id << "\n Name: " << metaEntity.name << "\n Size: " << metaEntity.size << std::endl);
         }
 
     public:
