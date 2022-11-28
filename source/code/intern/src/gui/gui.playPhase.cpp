@@ -1,10 +1,12 @@
 #include "gui.playPhase.h"
+namespace Gui
+{
+    void PlayPhase::OnEnter()
+    {}
 
-void Gui::PlayPhase::OnEnter()
-{}
+    void PlayPhase::OnRun()
+    {}
 
-void Gui::PlayPhase::OnRun()
-{}
-
-void Gui::PlayPhase::OnLeave()
-{}
+    void PlayPhase::OnLeave()
+    {}
+}

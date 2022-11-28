@@ -7,7 +7,6 @@ using namespace tinyxml2;
 
 namespace Data
 {
-
     int MetaEntitySystem::Initialize(tinyxml2::XMLDocument& doc)
     {
         int metaEntityCount = 0;

@@ -1,10 +1,13 @@
 #include "logic.shutdownPhase.h"
 
-void Logic::ShutdownPhase::OnEnter()
-{}
+namespace Logic
+{
+    void ShutdownPhase::OnEnter()
+    {}
 
-void Logic::ShutdownPhase::OnRun()
-{}
+    void ShutdownPhase::OnRun()
+    {}
 
-void Logic::ShutdownPhase::OnLeave()
-{}
+    void ShutdownPhase::OnLeave()
+    {}
+}

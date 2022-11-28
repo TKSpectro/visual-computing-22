@@ -1,10 +1,13 @@
 #include "logic.unloadPhase.h"
 
-void Logic::UnloadPhase::OnEnter()
-{}
+namespace Logic
+{
+    void UnloadPhase::OnEnter()
+    {}
 
-void Logic::UnloadPhase::OnRun()
-{}
+    void UnloadPhase::OnRun()
+    {}
 
-void Logic::UnloadPhase::OnLeave()
-{}
+    void UnloadPhase::OnLeave()
+    {}
+}

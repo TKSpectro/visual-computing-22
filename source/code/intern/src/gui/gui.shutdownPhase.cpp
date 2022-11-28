@@ -1,10 +1,13 @@
 #include "gui.shutdownPhase.h"
 
-void Gui::ShutdownPhase::OnEnter()
-{}
+namespace Gui
+{
+    void ShutdownPhase::OnEnter()
+    {}
 
-void Gui::ShutdownPhase::OnRun()
-{}
+    void ShutdownPhase::OnRun()
+    {}
 
-void Gui::ShutdownPhase::OnLeave()
-{}
+    void ShutdownPhase::OnLeave()
+    {}
+}

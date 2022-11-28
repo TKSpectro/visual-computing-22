@@ -1,10 +1,13 @@
 #include "gfx.mainMenuPhase.h"
 
-void Gfx::MainMenuPhase::OnEnter()
-{}
+namespace Gfx
+{
+    void MainMenuPhase::OnEnter()
+    {}
 
-void Gfx::MainMenuPhase::OnRun()
-{}
+    void MainMenuPhase::OnRun()
+    {}
 
-void Gfx::MainMenuPhase::OnLeave()
-{}
+    void MainMenuPhase::OnLeave()
+    {}
+}

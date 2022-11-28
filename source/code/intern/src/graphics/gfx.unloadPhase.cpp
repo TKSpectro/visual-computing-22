@@ -1,10 +1,13 @@
 #include "gfx.unloadPhase.h"
 
-void Gfx::UnloadPhase::OnEnter()
-{}
+namespace Gfx
+{
+    void UnloadPhase::OnEnter()
+    {}
 
-void Gfx::UnloadPhase::OnRun()
-{}
+    void UnloadPhase::OnRun()
+    {}
 
-void Gfx::UnloadPhase::OnLeave()
-{}
+    void UnloadPhase::OnLeave()
+    {}
+}

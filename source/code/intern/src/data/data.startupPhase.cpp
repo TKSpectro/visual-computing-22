@@ -5,17 +5,20 @@
 #include "data.startupPhase.h"
 #include "data.metaEntitySystem.h"
 
-void Data::StartupPhase::OnEnter()
-{}
-
-void Data::StartupPhase::OnRun(tinyxml2::XMLDocument& doc)
+namespace Data
 {
-    std::cout << "DATA::STARTUP::Run" << std::endl;
+    void StartupPhase::OnEnter()
+    {}
 
-    int metaEntityCount = MetaEntitySystem::GetInstance().Initialize(doc);
+    void StartupPhase::OnRun(tinyxml2::XMLDocument& doc)
+    {
+        std::cout << "DATA::STARTUP::Run" << std::endl;
 
-    std::cout << "DATA::STARTUP::Run " << metaEntityCount << " MetaEntities initialized" << std::endl;
+        int metaEntityCount = MetaEntitySystem::GetInstance().Initialize(doc);
+
+        std::cout << "DATA::STARTUP::Run " << metaEntityCount << " MetaEntities initialized" << std::endl;
+    }
+
+    void StartupPhase::OnLeave()
+    {}
 }
-
-void Data::StartupPhase::OnLeave()
-{}

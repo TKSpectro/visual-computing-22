@@ -1,10 +1,13 @@
 #include "gui.mainMenuPhase.h"
 
-void Gui::MainMenuPhase::OnEnter()
-{}
+namespace Gui
+{
+    void MainMenuPhase::OnEnter()
+    {}
 
-void Gui::MainMenuPhase::OnRun()
-{}
+    void MainMenuPhase::OnRun()
+    {}
 
-void Gui::MainMenuPhase::OnLeave()
-{}
+    void MainMenuPhase::OnLeave()
+    {}
+}

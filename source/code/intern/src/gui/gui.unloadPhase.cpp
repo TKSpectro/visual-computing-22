@@ -1,10 +1,13 @@
 #include "gui.unloadPhase.h"
 
-void Gui::UnloadPhase::OnEnter()
-{}
+namespace Gui
+{
+    void UnloadPhase::OnEnter()
+    {}
 
-void Gui::UnloadPhase::OnRun()
-{}
+    void UnloadPhase::OnRun()
+    {}
 
-void Gui::UnloadPhase::OnLeave()
-{}
+    void UnloadPhase::OnLeave()
+    {}
+}

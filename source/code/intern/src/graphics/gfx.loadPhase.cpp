@@ -1,10 +1,13 @@
 #include "gfx.loadPhase.h"
 
-void Gfx::LoadPhase::OnEnter()
-{}
+namespace Gfx
+{
+    void LoadPhase::OnEnter()
+    {}
 
-void Gfx::LoadPhase::OnRun()
-{}
+    void LoadPhase::OnRun()
+    {}
 
-void Gfx::LoadPhase::OnLeave()
-{}
+    void LoadPhase::OnLeave()
+    {}
+}

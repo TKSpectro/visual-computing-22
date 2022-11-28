@@ -1,10 +1,13 @@
 #include "gui.loadPhase.h"
 
-void Gui::LoadPhase::OnEnter()
-{}
+namespace Gui
+{
+    void LoadPhase::OnEnter()
+    {}
 
-void Gui::LoadPhase::OnRun()
-{}
+    void LoadPhase::OnRun()
+    {}
 
-void Gui::LoadPhase::OnLeave()
-{}
+    void LoadPhase::OnLeave()
+    {}
+}

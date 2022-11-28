@@ -1,10 +1,13 @@
 #include "logic.loadPhase.h"
 
-void Logic::LoadPhase::OnEnter()
-{}
+namespace Logic
+{
+    void LoadPhase::OnEnter()
+    {}
 
-void Logic::LoadPhase::OnRun()
-{}
+    void LoadPhase::OnRun()
+    {}
 
-void Logic::LoadPhase::OnLeave()
-{}
+    void LoadPhase::OnLeave()
+    {}
+}

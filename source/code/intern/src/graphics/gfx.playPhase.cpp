@@ -1,10 +1,13 @@
 #include "gfx.playPhase.h"
 
-void Gfx::PlayPhase::OnEnter()
-{}
+namespace Gfx
+{
+    void PlayPhase::OnEnter()
+    {}
 
-void Gfx::PlayPhase::OnRun()
-{}
+    void PlayPhase::OnRun()
+    {}
 
-void Gfx::PlayPhase::OnLeave()
-{}
+    void PlayPhase::OnLeave()
+    {}
+}

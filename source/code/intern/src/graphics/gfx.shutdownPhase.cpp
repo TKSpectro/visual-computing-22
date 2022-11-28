@@ -1,10 +1,13 @@
 #include "gfx.shutdownPhase.h"
 
-void Gfx::ShutdownPhase::OnEnter()
-{}
+namespace Gfx
+{
+    void ShutdownPhase::OnEnter()
+    {}
 
-void Gfx::ShutdownPhase::OnRun()
-{}
+    void ShutdownPhase::OnRun()
+    {}
 
-void Gfx::ShutdownPhase::OnLeave()
-{}
+    void ShutdownPhase::OnLeave()
+    {}
+}

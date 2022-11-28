@@ -1,10 +1,13 @@
 #include "data.mainMenuPhase.h"
 
-void Data::MainMenuPhase::OnEnter()
-{}
+namespace Data
+{
+    void MainMenuPhase::OnEnter()
+    {}
 
-void Data::MainMenuPhase::OnRun()
-{}
+    void MainMenuPhase::OnRun()
+    {}
 
-void Data::MainMenuPhase::OnLeave()
-{}
+    void MainMenuPhase::OnLeave()
+    {}
+}
