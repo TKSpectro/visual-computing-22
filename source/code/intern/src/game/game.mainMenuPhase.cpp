@@ -1,5 +1,10 @@
 #include "game.mainMenuPhase.h"
+
 #include <iostream>
+
+#include "../data/data.mainMenuPhase.h"
+#include "../graphics/gfx.mainMenuPhase.h"
+#include "../gui/gui.mainMenuPhase.h"
 
 namespace Game
 {
@@ -7,12 +12,20 @@ namespace Game
     {
         std::cout << "GAME::MAINMENU::Enter" << std::endl;
 
+        Data::MainMenuPhase::GetInstance().OnEnter();
+        Gfx::MainMenuPhase::GetInstance().OnEnter();
+        Gui::MainMenuPhase::GetInstance().OnEnter();
+
         return 0;
     }
 
     int MainMenuPhase::InternOnRun()
     {
         std::cout << "GAME::MAINMENU::Run" << std::endl;
+
+        Data::MainMenuPhase::GetInstance().OnRun();
+        Gfx::MainMenuPhase::GetInstance().OnRun();
+        Gui::MainMenuPhase::GetInstance().OnRun();
 
         counter++;
         if (counter > 4)
@@ -27,6 +40,10 @@ namespace Game
     int MainMenuPhase::InternOnLeave()
     {
         std::cout << "GAME::MAINMENU::Leave" << std::endl;
+
+        Data::MainMenuPhase::GetInstance().OnLeave();
+        Gfx::MainMenuPhase::GetInstance().OnLeave();
+        Gui::MainMenuPhase::GetInstance().OnLeave();
 
         return 0;
     }
