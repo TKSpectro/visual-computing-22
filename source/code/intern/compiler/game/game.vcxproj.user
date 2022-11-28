@@ -8,4 +8,14 @@
   <PropertyGroup>
     <ShowAllFiles>false</ShowAllFiles>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerCommand>$(SolutionDir)..\..\..\bin\$(TargetFileName)</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)..\..\..\bin</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerCommand>$(SolutionDir)..\..\..\bin\$(TargetFileName)</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)..\..\..\bin</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>
