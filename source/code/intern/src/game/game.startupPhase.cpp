@@ -3,10 +3,10 @@
 #include <iostream>
 #include <tinyxml2.h>
 
-#include "../data/data.startupPhase.h"
-#include "../logic/logic.startupPhase.h"
-#include "../graphics/gfx.startupPhase.h"
-#include "../gui/gui.startupPhase.h"
+#include "data/data.startupPhase.h"
+#include "logic/logic.startupPhase.h"
+#include "graphics/gfx.startupPhase.h"
+#include "gui/gui.startupPhase.h"
 
 using namespace tinyxml2;
 

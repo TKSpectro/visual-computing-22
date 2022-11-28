@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-#include "../data/data.mainMenuPhase.h"
-#include "../graphics/gfx.mainMenuPhase.h"
-#include "../gui/gui.mainMenuPhase.h"
+#include "data/data.mainMenuPhase.h"
+#include "graphics/gfx.mainMenuPhase.h"
+#include "gui/gui.mainMenuPhase.h"
 
 namespace Game
 {

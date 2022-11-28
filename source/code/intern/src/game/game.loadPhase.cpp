@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-#include "../logic/logic.loadPhase.h"
-#include "../graphics/gfx.loadPhase.h"
-#include "../gui/gui.loadPhase.h"
+#include "logic/logic.loadPhase.h"
+#include "graphics/gfx.loadPhase.h"
+#include "gui/gui.loadPhase.h"
 
 namespace Game
 {

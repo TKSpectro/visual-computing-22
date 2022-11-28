@@ -2,10 +2,10 @@
 
 #include <iostream>
 
-#include "../game/game.application.h"
+#include "game/game.application.h"
 
-#include "../graphics/gfx.playPhase.h"
-#include "../gui/gui.playPhase.h"
+#include "graphics/gfx.playPhase.h"
+#include "gui/gui.playPhase.h"
 
 namespace Game
 {
