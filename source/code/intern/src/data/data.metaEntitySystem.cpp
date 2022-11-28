@@ -5,56 +5,75 @@
 
 using namespace tinyxml2;
 
-int Data::MetaEntitySystem::Initialize(tinyxml2::XMLDocument& doc)
+namespace Data
 {
-    int metaEntityCount = 0;
 
-    XMLElement* metaEntities = doc.FirstChildElement("meta-entities");
-    XMLElement* metaEntity = metaEntities->FirstChildElement("meta-entity");
-
-    for (;;)
+    int MetaEntitySystem::Initialize(tinyxml2::XMLDocument& doc)
     {
-        if (metaEntity == nullptr)
+        int metaEntityCount = 0;
+
+        XMLElement* metaEntities = doc.FirstChildElement("meta-entities");
+        XMLElement* metaEntity = metaEntities->FirstChildElement("meta-entity");
+
+        for (;;)
         {
-            break;
+            if (metaEntity == nullptr)
+            {
+                break;
+            }
+
+            std::string name = metaEntity->FindAttribute("name")->Value();
+
+            XMLElement* dataElement = metaEntity->FirstChildElement("data");
+            float size = dataElement->FirstChildElement("size")->FindAttribute("value")->FloatValue();
+
+            MetaEntity& item = CreateMetaEntity(name);
+            item.name = name;
+            item.size = size;
+
+            metaEntityCount++;
+
+            metaEntity = metaEntity->NextSiblingElement();
         }
 
-        std::string name = metaEntity->FindAttribute("name")->Value();
-
-        XMLElement* dataElement = metaEntity->FirstChildElement("data");
-        float size = dataElement->FirstChildElement("size")->FindAttribute("value")->FloatValue();
-
-        MetaEntity& item = CreateMetaEntity(name);
-        item.name = name;
-        item.size = size;
-
-        metaEntityCount++;
-
-        metaEntity = metaEntity->NextSiblingElement();
+        return metaEntityCount;
     }
 
-    return metaEntityCount;
-}
+    MetaEntity& MetaEntitySystem::CreateMetaEntity(std::string name)
+    {
+        Core::CIDManager::BID id = idManager.Register(name);
 
-Data::MetaEntity& Data::MetaEntitySystem::CreateMetaEntity(std::string name)
-{
-    Core::CIDManager::BID id = idManager.Register(name);
+        return itemManager.CreateItem(id);
+    }
 
-    return itemManager.CreateItem(id);
-}
+    void MetaEntitySystem::DestroyMetaEntity(MetaEntity& metaEntity)
+    {
+        throw std::logic_error("Not Implemented");
+    }
 
-void Data::MetaEntitySystem::DestroyMetaEntity(MetaEntity& metaEntity)
-{
-    // TODO
-}
+    void MetaEntitySystem::DestoryAllMetaEntities()
+    {
+        itemManager.Clear();
+        idManager.Clear();
+    }
 
-void Data::MetaEntitySystem::DestoryAllMetaEntities()
-{
-    itemManager.Clear();
-    idManager.Clear();
-}
+    MetaEntity& MetaEntitySystem::SearchMetaEntity(std::string name)
+    {
+        return itemManager.GetItem(idManager.GetByName(name));
+    }
 
-Data::MetaEntity& Data::MetaEntitySystem::SearchMetaEntity(std::string name)
-{
-    return itemManager.GetItem(idManager.GetByName(name));
+    MetaEntity& MetaEntitySystem::GetMetaEntity(Core::CIDManager::BID id)
+    {
+        return itemManager.GetItem(id);
+    }
+
+    bool MetaEntitySystem::ContainsMetaEntity(std::string name)
+    {
+        return idManager.ContainsName(name);
+    }
+
+    Core::CIDManager::BID MetaEntitySystem::GetMetaEntityID(std::string name)
+    {
+        return idManager.GetByName(name);
+    }
 }

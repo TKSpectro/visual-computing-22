@@ -25,10 +25,10 @@ namespace Data
         void DestroyMetaEntity(MetaEntity& metaEntity);
         void DestoryAllMetaEntities();
         MetaEntity& SearchMetaEntity(std::string name);
-        //MetaEntity& GetMetaEntity(CMetaEntityID _ID);
-        //bool ContainsMetaEntity(const char* _pName);
-        //CMetaEntityID GetMetaEntityID(const char* _pName);
-        //CMetaEntityIterator BeginMetaEntities();
+        MetaEntity& GetMetaEntity(Core::CIDManager::BID id);
+        bool ContainsMetaEntity(std::string name);
+        Core::CIDManager::BID GetMetaEntityID(std::string name);
+        //MetaEntity::iterator BeginMetaEntities();
         //CMetaEntityIterator EndMetaEntities();
 
     private:

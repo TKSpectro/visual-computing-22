@@ -3,6 +3,7 @@
     <meta-entity name="ground_stone">
         <data>
             <size value="16.4"/>
+            <aabb position="100;180"></aabb>
         </data>
 
         <logic>
