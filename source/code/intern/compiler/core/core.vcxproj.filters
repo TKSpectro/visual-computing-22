@@ -29,6 +29,7 @@
     <ClInclude Include="..\..\src\core\core_vector2.h" />
     <ClInclude Include="..\..\src\core\core_vector3.h" />
     <ClInclude Include="..\..\src\core\core_vector4.h" />
+    <ClInclude Include="..\..\src\core\core_explode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\core\core_id_manager.cpp" />

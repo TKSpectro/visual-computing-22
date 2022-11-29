@@ -1,7 +1,12 @@
+#include "data.metaEntitySystem.h"
+
 #include <tinyxml2.cpp>
 #include <iostream>
+#include <string>
 
-#include "data.metaEntitySystem.h"
+#include "../core/core_aabb3.h"
+#include "../core/core_explode.h"
+
 
 using namespace tinyxml2;
 
@@ -26,9 +31,26 @@ namespace Data
             XMLElement* dataElement = metaEntity->FirstChildElement("data");
             float size = dataElement->FirstChildElement("size")->FindAttribute("value")->FloatValue();
 
+            auto minCornerStrings = Core::Explode(dataElement->FirstChildElement("aabb")->FindAttribute("minCorner")->Value(), ';');
+            auto maxCornerStrings = Core::Explode(dataElement->FirstChildElement("aabb")->FindAttribute("maxCorner")->Value(), ';');
+
+            Core::Float3 minCorner = Core::Float3(
+                std::stof(minCornerStrings[0]),
+                std::stof(minCornerStrings[1]),
+                std::stof(minCornerStrings[2])
+            );
+            Core::Float3 maxCorner = Core::Float3(
+                std::stof(maxCornerStrings[0]),
+                std::stof(maxCornerStrings[1]),
+                std::stof(maxCornerStrings[2])
+            );
+
+            Core::AABB3Float aabb = Core::AABB3Float(minCorner, maxCorner);
+
             MetaEntity& item = CreateMetaEntity(name);
             item.name = name;
             item.size = size;
+            item.aabb = aabb;
 
             metaEntityCount++;
 

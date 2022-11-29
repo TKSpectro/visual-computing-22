@@ -25,7 +25,7 @@ namespace Data
         int id;
         std::string name;
         float size;
-        Core::AABB2Float aabb;
+        Core::AABB3Float aabb;
 
         void* facetes[2];
 

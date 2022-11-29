@@ -24,6 +24,7 @@
     <ClInclude Include="..\..\src\core\core_aabb3.h" />
     <ClInclude Include="..\..\src\core\core_allocator.h" />
     <ClInclude Include="..\..\src\core\core_constants.h" />
+    <ClInclude Include="..\..\src\core\core_explode.h" />
     <ClInclude Include="..\..\src\core\core_id_manager.h" />
     <ClInclude Include="..\..\src\core\core_item_manager.h" />
     <ClInclude Include="..\..\src\core\core_iterator.h" />

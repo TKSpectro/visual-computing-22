@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <meta-entities>
-    <meta-entity name="ground_stone">
-        <data>
-            <size value="16.4"/>
-            <aabb position="100;180"></aabb>
-        </data>
+  <meta-entity name="ground_stone">
+    <data>
+      <size value="16.4"/>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="4.0;4.0;0.0"></aabb>
+    </data>
 
-        <logic>
-            <can-move value="false"/>
-        </logic>
+    <logic>
+      <can-move value="false"/>
+    </logic>
 
-        <graphics>
-            <texture value="..\data\ground_stone.png"/>
-        </graphics>
-    </meta-entity>
-    <meta-entity name="ground_metal">
-        <data>
-            <size value="32"/>
-        </data>
+    <graphics>
+      <texture value="..\data\ground_stone.png"/>
+    </graphics>
+  </meta-entity>
+  <meta-entity name="ground_metal">
+    <data>
+      <size value="32"/>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="4.0;4.0;0.0"></aabb>
+    </data>
 
-        <logic>
-            <can-move value="false"/>
-        </logic>
+    <logic>
+      <can-move value="false"/>
+    </logic>
 
-        <graphics>
-            <texture value="..\data\ground_metal.png"/>
-        </graphics>
-    </meta-entity>
+    <graphics>
+      <texture value="..\data\ground_metal.png"/>
+    </graphics>
+  </meta-entity>
 </meta-entities>
