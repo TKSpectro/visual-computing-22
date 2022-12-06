@@ -21,7 +21,7 @@ namespace Game
         &PlayPhase::GetInstance(),
         &UnloadPhase::GetInstance(),
         &ShutdownPhase::GetInstance()
-    }
+        }
     {
 
     }
@@ -106,15 +106,95 @@ namespace Game
 
 }
 
+//int main()
+//{
+//    Game::Application& application = Game::Application::GetInstance();
+//
+//    application.Initialize();
+//
+//    application.Run();
+//
+//    application.Finalize();
+//
+//    return 0;
+//}
+
+
+#include "data/data.eventListener.h"
+#include "data/data.eventSystem.h"
+
+class Listener
+{
+public:
+
+    static Listener& GetInstance()
+    {
+        static Listener instance;
+
+        return instance;
+    }
+
+public:
+
+    void Initialize()
+    {
+        Data::EventSystem::GetInstance().Register(0, Listener::OnEventA);
+        Data::EventSystem::GetInstance().Register(1, Listener::OnEventB);
+    }
+
+    void Finalize()
+    {
+        Data::EventSystem::GetInstance().Unregister(0, Listener::OnEventA);
+        Data::EventSystem::GetInstance().Unregister(1, Listener::OnEventB);
+    }
+
+private:
+
+    static void OnEventA(Data::Event& event)
+    {
+        Listener::GetInstance().DoSomethingA(event);
+    }
+
+    static void OnEventB(Data::Event& event)
+    {
+        Listener::GetInstance().DoSomethingB(event);
+    }
+
+private:
+
+    Listener() = default;
+    ~Listener() = default;
+
+private:
+
+    void DoSomethingA(Data::Event& event)
+    {
+        std::cout << "DoSomethingA()" << std::endl;
+    }
+
+    void DoSomethingB(Data::Event& event)
+    {
+        std::cout << "DoSomethingB()" << std::endl;
+    }
+
+private:
+
+    Listener(const Listener&) = delete;
+    Listener& operator = (const Listener&) = delete;
+};
+
 int main()
 {
-    Game::Application& application = Game::Application::GetInstance();
+    Data::Event event1 = Data::EventSystem::GetInstance().MakeEvent();
+    //event1.SetType(1);
 
-    application.Initialize();
+    Data::Event event2 = Data::EventSystem::GetInstance().MakeEvent();
+    //event2.SetType(2);
 
-    application.Run();
+    Listener::GetInstance().Initialize();
 
-    application.Finalize();
+    Listener::GetInstance().Finalize();
 
     return 0;
 }
+

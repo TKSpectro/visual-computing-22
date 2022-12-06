@@ -11,9 +11,26 @@
     <ClCompile Include="..\..\src\data\data.mainMenuPhase.cpp">
       <Filter>phases</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\data\data.eventExample.cpp">
+      <Filter>events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\data\data.entityIterator.cpp">
+      <Filter>entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\data\data.entityLink.cpp">
+      <Filter>entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\data\data.entityList.cpp">
+      <Filter>entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\data\data.map.cpp">
+      <Filter>entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\data\data.eventSystem.cpp">
+      <Filter>events</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\data\data.entity.h" />
     <ClInclude Include="..\..\src\data\data.metaEntitySystem.h" />
     <ClInclude Include="..\..\src\data\data.metaEntity.h" />
     <ClInclude Include="..\..\src\data\data.startupPhase.h">
@@ -25,6 +42,39 @@
     <ClInclude Include="..\..\src\data\data.mainMenuPhase.h">
       <Filter>phases</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\data\data.event.h">
+      <Filter>events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.eventListener.h">
+      <Filter>events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.eventSystem.h">
+      <Filter>events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.entity.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.entityCategory.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.entityFolder.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.entityIterator.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.entityLink.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.entityList.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.map.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.sector.h">
+      <Filter>entity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\..\src\data\data.meta-entity.xml" />
@@ -33,6 +83,12 @@
   <ItemGroup>
     <Filter Include="phases">
       <UniqueIdentifier>{3183bb49-05e2-48a5-bd55-0ea0d365ffb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="events">
+      <UniqueIdentifier>{bf804954-64eb-4c85-b0ca-9d0519620e6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="entity">
+      <UniqueIdentifier>{edd49726-3e03-42b4-8e61-0397ab3369c0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
