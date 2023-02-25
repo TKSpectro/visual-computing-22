@@ -16,9 +16,9 @@ namespace Game
         std::cout << "GAME::SHUTDOWN::Enter" << std::endl;
 
         Data::ShutdownPhase::GetInstance().OnEnter();
+        Gui::ShutdownPhase::GetInstance().OnEnter();
         Logic::ShutdownPhase::GetInstance().OnEnter();
         Gfx::ShutdownPhase::GetInstance().OnEnter();
-        Gui::ShutdownPhase::GetInstance().OnEnter();
 
         return 0;
     }
@@ -28,9 +28,9 @@ namespace Game
         std::cout << "GAME::SHUTDOWN::Run" << std::endl;
 
         Data::ShutdownPhase::GetInstance().OnRun();
+        Gui::ShutdownPhase::GetInstance().OnRun();
         Logic::ShutdownPhase::GetInstance().OnRun();
         Gfx::ShutdownPhase::GetInstance().OnRun();
-        Gui::ShutdownPhase::GetInstance().OnRun();
 
         counter++;
         if (counter > 4)
@@ -46,9 +46,9 @@ namespace Game
         std::cout << "GAME::SHUTDOWN::Leave" << std::endl;
 
         Data::ShutdownPhase::GetInstance().OnLeave();
+        Gui::ShutdownPhase::GetInstance().OnLeave();
         Logic::ShutdownPhase::GetInstance().OnLeave();
         Gfx::ShutdownPhase::GetInstance().OnLeave();
-        Gui::ShutdownPhase::GetInstance().OnLeave();
 
         Application::GetInstance().window.close();
 

@@ -5,6 +5,9 @@
 
 #include <assert.h>
 
+template <typename T>
+class SmartPointer;
+
 namespace Core
 {
     class CSmartPointee : private CUncopyable
@@ -55,5 +58,55 @@ namespace Core
     private:
 
         virtual void FreeResource() = 0;
+    };
+
+
+    // Implementation from lecture
+    class SmartPointee : private CUncopyable
+    {
+    public:
+
+        SmartPointee()
+            : numberOfReferences(0)
+        {}
+
+        virtual ~SmartPointee() = default;
+
+    private:
+
+        int numberOfReferences;
+
+    private:
+
+        static int RefCount(SmartPointee& object)
+        {
+            return object.numberOfReferences;
+        }
+
+        static int AddRef(SmartPointee& object)
+        {
+            ++object.numberOfReferences;
+
+            return object.numberOfReferences;
+        }
+
+        static int Release(SmartPointee& object)
+        {
+            --object.numberOfReferences;
+
+            int refCount = object.numberOfReferences;
+
+            if (object.numberOfReferences == 0)
+            {
+                delete& object;
+            }
+
+            return refCount;
+        }
+
+    private:
+
+        template <typename T>
+        friend class SmartPointer;
     };
 } // namespace Core

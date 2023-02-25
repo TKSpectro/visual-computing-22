@@ -51,8 +51,8 @@ namespace Data
         for (EventListener* listener : eventListeners)
         {
             assert(listener != nullptr);
-
-            (*listener)(event);
+            EventListener* ptr = listener;
+            (*ptr)(event);
         }
     }
 

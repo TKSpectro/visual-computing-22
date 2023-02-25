@@ -29,6 +29,9 @@
     <ClCompile Include="..\..\src\data\data.eventSystem.cpp">
       <Filter>events</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\data\data.event.cpp">
+      <Filter>events</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\data\data.metaEntitySystem.h" />
