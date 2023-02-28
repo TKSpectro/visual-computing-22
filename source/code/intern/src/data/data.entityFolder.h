@@ -17,7 +17,7 @@ namespace Data
         void AddEntity(Entity& entity);
         void RemoveEntity(Entity& entity);
 
-    private:
+    public:
 
         Sector* owner;
         EntityList entities;

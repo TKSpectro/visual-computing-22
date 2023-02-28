@@ -62,7 +62,15 @@ namespace Game
                 {
                     window.close();
                 }
+
+                // Instead of doing events here we dispath them to a function (callback) in the gui project
+                // In there should be a fat switch case for Closed, MouseInput, Button Presses etc.
+                // We also wont direclty handle this but just put in in a queue
+                // default case should just get returned to the os
             }
+
+            // Core::RealTime::Update();
+            // Core::LogicalTime::Update();
 
             if (RunPhase() == false)
             {
@@ -152,12 +160,12 @@ private:
 
     static void OnEventA(Data::Event& event)
     {
-        Listener::GetInstance().DoSomethingA(event);
+        GetInstance().DoSomethingA(event);
     }
 
     static void OnEventB(Data::Event& event)
     {
-        Listener::GetInstance().DoSomethingB(event);
+        GetInstance().DoSomethingB(event);
     }
 
 private:
@@ -185,13 +193,15 @@ private:
 
 int main()
 {
-    Data::Event event1 = Data::EventSystem::GetInstance().MakeEvent();
-    //event1.SetType(1);
+    Data::Event& event1 = Data::EventSystem::GetInstance().MakeEvent();
+    event1.SetType(1);
 
-    Data::Event event2 = Data::EventSystem::GetInstance().MakeEvent();
-    //event2.SetType(2);
+    Data::Event& event2 = Data::EventSystem::GetInstance().MakeEvent();
+    event2.SetType(2);
 
     Listener::GetInstance().Initialize();
+
+    Data::EventSystem::GetInstance().FireEvent(event1);
 
     Listener::GetInstance().Finalize();
 

@@ -7,7 +7,7 @@ namespace Data
 {
     class Sector
     {
-    private:
+    public:
 
         int           positionX;
         int           positionY;

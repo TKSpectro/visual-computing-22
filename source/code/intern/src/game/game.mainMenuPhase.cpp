@@ -13,8 +13,8 @@ namespace Game
         std::cout << "GAME::MAINMENU::Enter" << std::endl;
 
         Data::MainMenuPhase::GetInstance().OnEnter();
-        Gfx::MainMenuPhase::GetInstance().OnEnter();
         Gui::MainMenuPhase::GetInstance().OnEnter();
+        Gfx::MainMenuPhase::GetInstance().OnEnter();
 
         return 0;
     }
@@ -24,8 +24,8 @@ namespace Game
         std::cout << "GAME::MAINMENU::Run" << std::endl;
 
         Data::MainMenuPhase::GetInstance().OnRun();
-        Gfx::MainMenuPhase::GetInstance().OnRun();
         Gui::MainMenuPhase::GetInstance().OnRun();
+        Gfx::MainMenuPhase::GetInstance().OnRun();
 
         counter++;
         if (counter > 4)
@@ -42,8 +42,8 @@ namespace Game
         std::cout << "GAME::MAINMENU::Leave" << std::endl;
 
         Data::MainMenuPhase::GetInstance().OnLeave();
-        Gfx::MainMenuPhase::GetInstance().OnLeave();
         Gui::MainMenuPhase::GetInstance().OnLeave();
+        Gfx::MainMenuPhase::GetInstance().OnLeave();
 
         return 0;
     }

@@ -186,6 +186,7 @@
     <ClCompile Include="..\..\src\data\data.entityIterator.cpp" />
     <ClCompile Include="..\..\src\data\data.entityLink.cpp" />
     <ClCompile Include="..\..\src\data\data.entityList.cpp" />
+    <ClCompile Include="..\..\src\data\data.event.cpp" />
     <ClCompile Include="..\..\src\data\data.eventExample.cpp" />
     <ClCompile Include="..\..\src\data\data.eventSystem.cpp" />
     <ClCompile Include="..\..\src\data\data.mainMenuPhase.cpp" />

@@ -101,7 +101,18 @@ namespace Data
         }
 
         Sector sector = sectors[sectorY * 8 + sectorX];
-        // ueber alle EntityFolder iterieren
+        for (EntityFolder folder : sector.folders)
+        {
+            if (!folder.entities.IsEmpty())
+            {
+                for (EntityIterator ptr = folder.entities.begin(); ptr != folder.entities.end(); ptr.Next())
+                {
+                    // TODO: Figure out why this is not working
+                    //Entity enti = ptr.link->GetEntity();
+
+                }
+            }
+        }
         //   if list.notEmpty()
         //     for alle entitaeten in der liste
         //       if entity AABB intersects inputAABB

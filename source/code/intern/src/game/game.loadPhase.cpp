@@ -12,9 +12,9 @@ namespace Game
     {
         std::cout << "GAME::LOAD::Enter" << std::endl;
 
+        Gui::LoadPhase::GetInstance().OnEnter();
         Logic::LoadPhase::GetInstance().OnEnter();
         Gfx::LoadPhase::GetInstance().OnEnter();
-        Gui::LoadPhase::GetInstance().OnEnter();
 
         return 0;
     }
@@ -23,9 +23,9 @@ namespace Game
     {
         std::cout << "GAME::LOAD::Run" << std::endl;
 
+        Gui::LoadPhase::GetInstance().OnRun();
         Logic::LoadPhase::GetInstance().OnRun();
         Gfx::LoadPhase::GetInstance().OnRun();
-        Gui::LoadPhase::GetInstance().OnRun();
 
         counter++;
         if (counter > 4)
@@ -41,9 +41,9 @@ namespace Game
     {
         std::cout << "GAME::LOAD::Leave" << std::endl;
 
+        Gui::LoadPhase::GetInstance().OnLeave();
         Logic::LoadPhase::GetInstance().OnLeave();
         Gfx::LoadPhase::GetInstance().OnLeave();
-        Gui::LoadPhase::GetInstance().OnLeave();
 
         return 0;
     }

@@ -17,9 +17,9 @@ namespace Game
         std::cout << "GAME::STARTUP::Enter" << std::endl;
 
         Data::StartupPhase::GetInstance().OnEnter();
+        Gui::StartupPhase::GetInstance().OnEnter();
         Logic::StartupPhase::GetInstance().OnEnter();
         Gfx::StartupPhase::GetInstance().OnEnter();
-        Gui::StartupPhase::GetInstance().OnEnter();
 
         return 0;
     }
@@ -32,9 +32,9 @@ namespace Game
         doc.LoadFile("../code/intern/src/data/data.meta-entity.xml");
 
         Data::StartupPhase::GetInstance().OnRun(doc);
+        Gui::StartupPhase::GetInstance().OnRun();
         Logic::StartupPhase::GetInstance().OnRun();
         Gfx::StartupPhase::GetInstance().OnRun();
-        Gui::StartupPhase::GetInstance().OnRun();
 
         // Normally we will load a resource-, file-, buffer-, model-managers here
 
@@ -46,9 +46,9 @@ namespace Game
         std::cout << "GAME::STARTUP::Leave" << std::endl;
 
         Data::StartupPhase::GetInstance().OnLeave();
+        Gui::StartupPhase::GetInstance().OnLeave();
         Logic::StartupPhase::GetInstance().OnLeave();
         Gfx::StartupPhase::GetInstance().OnLeave();
-        Gui::StartupPhase::GetInstance().OnLeave();
 
         return 0;
     }

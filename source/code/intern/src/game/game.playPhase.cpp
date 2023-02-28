@@ -13,21 +13,28 @@ namespace Game
     {
         std::cout << "GAME::PLAY::Enter" << std::endl;
 
-        Gfx::PlayPhase::GetInstance().OnEnter();
+        // TODO: Reset timer
+
         Gui::PlayPhase::GetInstance().OnEnter();
+        Gfx::PlayPhase::GetInstance().OnEnter();
+
 
         return 0;
     }
 
     int PlayPhase::InternOnRun()
     {
+        // TODO: Call timer::OnFrame;
+        // Can call getTime(), getFrameDuration
+
         if (counter % 100 == 0)
         {
             std::cout << "GAME::PLAY::Run::" << counter << std::endl;
         }
 
-        Gfx::PlayPhase::GetInstance().OnRun();
         Gui::PlayPhase::GetInstance().OnRun();
+        Gfx::PlayPhase::GetInstance().OnRun();
+
 
         counter++;
         if (counter > 2000)
@@ -42,8 +49,8 @@ namespace Game
     {
         std::cout << "GAME::PLAY::Leave" << std::endl;
 
-        Gfx::PlayPhase::GetInstance().OnLeave();
         Gui::PlayPhase::GetInstance().OnLeave();
+        Gfx::PlayPhase::GetInstance().OnLeave();
 
         return 0;
     }

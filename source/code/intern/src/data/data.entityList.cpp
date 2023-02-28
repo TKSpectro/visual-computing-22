@@ -63,15 +63,29 @@ namespace Data
 
     // -----------------------------------------------------------------------------
 
-    EntityIterator EntityList::Begin()
+    EntityIterator EntityList::begin()
     {
         return EntityIterator(anchor.GetNext());
     }
 
     // -----------------------------------------------------------------------------
 
-    EntityIterator EntityList::End()
+    EntityIterator EntityList::end()
     {
         return EntityIterator(&anchor);
+    }
+
+    // -----------------------------------------------------------------------------
+
+    EntityIterator EntityList::operator++(int)
+    {
+        return EntityIterator(anchor.GetNext());
+    }
+
+    // -----------------------------------------------------------------------------
+
+    EntityIterator EntityList::Next()
+    {
+        return EntityIterator(anchor.GetNext());
     }
 }
