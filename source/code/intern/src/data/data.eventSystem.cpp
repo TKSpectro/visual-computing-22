@@ -13,13 +13,13 @@ namespace Data
 
     void EventSystem::Register(Event::BTypeID type, EventListener listener)
     {
-        std::cout << "Register:" << type << std::endl;
+        std::cout << "Register Event - Type:" << type << std::endl;
         eventListeners.push_back(&listener);
     }
 
     void EventSystem::Unregister(Event::BTypeID type, EventListener listener)
     {
-        std::cout << "Unregister:" << type << std::endl;
+        std::cout << "Unregister Event - Type:" << type << std::endl;
 
         std::list<EventListener*>::iterator it;
         const std::list<EventListener*>::iterator endIterator = eventListeners.end();
@@ -51,8 +51,16 @@ namespace Data
         for (EventListener* listener : eventListeners)
         {
             assert(listener != nullptr);
-            EventListener* ptr = listener;
-            (*ptr)(event);
+            // TODO: This seems to be the closest i got
+            //((void(*) ())listener)();
+            //(*listener)(event);
+
+            //listener->OnEvent(event);
+            //int a = 0;
+            //void* ptr;
+            //ptr = listener;
+            //EventListener* ptr = listener;
+            //(*ptr)(event);
         }
     }
 

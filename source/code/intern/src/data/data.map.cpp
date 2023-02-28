@@ -100,6 +100,9 @@ namespace Data
             sectorY = 0;
         }
 
+        const int MIN_X = sectorX;
+        const int MIN_Y = sectorY;
+
         Sector sector = sectors[sectorY * 8 + sectorX];
         for (EntityFolder folder : sector.folders)
         {
@@ -118,6 +121,21 @@ namespace Data
         //       if entity AABB intersects inputAABB
         //         return entityIterator;
 
+        const int MAX_X = 7;
+        const int MAX_Y = 7;
+
+        sectorX += 1;
+        if (sectorX > MAX_X)
+        {
+            sectorY += 1;
+            sectorX = MIN_X;
+
+            if (sectorY > MAX_Y)
+            {
+                // TODO: This should return a nullptr instead
+                return EntityIterator();
+            }
+        }
         // keine enity in dem Sektor gefunden
         // sektor x++
         // if (sektor x++ > maxX)

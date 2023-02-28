@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <cassert>
 
+#include "core/core_time.h"
+
 #include "game.application.h"
 #include "game.phase.h"
 #include "game.startupPhase.h"
@@ -30,7 +32,6 @@ namespace Game
     {
         std::cout << "GAME::APPLICATION::Initialize" << std::endl;
 
-        // Enable fancy anitaliasing
         sf::ContextSettings settings;
         settings.antialiasingLevel = 8;
 
@@ -114,97 +115,96 @@ namespace Game
 
 }
 
-//int main()
-//{
-//    Game::Application& application = Game::Application::GetInstance();
-//
-//    application.Initialize();
-//
-//    application.Run();
-//
-//    application.Finalize();
-//
-//    return 0;
-//}
-
-
-#include "data/data.eventListener.h"
-#include "data/data.eventSystem.h"
-
-class Listener
-{
-public:
-
-    static Listener& GetInstance()
-    {
-        static Listener instance;
-
-        return instance;
-    }
-
-public:
-
-    void Initialize()
-    {
-        Data::EventSystem::GetInstance().Register(0, Listener::OnEventA);
-        Data::EventSystem::GetInstance().Register(1, Listener::OnEventB);
-    }
-
-    void Finalize()
-    {
-        Data::EventSystem::GetInstance().Unregister(0, Listener::OnEventA);
-        Data::EventSystem::GetInstance().Unregister(1, Listener::OnEventB);
-    }
-
-private:
-
-    static void OnEventA(Data::Event& event)
-    {
-        GetInstance().DoSomethingA(event);
-    }
-
-    static void OnEventB(Data::Event& event)
-    {
-        GetInstance().DoSomethingB(event);
-    }
-
-private:
-
-    Listener() = default;
-    ~Listener() = default;
-
-private:
-
-    void DoSomethingA(Data::Event& event)
-    {
-        std::cout << "DoSomethingA()" << std::endl;
-    }
-
-    void DoSomethingB(Data::Event& event)
-    {
-        std::cout << "DoSomethingB()" << std::endl;
-    }
-
-private:
-
-    Listener(const Listener&) = delete;
-    Listener& operator = (const Listener&) = delete;
-};
-
 int main()
 {
-    Data::Event& event1 = Data::EventSystem::GetInstance().MakeEvent();
-    event1.SetType(1);
+    Game::Application& application = Game::Application::GetInstance();
 
-    Data::Event& event2 = Data::EventSystem::GetInstance().MakeEvent();
-    event2.SetType(2);
+    application.Initialize();
 
-    Listener::GetInstance().Initialize();
+    application.Run();
 
-    Data::EventSystem::GetInstance().FireEvent(event1);
-
-    Listener::GetInstance().Finalize();
+    application.Finalize();
 
     return 0;
 }
 
+//#include "data/data.eventListener.h"
+//#include "data/data.eventSystem.h"
+//
+//class Listener
+//{
+//public:
+//
+//    static Listener& GetInstance()
+//    {
+//        static Listener instance;
+//
+//        return instance;
+//    }
+//
+//public:
+//
+//    void Initialize()
+//    {
+//        Data::EventSystem::GetInstance().Register(0, Listener::OnEventA);
+//        Data::EventSystem::GetInstance().Register(1, Listener::OnEventB);
+//    }
+//
+//    void Finalize()
+//    {
+//        Data::EventSystem::GetInstance().Unregister(0, Listener::OnEventA);
+//        Data::EventSystem::GetInstance().Unregister(1, Listener::OnEventB);
+//    }
+//
+//private:
+//
+//    static void OnEventA(Data::Event& event)
+//    {
+//        GetInstance().DoSomethingA(event);
+//    }
+//
+//    static void OnEventB(Data::Event& event)
+//    {
+//        GetInstance().DoSomethingB(event);
+//    }
+//
+//private:
+//
+//    Listener() = default;
+//    ~Listener() = default;
+//
+//private:
+//
+//    void DoSomethingA(Data::Event& event)
+//    {
+//        std::cout << "DoSomethingA()" << std::endl;
+//    }
+//
+//    void DoSomethingB(Data::Event& event)
+//    {
+//        std::cout << "DoSomethingB()" << std::endl;
+//    }
+//
+//private:
+//
+//    Listener(const Listener&) = delete;
+//    Listener& operator = (const Listener&) = delete;
+//};
+
+//int main()
+//{
+//    Data::Event& event1 = Data::EventSystem::GetInstance().MakeEvent();
+//    event1.SetType(1);
+//
+//    Data::Event& event2 = Data::EventSystem::GetInstance().MakeEvent();
+//    event2.SetType(2);
+//
+//    Listener::GetInstance().Initialize();
+//
+//    Data::EventSystem::GetInstance().FireEvent(event1);
+//
+//    Listener::GetInstance().Finalize();
+//
+//    return 0;
+//}
+//

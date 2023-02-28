@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+#include "core/core_time.h"
 #include "game/game.application.h"
 
 #include "graphics/gfx.playPhase.h"
@@ -13,7 +14,7 @@ namespace Game
     {
         std::cout << "GAME::PLAY::Enter" << std::endl;
 
-        // TODO: Reset timer
+        Core::Time::Reset();
 
         Gui::PlayPhase::GetInstance().OnEnter();
         Gfx::PlayPhase::GetInstance().OnEnter();
@@ -24,8 +25,8 @@ namespace Game
 
     int PlayPhase::InternOnRun()
     {
-        // TODO: Call timer::OnFrame;
-        // Can call getTime(), getFrameDuration
+        Core::Time::OnFrame();
+        // Now we can call getTime(), getFrameDuration()
 
         if (counter % 100 == 0)
         {
