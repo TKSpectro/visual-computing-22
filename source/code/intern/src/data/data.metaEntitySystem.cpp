@@ -47,12 +47,13 @@ namespace Data
 
             Core::AABB3Float aabb = Core::AABB3Float(minCorner, maxCorner);
 
-            MetaEntity& item = CreateMetaEntity(name);
-            item.name = name;
-            item.size = size;
-            item.aabb = aabb;
+            MetaEntity& entity = CreateMetaEntity(name);
+            entity.name = name;
+            entity.size = size;
+            entity.aabb = aabb;
 
             metaEntityCount++;
+            std::cout << "MetaEntity: " << entity << std::endl;
 
             metaEntity = metaEntity->NextSiblingElement();
         }

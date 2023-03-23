@@ -13,12 +13,17 @@ namespace Data
         MetaEntity()
         {}
         MetaEntity(int _id, std::string _name, float _size)
-            :id(_id), name(_name), size(_size)
+            :id(_id), name(_name), size(_size), gfx(nullptr)
         {}
 
         friend std::ostream& operator << (std::ostream& os, const MetaEntity& metaEntity)
         {
-            return (os << "Id: " << metaEntity.id << "\n Name: " << metaEntity.name << "\n Size: " << metaEntity.size << std::endl);
+            return (os << "Id: " << metaEntity.id
+                << "\n Name: " << metaEntity.name
+                << "\n Size: " << metaEntity.size
+                << "\n aabb: " << metaEntity.aabb.GetMin()[0] << ", " << metaEntity.aabb.GetMin()[1] << ", " << metaEntity.aabb.GetMin()[2]
+                << "\n aabb: " << metaEntity.aabb.GetMax()[0] << ", " << metaEntity.aabb.GetMax()[1] << ", " << metaEntity.aabb.GetMax()[2]
+                << std::endl);
         }
 
     public:
@@ -26,7 +31,7 @@ namespace Data
         std::string name;
         float size;
         Core::AABB3Float aabb;
-
+        void* gfx;
         void* facetes[2];
 
     public:
