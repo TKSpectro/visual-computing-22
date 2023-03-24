@@ -18,7 +18,12 @@ namespace Data
 
         friend std::ostream& operator << (std::ostream& os, const MetaEntity& metaEntity)
         {
-            return (os << "Id: " << metaEntity.id << "\n Name: " << metaEntity.name << "\n Size: " << metaEntity.size << std::endl);
+            return (os << "Id: " << metaEntity.id
+                << "\n Name: " << metaEntity.name
+                << "\n Size: " << metaEntity.size
+                << "\n AABB-min: " << metaEntity.aabb.GetMin()[0] << ", " << metaEntity.aabb.GetMin()[1] << ", " << metaEntity.aabb.GetMin()[2]
+                << "\n AABB-max: " << metaEntity.aabb.GetMax()[0] << ", " << metaEntity.aabb.GetMax()[1] << ", " << metaEntity.aabb.GetMax()[2]
+                << std::endl);
         }
 
     public:

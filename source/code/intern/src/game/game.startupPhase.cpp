@@ -34,7 +34,7 @@ namespace Game
         Data::StartupPhase::GetInstance().OnRun(doc);
         Gui::StartupPhase::GetInstance().OnRun();
         Logic::StartupPhase::GetInstance().OnRun();
-        Gfx::StartupPhase::GetInstance().OnRun();
+        Gfx::StartupPhase::GetInstance().OnRun(/*doc*/);
 
         // Normally we will load a resource-, file-, buffer-, model-managers here
 
