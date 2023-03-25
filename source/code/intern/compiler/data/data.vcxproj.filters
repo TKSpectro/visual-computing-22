@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\src\data\data.metaEntitySystem.cpp" />
     <ClCompile Include="..\..\src\data\data.startupPhase.cpp">
       <Filter>phases</Filter>
     </ClCompile>
@@ -32,10 +31,17 @@
     <ClCompile Include="..\..\src\data\data.event.cpp">
       <Filter>events</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\data\data.metaEntitySystem.cpp">
+      <Filter>metaEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\data\data.entitySystem.cpp">
+      <Filter>entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\data\data.loadPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\data\data.metaEntitySystem.h" />
-    <ClInclude Include="..\..\src\data\data.metaEntity.h" />
     <ClInclude Include="..\..\src\data\data.startupPhase.h">
       <Filter>phases</Filter>
     </ClInclude>
@@ -78,10 +84,24 @@
     <ClInclude Include="..\..\src\data\data.sector.h">
       <Filter>entity</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\data\data.metaEntity.h">
+      <Filter>metaEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.metaEntitySystem.h">
+      <Filter>metaEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.entitySystem.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.loadPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\..\src\data\data.meta-entity.xml" />
     <Xml Include="..\..\src\data\data.map-1.xml" />
+    <Xml Include="..\..\src\data\data.meta-entity.xml">
+      <Filter>metaEntity</Filter>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="phases">
@@ -92,6 +112,9 @@
     </Filter>
     <Filter Include="entity">
       <UniqueIdentifier>{edd49726-3e03-42b4-8e61-0397ab3369c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="metaEntity">
+      <UniqueIdentifier>{6940ea9d-3ff6-4108-9185-abed3d75ce6a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

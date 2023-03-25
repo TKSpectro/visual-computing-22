@@ -3,7 +3,7 @@
   <meta-entity name="ground_stone">
     <data>
       <size value="16.4"/>
-      <aabb minCorner="0.0;0.0;0.0" maxCorner="128.0;128.0;0.0"></aabb>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="64.0;64.0;0.0"></aabb>
     </data>
 
     <logic>
@@ -14,10 +14,10 @@
       <texture value="ground_stone.jpg"/>
     </graphics>
   </meta-entity>
-  <meta-entity name="ground_stone2">
+  <meta-entity name="dirt">
     <data>
       <size value="16.4"/>
-      <aabb minCorner="128.0;128.0;0.0" maxCorner="256.0;256.0;0.0"></aabb>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="64.0;64.0;0.0"></aabb>
     </data>
 
     <logic>
@@ -25,7 +25,7 @@
     </logic>
 
     <graphics>
-      <texture value="ground_stone.jpg"/>
+      <texture value="dirt.jpg"/>
     </graphics>
   </meta-entity>
   <meta-entity name="ground_metal">
@@ -40,6 +40,20 @@
 
     <graphics>
       <texture value="ground_metal.png"/>
+    </graphics>
+  </meta-entity>
+  <meta-entity name="player">
+    <data>
+      <size value="0.0"/>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="57.0;70.0;0.0"></aabb>
+    </data>
+
+    <logic>
+      <can-move value="true"/>
+    </logic>
+
+    <graphics>
+      <texture value="player.png"/>
     </graphics>
   </meta-entity>
 </meta-entities>

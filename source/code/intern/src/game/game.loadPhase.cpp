@@ -1,10 +1,14 @@
 #include "game.loadPhase.h"
 
 #include <iostream>
+#include <tinyxml2.h>
 
+#include "data/data.loadPhase.h"
 #include "logic/logic.loadPhase.h"
 #include "graphics/gfx.loadPhase.h"
 #include "gui/gui.loadPhase.h"
+
+using namespace tinyxml2;
 
 namespace Game
 {
@@ -12,6 +16,7 @@ namespace Game
     {
         std::cout << "GAME::LOAD::Enter" << std::endl;
 
+        Data::LoadPhase::GetInstance().OnEnter();
         Gui::LoadPhase::GetInstance().OnEnter();
         Logic::LoadPhase::GetInstance().OnEnter();
         Gfx::LoadPhase::GetInstance().OnEnter();
@@ -23,24 +28,22 @@ namespace Game
     {
         std::cout << "GAME::LOAD::Run" << std::endl;
 
+        XMLDocument doc;
+        doc.LoadFile("../code/intern/src/data/data.map-1.xml");
+
+        Data::LoadPhase::GetInstance().OnRun(doc);
         Gui::LoadPhase::GetInstance().OnRun();
         Logic::LoadPhase::GetInstance().OnRun();
         Gfx::LoadPhase::GetInstance().OnRun();
 
-        counter++;
-        if (counter > 4)
-        {
-            counter = 0;
-            return Type::PLAY;
-        }
-
-        return Type::LOAD_MAP;
+        return Type::PLAY;
     }
 
     int LoadPhase::InternOnLeave()
     {
         std::cout << "GAME::LOAD::Leave" << std::endl;
 
+        Data::LoadPhase::GetInstance().OnLeave();
         Gui::LoadPhase::GetInstance().OnLeave();
         Logic::LoadPhase::GetInstance().OnLeave();
         Gfx::LoadPhase::GetInstance().OnLeave();

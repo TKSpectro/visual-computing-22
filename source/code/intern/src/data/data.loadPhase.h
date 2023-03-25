@@ -1,9 +1,8 @@
 #pragma once
-#include "game.phase.h"
 
-namespace Game
+namespace Data
 {
-    class LoadPhase : public Phase
+    class LoadPhase
     {
     public:
         static LoadPhase& GetInstance()
@@ -15,13 +14,13 @@ namespace Game
         LoadPhase(const LoadPhase&) = delete;
         LoadPhase& operator = (const LoadPhase&) = delete;
 
+    public:
+        void OnEnter();
+        void OnRun(tinyxml2::XMLDocument& doc);
+        void OnLeave();
+
     private:
         LoadPhase()
         {};
-
-    private:
-        int InternOnEnter() override;
-        int InternOnRun() override;
-        int InternOnLeave() override;
     };
 }

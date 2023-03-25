@@ -19,8 +19,6 @@ namespace Game
         ShutdownPhase()
         {};
 
-        int counter;
-
     private:
         int InternOnEnter() override;
         int InternOnRun() override;

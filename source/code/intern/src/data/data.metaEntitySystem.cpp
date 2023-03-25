@@ -34,18 +34,18 @@ namespace Data
             auto minCornerStrings = Core::Explode(dataElement->FirstChildElement("aabb")->FindAttribute("minCorner")->Value(), ';');
             auto maxCornerStrings = Core::Explode(dataElement->FirstChildElement("aabb")->FindAttribute("maxCorner")->Value(), ';');
 
-            Core::Float3 minCorner = Core::Float3(
-                std::stof(minCornerStrings[0]),
-                std::stof(minCornerStrings[1]),
-                std::stof(minCornerStrings[2])
+            Core::AABB3Float aabb = Core::AABB3Float(
+                Core::Float3(
+                    std::stof(minCornerStrings[0]),
+                    std::stof(minCornerStrings[1]),
+                    std::stof(minCornerStrings[2])
+                ),
+                Core::Float3(
+                    std::stof(maxCornerStrings[0]),
+                    std::stof(maxCornerStrings[1]),
+                    std::stof(maxCornerStrings[2])
+                )
             );
-            Core::Float3 maxCorner = Core::Float3(
-                std::stof(maxCornerStrings[0]),
-                std::stof(maxCornerStrings[1]),
-                std::stof(maxCornerStrings[2])
-            );
-
-            Core::AABB3Float aabb = Core::AABB3Float(minCorner, maxCorner);
 
             MetaEntity& entity = CreateMetaEntity(name);
             entity.name = name;

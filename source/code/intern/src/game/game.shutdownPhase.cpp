@@ -32,13 +32,7 @@ namespace Game
         Logic::ShutdownPhase::GetInstance().OnRun();
         Gfx::ShutdownPhase::GetInstance().OnRun();
 
-        counter++;
-        if (counter > 4)
-        {
-            return Type::Undefined;
-        }
-
-        return Type::SHUTDOWN;
+        return Type::Undefined;
     }
 
     int ShutdownPhase::InternOnLeave()

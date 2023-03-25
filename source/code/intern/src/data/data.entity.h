@@ -1,8 +1,12 @@
 #pragma once
 
 #include "data.entityLink.h"
+#include "data.metaEntity.h"
 
 #include <array>
+
+#include "../core/core_vector3.h"
+#include "../core/core_id_manager.h"
 
 namespace Data
 {
@@ -26,6 +30,14 @@ namespace Data
 
         void SetFacet(Facet type, void* facet);
         void* GetFacet(Facet type);
+
+    public:
+
+        Core::CIDManager::BID id;
+        Core::CVector3<float> position;
+        Core::CVector3<float> size;
+        Core::CVector3<float> aabb;
+        MetaEntity* metaEntity;
 
     private:
 

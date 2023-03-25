@@ -4,6 +4,7 @@
 
 #include "data.startupPhase.h"
 #include "data.metaEntitySystem.h"
+#include "data.entitySystem.h"
 
 namespace Data
 {

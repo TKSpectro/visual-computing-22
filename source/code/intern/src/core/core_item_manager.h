@@ -76,6 +76,28 @@ namespace Core
             return *m_ItemsByID[_ID];
         }
 
+        std::vector<XPtr> GetAllItems()
+        {
+            std::vector<XPtr> items;
+
+            const CItemVector::iterator ItemEndIterator = m_ItemsByID.end();
+
+            for (typename CItemVector::iterator ItemIterator = m_ItemsByID.begin(); ItemIterator != ItemEndIterator; ++ItemIterator)
+            {
+                if (*ItemIterator != nullptr)
+                {
+                    items.push_back(*ItemIterator);
+                }
+            }
+
+            return items;
+        }
+
+        auto GetAllItems() const
+        {
+            return m_Items;
+        }
+
     public:
 
         void Clear()
