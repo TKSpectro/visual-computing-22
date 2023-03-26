@@ -49,6 +49,21 @@ namespace Gfx
             sprite.setScale(xSpriteScale, ySpriteScale);
 
             app.window.draw(sprite);
+
+            // We move the camera/view with the player entity
+            if (entity->metaEntity->name == "player")
+            {
+                auto prevSize = app.window.getView().getSize();
+
+                sf::View view(sf::FloatRect(
+                    entity->position[0] - prevSize.x / 2,
+                    entity->position[1] - prevSize.y / 2 - 64 - 32,
+                    prevSize.x,
+                    prevSize.y
+                ));
+
+                app.window.setView(view);
+            }
         }
 
         // end the current frame and display everything drawn
