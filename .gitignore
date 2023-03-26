@@ -31,6 +31,9 @@
 *.out
 *.app
 
+!game.exe
+!game_debug.exe
+
 /.vs
 /docs
 /pdf

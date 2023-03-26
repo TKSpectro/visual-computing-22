@@ -64,6 +64,13 @@ namespace Game
                     window.close();
                 }
 
+                if (event.type == sf::Event::Resized)
+                {
+                    // update the view to the new size of the window
+                    sf::FloatRect visibleArea(0.f, 0.f, event.size.width, event.size.height);
+                    window.setView(sf::View(visibleArea));
+                }
+
                 // Instead of doing events here we dispath them to a function (callback) in the gui project
                 // In there should be a fat switch case for Closed, MouseInput, Button Presses etc.
                 // We also wont direclty handle this but just put in in a queue

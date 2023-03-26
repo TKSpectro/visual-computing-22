@@ -42,7 +42,7 @@ namespace Game
         Data::EntitySystem& entitySystem = Data::EntitySystem::GetInstance();
         auto id = entitySystem.GetEntityID("player");
         Data::Entity& player = entitySystem.GetEntity(id);
-        player.position = Core::Float3(counter / 4 + 64, player.position[1], player.position[2]);
+        player.position = Core::Float3(player.position[0] + 0.5f, player.position[1], player.position[2]);
 
         counter++;
         if (counter > 2000)
