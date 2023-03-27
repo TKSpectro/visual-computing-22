@@ -41,9 +41,8 @@ namespace Data
             auto sizeStrings = Core::Explode(dataElement->FirstChildElement("size")->FirstChild()->Value(), ';');
             auto positionStrings = Core::Explode(dataElement->FirstChildElement("position")->FirstChild()->Value(), ';');
 
-            // TODO: AABB and stuff
-
             Entity& entity = CreateEntity(name);
+
             entity.size = Core::Float3(
                std::stof(sizeStrings[0]),
                std::stof(sizeStrings[1]),
@@ -54,22 +53,20 @@ namespace Data
                std::stof(positionStrings[1]),
                std::stof(positionStrings[2])
             );
-            entity.metaEntity = &metaEntity;
+            entity.aabb = Core::CAABB3<float>(
+                Core::Float3(entity.position[0], entity.position[1], entity.position[2]),
+                Core::Float3(entity.position[0] + entity.size[0], entity.position[1] + entity.size[1], entity.position[2] + entity.size[2])
+            );
 
-            entityCount++;
-            //std::cout << "Entity: " << entity << std::endl;
+            entity.metaEntity = &metaEntity;
 
             if (metaEntity.name == "player")
             {
                 Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
                 playerSystem.SetPlayer(&entity);
-
-                entity.aabb = Core::CAABB3<float>(
-                    Core::Float3(entity.position[0], entity.position[1], entity.position[2]),
-                    Core::Float3(entity.position[0] + 64, entity.position[1] + 64, entity.position[2])
-                );
             }
 
+            entityCount++;
             xmlEntity = xmlEntity->NextSiblingElement();
         }
 
