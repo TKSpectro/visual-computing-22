@@ -6,6 +6,9 @@
 
 namespace Data
 {
+    using EventListenerPair = std::pair<Event::BTypeID, EventListener*>;
+    using EventListenerList = std::list<EventListenerPair>;
+
     class EventSystem
     {
     public:
@@ -35,7 +38,6 @@ namespace Data
 
     private:
         std::list<Event> queuedEvents;
-        std::list<EventListener*> eventListeners;
-
+        EventListenerList eventListeners;
     };
 }

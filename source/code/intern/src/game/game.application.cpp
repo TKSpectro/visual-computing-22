@@ -13,6 +13,18 @@
 #include "game.shutdownPhase.h"
 
 #include "data/data.playerSystem.h"
+#include "data/data.event.h"
+#include "data/data.eventSystem.h"
+
+static void callback1(Data::Event& event)
+{
+    std::cout << "Callback1() called" << std::endl;
+}
+
+static void callback2(Data::Event& event)
+{
+    std::cout << "Callback2() called" << std::endl;
+}
 
 namespace Game
 {
@@ -33,6 +45,15 @@ namespace Game
     void Application::Initialize()
     {
         std::cout << "GAME::APPLICATION::Initialize" << std::endl;
+
+        Data::Event& event1 = Data::EventSystem::GetInstance().MakeEvent();
+        Data::Event& event2 = Data::EventSystem::GetInstance().MakeEvent();
+        event1.SetType(1);
+        event2.SetType(2);
+        Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(1), &callback1);
+        Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(2), &callback2);
+
+        Data::EventSystem::GetInstance().FireEvent(event1);
 
         sf::ContextSettings settings;
         settings.antialiasingLevel = 8;
@@ -122,6 +143,9 @@ namespace Game
     void Application::Finalize()
     {
         std::cout << "GAME::APPLICATION::Finalize" << std::endl;
+
+        Data::EventSystem::GetInstance().Unregister(Data::Event::BTypeID(1), &callback1);
+        Data::EventSystem::GetInstance().Unregister(Data::Event::BTypeID(2), &callback2);
     }
 
     bool Application::RunPhase()
@@ -166,96 +190,3 @@ int main()
 
     return 0;
 }
-
-//#include "data/data.eventListener.h"
-//#include "data/data.eventSystem.h"
-//
-//static void myf(Data::Event& event)
-//{
-//    std::cout << "myf()" << std::endl;
-//}
-//
-//static void myf2(Data::Event& event)
-//{
-//    std::cout << "myf2()" << std::endl;
-//}
-//
-//class Listener
-//{
-//public:
-//
-//    static Listener& GetInstance()
-//    {
-//        static Listener instance;
-//
-//        return instance;
-//    }
-//
-//public:
-//
-//    void Initialize()
-//    {
-//        Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(1), &myf);
-//        Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(2), &myf2);
-//    }
-//
-//    void Finalize()
-//    {
-//        Data::EventSystem::GetInstance().Unregister(Data::Event::BTypeID(1), &myf);
-//        Data::EventSystem::GetInstance().Unregister(Data::Event::BTypeID(2), &myf2);
-//    }
-//
-//private:
-//
-//    static void OnEventA(Data::Event& event)
-//    {
-//        GetInstance().DoSomethingA(event);
-//    }
-//
-//    static void OnEventB(Data::Event& event)
-//    {
-//        GetInstance().DoSomethingB(event);
-//    }
-//
-//private:
-//
-//    Listener() = default;
-//    ~Listener() = default;
-//
-//private:
-//
-//    void DoSomethingA(Data::Event& event)
-//    {
-//        std::cout << "DoSomethingA()" << std::endl;
-//    }
-//
-//    void DoSomethingB(Data::Event& event)
-//    {
-//        std::cout << "DoSomethingB()" << std::endl;
-//    }
-//
-//private:
-//
-//    Listener(const Listener&) = delete;
-//    Listener& operator = (const Listener&) = delete;
-//};
-//
-//int main()
-//{
-//    Data::Event& event1 = Data::EventSystem::GetInstance().MakeEvent();
-//    event1.SetType(1);
-//    Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(1), &myf);
-//
-//    Data::Event& event2 = Data::EventSystem::GetInstance().MakeEvent();
-//    event2.SetType(2);
-//    Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(2), &myf2);
-//
-//
-//    Data::EventSystem::GetInstance().FireEvent(event1);
-//
-//    Data::EventSystem::GetInstance().Unregister(Data::Event::BTypeID(1), &myf);
-//    Data::EventSystem::GetInstance().Unregister(Data::Event::BTypeID(2), &myf2);
-//
-//    return 0;
-//}
-

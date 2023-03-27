@@ -14,23 +14,20 @@ namespace Data
     void EventSystem::Register(Event::BTypeID type, EventListener listener)
     {
         std::cout << "Register Event - Type:" << type << std::endl;
-        eventListeners.push_back(&listener);
+        eventListeners.push_back(std::make_pair(type, &listener));
     }
 
     void EventSystem::Unregister(Event::BTypeID type, EventListener listener)
     {
         std::cout << "Unregister Event - Type:" << type << std::endl;
 
-        std::list<EventListener*>::iterator it;
-        const std::list<EventListener*>::iterator endIterator = eventListeners.end();
+        EventListenerList::iterator it;
 
         for (it = eventListeners.begin(); it != eventListeners.end(); ++it)
         {
-            EventListener* currentListener = *it;
+            assert(it->second != nullptr);
 
-            assert(currentListener != nullptr);
-
-            if (currentListener == &listener)
+            if (it->second == &listener)
             {
                 eventListeners.erase(it);
 
@@ -42,17 +39,20 @@ namespace Data
 
     Event& EventSystem::MakeEvent()
     {
-        Event* event = new Event();
-        return *event;
+        return *(new Event());
     }
 
     void EventSystem::FireEvent(Event& event)
     {
-        for (EventListener* listener : eventListeners)
+        for (EventListenerPair listener : eventListeners)
         {
-            assert(listener != nullptr);
+            assert(listener.second != nullptr);
 
-            (*listener)(event);
+            if (listener.first == event.GetType())
+            {
+                (*listener.second)(event);
+            }
+
         }
     }
 
