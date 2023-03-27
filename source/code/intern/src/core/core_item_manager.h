@@ -78,24 +78,12 @@ namespace Core
 
         std::vector<XPtr> GetAllItems()
         {
-            std::vector<XPtr> items;
-
-            const CItemVector::iterator ItemEndIterator = m_ItemsByID.end();
-
-            for (typename CItemVector::iterator ItemIterator = m_ItemsByID.begin(); ItemIterator != ItemEndIterator; ++ItemIterator)
-            {
-                if (*ItemIterator != nullptr)
-                {
-                    items.push_back(*ItemIterator);
-                }
-            }
-
-            return items;
+            return m_ItemsByID;
         }
 
-        auto GetAllItems() const
+        std::vector<XPtr> GetAllItems() const
         {
-            return m_Items;
+            return m_ItemsByID;
         }
 
     public:
