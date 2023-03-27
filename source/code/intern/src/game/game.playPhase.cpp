@@ -40,9 +40,9 @@ namespace Game
         Gfx::PlayPhase::GetInstance().OnRun();
 
         // TODO: Remove this. Just simulating player movement
-        Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
-        Data::Entity* player = playerSystem.GetPlayer();
-        player->position = Core::Float3(player->position[0] + 0.5f, player->position[1], player->position[2]);
+        //Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
+        //Data::Entity* player = playerSystem.GetPlayer();
+        //player->position = Core::Float3(player->position[0] + 0.5f, player->position[1], player->position[2]);
 
         counter++;
         if (counter > 2000)

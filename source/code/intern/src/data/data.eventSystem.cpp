@@ -51,16 +51,8 @@ namespace Data
         for (EventListener* listener : eventListeners)
         {
             assert(listener != nullptr);
-            // TODO: This seems to be the closest i got
-            //((void(*) ())listener)();
-            //(*listener)(event);
 
-            //listener->OnEvent(event);
-            //int a = 0;
-            //void* ptr;
-            //ptr = listener;
-            //EventListener* ptr = listener;
-            //(*ptr)(event);
+            (*listener)(event);
         }
     }
 

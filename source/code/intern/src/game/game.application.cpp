@@ -12,6 +12,8 @@
 #include "game.unloadPhase.h"
 #include "game.shutdownPhase.h"
 
+#include "data/data.playerSystem.h"
+
 namespace Game
 {
     Application::Application()
@@ -66,15 +68,37 @@ namespace Game
 
                 if (event.type == sf::Event::Resized)
                 {
-                    // update the view to the new size of the window
-                    sf::FloatRect visibleArea(0.f, 0.f, event.size.width, event.size.height);
+                    // update the view to the new size of the windowl
+                    sf::FloatRect visibleArea(0.f, 0.f, (float)event.size.width, (float)event.size.height);
                     window.setView(sf::View(visibleArea));
                 }
+
 
                 // Instead of doing events here we dispath them to a function (callback) in the gui project
                 // In there should be a fat switch case for Closed, MouseInput, Button Presses etc.
                 // We also wont direclty handle this but just put in in a queue
                 // default case should just get returned to the os
+                if (event.type == sf::Event::KeyPressed)
+                {
+                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+                    {
+                        Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
+                        Data::Entity* player = playerSystem.GetPlayer();
+                        if (player != nullptr)
+                        {
+                            player->position = Core::Float3(player->position[0] - 2.0f, player->position[1], player->position[2]);
+                        }
+
+                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+                    {
+                        Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
+                        Data::Entity* player = playerSystem.GetPlayer();
+                        if (player != nullptr)
+                        {
+                            player->position = Core::Float3(player->position[0] + 2.0f, player->position[1], player->position[2]);
+                        }
+                    }
+                }
             }
 
             // Core::RealTime::Update();
@@ -138,6 +162,16 @@ int main()
 //#include "data/data.eventListener.h"
 //#include "data/data.eventSystem.h"
 //
+//static void myf(Data::Event& event)
+//{
+//    std::cout << "myf()" << std::endl;
+//}
+//
+//static void myf2(Data::Event& event)
+//{
+//    std::cout << "myf2()" << std::endl;
+//}
+//
 //class Listener
 //{
 //public:
@@ -153,14 +187,14 @@ int main()
 //
 //    void Initialize()
 //    {
-//        Data::EventSystem::GetInstance().Register(0, Listener::OnEventA);
-//        Data::EventSystem::GetInstance().Register(1, Listener::OnEventB);
+//        Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(1), &myf);
+//        Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(2), &myf2);
 //    }
 //
 //    void Finalize()
 //    {
-//        Data::EventSystem::GetInstance().Unregister(0, Listener::OnEventA);
-//        Data::EventSystem::GetInstance().Unregister(1, Listener::OnEventB);
+//        Data::EventSystem::GetInstance().Unregister(Data::Event::BTypeID(1), &myf);
+//        Data::EventSystem::GetInstance().Unregister(Data::Event::BTypeID(2), &myf2);
 //    }
 //
 //private:
@@ -197,21 +231,23 @@ int main()
 //    Listener(const Listener&) = delete;
 //    Listener& operator = (const Listener&) = delete;
 //};
-
+//
 //int main()
 //{
 //    Data::Event& event1 = Data::EventSystem::GetInstance().MakeEvent();
 //    event1.SetType(1);
+//    Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(1), &myf);
 //
 //    Data::Event& event2 = Data::EventSystem::GetInstance().MakeEvent();
 //    event2.SetType(2);
+//    Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(2), &myf2);
 //
-//    Listener::GetInstance().Initialize();
 //
 //    Data::EventSystem::GetInstance().FireEvent(event1);
 //
-//    Listener::GetInstance().Finalize();
+//    Data::EventSystem::GetInstance().Unregister(Data::Event::BTypeID(1), &myf);
+//    Data::EventSystem::GetInstance().Unregister(Data::Event::BTypeID(2), &myf2);
 //
 //    return 0;
 //}
-//
+
