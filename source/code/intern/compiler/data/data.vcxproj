@@ -194,6 +194,7 @@
     <ClCompile Include="..\..\src\data\data.mainMenuPhase.cpp" />
     <ClCompile Include="..\..\src\data\data.map.cpp" />
     <ClCompile Include="..\..\src\data\data.metaEntitySystem.cpp" />
+    <ClCompile Include="..\..\src\data\data.playerSystem.cpp" />
     <ClCompile Include="..\..\src\data\data.shutdownPhase.cpp" />
     <ClCompile Include="..\..\src\data\data.startupPhase.cpp" />
   </ItemGroup>
@@ -213,6 +214,7 @@
     <ClInclude Include="..\..\src\data\data.map.h" />
     <ClInclude Include="..\..\src\data\data.metaEntity.h" />
     <ClInclude Include="..\..\src\data\data.metaEntitySystem.h" />
+    <ClInclude Include="..\..\src\data\data.playerSystem.h" />
     <ClInclude Include="..\..\src\data\data.sector.h" />
     <ClInclude Include="..\..\src\data\data.shutdownPhase.h" />
     <ClInclude Include="..\..\src\data\data.startupPhase.h" />

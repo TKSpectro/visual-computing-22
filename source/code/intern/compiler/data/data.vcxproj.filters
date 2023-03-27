@@ -40,6 +40,9 @@
     <ClCompile Include="..\..\src\data\data.loadPhase.cpp">
       <Filter>phases</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\data\data.playerSystem.cpp">
+      <Filter>player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\data\data.startupPhase.h">
@@ -96,6 +99,9 @@
     <ClInclude Include="..\..\src\data\data.loadPhase.h">
       <Filter>phases</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\data\data.playerSystem.h">
+      <Filter>player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\..\src\data\data.map-1.xml" />
@@ -115,6 +121,9 @@
     </Filter>
     <Filter Include="metaEntity">
       <UniqueIdentifier>{6940ea9d-3ff6-4108-9185-abed3d75ce6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="player">
+      <UniqueIdentifier>{13faa63a-91b2-4695-8781-2981ab5a587c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

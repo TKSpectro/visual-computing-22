@@ -8,6 +8,7 @@
 #include "../core/core_explode.h"
 
 #include "data.metaEntitySystem.h"
+#include "data.playerSystem.h"
 
 using namespace tinyxml2;
 
@@ -57,6 +58,12 @@ namespace Data
 
             entityCount++;
             //std::cout << "Entity: " << entity << std::endl;
+
+            if (metaEntity.name == "player")
+            {
+                Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
+                playerSystem.SetPlayer(&entity);
+            }
 
             xmlEntity = xmlEntity->NextSiblingElement();
         }
