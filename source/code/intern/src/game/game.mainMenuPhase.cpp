@@ -28,7 +28,7 @@ namespace Game
         Gfx::MainMenuPhase::GetInstance().OnRun();
 
         counter++;
-        if (counter > 4)
+        if (counter > 100)
         {
             counter = 0;
             return Type::LOAD_MAP;

@@ -1,5 +1,8 @@
 #pragma once
 
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+
 namespace Gfx
 {
     class MainMenuPhase
@@ -22,5 +25,9 @@ namespace Gfx
     private:
         MainMenuPhase()
         {};
+
+    private:
+        sf::Texture texture;
+        sf::Sprite sprite;
     };
 }
