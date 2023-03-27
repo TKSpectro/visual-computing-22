@@ -21,16 +21,15 @@ namespace Game
 
     int MainMenuPhase::InternOnRun()
     {
-        std::cout << "GAME::MAINMENU::Run" << std::endl;
-
         Data::MainMenuPhase::GetInstance().OnRun();
-        Gui::MainMenuPhase::GetInstance().OnRun();
+        int newRunState = Gui::MainMenuPhase::GetInstance().OnRun();
         Gfx::MainMenuPhase::GetInstance().OnRun();
 
-        counter++;
-        if (counter > 100)
+        if (newRunState == -1)
         {
-            counter = 0;
+            return Type::SHUTDOWN;
+        } else if (newRunState == 1)
+        {
             return Type::LOAD_MAP;
         }
 

@@ -19,8 +19,6 @@ namespace Game
         UnloadPhase()
         {};
 
-        int counter = 0;
-
     private:
         int InternOnEnter() override;
         int InternOnRun() override;

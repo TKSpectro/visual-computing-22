@@ -87,6 +87,10 @@ namespace Game
                         if (player != nullptr)
                         {
                             player->position = Core::Float3(player->position[0] - 2.0f, player->position[1], player->position[2]);
+                            player->aabb = Core::CAABB3<float>(
+                                Core::Float3(player->position[0], player->position[1], player->position[2]),
+                                Core::Float3(player->position[0] + 64, player->position[1] + 64, player->position[2])
+                            );
                         }
 
                     } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -96,6 +100,10 @@ namespace Game
                         if (player != nullptr)
                         {
                             player->position = Core::Float3(player->position[0] + 2.0f, player->position[1], player->position[2]);
+                            player->aabb = Core::CAABB3<float>(
+                                    Core::Float3(player->position[0], player->position[1], player->position[2]),
+                                    Core::Float3(player->position[0] + 64, player->position[1] + 64, player->position[2])
+                            );
                         }
                     }
                 }

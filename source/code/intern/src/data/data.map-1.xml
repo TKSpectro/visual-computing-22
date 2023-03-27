@@ -7,6 +7,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_1_0" meta-entity="ground_stone">
@@ -17,6 +18,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_2_0" meta-entity="ground_stone">
@@ -27,6 +29,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_3_0" meta-entity="ground_stone">
@@ -37,6 +40,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_4_0" meta-entity="ground_stone">
@@ -47,6 +51,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_5_0" meta-entity="ground_stone">
@@ -57,6 +62,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_6_0" meta-entity="ground_stone">
@@ -67,6 +73,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_7_0" meta-entity="ground_stone">
@@ -77,6 +84,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_8_0" meta-entity="ground_stone">
@@ -87,6 +95,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_9_0" meta-entity="ground_stone">
@@ -97,6 +106,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_10_0" meta-entity="ground_stone">
@@ -107,6 +117,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_11_0" meta-entity="ground_stone">
@@ -117,6 +128,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_12_0" meta-entity="ground_stone">
@@ -127,6 +139,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_13_0" meta-entity="ground_stone">
@@ -137,6 +150,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_14_0" meta-entity="ground_stone">
@@ -147,6 +161,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_15_0" meta-entity="ground_stone">
@@ -157,6 +172,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_16_0" meta-entity="ground_stone">
@@ -167,6 +183,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_17_0" meta-entity="ground_stone">
@@ -177,6 +194,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_18_0" meta-entity="ground_stone">
@@ -187,6 +205,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_19_0" meta-entity="ground_stone">
@@ -197,6 +216,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_20_0" meta-entity="ground_stone">
@@ -207,6 +227,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_21_0" meta-entity="ground_stone">
@@ -217,6 +238,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_22_0" meta-entity="ground_stone">
@@ -227,6 +249,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_23_0" meta-entity="ground_stone">
@@ -237,6 +260,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_24_0" meta-entity="ground_stone">
@@ -247,6 +271,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_25_0" meta-entity="ground_stone">
@@ -257,6 +282,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_26_0" meta-entity="ground_stone">
@@ -267,6 +293,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_27_0" meta-entity="ground_stone">
@@ -277,6 +304,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_28_0" meta-entity="ground_stone">
@@ -287,6 +315,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_29_0" meta-entity="ground_stone">
@@ -297,6 +326,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_30_0" meta-entity="ground_stone">
@@ -307,6 +337,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_0_1" meta-entity="ground_stone">
@@ -317,6 +348,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_1_1" meta-entity="ground_stone">
@@ -327,6 +359,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_2_1" meta-entity="ground_stone">
@@ -337,6 +370,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_3_1" meta-entity="ground_stone">
@@ -347,6 +381,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_4_1" meta-entity="ground_stone">
@@ -357,6 +392,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_30_1" meta-entity="ground_stone">
@@ -367,6 +403,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_0_2" meta-entity="ground_stone">
@@ -377,6 +414,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_1_2" meta-entity="ground_stone">
@@ -387,6 +425,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_2_2" meta-entity="ground_stone">
@@ -397,6 +436,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_3_2" meta-entity="ground_stone">
@@ -407,6 +447,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_4_2" meta-entity="ground_stone">
@@ -417,6 +458,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_30_2" meta-entity="ground_stone">
@@ -427,6 +469,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_0_3" meta-entity="ground_stone">
@@ -437,6 +480,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_1_3" meta-entity="ground_stone">
@@ -447,6 +491,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_2_3" meta-entity="ground_stone">
@@ -457,6 +502,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_3_3" meta-entity="ground_stone">
@@ -467,6 +513,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_4_3" meta-entity="ground_stone">
@@ -477,6 +524,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_20_3" meta-entity="ground_stone">
@@ -487,6 +535,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_30_3" meta-entity="ground_stone">
@@ -497,6 +546,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_0_4" meta-entity="ground_stone">
@@ -507,6 +557,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_1_4" meta-entity="ground_stone">
@@ -517,6 +568,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_2_4" meta-entity="ground_stone">
@@ -527,6 +579,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_3_4" meta-entity="ground_stone">
@@ -537,6 +590,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_4_4" meta-entity="ground_stone">
@@ -547,6 +601,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_12_4" meta-entity="ground_stone">
@@ -557,6 +612,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_18_4" meta-entity="ground_stone">
@@ -567,6 +623,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_20_4" meta-entity="ground_stone">
@@ -577,6 +634,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_30_4" meta-entity="ground_stone">
@@ -587,6 +645,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_0_5" meta-entity="ground_stone">
@@ -597,6 +656,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_1_5" meta-entity="ground_stone">
@@ -607,6 +667,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_2_5" meta-entity="ground_stone">
@@ -617,6 +678,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_3_5" meta-entity="ground_stone">
@@ -627,6 +689,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_4_5" meta-entity="ground_stone">
@@ -637,6 +700,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="player" meta-entity="player">
@@ -646,7 +710,19 @@
     </data>
     <logic>
       <canMove>true</canMove>
-      <canCollide>false</canCollide>
+      <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
+    </logic>
+  </entity>
+  <entity name="finish_10_5" meta-entity="finish">
+    <data>
+      <position>640.0;320.0;0.0</position>
+      <size>64.0;64.0;64.0</size>
+    </data>
+    <logic>
+      <canMove>false</canMove>
+      <canCollide>true</canCollide>
+      <isFinish>true</isFinish>
     </logic>
   </entity>
   <entity name="wall_11_5" meta-entity="ground_stone">
@@ -657,6 +733,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_12_5" meta-entity="ground_stone">
@@ -667,6 +744,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_13_5" meta-entity="ground_stone">
@@ -677,6 +755,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_16_5" meta-entity="ground_stone">
@@ -687,6 +766,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_18_5" meta-entity="ground_stone">
@@ -697,6 +777,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_20_5" meta-entity="ground_stone">
@@ -707,6 +788,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="wall_30_5" meta-entity="ground_stone">
@@ -717,6 +799,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_0_6" meta-entity="dirt">
@@ -727,6 +810,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_1_6" meta-entity="dirt">
@@ -737,6 +821,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_2_6" meta-entity="dirt">
@@ -747,6 +832,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_3_6" meta-entity="dirt">
@@ -757,6 +843,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_4_6" meta-entity="dirt">
@@ -767,6 +854,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_5_6" meta-entity="dirt">
@@ -777,6 +865,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_6_6" meta-entity="dirt">
@@ -787,6 +876,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_7_6" meta-entity="dirt">
@@ -797,6 +887,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_8_6" meta-entity="dirt">
@@ -807,6 +898,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_9_6" meta-entity="dirt">
@@ -817,6 +909,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_10_6" meta-entity="dirt">
@@ -827,6 +920,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_11_6" meta-entity="dirt">
@@ -837,6 +931,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_12_6" meta-entity="dirt">
@@ -847,6 +942,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_13_6" meta-entity="dirt">
@@ -857,6 +953,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_14_6" meta-entity="dirt">
@@ -867,6 +964,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_15_6" meta-entity="dirt">
@@ -877,6 +975,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_16_6" meta-entity="dirt">
@@ -887,6 +986,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_17_6" meta-entity="dirt">
@@ -897,6 +997,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_18_6" meta-entity="dirt">
@@ -907,6 +1008,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_19_6" meta-entity="dirt">
@@ -917,6 +1019,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_20_6" meta-entity="dirt">
@@ -927,6 +1030,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_21_6" meta-entity="dirt">
@@ -937,6 +1041,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_22_6" meta-entity="dirt">
@@ -947,6 +1052,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_23_6" meta-entity="dirt">
@@ -957,6 +1063,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_24_6" meta-entity="dirt">
@@ -967,6 +1074,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_25_6" meta-entity="dirt">
@@ -977,6 +1085,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_26_6" meta-entity="dirt">
@@ -987,6 +1096,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_27_6" meta-entity="dirt">
@@ -997,6 +1107,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_28_6" meta-entity="dirt">
@@ -1007,6 +1118,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_29_6" meta-entity="dirt">
@@ -1017,6 +1129,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
   <entity name="ground_30_6" meta-entity="dirt">
@@ -1027,6 +1140,7 @@
     <logic>
       <canMove>false</canMove>
       <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
     </logic>
   </entity>
 </entities>

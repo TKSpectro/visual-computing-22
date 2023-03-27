@@ -16,7 +16,7 @@ namespace Gfx
 
     public:
         void OnEnter();
-        void OnRun();
+        bool OnRun();
         void OnLeave();
 
     private:

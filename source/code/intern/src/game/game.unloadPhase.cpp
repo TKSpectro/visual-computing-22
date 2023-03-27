@@ -27,13 +27,7 @@ namespace Game
         Logic::UnloadPhase::GetInstance().OnRun();
         Gfx::UnloadPhase::GetInstance().OnRun();
 
-        counter++;
-        if (counter > 4)
-        {
-            return Type::SHUTDOWN;
-        }
-
-        return Type::UNLOAD_MAP;
+        return Type::SHUTDOWN;
     }
 
     int UnloadPhase::InternOnLeave()

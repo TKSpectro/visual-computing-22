@@ -9,14 +9,16 @@
 #include <game/game.application.h>
 #include <data/data.metaEntitySystem.h>
 #include <data/data.entitySystem.h>
+#include <data/data.playerSystem.h>
 
 namespace Gfx
 {
     void PlayPhase::OnEnter()
     {}
 
-    void PlayPhase::OnRun()
+    bool PlayPhase::OnRun()
     {
+        bool playerHitFinish = false;
         Game::Application& app = Game::Application::GetInstance();
 
         // TODO: This needs to be replaced by the actual entity system instead of meta entities
@@ -64,10 +66,25 @@ namespace Gfx
 
                 app.window.setView(view);
             }
+
+            if (entity->metaEntity->name == "finish")
+            {
+                Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
+                Data::Entity* player = playerSystem.GetPlayer();
+
+                playerHitFinish = player->aabb.Intersects(
+                    Core::CAABB3<float>(
+                        Core::Float3(entity->position[0], entity->position[1], entity->position[2]),
+                        Core::Float3(entity->position[0] + 64, entity->position[1] + 64, entity->position[2])
+                    )
+                );;
+            }
         }
 
         // end the current frame and display everything drawn
         app.window.display();
+
+        return playerHitFinish;
     }
 
     void PlayPhase::OnLeave()

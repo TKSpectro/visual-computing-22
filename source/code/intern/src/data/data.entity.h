@@ -36,7 +36,7 @@ namespace Data
         Core::CIDManager::BID id;
         Core::CVector3<float> position;
         Core::CVector3<float> size;
-        Core::CVector3<float> aabb;
+        Core::CAABB3<float> aabb;
         MetaEntity* metaEntity;
 
     private:

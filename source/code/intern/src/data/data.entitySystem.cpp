@@ -63,6 +63,11 @@ namespace Data
             {
                 Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
                 playerSystem.SetPlayer(&entity);
+
+                entity.aabb = Core::CAABB3<float>(
+                    Core::Float3(entity.position[0], entity.position[1], entity.position[2]),
+                    Core::Float3(entity.position[0] + 64, entity.position[1] + 64, entity.position[2])
+                );
             }
 
             xmlEntity = xmlEntity->NextSiblingElement();

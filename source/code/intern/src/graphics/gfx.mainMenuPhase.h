@@ -1,7 +1,7 @@
 #pragma once
 
-#include <SFML/Graphics/Texture.hpp>
-#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/Text.hpp>
 
 namespace Gfx
 {
@@ -27,7 +27,9 @@ namespace Gfx
         {};
 
     private:
-        sf::Texture texture;
-        sf::Sprite sprite;
+        sf::Font font;
+        sf::Text textMainMenu;
+        sf::Text textButtons;
+        sf::Text textMovement;
     };
 }

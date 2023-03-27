@@ -31,21 +31,10 @@ namespace Game
         Core::Time::OnFrame();
         // Now we can call getTime(), getFrameDuration()
 
-        if (counter % 100 == 0)
-        {
-            std::cout << "GAME::PLAY::Run::" << counter << std::endl;
-        }
-
         Gui::PlayPhase::GetInstance().OnRun();
-        Gfx::PlayPhase::GetInstance().OnRun();
+        bool playerHitFinish = Gfx::PlayPhase::GetInstance().OnRun();
 
-        // TODO: Remove this. Just simulating player movement
-        //Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
-        //Data::Entity* player = playerSystem.GetPlayer();
-        //player->position = Core::Float3(player->position[0] + 0.5f, player->position[1], player->position[2]);
-
-        counter++;
-        if (counter > 2000)
+        if (playerHitFinish)
         {
             return Type::UNLOAD_MAP;
         }

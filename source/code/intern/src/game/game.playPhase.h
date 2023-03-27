@@ -18,8 +18,6 @@ namespace Game
         PlayPhase()
         {};
 
-        int counter = 0;
-
     private:
         int InternOnEnter() override;
         int InternOnRun() override;
