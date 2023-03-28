@@ -38,10 +38,19 @@ namespace Data
 
             XMLElement* dataElement = xmlEntity->FirstChildElement("data");
 
+            auto type = atoi(dataElement->FirstChildElement("type")->FirstChild()->Value());
             auto sizeStrings = Core::Explode(dataElement->FirstChildElement("size")->FirstChild()->Value(), ';');
             auto positionStrings = Core::Explode(dataElement->FirstChildElement("position")->FirstChild()->Value(), ';');
 
             Entity& entity = CreateEntity(name);
+
+            if (type >= EntityCategory::NumberOfMembers)
+            {
+                entity.category = EntityCategory::Undefined;
+            } else
+            {
+                entity.category = EntityCategory::Enum(type);
+            }
 
             entity.size = Core::Float3(
                std::stof(sizeStrings[0]),

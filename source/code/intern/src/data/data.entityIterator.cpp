@@ -48,6 +48,23 @@ namespace Data
         return link != other.link;
     }
 
+    //EntityIterator& EntityIterator::operator++()
+    //{
+    //    // TODO: These might be completely wrong
+    //    if (link)
+    //    {
+    //        link = link->GetNext();
+    //    }
+
+    //    return *this;
+    //}
+
+    //EntityIterator EntityIterator::operator++(int)
+    //{
+    //    // TODO: These might be completely wrong
+    //    return link->GetNext();
+    //}
+
     //EntityIterator& EntityIterator::Next()
     //{
     //    return Data::MapSystem::GetInstance()->Next();

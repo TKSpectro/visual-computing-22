@@ -63,14 +63,14 @@ namespace Data
 
     // -----------------------------------------------------------------------------
 
-    EntityIterator EntityList::begin()
+    EntityIterator EntityList::Begin()
     {
         return EntityIterator(anchor.GetNext());
     }
 
     // -----------------------------------------------------------------------------
 
-    EntityIterator EntityList::end()
+    EntityIterator EntityList::End()
     {
         return EntityIterator(&anchor);
     }

@@ -17,17 +17,22 @@ namespace Data
     {
         // TODO: This needs to be a singleton and rename it to map system
     public:
+        const static int SECTOR_SIZE = 16;
+        const static int MAX_SECTORS_X = 8;
+        const static int MAX_SECTORS_Y = 4;
+
+    public:
         EntityIterator Begin();
         EntityIterator Begin(EntityCategory::Enum category);
-        EntityIterator Begin(Core::AABB2Float& AABB);
-        EntityIterator Begin(Core::AABB2Float& AABB, EntityCategory::Enum category);
+        EntityIterator Begin(Core::AABB3Float& AABB);
+        EntityIterator Begin(Core::AABB3Float& AABB, EntityCategory::Enum category);
 
         EntityIterator End();
 
         EntityIterator& Next(EntityIterator& where);
         EntityIterator& Next(EntityIterator& where, EntityCategory::Enum category);
-        EntityIterator& Next(EntityIterator& where, Core::AABB2Float& AABB);
-        EntityIterator& Next(EntityIterator& where, Core::AABB2Float& AABB, EntityCategory::Enum category);
+        EntityIterator& Next(EntityIterator& where, Core::AABB3Float& AABB);
+        EntityIterator& Next(EntityIterator& where, Core::AABB3Float& AABB, EntityCategory::Enum category);
 
         // The following ones are old and need to be removed
         //EntityIterator NextEntity(EntityIterator where, Core::AABB2Float& AABB, EntityCategory::Enum category);
@@ -48,7 +53,7 @@ namespace Data
         // or
         std::pair<floatListIterator, floatListIterator> GetExample2();
 
-
+        void AddEntity(Entity& entity);
         // We need a AddEntity, RemoveEntity and MoveEntity
         // AddEntity checks where the entity is on the map and then decides in which sector/folder it should be placed
         // Remove is basically the same
@@ -56,7 +61,7 @@ namespace Data
 
     private:
 
-        Sector sectors[4 * 8];        // Use constants or create dynamic array
+        Sector sectors[MAX_SECTORS_Y * MAX_SECTORS_X];        // Use constants or create dynamic array
     };
 }
 

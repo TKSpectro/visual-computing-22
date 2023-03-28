@@ -27,8 +27,8 @@ namespace Data
 
     public:
 
-        EntityIterator begin();
-        EntityIterator end();
+        EntityIterator Begin();
+        EntityIterator End();
         EntityIterator operator++(int);
 
         EntityIterator Next();

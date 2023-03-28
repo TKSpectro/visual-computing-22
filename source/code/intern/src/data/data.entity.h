@@ -1,12 +1,13 @@
 #pragma once
 
-#include "data.entityLink.h"
-#include "data.metaEntity.h"
-
 #include <array>
 
 #include "../core/core_vector3.h"
 #include "../core/core_id_manager.h"
+
+#include "data.entityLink.h"
+#include "data.metaEntity.h"
+#include "data.entityCategory.h"
 
 namespace Data
 {
@@ -34,6 +35,8 @@ namespace Data
     public:
 
         Core::CIDManager::BID id;
+        EntityCategory::Enum category;
+
         Core::CVector3<float> position;
         Core::CVector3<float> size;
         Core::CAABB3<float> aabb;

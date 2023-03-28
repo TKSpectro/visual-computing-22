@@ -1,5 +1,7 @@
 #include "data.map.h"
 
+#include "data.entity.h"
+
 namespace Data
 {
     // Example for iterating over the whole map
@@ -22,19 +24,19 @@ namespace Data
     // Example for iterating over specific area
     void area()
     {
-        Core::AABB2Float someAABB;
+        Core::AABB3Float someAABB;
         Map map;
 
         const EntityIterator endIterator = map.End();
 
-        for (EntityIterator it = map.Begin(someAABB); it != endIterator; it.Next(someAABB))
-        {
-            // it->CallSomeMethod
+        //for (EntityIterator it = map.Begin(someAABB); it != endIterator; it.Next(someAABB))
+        //{
+        //    // it->CallSomeMethod
 
-            Entity& entity = *it;
+        //    Entity& entity = *it;
 
-            // entity.CallSomeMethod
-        }
+        //    // entity.CallSomeMethod
+        //}
     }
 
 
@@ -73,16 +75,31 @@ namespace Data
 
     EntityIterator Map::Begin()
     {
-
-
-        return EntityIterator();
+        return sectors[0].folders[0].entities.Begin();
     }
 
-    EntityIterator Map::Begin(Core::AABB2Float& aabb)
+    EntityIterator Map::Begin(EntityCategory::Enum category)
+    {
+        for (Sector sector : sectors)
+        {
+            for (EntityFolder folder : sector.folders)
+            {
+                for (EntityIterator ptr = folder.entities.Begin(); ptr != folder.entities.End(); ptr.Next())
+                {
+                    if (ptr.link->GetEntity().category == category)
+                    {
+                        return ptr;
+                    }
+                }
+            }
+        }
+    }
+
+    EntityIterator Map::Begin(Core::AABB3Float& aabb)
     {
         // Clamp this to int from float
-        int sectorX = aabb.GetMin()[0] / 16;
-        int sectorY = aabb.GetMin()[1] / 16;
+        int sectorX = aabb.GetMin()[0] / SECTOR_SIZE;
+        int sectorY = aabb.GetMin()[1] / SECTOR_SIZE;
         if (aabb.GetMin()[0] < 1)
         {
             --sectorX;
@@ -101,50 +118,55 @@ namespace Data
         }
 
         const int MIN_X = sectorX;
-        const int MIN_Y = sectorY;
 
         Sector sector = sectors[sectorY * 8 + sectorX];
         for (EntityFolder folder : sector.folders)
         {
             if (!folder.entities.IsEmpty())
             {
-                for (EntityIterator ptr = folder.entities.begin(); ptr != folder.entities.end(); ptr.Next())
+                for (EntityIterator ptr = folder.entities.Begin(); ptr != folder.entities.End(); ptr.Next())
                 {
-                    // TODO: Figure out why this is not working
-                    //Entity enti = ptr.link->GetEntity();
-
+                    if (ptr.link != nullptr)
+                    {
+                        Entity& enti = ptr.link->GetEntity();
+                        if (enti.aabb.Intersects(aabb))
+                        {
+                            return ptr;
+                        }
+                    }
                 }
             }
         }
-        //   if list.notEmpty()
-        //     for alle entitaeten in der liste
-        //       if entity AABB intersects inputAABB
-        //         return entityIterator;
-
-        const int MAX_X = 7;
-        const int MAX_Y = 7;
 
         sectorX += 1;
-        if (sectorX > MAX_X)
+        if (sectorX >= MAX_SECTORS_X)
         {
             sectorY += 1;
             sectorX = MIN_X;
 
-            if (sectorY > MAX_Y)
+            if (sectorY >= MAX_SECTORS_Y)
             {
-                // TODO: This should return a nullptr instead
+                // TODO: Not sure if this is correct beheavior. This creates a nullptr iterator
                 return EntityIterator();
             }
         }
-        // keine enity in dem Sektor gefunden
-        // sektor x++
-        // if (sektor x++ > maxX)
-        //   sektorY++
-        //   sektorX = sectorXMin vom Anfang
-        //   If( sectorY > maxY)
-        //     return nullptr;
 
         return EntityIterator();
+    }
+
+    void Map::AddEntity(Entity& entity)
+    {
+        // If entity is outside of map, do not add it
+        if (entity.position[0] < 0 || entity.position[1] < 0 || entity.position[0] >= MAX_SECTORS_X * SECTOR_SIZE || entity.position[1] >= MAX_SECTORS_Y * SECTOR_SIZE)
+        {
+            return;
+        }
+
+        int sectorX = entity.position[0] / SECTOR_SIZE;
+        int sectorY = entity.position[1] / SECTOR_SIZE;
+
+        Sector& sector = sectors[sectorY * 8 + sectorX];
+        sector.folders[entity.category].entities.PushBack(entity);
     }
 
     //EntityIterator Map::EndEntity()
