@@ -28,10 +28,10 @@ namespace Game
     {
         std::cout << "GAME::LOAD::Run" << std::endl;
 
-        XMLDocument doc;
-        doc.LoadFile("data.map-1.xml");
+        XMLDocument* doc = new XMLDocument();
+        doc->LoadFile("data.map-1.xml");
 
-        Data::LoadPhase::GetInstance().OnRun(doc);
+        Data::LoadPhase::GetInstance().OnRun(*doc);
         Gui::LoadPhase::GetInstance().OnRun();
         Logic::LoadPhase::GetInstance().OnRun();
         Gfx::LoadPhase::GetInstance().OnRun();

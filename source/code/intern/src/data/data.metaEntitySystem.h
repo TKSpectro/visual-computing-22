@@ -1,4 +1,5 @@
 #pragma once
+
 #include <tinyxml2.h>
 
 #include "../core/core_id_manager.h"
@@ -23,7 +24,7 @@ namespace Data
         int Initialize(tinyxml2::XMLDocument& doc);
         MetaEntity& CreateMetaEntity(std::string name);
         void DestroyMetaEntity(MetaEntity& metaEntity);
-        void DestoryAllMetaEntities();
+        void DestroyAllMetaEntities();
         MetaEntity& SearchMetaEntity(std::string name);
         MetaEntity& GetMetaEntity(Core::CIDManager::BID id);
         bool ContainsMetaEntity(std::string name);

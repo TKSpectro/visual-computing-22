@@ -27,7 +27,7 @@ namespace Game
         Logic::UnloadPhase::GetInstance().OnRun();
         Gfx::UnloadPhase::GetInstance().OnRun();
 
-        return Type::SHUTDOWN;
+        return Type::MAIN_MENU;
     }
 
     int UnloadPhase::InternOnLeave()

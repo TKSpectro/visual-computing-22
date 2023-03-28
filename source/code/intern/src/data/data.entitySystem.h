@@ -1,4 +1,5 @@
 #pragma once
+
 #include <tinyxml2.h>
 
 #include "../core/core_id_manager.h"
@@ -24,7 +25,7 @@ namespace Data
         std::vector<Data::Entity*> GetAllEntities();
         Entity& CreateEntity(std::string name);
         void DestroyEntity(Entity& entity);
-        void DestoryAllEntities();
+        void DestroyAllEntities();
         Entity& SearchEntity(std::string name);
         Entity& GetEntity(Core::CIDManager::BID id);
         bool ContainsEntity(std::string name);

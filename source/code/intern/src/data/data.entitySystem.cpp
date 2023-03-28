@@ -90,7 +90,7 @@ namespace Data
         throw std::logic_error("Not Implemented");
     }
 
-    void EntitySystem::DestoryAllEntities()
+    void EntitySystem::DestroyAllEntities()
     {
         itemManager.Clear();
         idManager.Clear();

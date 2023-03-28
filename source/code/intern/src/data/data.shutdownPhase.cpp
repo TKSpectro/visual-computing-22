@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "data.metaEntitySystem.h"
+#include "data.entitySystem.h"
 
 namespace Data
 {
@@ -13,7 +14,8 @@ namespace Data
     {
         std::cout << "DATA::SHUTDOWN::Run::Clearing MetaEntity System" << std::endl;
 
-        MetaEntitySystem::GetInstance().DestoryAllMetaEntities();
+        EntitySystem::GetInstance().DestroyAllEntities();
+        MetaEntitySystem::GetInstance().DestroyAllMetaEntities();
     }
 
     void ShutdownPhase::OnLeave()

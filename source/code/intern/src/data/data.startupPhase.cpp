@@ -1,5 +1,5 @@
 #include <iostream>
-#include <tinyxml2.h>
+#include <tinyxml2.cpp>
 #include <fstream>
 
 #include "data.startupPhase.h"

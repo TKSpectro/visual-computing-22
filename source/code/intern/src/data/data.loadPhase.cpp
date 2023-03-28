@@ -1,9 +1,7 @@
-#include <iostream>
-#include <tinyxml2.h>
-#include <fstream>
-
 #include "data.loadPhase.h"
-#include "data.metaEntitySystem.h"
+
+#include <iostream>
+
 #include "data.entitySystem.h"
 
 namespace Data

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <tinyxml2.h>
+
 namespace Data
 {
     class LoadPhase

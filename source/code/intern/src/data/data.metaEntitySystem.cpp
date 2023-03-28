@@ -1,6 +1,5 @@
 #include "data.metaEntitySystem.h"
 
-#include <tinyxml2.cpp>
 #include <iostream>
 #include <string>
 
@@ -73,7 +72,7 @@ namespace Data
         throw std::logic_error("Not Implemented");
     }
 
-    void MetaEntitySystem::DestoryAllMetaEntities()
+    void MetaEntitySystem::DestroyAllMetaEntities()
     {
         itemManager.Clear();
         idManager.Clear();
