@@ -1,9 +1,5 @@
 #include "gfx.startupPhase.h"
 
-#include <iostream>
-#include <tinyxml2.h>
-#include <fstream>
-
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 
@@ -17,12 +13,8 @@ namespace Gfx
     void StartupPhase::OnEnter()
     {}
 
-    void StartupPhase::OnRun(/*tinyxml2::XMLDocument& doc*/)
+    void StartupPhase::OnRun(tinyxml2::XMLDocument& doc)
     {
-        // TODO: Dont load the file again just get it passed through parameters
-        XMLDocument doc;
-        doc.LoadFile("../code/intern/src/data/data.meta-entity.xml");
-
         Game::Application& app = Game::Application::GetInstance();
         Data::MetaEntitySystem& metaEntitySystem = Data::MetaEntitySystem::GetInstance();
 

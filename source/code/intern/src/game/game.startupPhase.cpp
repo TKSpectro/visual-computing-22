@@ -28,13 +28,13 @@ namespace Game
     {
         std::cout << "GAME::STARTUP::Run" << std::endl;
 
-        XMLDocument doc;
-        doc.LoadFile("../code/intern/src/data/data.meta-entity.xml");
+        XMLDocument* doc = new XMLDocument();
+        doc->LoadFile("../code/intern/src/data/data.meta-entity.xml");
 
-        Data::StartupPhase::GetInstance().OnRun(doc);
+        Data::StartupPhase::GetInstance().OnRun(*doc);
         Gui::StartupPhase::GetInstance().OnRun();
         Logic::StartupPhase::GetInstance().OnRun();
-        Gfx::StartupPhase::GetInstance().OnRun(/*doc*/);
+        Gfx::StartupPhase::GetInstance().OnRun(*doc);
 
         // Normally we will load a resource-, file-, buffer-, model-managers here
 
