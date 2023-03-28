@@ -13,11 +13,5 @@ namespace Data
 
     protected:
         BTypeID type;
-
-    protected:
-        // TODO: Need this
-        //Event();
-        // TODO: Need this
-        //virtual ~Event();
     };
 }

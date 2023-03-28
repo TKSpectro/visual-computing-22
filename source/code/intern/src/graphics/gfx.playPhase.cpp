@@ -21,16 +21,12 @@ namespace Gfx
         bool playerHitFinish = false;
         Game::Application& app = Game::Application::GetInstance();
 
-        // TODO: This needs to be replaced by the actual entity system instead of meta entities
-        Data::MetaEntitySystem& metaEntitySystem = Data::MetaEntitySystem::GetInstance();
-
-        Data::EntitySystem& entitySystem = Data::EntitySystem::GetInstance();
-        auto entities = entitySystem.GetAllEntities();
+        std::vector<Data::Entity*> entities = Data::EntitySystem::GetInstance().GetAllEntities();
 
         // clear the app.m_window with black color
         app.window.clear(sf::Color::Black);
 
-        for (auto& entity : entities)
+        for (Data::Entity* entity : entities)
         {
             sf::Texture* texturePtr = static_cast<sf::Texture*>(entity->metaEntity->facetes[0]);
 

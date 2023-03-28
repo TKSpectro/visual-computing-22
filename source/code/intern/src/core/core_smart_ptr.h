@@ -2,8 +2,6 @@
 #pragma once
 
 #include <assert.h>
-// TODO: REMOVE THIS!
-#include "core_smart_pointee.h"
 
 namespace Core
 {
@@ -329,26 +327,27 @@ namespace Core
 } // namespace Core
 
 // Example usage
-namespace Core
-{
-    class Foo : public SmartPointee
-    {};
-
-    using FooPtr = SmartPointer<Foo>;
-
-    int mainTest()
-    {
-        FooPtr fooPtr1 = new Foo();
-        FooPtr fooPtr2 = fooPtr1;
-        FooPtr fooPtr3(fooPtr1);
-
-        Foo* pFoo = new Foo();
-
-        fooPtr2 = pFoo;
-        fooPtr2 = fooPtr1;
-
-        FooPtr fooPtr4;
-
-        return 0;
-    }
-}
+//#include "core_smart_pointee.h"
+//namespace Core
+//{
+//    class Foo : public SmartPointee
+//    {};
+//
+//    using FooPtr = SmartPointer<Foo>;
+//
+//    int mainTest()
+//    {
+//        FooPtr fooPtr1 = new Foo();
+//        FooPtr fooPtr2 = fooPtr1;
+//        FooPtr fooPtr3(fooPtr1);
+//
+//        Foo* pFoo = new Foo();
+//
+//        fooPtr2 = pFoo;
+//        fooPtr2 = fooPtr1;
+//
+//        FooPtr fooPtr4;
+//
+//        return 0;
+//    }
+//}

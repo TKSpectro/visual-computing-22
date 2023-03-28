@@ -50,27 +50,22 @@ namespace Data
 
     //EntityIterator& EntityIterator::Next()
     //{
-    //    // Call Data::MapSystem::GetInstance()->Next()
-    //    // TODO: insert return statement here
-    //    return ;
+    //    return Data::MapSystem::GetInstance()->Next();
     //}
 
     //EntityIterator& EntityIterator::Next(int category)
     //{
-    //    // Call Data::MapSystem::GetInstance()->Next(cat)
-    //    // TODO: insert return statement here
+    //    return Data::MapSystem::GetInstance()->Next(cat);
     //}
 
     //EntityIterator& EntityIterator::Next(const Core::CAABB2<float>& AABB)
     //{
-    //    // Call Data::MapSystem::GetInstance()->Next(aabb)
-    //    // TODO: insert return statement here
+    //    return Data::MapSystem::GetInstance()->Next(aabb);
     //}
 
     //EntityIterator& EntityIterator::Next(const Core::CAABB2<float>& AABB, int category)
     //{
-    //    // Call Data::MapSystem::GetInstance()->Next(aabb, cat)
-    //    // TODO: insert return statement here
+    //    return Data::MapSystem::GetInstance()->Next(aabb, cat);
     //}
 
 }
