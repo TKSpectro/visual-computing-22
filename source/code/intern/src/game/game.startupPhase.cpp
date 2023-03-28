@@ -29,7 +29,7 @@ namespace Game
         std::cout << "GAME::STARTUP::Run" << std::endl;
 
         XMLDocument* doc = new XMLDocument();
-        doc->LoadFile("../code/intern/src/data/data.meta-entity.xml");
+        doc->LoadFile("data.meta-entity.xml");
 
         Data::StartupPhase::GetInstance().OnRun(*doc);
         Gui::StartupPhase::GetInstance().OnRun();

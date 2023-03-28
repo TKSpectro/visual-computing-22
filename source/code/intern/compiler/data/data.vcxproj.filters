@@ -104,8 +104,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\..\src\data\data.map-1.xml" />
-    <Xml Include="..\..\src\data\data.meta-entity.xml">
+    <Xml Include="..\..\..\..\bin\data.map-1.xml" />
+    <Xml Include="..\..\..\..\bin\data.meta-entity.xml">
       <Filter>metaEntity</Filter>
     </Xml>
   </ItemGroup>
