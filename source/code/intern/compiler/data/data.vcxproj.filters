@@ -104,12 +104,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\..\..\..\bin\data.map-1.xml" />
-    <Xml Include="..\..\..\..\bin\data.meta-entity.xml">
-      <Filter>metaEntity</Filter>
-    </Xml>
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="phases">
       <UniqueIdentifier>{3183bb49-05e2-48a5-bd55-0ea0d365ffb3}</UniqueIdentifier>
     </Filter>
@@ -125,5 +119,13 @@
     <Filter Include="player">
       <UniqueIdentifier>{13faa63a-91b2-4695-8781-2981ab5a587c}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\..\..\bin\data.meta-entity.xml">
+      <Filter>metaEntity</Filter>
+    </Xml>
+    <Xml Include="..\..\..\..\bin\data.map-1.xml">
+      <Filter>entity</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

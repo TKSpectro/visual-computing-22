@@ -4,11 +4,11 @@ namespace Data
 {
     void Data::Event::SetType(BTypeID type)
     {
-        this->type = type;
+        this->typeId = type;
     }
 
     Data::Event::BTypeID Data::Event::GetType() const
     {
-        return this->type;
+        return this->typeId;
     }
 }

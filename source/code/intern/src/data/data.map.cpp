@@ -146,7 +146,6 @@ namespace Data
 
             if (sectorY >= MAX_SECTORS_Y)
             {
-                // TODO: Not sure if this is correct beheavior. This creates a nullptr iterator
                 return EntityIterator();
             }
         }

@@ -13,6 +13,11 @@
     <ClCompile Include="..\..\src\logic\logic.unloadPhase.cpp">
       <Filter>phases</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\logic\logic.playPhase.cpp">
+      <Filter>phases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\logic\logic.system.cpp" />
+    <ClCompile Include="..\..\src\logic\logic.commandSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\logic\logic.loadPhase.h">
@@ -27,6 +32,12 @@
     <ClInclude Include="..\..\src\logic\logic.unloadPhase.h">
       <Filter>phases</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\logic\logic.playPhase.h">
+      <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\logic\logic.system.h" />
+    <ClInclude Include="..\..\src\logic\logic.command.h" />
+    <ClInclude Include="..\..\src\logic\logic.commandSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="phases">

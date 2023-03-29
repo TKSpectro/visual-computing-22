@@ -16,16 +16,14 @@ namespace Gfx
     void PlayPhase::OnEnter()
     {}
 
-    bool PlayPhase::OnRun()
+    void PlayPhase::OnRun()
     {
-        bool playerHitFinish = false;
         Game::Application& app = Game::Application::GetInstance();
-
-        std::vector<Data::Entity*> entities = Data::EntitySystem::GetInstance().GetAllEntities();
 
         // clear the app.m_window with black color
         app.window.clear(sf::Color::Black);
 
+        std::vector<Data::Entity*> entities = Data::EntitySystem::GetInstance().GetAllEntities();
         for (Data::Entity* entity : entities)
         {
             sf::Texture* texturePtr = static_cast<sf::Texture*>(entity->metaEntity->facetes[0]);
@@ -62,25 +60,10 @@ namespace Gfx
 
                 app.window.setView(view);
             }
-
-            if (entity->metaEntity->name == "finish")
-            {
-                Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
-                Data::Entity* player = playerSystem.GetPlayer();
-
-                playerHitFinish = player->aabb.Intersects(
-                    Core::CAABB3<float>(
-                        Core::Float3(entity->position[0], entity->position[1], entity->position[2]),
-                        Core::Float3(entity->position[0] + 64, entity->position[1] + 64, entity->position[2])
-                    )
-                );;
-            }
         }
 
         // end the current frame and display everything drawn
         app.window.display();
-
-        return playerHitFinish;
     }
 
     void PlayPhase::OnLeave()

@@ -7,6 +7,7 @@
 
 #include "graphics/gfx.playPhase.h"
 #include "gui/gui.playPhase.h"
+#include "logic/logic.playPhase.h"
 
 #include "data/data.entitySystem.h"
 #include "data/data.playerSystem.h"
@@ -18,10 +19,11 @@ namespace Game
         std::cout << "GAME::PLAY::Enter" << std::endl;
 
         Core::Time::Reset();
+        finishedMap = false;
 
+        Logic::PlayPhase::GetInstance().OnEnter();
         Gui::PlayPhase::GetInstance().OnEnter();
         Gfx::PlayPhase::GetInstance().OnEnter();
-
 
         return 0;
     }
@@ -29,12 +31,12 @@ namespace Game
     int PlayPhase::InternOnRun()
     {
         Core::Time::OnFrame();
-        // Now we can call getTime(), getFrameDuration()
 
+        Logic::PlayPhase::GetInstance().OnRun();
         Gui::PlayPhase::GetInstance().OnRun();
-        bool playerHitFinish = Gfx::PlayPhase::GetInstance().OnRun();
+        Gfx::PlayPhase::GetInstance().OnRun();
 
-        if (playerHitFinish)
+        if (finishedMap)
         {
             return Type::UNLOAD_MAP;
         }
@@ -46,6 +48,7 @@ namespace Game
     {
         std::cout << "GAME::PLAY::Leave" << std::endl;
 
+        Logic::PlayPhase::GetInstance().OnLeave();
         Gui::PlayPhase::GetInstance().OnLeave();
         Gfx::PlayPhase::GetInstance().OnLeave();
 

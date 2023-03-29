@@ -1,9 +1,8 @@
 #pragma once
-#include "game.phase.h"
 
-namespace Game
+namespace Logic
 {
-    class PlayPhase : public Phase
+    class PlayPhase
     {
     public:
         static PlayPhase& GetInstance()
@@ -14,17 +13,19 @@ namespace Game
 
         PlayPhase(const PlayPhase&) = delete;
         PlayPhase& operator = (const PlayPhase&) = delete;
+
+    public:
+        void OnEnter();
+        void OnRun();
+        void OnLeave();
+
     private:
         PlayPhase()
-            : finishedMap(false)
         {};
 
     private:
-        int InternOnEnter() override;
-        int InternOnRun() override;
-        int InternOnLeave() override;
-
-    public:
-        bool finishedMap;
+        static const unsigned int TURNS_PER_SECOND = 10;
+        const double TURN_INTERVAL = 1.0 / TURNS_PER_SECOND;
+        double nextTurnTime;
     };
 }

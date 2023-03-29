@@ -9,6 +9,7 @@ namespace Data
             Character,
             Ground,
             Obstacle,
+            Finish,
             NumberOfMembers,
             Undefined = -1,
         };

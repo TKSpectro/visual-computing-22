@@ -178,9 +178,12 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\logic\logic.commandSystem.cpp" />
     <ClCompile Include="..\..\src\logic\logic.loadPhase.cpp" />
+    <ClCompile Include="..\..\src\logic\logic.playPhase.cpp" />
     <ClCompile Include="..\..\src\logic\logic.shutdownPhase.cpp" />
     <ClCompile Include="..\..\src\logic\logic.startupPhase.cpp" />
+    <ClCompile Include="..\..\src\logic\logic.system.cpp" />
     <ClCompile Include="..\..\src\logic\logic.unloadPhase.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -192,9 +195,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\logic\logic.command.h" />
+    <ClInclude Include="..\..\src\logic\logic.commandSystem.h" />
     <ClInclude Include="..\..\src\logic\logic.loadPhase.h" />
+    <ClInclude Include="..\..\src\logic\logic.playPhase.h" />
     <ClInclude Include="..\..\src\logic\logic.shutdownPhase.h" />
     <ClInclude Include="..\..\src\logic\logic.startupPhase.h" />
+    <ClInclude Include="..\..\src\logic\logic.system.h" />
     <ClInclude Include="..\..\src\logic\logic.unloadPhase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

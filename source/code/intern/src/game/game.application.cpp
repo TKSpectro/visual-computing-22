@@ -16,6 +16,8 @@
 #include "data/data.event.h"
 #include "data/data.eventSystem.h"
 
+#include "logic/logic.commandSystem.h"
+
 static void callback1(Data::Event& event)
 {
     std::cout << "Callback1() called" << std::endl;
@@ -47,10 +49,10 @@ namespace Game
         std::cout << "GAME::APPLICATION::Initialize" << std::endl;
 
         Data::Event& event1 = Data::EventSystem::GetInstance().MakeEvent();
-        Data::Event& event2 = Data::EventSystem::GetInstance().MakeEvent();
         event1.SetType(1);
-        event2.SetType(2);
         Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(1), &callback1);
+        Data::Event& event2 = Data::EventSystem::GetInstance().MakeEvent();
+        event2.SetType(2);
         Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(2), &callback2);
 
         Data::EventSystem::GetInstance().FireEvent(event1);
@@ -94,38 +96,30 @@ namespace Game
                     window.setView(sf::View(visibleArea));
                 }
 
-
+                Logic::CommandSystem& commandSystem = Logic::CommandSystem::GetInstance();
                 // Instead of doing events here we dispath them to a function (callback) in the gui project
                 // In there should be a fat switch case for Closed, MouseInput, Button Presses etc.
                 // We also wont direclty handle this but just put in in a queue
                 // default case should just get returned to the os
                 if (event.type == sf::Event::KeyPressed)
                 {
-                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+                    Logic::Command& command = commandSystem.CreateCommand();
+                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
                     {
-                        Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
-                        Data::Entity* player = playerSystem.GetPlayer();
-                        if (player != nullptr)
-                        {
-                            player->position = Core::Float3(player->position[0] - 2.0f, player->position[1], player->position[2]);
-                            player->aabb = Core::CAABB3<float>(
-                                Core::Float3(player->position[0], player->position[1], player->position[2]),
-                                Core::Float3(player->position[0] + 64, player->position[1] + 64, player->position[2])
-                            );
-                        }
-
+                        command.SetType(Logic::CommandType::MoveUp);
+                        commandSystem.AddCommand(command);
+                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+                    {
+                        command.SetType(Logic::CommandType::MoveDown);
+                        commandSystem.AddCommand(command);
+                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+                    {
+                        command.SetType(Logic::CommandType::MoveLeft);
+                        commandSystem.AddCommand(command);
                     } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
                     {
-                        Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
-                        Data::Entity* player = playerSystem.GetPlayer();
-                        if (player != nullptr)
-                        {
-                            player->position = Core::Float3(player->position[0] + 2.0f, player->position[1], player->position[2]);
-                            player->aabb = Core::CAABB3<float>(
-                                    Core::Float3(player->position[0], player->position[1], player->position[2]),
-                                    Core::Float3(player->position[0] + 64, player->position[1] + 64, player->position[2])
-                            );
-                        }
+                        command.SetType(Logic::CommandType::MoveRight);
+                        commandSystem.AddCommand(command);
                     }
                 }
             }

@@ -781,7 +781,7 @@
   </entity>
   <entity name="finish_10_5" meta-entity="finish">
     <data>
-      <type>2</type>
+      <type>3</type>
       <position>640.0;320.0;0.0</position>
       <size>64.0;64.0;64.0</size>
     </data>

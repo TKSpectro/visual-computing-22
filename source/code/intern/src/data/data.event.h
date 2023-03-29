@@ -12,6 +12,6 @@ namespace Data
         BTypeID GetType() const;
 
     protected:
-        BTypeID type;
+        BTypeID typeId;
     };
 }
