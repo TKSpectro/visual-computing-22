@@ -10,6 +10,7 @@ namespace Data
             Ground,
             Obstacle,
             Finish,
+            Coin,
             NumberOfMembers,
             Undefined = -1,
         };

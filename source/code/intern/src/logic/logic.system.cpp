@@ -65,14 +65,22 @@ namespace Logic
 
             for (Data::Entity* entity : entities)
             {
-                if (player->aabb.Intersects(
-                    Core::CAABB3<float>(
-                        Core::Float3(entity->position[0], entity->position[1], entity->position[2]),
-                        Core::Float3(entity->position[0] + 64, entity->position[1] + 64, entity->position[2])
-                    )
-                ))
+                if (Core::CAABB3<float>(
+                    Core::Float3(player->position[0] + orientation[0] + 1, player->position[1] + orientation[1] + 1, player->position[2]),
+                    Core::Float3(player->position[0] + orientation[0] + 63, player->position[1] + orientation[1] + 63, player->position[2])
+                ).Intersects(entity->aabb))
                 {
-                    collisionEntities.push_back(entity);
+                    if (entity->category == Data::EntityCategory::Ground)
+                    {
+                        collisionEntities.push_back(entity);
+                    }
+
+                    if (entity->category == Data::EntityCategory::Coin)
+                    {
+                        std::cout << "COIN HIT" << std::endl;
+                        // TODO: Add point to score
+                        Data::EntitySystem::GetInstance().DestroyEntity(*entity);
+                    }
 
                     if (entity->category == Data::EntityCategory::Finish)
                     {
@@ -83,18 +91,18 @@ namespace Logic
                 }
             }
 
-            if (collisionEntities.empty() || true)
+            if (collisionEntities.empty())
             {
                 player->position = Core::Float3(player->position[0] + orientation[0], player->position[1] + orientation[1], player->position[2]);
                 player->aabb = Core::CAABB3<float>(
                     Core::Float3(player->position[0], player->position[1], player->position[2]),
                     Core::Float3(player->position[0] + 64, player->position[1] + 64, player->position[2])
                 );
+            } else
+            {
+                std::cout << collisionEntities.size() << std::endl;
             }
 
         }
-        // Get player from playerSystem
-        // Detect Collisions 
-        // Move player
     }
 }

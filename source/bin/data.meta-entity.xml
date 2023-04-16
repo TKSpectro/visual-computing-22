@@ -31,7 +31,7 @@
   <meta-entity name="player">
     <data>
       <size value="0.0"/>
-      <aabb minCorner="0.0;0.0;0.0" maxCorner="57.0;70.0;0.0"></aabb>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="64.0;64.0;0.0"></aabb>
     </data>
 
     <logic>
@@ -54,6 +54,20 @@
 
     <graphics>
       <texture value="finish.png"/>
+    </graphics>
+  </meta-entity>
+  <meta-entity name="coin">
+    <data>
+      <size value="0.0"/>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="64.0;64.0;0.0"></aabb>
+    </data>
+
+    <logic>
+      <can-move value="true"/>
+    </logic>
+
+    <graphics>
+      <texture value="coin.png"/>
     </graphics>
   </meta-entity>
 </meta-entities>

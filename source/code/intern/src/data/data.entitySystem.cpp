@@ -96,7 +96,7 @@ namespace Data
 
     void EntitySystem::DestroyEntity(Entity& entity)
     {
-        throw std::logic_error("Not Implemented");
+        std::cout << "Destroying entity - Not implemented: " << entity.id << std::endl;
     }
 
     void EntitySystem::DestroyAllEntities()

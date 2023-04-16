@@ -575,6 +575,18 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
+  <entity name="coin_7_3" meta-entity="coin">
+    <data>
+      <type>4</type>
+      <position>448.0;192.0;0.0</position>
+      <size>64.0;64.0;64.0</size>
+    </data>
+    <logic>
+      <canMove>false</canMove>
+      <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
+    </logic>
+  </entity>
   <entity name="wall_20_3" meta-entity="ground_stone">
     <data>
       <type>1</type>
@@ -651,6 +663,18 @@
     <data>
       <type>1</type>
       <position>256.0;256.0;0.0</position>
+      <size>64.0;64.0;64.0</size>
+    </data>
+    <logic>
+      <canMove>false</canMove>
+      <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
+    </logic>
+  </entity>
+  <entity name="ground_7_4" meta-entity="dirt">
+    <data>
+      <type>1</type>
+      <position>448.0;256.0;0.0</position>
       <size>64.0;64.0;64.0</size>
     </data>
     <logic>
@@ -775,6 +799,18 @@
     </data>
     <logic>
       <canMove>true</canMove>
+      <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
+    </logic>
+  </entity>
+  <entity name="coin_7_5" meta-entity="coin">
+    <data>
+      <type>4</type>
+      <position>448.0;320.0;0.0</position>
+      <size>64.0;64.0;64.0</size>
+    </data>
+    <logic>
+      <canMove>false</canMove>
       <canCollide>true</canCollide>
       <isFinish>false</isFinish>
     </logic>
