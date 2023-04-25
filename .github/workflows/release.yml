@@ -17,8 +17,11 @@ jobs:
       permissions:
         contents: write
       steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - uses: actions/checkout@v3
       - uses: ncipollo/release-action@v1
         with:
           artifacts: 'release.zip'
-          tag: 'release'
+          tag: release-${{ steps.date.outputs.date }}
