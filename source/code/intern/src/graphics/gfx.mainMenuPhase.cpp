@@ -66,7 +66,7 @@ namespace Gfx
         textHighscore.setFont(font);
         textHighscore.setCharacterSize(fontSize);
         textHighscore.setFillColor(sf::Color::Black);
-        textHighscore.setPosition((app.window.getSize().x - textHighscore.getGlobalBounds().width) / 2, textMainMenu.getPosition().y + textMainMenud.getGlobalBounds().height + fontSize);
+        textHighscore.setPosition((app.window.getSize().x - textHighscore.getGlobalBounds().width) / 2, textMainMenu.getPosition().y + textMainMenu.getGlobalBounds().height + fontSize);
         
         textLastRunNewHighscore.setFont(font);
         textLastRunNewHighscore.setCharacterSize(fontSize);
