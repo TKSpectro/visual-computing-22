@@ -42,15 +42,11 @@ namespace Data
 
     // -----------------------------------------------------------------------------
 
-    Entity& EntityList::PopBack()
+    void EntityList::PopBack()
     {
-        EntityLink* pLink = anchor.GetPrevious();
+        EntityLink& pLink = *anchor.GetPrevious();
 
-        assert(pLink != nullptr);
-
-        pLink->Unlink();
-
-        return pLink->GetEntity();
+        pLink.Unlink();
     }
 
     // -----------------------------------------------------------------------------

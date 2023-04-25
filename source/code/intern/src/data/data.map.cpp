@@ -153,6 +153,20 @@ namespace Data
         return EntityIterator();
     }
 
+    EntityIterator Map::End()
+    {
+        return EntityIterator();
+    }
+
+    EntityIterator& Map::Next(EntityIterator& current)
+    {
+        // TODO: Currently no idea how
+        int sectorX = current.link->GetEntity().position[0] / SECTOR_SIZE;
+        int sectorY = current.link->GetEntity().position[1] / SECTOR_SIZE;
+
+        return *(new EntityIterator());
+    }
+
     void Map::AddEntity(Entity& entity)
     {
         // If entity is outside of map, do not add it
@@ -166,6 +180,30 @@ namespace Data
 
         Sector& sector = sectors[sectorY * 8 + sectorX];
         sector.folders[entity.category].entities.PushBack(entity);
+    }
+
+    void Map::RemoveEntity(Entity& entity)
+    {
+        if (entity.position[0] < 0 || entity.position[1] < 0 || entity.position[0] >= MAX_SECTORS_X * SECTOR_SIZE || entity.position[1] >= MAX_SECTORS_Y * SECTOR_SIZE)
+        {
+            return;
+        }
+
+        int sectorX = entity.position[0] / SECTOR_SIZE;
+        int sectorY = entity.position[1] / SECTOR_SIZE;
+
+        Sector& sector = sectors[sectorY * 8 + sectorX];
+
+        for (EntityIterator ptr = sector.folders[entity.category].entities.Begin(); ptr != sector.folders[entity.category].entities.End(); ptr.Next())
+        {
+            if (&(ptr.link->GetEntity()) == &entity)
+            {
+                ptr.link->Unlink();
+
+                // TODO: Not sure if i have to delete something here, but i probably have to
+            }
+        }
+
     }
 
     //EntityIterator Map::EndEntity()

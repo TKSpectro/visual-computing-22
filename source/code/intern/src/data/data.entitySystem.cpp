@@ -96,6 +96,8 @@ namespace Data
 
     void EntitySystem::DestroyEntity(Entity& entity)
     {
+        //itemManager.DestroyItem(entity.id);
+        //idManager.Unregister(entity.id);
         std::cout << "Destroying entity - Not implemented: " << entity.id << std::endl;
     }
 
