@@ -12,6 +12,7 @@ jobs:
         filename: 'release.zip'
         path: './source/bin'
   release:
+      needs: [build]
       runs-on: ubuntu-latest
       permissions:
         contents: write
