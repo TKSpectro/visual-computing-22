@@ -91,12 +91,15 @@ namespace Data
     {
         Core::CIDManager::BID id = idManager.Register(name);
 
-        return itemManager.CreateItem(id);
+        Entity& entity = itemManager.CreateItem(id);
+        entity.id = id;
+
+        return entity;
     }
 
     void EntitySystem::DestroyEntity(Entity& entity)
     {
-        std::cout << "Destroying entity - Not implemented: " << entity.id << std::endl;
+        itemManager.DestroyItem(entity.id);
     }
 
     void EntitySystem::DestroyAllEntities()

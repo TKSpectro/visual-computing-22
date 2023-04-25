@@ -1,5 +1,8 @@
 #pragma once
 
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/Text.hpp>
+
 namespace Gfx
 {
     class PlayPhase
@@ -22,5 +25,9 @@ namespace Gfx
     private:
         PlayPhase()
         {};
+
+    private:
+        sf::Font font;
+        sf::Text textPoints;
     };
 }

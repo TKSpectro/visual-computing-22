@@ -21,7 +21,7 @@ namespace Data
     public:
 
         void PushBack(Entity& entity);
-        Entity& PopBack();
+        void PopBack();
 
         void Erase(Entity& entity);
 

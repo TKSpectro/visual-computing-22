@@ -23,7 +23,6 @@ namespace Data
     public:
         int Initialize(tinyxml2::XMLDocument& doc);
         MetaEntity& CreateMetaEntity(std::string name);
-        void DestroyMetaEntity(MetaEntity& metaEntity);
         void DestroyAllMetaEntities();
         MetaEntity& SearchMetaEntity(std::string name);
         MetaEntity& GetMetaEntity(Core::CIDManager::BID id);

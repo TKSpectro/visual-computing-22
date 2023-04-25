@@ -54,6 +54,8 @@ namespace Data
         std::pair<floatListIterator, floatListIterator> GetExample2();
 
         void AddEntity(Entity& entity);
+        void RemoveEntity(Entity& entity);
+        void MoveEntity(Entity& entity);
         // We need a AddEntity, RemoveEntity and MoveEntity
         // AddEntity checks where the entity is on the map and then decides in which sector/folder it should be placed
         // Remove is basically the same
@@ -61,7 +63,7 @@ namespace Data
 
     private:
 
-        Sector sectors[MAX_SECTORS_Y * MAX_SECTORS_X];        // Use constants or create dynamic array
+        Sector sectors[MAX_SECTORS_Y * MAX_SECTORS_X];
     };
 }
 
