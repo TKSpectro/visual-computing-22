@@ -11,7 +11,7 @@
     </logic>
 
     <graphics>
-      <texture value="ground_stone.jpg"/>
+      <texture value="wall.png"/>
     </graphics>
   </meta-entity>
   <meta-entity name="dirt">
@@ -39,7 +39,7 @@
     </logic>
 
     <graphics>
-      <texture value="player.png"/>
+      <texture value="frog.png"/>
     </graphics>
   </meta-entity>
   <meta-entity name="finish">
@@ -53,7 +53,7 @@
     </logic>
 
     <graphics>
-      <texture value="finish.png"/>
+      <texture value="trophy.png"/>
     </graphics>
   </meta-entity>
   <meta-entity name="coin">
@@ -67,7 +67,7 @@
     </logic>
 
     <graphics>
-      <texture value="coin.png"/>
+      <texture value="melon.png"/>
     </graphics>
   </meta-entity>
 </meta-entities>
