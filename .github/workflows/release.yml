@@ -11,9 +11,13 @@ jobs:
         type: 'zip'
         filename: 'release.zip'
         path: './source/bin'
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
     - name: Create Github Release
       uses: ncipollo/release-action@v1
       with:
         artifacts: 'release.zip'
         replacesArtifacts: false
         allowUpdates: true
+        tag: release-${{ steps.date.outputs.date }}
