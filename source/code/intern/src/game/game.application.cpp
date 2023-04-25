@@ -91,9 +91,9 @@ namespace Game
 
                 if (event.type == sf::Event::Resized)
                 {
-                    // update the view to the new size of the windowl
-                    sf::FloatRect visibleArea(0.f, 0.f, (float)event.size.width, (float)event.size.height);
-                    window.setView(sf::View(visibleArea));
+                    // The next two lines would make the view basically zoom in/out. But for a maze that is not what we want
+                    //sf::FloatRect visibleArea(0.f, 0.f, (float)event.size.width, (float)event.size.height);
+                    //window.setView(sf::View(visibleArea));
                 }
 
                 Logic::CommandSystem& commandSystem = Logic::CommandSystem::GetInstance();

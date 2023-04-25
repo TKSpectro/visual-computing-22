@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 
 namespace Gfx
 {
@@ -31,5 +33,9 @@ namespace Gfx
         sf::Text textMainMenu;
         sf::Text textButtons;
         sf::Text textMovement;
+        sf::Text textHighscore;
+        sf::Text textInstructions;
+        sf::Texture backgroundTexture;
+        sf::Sprite backgroundSprite;
     };
 }

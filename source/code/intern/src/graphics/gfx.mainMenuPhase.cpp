@@ -1,6 +1,12 @@
 #include "gfx.mainMenuPhase.h"
 
+#include <fstream>
+#include <iomanip>
+#include <sstream>
+
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
 
 #include <game/game.application.h>
 
@@ -20,24 +26,71 @@ namespace Gfx
 
         app.window.setView(view);
 
+        // Load repeated background texture
+        backgroundTexture.loadFromFile("background.png");
+        backgroundTexture.setRepeated(true); // repeat tile over sprite height
+        sf::IntRect iBounds(0, 0, 1000, 1000);
+        backgroundSprite = sf::Sprite(backgroundTexture, iBounds);
+        backgroundSprite.setPosition(iBounds.left, iBounds.top - 1000 + app.GetInstance().window.getView().getSize().y);
+
         font.loadFromFile("roboto.ttf");
 
         textMainMenu.setFont(font);
-        textMainMenu.setString("MAIN MENU");
+        textMainMenu.setString("TURTLE MAZE");
         textMainMenu.setCharacterSize(48);
-        textMainMenu.setFillColor(sf::Color::White);
+        textMainMenu.setFillColor(sf::Color::Black);
+        // center the text horizontally
+        textMainMenu.setPosition((app.window.getSize().x - textMainMenu.getGlobalBounds().width) / 2, 0);
+
+        float xOffset = 32.0f;
+        unsigned int fontSize = 32;
+
+        // Read the highscore from the file
+        std::ifstream inHighscoreFile;
+        inHighscoreFile.open("highscore.txt");
+        std::string line;
+        std::getline(inHighscoreFile, line);
+        if (!line.empty())
+        {
+            int points = std::stoi(line);
+            std::getline(inHighscoreFile, line);
+            if (!line.empty())
+            {
+                std::stringstream timeStream;
+                timeStream << std::fixed << std::setprecision(2) << std::stod(line);
+                textHighscore.setString("Highscore: " + std::to_string(points) + " points in " + timeStream.str() + " seconds");
+            } else
+            {
+                textHighscore.setString("No Highscore set! Be the first one!");
+            }
+        } else
+        {
+            textHighscore.setString("No Highscore set! Be the first one!");
+        }
+        inHighscoreFile.close();
+
+        textHighscore.setFont(font);
+        textHighscore.setCharacterSize(fontSize);
+        textHighscore.setFillColor(sf::Color::Black);
+        textHighscore.setPosition((app.window.getSize().x - textHighscore.getGlobalBounds().width) / 2, textHighscore.getPosition().y + textHighscore.getGlobalBounds().height + fontSize);
+        
+        textInstructions.setFont(font);
+        textInstructions.setString("Instructions:");
+        textInstructions.setCharacterSize(fontSize);
+        textInstructions.setFillColor(sf::Color::Black);
+        textInstructions.setPosition(xOffset, textHighscore.getPosition().y + textHighscore.getGlobalBounds().height + (fontSize * 2));
 
         textButtons.setFont(font);
         textButtons.setString("Start: Enter\nClose: Escape");
-        textButtons.setCharacterSize(32);
-        textButtons.setFillColor(sf::Color::White);
-        textButtons.setPosition(0, textMainMenu.getGlobalBounds().height + 32);
+        textButtons.setCharacterSize(fontSize);
+        textButtons.setFillColor(sf::Color::Black);
+        textButtons.setPosition(xOffset, textInstructions.getPosition().y + textInstructions.getGlobalBounds().height + fontSize);
 
         textMovement.setFont(font);
-        textMovement.setString("Movement: Arrow Keys");
-        textMovement.setCharacterSize(32);
-        textMovement.setFillColor(sf::Color::White);
-        textMovement.setPosition(0, textButtons.getPosition().y + textButtons.getGlobalBounds().height + 32);
+        textMovement.setString("Movement: Arrow Keys or WASD");
+        textMovement.setCharacterSize(fontSize);
+        textMovement.setFillColor(sf::Color::Black);
+        textMovement.setPosition(xOffset, textButtons.getPosition().y + textButtons.getGlobalBounds().height + fontSize);
     }
 
     void MainMenuPhase::OnRun()
@@ -46,7 +99,12 @@ namespace Gfx
 
         app.window.clear(sf::Color::Black);
 
+        app.window.draw(backgroundSprite);
+
         app.window.draw(textMainMenu);
+        app.window.draw(textHighscore);
+
+        app.window.draw(textInstructions);
         app.window.draw(textButtons);
         app.window.draw(textMovement);
 

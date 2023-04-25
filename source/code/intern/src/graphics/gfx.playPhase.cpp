@@ -1,11 +1,14 @@
 #include "gfx.playPhase.h"
 
 #include <vector>
+#include <iomanip>
+#include <sstream>
 
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
+#include <core/core_time.h>
 #include <game/game.application.h>
 #include <data/data.metaEntitySystem.h>
 #include <data/data.entitySystem.h>
@@ -22,6 +25,11 @@ namespace Gfx
         textPoints.setString("Points: 0");
         textPoints.setCharacterSize(48);
         textPoints.setFillColor(sf::Color::White);
+
+        textTimer.setFont(font);
+        textTimer.setString("Time: 0");
+        textTimer.setCharacterSize(48);
+        textTimer.setFillColor(sf::Color::White);
     }
 
     void PlayPhase::OnRun()
@@ -63,8 +71,8 @@ namespace Gfx
                     auto& prevSize = app.window.getView().getSize();
 
                     sf::View view(sf::FloatRect(
-                        entity->position[0] - prevSize.x / 2 + 128,
-                        entity->position[1] - prevSize.y / 2 - 64 - 32,
+                        entity->position[0] - prevSize.x / 2 + 32,
+                        entity->position[1] - prevSize.y / 2 + 32,
                         prevSize.x,
                         prevSize.y
                     ));
@@ -78,6 +86,13 @@ namespace Gfx
         textPoints.setString("Points: " + std::to_string(Data::PointSystem::GetInstance().GetPoints()));
         textPoints.setPosition(app.window.getView().getCenter().x - app.window.getView().getSize().x / 2, app.window.getView().getCenter().y - app.window.getView().getSize().y / 2);
         app.window.draw(textPoints);
+
+        // draw the timer
+        std::stringstream timeStream;
+        timeStream << std::fixed << std::setprecision(2) << Core::Time::GetTime();
+        textTimer.setString("Time: " + timeStream.str() + "s");
+        textTimer.setPosition(app.window.getView().getCenter().x + app.window.getView().getSize().x / 2 - textTimer.getGlobalBounds().width - 12, app.window.getView().getCenter().y - app.window.getView().getSize().y / 2);
+        app.window.draw(textTimer);
 
         // end the current frame and display everything drawn
         app.window.display();

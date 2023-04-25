@@ -29,5 +29,6 @@ namespace Gfx
     private:
         sf::Font font;
         sf::Text textPoints;
+        sf::Text textTimer;
     };
 }
