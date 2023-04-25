@@ -15,7 +15,6 @@ namespace Gfx
 
     void StartupPhase::OnRun(tinyxml2::XMLDocument& doc)
     {
-        Game::Application& app = Game::Application::GetInstance();
         Data::MetaEntitySystem& metaEntitySystem = Data::MetaEntitySystem::GetInstance();
 
         XMLElement* metaEntities = doc.FirstChildElement("meta-entities");

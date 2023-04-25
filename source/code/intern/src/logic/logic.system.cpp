@@ -5,6 +5,7 @@
 #include "../data/data.entitySystem.h"
 #include "../data/data.entityCategory.h"
 #include "../data/data.playerSystem.h"
+#include "../data/data.pointSystem.h"
 
 #include "../game/game.playPhase.h"
 
@@ -31,16 +32,16 @@ namespace Logic
             switch (currentCommand->GetType())
             {
                 case CommandType::MoveUp:
-                    MovePlayer(Core::Float2(0.0f, -2.0f));
+                    MovePlayer(Core::Float2(0.0f, -64.0f));
                     break;
                 case CommandType::MoveDown:
-                    MovePlayer(Core::Float2(0.0f, 2.0f));
+                    MovePlayer(Core::Float2(0.0f, 64.0f));
                     break;
                 case CommandType::MoveRight:
-                    MovePlayer(Core::Float2(2.0f, 0.0f));
+                    MovePlayer(Core::Float2(64.0f, 0.0f));
                     break;
                 case CommandType::MoveLeft:
-                    MovePlayer(Core::Float2(-2.0f, 0.0f));
+                    MovePlayer(Core::Float2(-64.0f, 0.0f));
                     break;
                 default:
                     break;
@@ -56,53 +57,63 @@ namespace Logic
         Data::Entity* player = playerSystem.GetPlayer();
         if (player != nullptr)
         {
-            // Check Collisions
             // TODO: This needs to replaced with the proper EntityMap System call with the new aabb after the move (massive performance increase)
+            // because we would not have to run through all entities again but just the ones within the aabb + 1px in each direction
             std::vector<Data::Entity*> entities = Data::EntitySystem::GetInstance().GetAllEntities();
             std::vector<Data::Entity*> collisionEntities;
 
             bool playerCollidedWithFinish = false;
+            std::vector<Data::Entity*> collectedCoins = std::vector<Data::Entity*>();
 
             for (Data::Entity* entity : entities)
             {
-                if (Core::CAABB3<float>(
-                    Core::Float3(player->position[0] + orientation[0] + 1, player->position[1] + orientation[1] + 1, player->position[2]),
-                    Core::Float3(player->position[0] + orientation[0] + 63, player->position[1] + orientation[1] + 63, player->position[2])
-                ).Intersects(entity->aabb))
+                if (entity != nullptr)
                 {
-                    if (entity->category == Data::EntityCategory::Ground)
+                    if (Core::CAABB3<float>(
+                        Core::Float3(player->position[0] + orientation[0] + 1, player->position[1] + orientation[1] + 1, player->position[2]),
+                        Core::Float3(player->position[0] + orientation[0] + 63, player->position[1] + orientation[1] + 63, player->position[2])
+                    ).Intersects(entity->aabb))
                     {
-                        collisionEntities.push_back(entity);
-                    }
+                        if (entity->category == Data::EntityCategory::Ground)
+                        {
+                            collisionEntities.push_back(entity);
+                        }
 
-                    if (entity->category == Data::EntityCategory::Coin)
-                    {
-                        std::cout << "COIN HIT" << std::endl;
-                        // TODO: Add point to score
-                        Data::EntitySystem::GetInstance().DestroyEntity(*entity);
-                    }
+                        if (entity->category == Data::EntityCategory::Coin)
+                        {
+                            collectedCoins.push_back(entity);
+                        }
 
-                    if (entity->category == Data::EntityCategory::Finish)
-                    {
-                        playerCollidedWithFinish = true;
-                        std::cout << "FINISH HIT" << std::endl;
-                        Game::PlayPhase::GetInstance().finishedMap = true;
+                        if (entity->category == Data::EntityCategory::Finish)
+                        {
+                            playerCollidedWithFinish = true;
+                            std::cout << "FINISH HIT" << std::endl;
+                            Game::PlayPhase::GetInstance().finishedMap = true;
+                        }
                     }
                 }
             }
 
             if (collisionEntities.empty())
             {
+                // If not collisions occure with walls we move the player
                 player->position = Core::Float3(player->position[0] + orientation[0], player->position[1] + orientation[1], player->position[2]);
                 player->aabb = Core::CAABB3<float>(
                     Core::Float3(player->position[0], player->position[1], player->position[2]),
                     Core::Float3(player->position[0] + 64, player->position[1] + 64, player->position[2])
                 );
+
+                // Only if the player actually moved we add the collected coin(s) to the score and remove them from the map
+                for (Data::Entity* entity : collectedCoins)
+                {
+                    Data::PointSystem::GetInstance().AddPoints(1);
+					Data::EntitySystem::GetInstance().DestroyEntity(*entity);
+				}
             } else
             {
-                std::cout << collisionEntities.size() << std::endl;
+                // Collided with a wall, so don't move the player
+                //std::cout << collisionEntities.size() << std::endl;
             }
-
         }
     }
 }

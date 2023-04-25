@@ -11,6 +11,7 @@
 
 #include "data/data.entitySystem.h"
 #include "data/data.playerSystem.h"
+#include "data/data.pointSystem.h"
 
 namespace Game
 {
@@ -20,6 +21,8 @@ namespace Game
 
         Core::Time::Reset();
         finishedMap = false;
+
+        Data::PointSystem::GetInstance().ResetPoints();
 
         Logic::PlayPhase::GetInstance().OnEnter();
         Gui::PlayPhase::GetInstance().OnEnter();

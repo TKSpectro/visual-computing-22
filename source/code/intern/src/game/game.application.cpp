@@ -20,12 +20,12 @@
 
 static void callback1(Data::Event& event)
 {
-    std::cout << "Callback1() called" << std::endl;
+    std::cout << "Callback1() called. Type: " << event.GetType() << std::endl;
 }
 
 static void callback2(Data::Event& event)
 {
-    std::cout << "Callback2() called" << std::endl;
+    std::cout << "Callback2() called. Type: " << event.GetType() << std::endl;
 }
 
 namespace Game

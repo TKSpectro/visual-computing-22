@@ -10,9 +10,6 @@
     <ClCompile Include="..\..\src\data\data.mainMenuPhase.cpp">
       <Filter>phases</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\data\data.eventExample.cpp">
-      <Filter>events</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\data\data.entityIterator.cpp">
       <Filter>entity</Filter>
     </ClCompile>
@@ -42,6 +39,12 @@
     </ClCompile>
     <ClCompile Include="..\..\src\data\data.playerSystem.cpp">
       <Filter>player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\data\data.pointSystem.cpp">
+      <Filter>player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\data\data.unloadPhase.cpp">
+      <Filter>phases</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +104,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\data\data.playerSystem.h">
       <Filter>player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.pointSystem.h">
+      <Filter>player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.unloadPhase.h">
+      <Filter>phases</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

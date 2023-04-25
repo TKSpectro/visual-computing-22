@@ -67,11 +67,6 @@ namespace Data
         return itemManager.CreateItem(id);
     }
 
-    void MetaEntitySystem::DestroyMetaEntity(MetaEntity& metaEntity)
-    {
-        throw std::logic_error("Not Implemented");
-    }
-
     void MetaEntitySystem::DestroyAllMetaEntities()
     {
         itemManager.Clear();
