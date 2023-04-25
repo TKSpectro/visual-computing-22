@@ -34,6 +34,7 @@ namespace Gfx
         sf::Text textButtons;
         sf::Text textMovement;
         sf::Text textHighscore;
+        sf::Text textLastRunNewHighscore;
         sf::Text textInstructions;
         sf::Texture backgroundTexture;
         sf::Sprite backgroundSprite;

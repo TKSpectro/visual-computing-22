@@ -13,6 +13,7 @@
 #include "data/data.entitySystem.h"
 #include "data/data.playerSystem.h"
 #include "data/data.pointSystem.h"
+#include "data/data.highscoreSystem.h"
 
 namespace Game
 {
@@ -52,34 +53,7 @@ namespace Game
     {
         std::cout << "GAME::PLAY::Leave" << std::endl;
 
-        // Read old highscore
-        std::ifstream inHighscoreFile;
-        int points = 0;
-        double time = 0.0;
-        inHighscoreFile.open("highscore.txt");
-        std::string line;
-        std::getline(inHighscoreFile, line);
-        if (!line.empty())
-        {
-            points = std::stoi(line);
-            std::getline(inHighscoreFile, line);
-            if (!line.empty())
-            {
-                time = std::stod(line);
-            }
-        }
-        inHighscoreFile.close();
-
-        // Only write new highscore if the current score is higher than the old one and if the score is the same then check the time
-        if (Data::PointSystem::GetInstance().GetPoints() > points || (Data::PointSystem::GetInstance().GetPoints() == points && Core::Time::GetTime() < time))
-        {
-            // Write file with first line points and second line time
-            std::ofstream outHighscoreFile;
-            outHighscoreFile.open("highscore.txt");
-            outHighscoreFile << Data::PointSystem::GetInstance().GetPoints() << std::endl;
-            outHighscoreFile << Core::Time::GetTime() << std::endl;
-            outHighscoreFile.close();
-        }
+        Data::HighscoreSystem::GetInstance().TryWriteHighscore();
 
         Logic::PlayPhase::GetInstance().OnLeave();
         Gui::PlayPhase::GetInstance().OnLeave();

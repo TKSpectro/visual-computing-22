@@ -189,6 +189,7 @@
     <ClCompile Include="..\..\src\data\data.entitySystem.cpp" />
     <ClCompile Include="..\..\src\data\data.event.cpp" />
     <ClCompile Include="..\..\src\data\data.eventSystem.cpp" />
+    <ClCompile Include="..\..\src\data\data.highscoreSystem.cpp" />
     <ClCompile Include="..\..\src\data\data.loadPhase.cpp" />
     <ClCompile Include="..\..\src\data\data.mainMenuPhase.cpp" />
     <ClCompile Include="..\..\src\data\data.map.cpp" />
@@ -210,6 +211,7 @@
     <ClInclude Include="..\..\src\data\data.event.h" />
     <ClInclude Include="..\..\src\data\data.eventListener.h" />
     <ClInclude Include="..\..\src\data\data.eventSystem.h" />
+    <ClInclude Include="..\..\src\data\data.highscoreSystem.h" />
     <ClInclude Include="..\..\src\data\data.loadPhase.h" />
     <ClInclude Include="..\..\src\data\data.mainMenuPhase.h" />
     <ClInclude Include="..\..\src\data\data.map.h" />

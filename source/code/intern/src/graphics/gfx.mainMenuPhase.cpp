@@ -9,6 +9,7 @@
 #include <SFML/Graphics/Texture.hpp>
 
 #include <game/game.application.h>
+#include <data/data.highscoreSystem.h>
 
 namespace Gfx
 {
@@ -45,40 +46,38 @@ namespace Gfx
         float xOffset = 32.0f;
         unsigned int fontSize = 32;
 
-        // Read the highscore from the file
-        std::ifstream inHighscoreFile;
-        inHighscoreFile.open("highscore.txt");
-        std::string line;
-        std::getline(inHighscoreFile, line);
-        if (!line.empty())
+        Data::HighscoreSystem& highscoreSystem = Data::HighscoreSystem::GetInstance();
+        
+        if (highscoreSystem.TryReadHighscore())
         {
-            int points = std::stoi(line);
-            std::getline(inHighscoreFile, line);
-            if (!line.empty())
-            {
-                std::stringstream timeStream;
-                timeStream << std::fixed << std::setprecision(2) << std::stod(line);
-                textHighscore.setString("Highscore: " + std::to_string(points) + " points in " + timeStream.str() + " seconds");
-            } else
-            {
-                textHighscore.setString("No Highscore set! Be the first one!");
-            }
-        } else
-        {
-            textHighscore.setString("No Highscore set! Be the first one!");
+            std::stringstream timeStream;
+            timeStream << std::fixed << std::setprecision(2) << highscoreSystem.GetTime();
+            textHighscore.setString("Highscore: " + std::to_string(highscoreSystem.GetPoints()) + " points in " + timeStream.str() + " seconds");
+		} else
+		{
+			textHighscore.setString("No Highscore set! Be the first one!");
         }
-        inHighscoreFile.close();
+
+        if (highscoreSystem.GetLastRunNewHighscore())
+        {
+            textLastRunNewHighscore.setString("YOUR LAST RUN WAS A NEW HIGHSCORE!");
+        }
 
         textHighscore.setFont(font);
         textHighscore.setCharacterSize(fontSize);
         textHighscore.setFillColor(sf::Color::Black);
-        textHighscore.setPosition((app.window.getSize().x - textHighscore.getGlobalBounds().width) / 2, textHighscore.getPosition().y + textHighscore.getGlobalBounds().height + fontSize);
+        textHighscore.setPosition((app.window.getSize().x - textHighscore.getGlobalBounds().width) / 2, textMainMenu.getPosition().y + textMainMenud.getGlobalBounds().height + fontSize);
         
+        textLastRunNewHighscore.setFont(font);
+        textLastRunNewHighscore.setCharacterSize(fontSize);
+        textLastRunNewHighscore.setFillColor(sf::Color::Black);
+        textLastRunNewHighscore.setPosition((app.window.getSize().x - textLastRunNewHighscore.getGlobalBounds().width) / 2, textHighscore.getPosition().y + textHighscore.getGlobalBounds().height + fontSize);
+
         textInstructions.setFont(font);
         textInstructions.setString("Instructions:");
         textInstructions.setCharacterSize(fontSize);
         textInstructions.setFillColor(sf::Color::Black);
-        textInstructions.setPosition(xOffset, textHighscore.getPosition().y + textHighscore.getGlobalBounds().height + (fontSize * 2));
+        textInstructions.setPosition(xOffset, textLastRunNewHighscore.getPosition().y + textLastRunNewHighscore.getGlobalBounds().height + (fontSize * 2));
 
         textButtons.setFont(font);
         textButtons.setString("Start: Enter\nClose: Escape");
@@ -103,6 +102,7 @@ namespace Gfx
 
         app.window.draw(textMainMenu);
         app.window.draw(textHighscore);
+        app.window.draw(textLastRunNewHighscore);
 
         app.window.draw(textInstructions);
         app.window.draw(textButtons);

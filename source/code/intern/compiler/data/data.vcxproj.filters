@@ -46,6 +46,9 @@
     <ClCompile Include="..\..\src\data\data.unloadPhase.cpp">
       <Filter>phases</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\data\data.highscoreSystem.cpp">
+      <Filter>player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\data\data.startupPhase.h">
@@ -110,6 +113,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\data\data.unloadPhase.h">
       <Filter>phases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\data\data.highscoreSystem.h">
+      <Filter>player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
