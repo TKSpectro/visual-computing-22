@@ -52,7 +52,7 @@ namespace Data
             entity.aabb = aabb;
 
             metaEntityCount++;
-            std::cout << "MetaEntity: " << entity << std::endl;
+            //std::cout << "MetaEntity: " << entity << std::endl;
 
             metaEntity = metaEntity->NextSiblingElement();
         }
@@ -69,6 +69,8 @@ namespace Data
 
     void MetaEntitySystem::DestroyAllMetaEntities()
     {
+        std::cout << "DATA::ENITITYSYSTEM::DestroyAllMetaEntities Clearing " << idManager.GetNumberOfNames() << " Entities" << std::endl;
+
         itemManager.Clear();
         idManager.Clear();
     }

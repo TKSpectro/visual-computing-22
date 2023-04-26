@@ -9,7 +9,10 @@
 namespace Logic
 {
     void PlayPhase::OnEnter()
-    {}
+    {
+        // Reset the turn timer
+        nextTurnTime = Core::Time::GetTime() + TURN_INTERVAL;
+    }
 
     void PlayPhase::OnRun()
     {
@@ -22,5 +25,7 @@ namespace Logic
     }
 
     void PlayPhase::OnLeave()
-    {}
+    {
+        nextTurnTime = 0.0;
+    }
 }

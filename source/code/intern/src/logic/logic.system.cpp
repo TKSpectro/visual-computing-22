@@ -87,7 +87,6 @@ namespace Logic
                         if (entity->category == Data::EntityCategory::Finish)
                         {
                             playerCollidedWithFinish = true;
-                            std::cout << "FINISH HIT" << std::endl;
                             Game::PlayPhase::GetInstance().finishedMap = true;
                         }
                     }
@@ -112,7 +111,6 @@ namespace Logic
             } else
             {
                 // Collided with a wall, so don't move the player
-                //std::cout << collisionEntities.size() << std::endl;
             }
         }
     }

@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+#include "data/data.unloadPhase.h"
 #include "logic/logic.unloadPhase.h"
 #include "graphics/gfx.unloadPhase.h"
 #include "gui/gui.unloadPhase.h"
@@ -12,6 +13,7 @@ namespace Game
     {
         std::cout << "GAME::UNLOAD::Enter" << std::endl;
 
+        Data::UnloadPhase::GetInstance().OnEnter();
         Gui::UnloadPhase::GetInstance().OnEnter();
         Logic::UnloadPhase::GetInstance().OnEnter();
         Gfx::UnloadPhase::GetInstance().OnEnter();
@@ -23,6 +25,7 @@ namespace Game
     {
         std::cout << "GAME::UNLOAD::Run" << std::endl;
 
+        Data::UnloadPhase::GetInstance().OnRun();
         Gui::UnloadPhase::GetInstance().OnRun();
         Logic::UnloadPhase::GetInstance().OnRun();
         Gfx::UnloadPhase::GetInstance().OnRun();
@@ -34,6 +37,7 @@ namespace Game
     {
         std::cout << "GAME::UNLOAD::Leave" << std::endl;
 
+        Data::UnloadPhase::GetInstance().OnLeave();
         Gui::UnloadPhase::GetInstance().OnLeave();
         Logic::UnloadPhase::GetInstance().OnLeave();
         Gfx::UnloadPhase::GetInstance().OnLeave();

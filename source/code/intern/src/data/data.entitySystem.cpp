@@ -104,6 +104,8 @@ namespace Data
 
     void EntitySystem::DestroyAllEntities()
     {
+        std::cout << "DATA::ENITITYSYSTEM::DestroyAllEntities Clearing " << idManager.GetNumberOfNames() << " Entities" << std::endl;
+
         itemManager.Clear();
         idManager.Clear();
     }

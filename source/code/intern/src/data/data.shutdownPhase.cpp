@@ -12,7 +12,7 @@ namespace Data
 
     void ShutdownPhase::OnRun()
     {
-        std::cout << "DATA::SHUTDOWN::Run::Clearing MetaEntity System" << std::endl;
+        std::cout << "DATA::SHUTDOWN::Run Clearing Entity and MetaEntity System" << std::endl;
 
         EntitySystem::GetInstance().DestroyAllEntities();
         MetaEntitySystem::GetInstance().DestroyAllMetaEntities();
