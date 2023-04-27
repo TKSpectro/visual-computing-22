@@ -18,13 +18,13 @@
 
 namespace Core
 {
-    template <typename T> 
+    template <typename T>
     inline void Swap(T& _rLeft, T& _rRight);
 } // namespace Core
 
 namespace Core
 {
-    template <typename T> 
+    template <typename T>
     inline void Swap(T& _rLeft, T& _rRight)
     {
         if (&_rLeft != &_rRight)

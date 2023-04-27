@@ -166,7 +166,7 @@ namespace Data
         int sectorY = (int)current.link->GetEntity().position[1] / SECTOR_SIZE;
 
         Sector& sector = sectors[sectorY * 8 + sectorX];
-        
+
         for (EntityIterator ptr = sector.folders[current.link->GetEntity().category].entities.Begin(); ptr != sector.folders[current.link->GetEntity().category].entities.End(); ptr.Next())
         {
             if (ptr.link == current.link)

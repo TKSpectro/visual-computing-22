@@ -273,8 +273,7 @@ namespace Core
 
     template <typename T>
     inline CVector4<T>::CVector4(EUninitialized)
-    {
-    }
+    {}
 
     // -----------------------------------------------------------------------------
 

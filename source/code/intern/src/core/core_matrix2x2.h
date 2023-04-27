@@ -189,8 +189,7 @@ namespace Core
 
     template <typename T>
     inline CMatrix2x2<T>::CMatrix2x2(EUninitialized)
-    {
-    }
+    {}
 
     // -----------------------------------------------------------------------------
 

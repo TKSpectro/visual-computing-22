@@ -48,15 +48,15 @@ namespace Gfx
         unsigned int fontSize = 32;
 
         Data::HighscoreSystem& highscoreSystem = Data::HighscoreSystem::GetInstance();
-        
+
         if (highscoreSystem.TryReadHighscore())
         {
             std::stringstream timeStream;
             timeStream << std::fixed << std::setprecision(2) << highscoreSystem.GetTime();
             textHighscore.setString("Highscore: " + std::to_string(highscoreSystem.GetPoints()) + " points in " + timeStream.str() + " seconds");
-		} else
-		{
-			textHighscore.setString("No Highscore set! Be the first one!");
+        } else
+        {
+            textHighscore.setString("No Highscore set! Be the first one!");
         }
 
         if (highscoreSystem.GetLastRunNewHighscore())
@@ -68,7 +68,7 @@ namespace Gfx
         textHighscore.setCharacterSize(fontSize);
         textHighscore.setFillColor(sf::Color::Black);
         textHighscore.setPosition((app.window.getSize().x - textHighscore.getGlobalBounds().width) / 2, textMainMenu.getPosition().y + textMainMenu.getGlobalBounds().height + fontSize);
-        
+
         textLastRunNewHighscore.setFont(font);
         textLastRunNewHighscore.setCharacterSize(fontSize);
         textLastRunNewHighscore.setFillColor(sf::Color::Black);

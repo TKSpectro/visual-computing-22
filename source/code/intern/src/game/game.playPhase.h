@@ -27,8 +27,8 @@ namespace Game
         int InternOnRun() override;
         int InternOnLeave() override;
 
-    // Callbacks
     public:
+        // Callbacks
         static void FinishMap(Data::Event& event);
 
     private:

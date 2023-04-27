@@ -5,15 +5,15 @@ namespace Core
 {
     class CUncopyable
     {
-        protected:
+    protected:
 
-            CUncopyable() = default;
-           ~CUncopyable() = default;
+        CUncopyable() = default;
+        ~CUncopyable() = default;
 
-        private:
+    private:
 
-            CUncopyable(const CUncopyable&) = delete;
+        CUncopyable(const CUncopyable&) = delete;
 
-            CUncopyable& operator = (const CUncopyable&) = delete;
+        CUncopyable& operator = (const CUncopyable&) = delete;
     };
 } // namespace Core

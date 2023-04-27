@@ -107,8 +107,8 @@ namespace Logic
                 for (Data::Entity* entity : collectedCoins)
                 {
                     Data::PointSystem::GetInstance().AddPoints(1);
-					Data::EntitySystem::GetInstance().DestroyEntity(*entity);
-				}
+                    Data::EntitySystem::GetInstance().DestroyEntity(*entity);
+                }
             } else
             {
                 // Collided with a wall, so don't move the player

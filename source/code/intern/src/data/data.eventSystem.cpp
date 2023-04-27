@@ -56,13 +56,13 @@ namespace Data
         Event* event = nullptr;
         try
         {
-			event = new Event();
-			event->SetType(type);
-			FireEvent(*event, data);
+            event = new Event();
+            event->SetType(type);
+            FireEvent(*event, data);
         } catch (...)
         {
-			delete event;
-		}
+            delete event;
+        }
     }
 
     void EventSystem::FireEvent(Event& event)

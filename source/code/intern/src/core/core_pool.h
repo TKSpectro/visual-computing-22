@@ -8,127 +8,126 @@ namespace Core
     template <class T, size_t TNumberOfBytesPerPage>
     class CPool
     {
-        public:
+    public:
 
-            static constexpr size_t s_NumberOfItemsPerPage = TNumberOfBytesPerPage / sizeof(T);
+        static constexpr size_t s_NumberOfItemsPerPage = TNumberOfBytesPerPage / sizeof(T);
 
-        public:
+    public:
 
-            CPool()
-                : m_pFirstPage     (nullptr)
-                , m_pFirstFreeChunk(nullptr)
+        CPool()
+            : m_pFirstPage(nullptr)
+            , m_pFirstFreeChunk(nullptr)
+        {}
+
+        ~CPool()
+        {
+            SPage* pCurrentPage;
+            SPage* pNextPage;
+
+            for (pCurrentPage = m_pFirstPage; pCurrentPage != nullptr; pCurrentPage = pNextPage)
             {
+                pNextPage = pCurrentPage->m_pNextPage;
+
+                free(pCurrentPage);
             }
+        }
 
-           ~CPool()
+    public:
+
+        T& AllocateItem()
+        {
+            T* pNewItem;
+            SPage* pNewPage;
+            SChunk* pNewChunk;
+            size_t  IndexOfChunk;
+
+            if (m_pFirstFreeChunk == nullptr)
             {
-                SPage* pCurrentPage;
-                SPage* pNextPage;
 
-                for (pCurrentPage = m_pFirstPage; pCurrentPage != nullptr; pCurrentPage = pNextPage)
+                // -----------------------------------------------------------------------------
+                // Allocate new page, because no free item
+                // -----------------------------------------------------------------------------
+                pNewPage = static_cast<SPage*>(malloc(sizeof(SPage)));
+
+                // -----------------------------------------------------------------------------
+                // Push all chunks of new page to front of free list
+                // -----------------------------------------------------------------------------
+                IndexOfChunk = s_NumberOfChunksPerPage;
+
+                while (IndexOfChunk != 0)
                 {
-                    pNextPage = pCurrentPage->m_pNextPage;
+                    --IndexOfChunk;
 
-                    free(pCurrentPage);
-                }
-            }
+                    SChunk& rChunk = pNewPage->m_Chunk[IndexOfChunk];
 
-        public:
+                    rChunk.m_pNextFreeChunk = m_pFirstFreeChunk;
 
-            T& AllocateItem()
-            {
-                T*      pNewItem;
-                SPage*  pNewPage;
-                SChunk* pNewChunk;
-                size_t  IndexOfChunk;
-
-                if (m_pFirstFreeChunk == nullptr)
-                {
-
-                    // -----------------------------------------------------------------------------
-                    // Allocate new page, because no free item
-                    // -----------------------------------------------------------------------------
-                    pNewPage = static_cast<SPage*>(malloc(sizeof(SPage)));
-
-                    // -----------------------------------------------------------------------------
-                    // Push all chunks of new page to front of free list
-                    // -----------------------------------------------------------------------------
-                    IndexOfChunk = s_NumberOfChunksPerPage;
-
-                    while (IndexOfChunk != 0)
-                    {
-                        --IndexOfChunk;
-
-                        SChunk& rChunk = pNewPage->m_Chunk[IndexOfChunk];
-
-                        rChunk.m_pNextFreeChunk = m_pFirstFreeChunk;
-
-                        m_pFirstFreeChunk = &rChunk;
-                    }
-
-                    pNewPage->m_pNextPage = m_pFirstPage;
-
-                    m_pFirstPage = pNewPage;
+                    m_pFirstFreeChunk = &rChunk;
                 }
 
-                // -----------------------------------------------------------------------------
-                // Get chunk from free list
-                // -----------------------------------------------------------------------------
-                pNewChunk = m_pFirstFreeChunk;
+                pNewPage->m_pNextPage = m_pFirstPage;
 
-                m_pFirstFreeChunk = m_pFirstFreeChunk->m_pNextFreeChunk;
-
-                // -----------------------------------------------------------------------------
-                // Placement new to construct new instance of T in chunk
-                // -----------------------------------------------------------------------------
-                pNewItem = new (&pNewChunk->m_Bytes[0]) T();
-
-                return *pNewItem;
+                m_pFirstPage = pNewPage;
             }
 
-            void FreeItem(T& _rItem)
+            // -----------------------------------------------------------------------------
+            // Get chunk from free list
+            // -----------------------------------------------------------------------------
+            pNewChunk = m_pFirstFreeChunk;
+
+            m_pFirstFreeChunk = m_pFirstFreeChunk->m_pNextFreeChunk;
+
+            // -----------------------------------------------------------------------------
+            // Placement new to construct new instance of T in chunk
+            // -----------------------------------------------------------------------------
+            pNewItem = new (&pNewChunk->m_Bytes[0]) T();
+
+            return *pNewItem;
+        }
+
+        void FreeItem(T& _rItem)
+        {
+            SChunk* pChunk;
+
+            // -----------------------------------------------------------------------------
+            // Explicit call of destructor of T
+            // -----------------------------------------------------------------------------
+            _rItem.~T();
+
+            // -----------------------------------------------------------------------------
+            // Push front of chunk into free list
+            // -----------------------------------------------------------------------------
+            pChunk = reinterpret_cast<SChunk*>(&_rItem);
+
+            pChunk->m_pNextFreeChunk = m_pFirstFreeChunk;
+
+            m_pFirstFreeChunk = pChunk;
+        }
+
+    private:
+
+        static const size_t s_NumberOfChunksPerPage = s_NumberOfItemsPerPage;
+
+    private:
+
+        struct SChunk
+        {
+            union
             {
-                SChunk* pChunk;
-
-                // -----------------------------------------------------------------------------
-                // Explicit call of destructor of T
-                // -----------------------------------------------------------------------------
-                _rItem.~T();
-
-                // -----------------------------------------------------------------------------
-                // Push front of chunk into free list
-                // -----------------------------------------------------------------------------
-                pChunk = reinterpret_cast<SChunk*>(&_rItem);
-
-                pChunk->m_pNextFreeChunk = m_pFirstFreeChunk;
-
-                m_pFirstFreeChunk = pChunk;
-            }
-
-        private:
-
-            static const size_t s_NumberOfChunksPerPage = s_NumberOfItemsPerPage;
-
-        private:
-
-            struct SChunk
-            {
-                union
-                {
-                    SChunk*		  m_pNextFreeChunk;
-                    unsigned char m_Bytes[sizeof(T)];
-                };
+                SChunk* m_pNextFreeChunk;
+                unsigned char m_Bytes[sizeof(T)];
             };
+        };
 
-            struct SPage
-            {
-                SChunk m_Chunk[s_NumberOfChunksPerPage];
-                SPage* m_pNextPage;
-            };
+        struct SPage
+        {
+            SChunk m_Chunk[s_NumberOfChunksPerPage];
+            SPage* m_pNextPage;
+        };
 
-        private:
+    private:
 
-            SPage*  m_pFirstPage;
-            SChunk* m_pFirstFreeChunk;
+        SPage* m_pFirstPage;
+        SChunk* m_pFirstFreeChunk;
     };
 } // namespace Core

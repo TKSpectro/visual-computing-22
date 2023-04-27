@@ -16,7 +16,7 @@ namespace Data
     {
         this->data = data;
     }
-    
+
     int Event::GetData() const
     {
         return this->data;

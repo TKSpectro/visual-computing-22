@@ -5,48 +5,48 @@ namespace Core
 {
     class CTimer
     {
-        public:
+    public:
 
-            CTimer();
-           ~CTimer();
+        CTimer();
+        ~CTimer();
 
-        public:
+    public:
 
-            double GetTime() const;
-            double GetDurationOfFrame() const;
+        double GetTime() const;
+        double GetDurationOfFrame() const;
 
-            void SetTimeScale(float _TimeScale);
-            float GetTimeScale() const;
+        void SetTimeScale(float _TimeScale);
+        float GetTimeScale() const;
 
-            void Pause();
-            void Resume();
+        void Pause();
+        void Resume();
 
-            bool IsPaused() const;
+        bool IsPaused() const;
 
-        public:
+    public:
 
-            void Notify(double _DurationOfFrame);
+        void Notify(double _DurationOfFrame);
 
-        private:
+    private:
 
-            double m_CurrentTime;
-            double m_PredictedDurationOfFrame;
-            float  m_TimeScale;
-            bool   m_IsPaused;
+        double m_CurrentTime;
+        double m_PredictedDurationOfFrame;
+        float  m_TimeScale;
+        bool   m_IsPaused;
     };
 } // namespace Core
 
 namespace Core
 {
-namespace Time
-{
-    void Reset();
+    namespace Time
+    {
+        void Reset();
 
-    void OnFrame();
+        void OnFrame();
 
-    double GetTime();
-    double GetDurationOfFrame();
-    size_t GetNumberOfFrame();
-    float GetFrameRate();
-} // namespace Time
+        double GetTime();
+        double GetDurationOfFrame();
+        size_t GetNumberOfFrame();
+        float GetFrameRate();
+    } // namespace Time
 } // namespace Core

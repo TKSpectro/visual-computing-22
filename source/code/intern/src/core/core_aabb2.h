@@ -10,109 +10,109 @@ namespace Core
     template <typename T>
     class CAABB2
     {
-        public:
+    public:
 
-            using CThis     = CAABB2<T>;
-            using X         = T;
-            using XPtr      = T*;
-            using XConstPtr = const T*;
-            using XRef      = T&;
-            using XConstRef = const T&;
-            using CCorner   = CVector2<T>;
+        using CThis = CAABB2<T>;
+        using X = T;
+        using XPtr = T*;
+        using XConstPtr = const T*;
+        using XRef = T&;
+        using XConstRef = const T&;
+        using CCorner = CVector2<T>;
 
-        public:
+    public:
 
-            enum EUninitialized  
-            { 
-                Uninitialized,
-            };
+        enum EUninitialized
+        {
+            Uninitialized,
+        };
 
-        public:
+    public:
 
-            enum
-            {
-                Min             = 0,
-                Max             = 1,
-                NumberOfCorners = 2,
-            };
+        enum
+        {
+            Min = 0,
+            Max = 1,
+            NumberOfCorners = 2,
+        };
 
-        public:
+    public:
 
-            inline CAABB2();
-            inline CAABB2(const CThis& _rAABB);
-            inline explicit CAABB2(EUninitialized);
-            inline CAABB2(X _X1, X _Y1, X _X2, X _Y2);
-            inline CAABB2(const CCorner& _rMin, const CCorner& _rMax);
+        inline CAABB2();
+        inline CAABB2(const CThis& _rAABB);
+        inline explicit CAABB2(EUninitialized);
+        inline CAABB2(X _X1, X _Y1, X _X2, X _Y2);
+        inline CAABB2(const CCorner& _rMin, const CCorner& _rMax);
 
-        public:
+    public:
 
-            inline CThis& operator = (const CThis& _rAABB);
+        inline CThis& operator = (const CThis& _rAABB);
 
-        public:
+    public:
 
-            inline CCorner& operator [] (int _Index);
-            inline const CCorner& operator [] (int _Index) const;
+        inline CCorner& operator [] (int _Index);
+        inline const CCorner& operator [] (int _Index) const;
 
-        public:
+    public:
 
-            inline bool operator == (const CThis& _rAABB) const;
-            inline bool operator != (const CThis& _rAABB) const;
+        inline bool operator == (const CThis& _rAABB) const;
+        inline bool operator != (const CThis& _rAABB) const;
 
-        public:
+    public:
 
-            inline void SetMin(const CCorner& _rMin);
-            inline CCorner& GetMin();
-            inline const CCorner& GetMin() const;
+        inline void SetMin(const CCorner& _rMin);
+        inline CCorner& GetMin();
+        inline const CCorner& GetMin() const;
 
-            inline void SetMax(const CCorner& _rMax);
-            inline CCorner& GetMax();
-            inline const CCorner& GetMax() const;
+        inline void SetMax(const CCorner& _rMax);
+        inline CCorner& GetMax();
+        inline const CCorner& GetMax() const;
 
-        public:
+    public:
 
-            inline bool Intersects(const CThis& _rAABB) const;
-            inline bool Contains(const CThis& _rAABB) const;
-            inline bool Contains(const CCorner& _rVector) const;
+        inline bool Intersects(const CThis& _rAABB) const;
+        inline bool Contains(const CThis& _rAABB) const;
+        inline bool Contains(const CCorner& _rVector) const;
 
-        public:
+    public:
 
-            inline CThis Union(const CThis& _rAABB) const;
-            inline CThis Intersection(const CThis& _rAABB) const;
+        inline CThis Union(const CThis& _rAABB) const;
+        inline CThis Intersection(const CThis& _rAABB) const;
 
-        public:
+    public:
 
-            inline CCorner GetCenter() const;
+        inline CCorner GetCenter() const;
 
-        private:
+    private:
 
-            enum
-            {
-                MinX               = 0,
-                MinY               = 1,
-                MaxX               = 2,
-                MaxY               = 3,
-                NumberOfComponents = 4,
-            };
+        enum
+        {
+            MinX = 0,
+            MinY = 1,
+            MaxX = 2,
+            MaxY = 3,
+            NumberOfComponents = 4,
+        };
 
-        private:
+    private:
 
-            X m_V[NumberOfComponents];
+        X m_V[NumberOfComponents];
 
-        private:
+    private:
 
-            inline explicit CAABB2(XConstPtr _pV);
+        inline explicit CAABB2(XConstPtr _pV);
 
-        private:
+    private:
 
-            inline bool IsValid() const;
-            inline bool IsValid(const CCorner& _rMin, const CCorner& _rMax) const;
+        inline bool IsValid() const;
+        inline bool IsValid(const CCorner& _rMin, const CCorner& _rMax) const;
     };
 }
 
 namespace Core
 {
     template <typename T>
-    inline CAABB2<T>::CAABB2() 
+    inline CAABB2<T>::CAABB2()
     {
         (*this)[Min] = CCorner();
         (*this)[Max] = CCorner();
@@ -121,7 +121,7 @@ namespace Core
     // -----------------------------------------------------------------------------
 
     template <typename T>
-    inline CAABB2<T>::CAABB2(const CThis& _rAABB) 
+    inline CAABB2<T>::CAABB2(const CThis& _rAABB)
     {
         (*this)[Min] = _rAABB[Min];
         (*this)[Max] = _rAABB[Max];
@@ -130,9 +130,8 @@ namespace Core
     // -----------------------------------------------------------------------------
 
     template <typename T>
-    inline CAABB2<T>::CAABB2(EUninitialized) 
-    {
-    }
+    inline CAABB2<T>::CAABB2(EUninitialized)
+    {}
 
     // -----------------------------------------------------------------------------
 
@@ -148,7 +147,7 @@ namespace Core
     // -----------------------------------------------------------------------------
 
     template <typename T>
-    inline CAABB2<T>::CAABB2(const CCorner& _rMin, const CCorner& _rMax) 
+    inline CAABB2<T>::CAABB2(const CCorner& _rMin, const CCorner& _rMax)
     {
         (*this)[Min] = _rMin;
         (*this)[Max] = _rMax;
@@ -157,7 +156,7 @@ namespace Core
     // -----------------------------------------------------------------------------
 
     template <typename T>
-    inline CAABB2<T>::CAABB2(XConstPtr _pV) 
+    inline CAABB2<T>::CAABB2(XConstPtr _pV)
     {
         m_V[MinX] = _pV[MinX];
         m_V[MinY] = _pV[MinY];
@@ -300,8 +299,7 @@ namespace Core
         if (m_V[MinX] < _rAABB.m_V[MinX])
         {
             V[MinX] = m_V[MinX];
-        }
-        else
+        } else
         {
             V[MinX] = _rAABB.m_V[MinX];
         }
@@ -309,8 +307,7 @@ namespace Core
         if (m_V[MinY] < _rAABB.m_V[MinY])
         {
             V[MinY] = m_V[MinY];
-        }
-        else
+        } else
         {
             V[MinY] = _rAABB.m_V[MinY];
         }
@@ -318,8 +315,7 @@ namespace Core
         if (m_V[MaxX] > _rAABB.m_V[MaxX])
         {
             V[MaxX] = m_V[MaxX];
-        }
-        else
+        } else
         {
             V[MaxX] = _rAABB.m_V[MaxX];
         }
@@ -327,12 +323,11 @@ namespace Core
         if (m_V[MaxY] > _rAABB.m_V[MaxY])
         {
             V[MaxY] = m_V[MaxY];
-        }
-        else
+        } else
         {
             V[MaxY] = _rAABB.m_V[MaxY];
         }
-        
+
         return CThis(V);
     }
 
@@ -348,8 +343,7 @@ namespace Core
         if (m_V[MinX] > _rAABB.m_V[MinX])
         {
             V[MinX] = m_V[MinX];
-        }
-        else
+        } else
         {
             V[MinX] = _rAABB.m_V[MinX];
         }
@@ -357,8 +351,7 @@ namespace Core
         if (m_V[MinY] > _rAABB.m_V[MinY])
         {
             V[MinY] = m_V[MinY];
-        }
-        else
+        } else
         {
             V[MinY] = _rAABB.m_V[MinY];
         }
@@ -366,8 +359,7 @@ namespace Core
         if (m_V[MaxX] < _rAABB.m_V[MaxX])
         {
             V[MaxX] = m_V[MaxX];
-        }
-        else
+        } else
         {
             V[MaxX] = _rAABB.m_V[MaxX];
         }
@@ -375,12 +367,11 @@ namespace Core
         if (m_V[MaxY] < _rAABB.m_V[MaxY])
         {
             V[MaxY] = m_V[MaxY];
-        }
-        else
+        } else
         {
             V[MaxY] = _rAABB.m_V[MaxY];
         }
-        
+
         return CThis(V);
     }
 

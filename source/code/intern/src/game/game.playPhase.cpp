@@ -65,7 +65,7 @@ namespace Game
 
         return 0;
     }
-    
+
     void PlayPhase::FinishMap(Data::Event& event)
     {
         PlayPhase::GetInstance().finishedMap = true;
