@@ -5,7 +5,7 @@
 
 namespace Logic
 {
-    Command& Logic::CommandSystem::CreateCommand()
+    Command& CommandSystem::CreateCommand()
     {
         return *(new Command());
     }

@@ -4,6 +4,7 @@
 
 #include "../core/core_id_manager.h"
 #include "../core/core_item_manager.h"
+
 #include "data.Entity.h"
 
 namespace Data

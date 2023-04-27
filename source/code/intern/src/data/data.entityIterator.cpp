@@ -1,7 +1,8 @@
 #include "data.entityIterator.h"
-#include "data.entityLink.h"
 
 #include <assert.h>
+
+#include "data.entityLink.h"
 
 namespace Data
 {

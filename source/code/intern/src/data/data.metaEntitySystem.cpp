@@ -6,7 +6,6 @@
 #include "../core/core_aabb3.h"
 #include "../core/core_explode.h"
 
-
 using namespace tinyxml2;
 
 namespace Data

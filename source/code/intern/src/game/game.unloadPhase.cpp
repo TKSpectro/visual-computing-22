@@ -3,9 +3,9 @@
 #include <iostream>
 
 #include "data/data.unloadPhase.h"
+#include "gui/gui.unloadPhase.h"
 #include "logic/logic.unloadPhase.h"
 #include "graphics/gfx.unloadPhase.h"
-#include "gui/gui.unloadPhase.h"
 
 namespace Game
 {

@@ -3,8 +3,8 @@
 #include <iostream>
 
 #include "data/data.mainMenuPhase.h"
-#include "graphics/gfx.mainMenuPhase.h"
 #include "gui/gui.mainMenuPhase.h"
+#include "graphics/gfx.mainMenuPhase.h"
 
 namespace Game
 {

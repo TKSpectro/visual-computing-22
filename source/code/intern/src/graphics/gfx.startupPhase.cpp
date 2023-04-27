@@ -3,8 +3,9 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 
-#include <game/game.application.h>
-#include <data/data.metaEntitySystem.h>
+#include "data/data.metaEntitySystem.h"
+
+#include "game/game.application.h"
 
 using namespace tinyxml2;
 

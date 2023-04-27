@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../core/core_vector.h"
 
 namespace Logic

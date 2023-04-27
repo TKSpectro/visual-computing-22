@@ -4,9 +4,9 @@
 #include <tinyxml2.h>
 
 #include "data/data.loadPhase.h"
+#include "gui/gui.loadPhase.h"
 #include "logic/logic.loadPhase.h"
 #include "graphics/gfx.loadPhase.h"
-#include "gui/gui.loadPhase.h"
 
 using namespace tinyxml2;
 

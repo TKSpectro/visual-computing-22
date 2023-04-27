@@ -9,6 +9,7 @@
 #include <SFML/Graphics/Texture.hpp>
 
 #include <game/game.application.h>
+
 #include <data/data.highscoreSystem.h>
 
 namespace Gfx

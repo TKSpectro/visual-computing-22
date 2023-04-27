@@ -1,7 +1,8 @@
 #include "data.entity.h"
-#include "data.entityList.h"
 
 #include <assert.h>
+
+#include "data.entityList.h"
 
 namespace Data
 {

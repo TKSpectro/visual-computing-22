@@ -4,17 +4,18 @@
 #include <fstream>
 
 #include "core/core_time.h"
-#include "game/game.application.h"
 
-#include "graphics/gfx.playPhase.h"
-#include "gui/gui.playPhase.h"
-#include "logic/logic.playPhase.h"
+#include "game/game.application.h"
 
 #include "data/data.entitySystem.h"
 #include "data/data.playerSystem.h"
 #include "data/data.pointSystem.h"
 #include "data/data.highscoreSystem.h"
 #include "data/data.eventSystem.h"
+
+#include "graphics/gfx.playPhase.h"
+#include "gui/gui.playPhase.h"
+#include "logic/logic.playPhase.h"
 
 namespace Game
 {

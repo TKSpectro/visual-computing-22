@@ -1,8 +1,9 @@
+#include "data.startupPhase.h"
+
 #include <iostream>
 #include <tinyxml2.cpp>
 #include <fstream>
 
-#include "data.startupPhase.h"
 #include "data.metaEntitySystem.h"
 #include "data.entitySystem.h"
 

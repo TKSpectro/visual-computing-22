@@ -6,8 +6,8 @@
 
 #include "data/data.shutdownPhase.h"
 #include "logic/logic.shutdownPhase.h"
-#include "graphics/gfx.shutdownPhase.h"
 #include "gui/gui.shutdownPhase.h"
+#include "graphics/gfx.shutdownPhase.h"
 
 namespace Game
 {

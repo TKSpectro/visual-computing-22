@@ -8,12 +8,14 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
-#include <core/core_time.h>
-#include <game/game.application.h>
-#include <data/data.metaEntitySystem.h>
-#include <data/data.entitySystem.h>
-#include <data/data.playerSystem.h>
-#include <data/data.pointSystem.h>
+#include "core/core_time.h"
+
+#include "game/game.application.h"
+
+#include "data/data.metaEntitySystem.h"
+#include "data/data.entitySystem.h"
+#include "data/data.playerSystem.h"
+#include "data/data.pointSystem.h"
 
 namespace Gfx
 {
