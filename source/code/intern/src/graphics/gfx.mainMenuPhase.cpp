@@ -32,7 +32,7 @@ namespace Gfx
         backgroundTexture.setRepeated(true); // repeat tile over sprite height
         sf::IntRect iBounds(0, 0, 1000, 1000);
         backgroundSprite = sf::Sprite(backgroundTexture, iBounds);
-        backgroundSprite.setPosition(iBounds.left, iBounds.top - 1000 + app.GetInstance().window.getView().getSize().y);
+        backgroundSprite.setPosition((float)iBounds.left, (float)iBounds.top - 1000.0f + app.GetInstance().window.getView().getSize().y);
 
         font.loadFromFile("roboto.ttf");
 
