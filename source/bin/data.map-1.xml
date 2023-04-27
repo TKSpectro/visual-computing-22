@@ -875,34 +875,10 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_9_2" meta-entity="ground_stone">
-    <data>
-      <type>1</type>
-      <position>576.0;128.0;0.0</position>
-      <size>64.0;64.0;64.0</size>
-    </data>
-    <logic>
-      <canMove>false</canMove>
-      <canCollide>true</canCollide>
-      <isFinish>false</isFinish>
-    </logic>
-  </entity>
   <entity name="wall_10_2" meta-entity="ground_stone">
     <data>
       <type>1</type>
       <position>640.0;128.0;0.0</position>
-      <size>64.0;64.0;64.0</size>
-    </data>
-    <logic>
-      <canMove>false</canMove>
-      <canCollide>true</canCollide>
-      <isFinish>false</isFinish>
-    </logic>
-  </entity>
-  <entity name="wall_11_2" meta-entity="ground_stone">
-    <data>
-      <type>1</type>
-      <position>704.0;128.0;0.0</position>
       <size>64.0;64.0;64.0</size>
     </data>
     <logic>
@@ -1259,42 +1235,6 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_9_3" meta-entity="ground_stone">
-    <data>
-      <type>1</type>
-      <position>576.0;192.0;0.0</position>
-      <size>64.0;64.0;64.0</size>
-    </data>
-    <logic>
-      <canMove>false</canMove>
-      <canCollide>true</canCollide>
-      <isFinish>false</isFinish>
-    </logic>
-  </entity>
-  <entity name="wall_10_3" meta-entity="ground_stone">
-    <data>
-      <type>1</type>
-      <position>640.0;192.0;0.0</position>
-      <size>64.0;64.0;64.0</size>
-    </data>
-    <logic>
-      <canMove>false</canMove>
-      <canCollide>true</canCollide>
-      <isFinish>false</isFinish>
-    </logic>
-  </entity>
-  <entity name="wall_11_3" meta-entity="ground_stone">
-    <data>
-      <type>1</type>
-      <position>704.0;192.0;0.0</position>
-      <size>64.0;64.0;64.0</size>
-    </data>
-    <logic>
-      <canMove>false</canMove>
-      <canCollide>true</canCollide>
-      <isFinish>false</isFinish>
-    </logic>
-  </entity>
   <entity name="wall_12_3" meta-entity="ground_stone">
     <data>
       <type>1</type>
@@ -1643,34 +1583,10 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_9_4" meta-entity="ground_stone">
-    <data>
-      <type>1</type>
-      <position>576.0;256.0;0.0</position>
-      <size>64.0;64.0;64.0</size>
-    </data>
-    <logic>
-      <canMove>false</canMove>
-      <canCollide>true</canCollide>
-      <isFinish>false</isFinish>
-    </logic>
-  </entity>
   <entity name="wall_10_4" meta-entity="ground_stone">
     <data>
       <type>1</type>
       <position>640.0;256.0;0.0</position>
-      <size>64.0;64.0;64.0</size>
-    </data>
-    <logic>
-      <canMove>false</canMove>
-      <canCollide>true</canCollide>
-      <isFinish>false</isFinish>
-    </logic>
-  </entity>
-  <entity name="wall_11_4" meta-entity="ground_stone">
-    <data>
-      <type>1</type>
-      <position>704.0;256.0;0.0</position>
       <size>64.0;64.0;64.0</size>
     </data>
     <logic>

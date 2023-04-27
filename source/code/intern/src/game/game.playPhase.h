@@ -1,5 +1,8 @@
 #pragma once
+
 #include "game.phase.h"
+
+#include "../data/data.event.h"
 
 namespace Game
 {
@@ -24,7 +27,11 @@ namespace Game
         int InternOnRun() override;
         int InternOnLeave() override;
 
+    // Callbacks
     public:
+        static void FinishMap(Data::Event& event);
+
+    private:
         bool finishedMap;
     };
 }

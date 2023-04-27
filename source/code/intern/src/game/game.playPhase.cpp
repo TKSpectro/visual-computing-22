@@ -14,6 +14,7 @@
 #include "data/data.playerSystem.h"
 #include "data/data.pointSystem.h"
 #include "data/data.highscoreSystem.h"
+#include "data/data.eventSystem.h"
 
 namespace Game
 {
@@ -23,6 +24,8 @@ namespace Game
 
         Core::Time::Reset();
         finishedMap = false;
+
+        Data::EventSystem::GetInstance().Register(Data::EventType::FINISH_MAP, &FinishMap);
 
         Data::PointSystem::GetInstance().ResetPoints();
 
@@ -60,5 +63,10 @@ namespace Game
         Gfx::PlayPhase::GetInstance().OnLeave();
 
         return 0;
+    }
+    
+    void PlayPhase::FinishMap(Data::Event& event)
+    {
+        PlayPhase::GetInstance().finishedMap = true;
     }
 }

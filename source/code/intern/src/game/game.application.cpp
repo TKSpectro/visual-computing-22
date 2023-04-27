@@ -37,11 +37,11 @@ namespace Game
     {
         std::cout << "GAME::APPLICATION::Initialize" << std::endl;
 
-        Data::EventSystem::GetInstance().Register(Data::EventType::FUCK, &callback1);
-        Data::EventSystem::GetInstance().Register(Data::EventType::ME, &callback2);
+        Data::EventSystem::GetInstance().Register(Data::EventType::TEST_CB1, &callback1);
+        Data::EventSystem::GetInstance().Register(Data::EventType::TEST_CB2, &callback2);
 
-        Data::EventSystem::GetInstance().FireEvent(Data::EventType::FUCK, 111);
-        Data::EventSystem::GetInstance().FireEvent(Data::EventType::ME, 222);
+        Data::EventSystem::GetInstance().FireEvent(Data::EventType::TEST_CB1, 111);
+        Data::EventSystem::GetInstance().FireEvent(Data::EventType::TEST_CB2, 222);
 
         sf::ContextSettings settings;
         settings.antialiasingLevel = 8;
@@ -124,8 +124,8 @@ namespace Game
     {
         std::cout << "GAME::APPLICATION::Finalize" << std::endl;
 
-        Data::EventSystem::GetInstance().Unregister(Data::EventType::FUCK, &callback1);
-        Data::EventSystem::GetInstance().Unregister(Data::EventType::ME, &callback2);
+        Data::EventSystem::GetInstance().Unregister(Data::EventType::TEST_CB1, &callback1);
+        Data::EventSystem::GetInstance().Unregister(Data::EventType::TEST_CB2, &callback2);
     }
 
     bool Application::RunPhase()

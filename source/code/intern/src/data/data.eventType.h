@@ -8,7 +8,11 @@ namespace Data
 {
     enum EventType
     {
-        FUCK,
-        ME
+        FINISH_MAP,
+        TEST_CB1,
+        TEST_CB2,
+
+        NumberOfMembers,
+        Undefined = -1,
     };
 }

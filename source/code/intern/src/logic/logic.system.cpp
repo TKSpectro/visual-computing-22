@@ -6,21 +6,21 @@
 #include "../data/data.entityCategory.h"
 #include "../data/data.playerSystem.h"
 #include "../data/data.pointSystem.h"
+#include "../data/data.eventSystem.h"
 
 #include "../game/game.playPhase.h"
 
 #include "logic.command.h"
 #include "logic.commandSystem.h"
 
-
 namespace Logic
 {
-    void Logic::System::OnTurn()
+    void System::OnTurn()
     {
         HandleCommands();
     }
 
-    void Logic::System::HandleCommands()
+    void System::HandleCommands()
     {
         CommandSystem& commandSystem = CommandSystem::GetInstance();
         Command* currentCommand;
@@ -51,7 +51,7 @@ namespace Logic
         }
     }
 
-    void Logic::System::MovePlayer(Core::Float2 orientation)
+    void System::MovePlayer(Core::Float2 orientation)
     {
         Data::PlayerSystem& playerSystem = Data::PlayerSystem::GetInstance();
         Data::Entity* player = playerSystem.GetPlayer();
@@ -87,7 +87,8 @@ namespace Logic
                         if (entity->category == Data::EntityCategory::Finish)
                         {
                             playerCollidedWithFinish = true;
-                            Game::PlayPhase::GetInstance().finishedMap = true;
+
+                            Data::EventSystem::GetInstance().FireEvent(Data::EventType::FINISH_MAP);
                         }
                     }
                 }
