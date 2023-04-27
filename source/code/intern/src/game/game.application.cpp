@@ -13,20 +13,9 @@
 #include "game.shutdownPhase.h"
 
 #include "data/data.playerSystem.h"
-#include "data/data.event.h"
 #include "data/data.eventSystem.h"
 
 #include "logic/logic.commandSystem.h"
-
-static void callback1(Data::Event& event)
-{
-    std::cout << "Callback1() called. Type: " << event.GetType() << std::endl;
-}
-
-static void callback2(Data::Event& event)
-{
-    std::cout << "Callback2() called. Type: " << event.GetType() << std::endl;
-}
 
 namespace Game
 {
@@ -48,14 +37,11 @@ namespace Game
     {
         std::cout << "GAME::APPLICATION::Initialize" << std::endl;
 
-        Data::Event& event1 = Data::EventSystem::GetInstance().MakeEvent();
-        event1.SetType(1);
-        Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(1), &callback1);
-        Data::Event& event2 = Data::EventSystem::GetInstance().MakeEvent();
-        event2.SetType(2);
-        Data::EventSystem::GetInstance().Register(Data::Event::BTypeID(2), &callback2);
+        Data::EventSystem::GetInstance().Register(Data::EventType::FUCK, &callback1);
+        Data::EventSystem::GetInstance().Register(Data::EventType::ME, &callback2);
 
-        Data::EventSystem::GetInstance().FireEvent(event1);
+        Data::EventSystem::GetInstance().FireEvent(Data::EventType::FUCK, 111);
+        Data::EventSystem::GetInstance().FireEvent(Data::EventType::ME, 222);
 
         sf::ContextSettings settings;
         settings.antialiasingLevel = 8;
@@ -138,8 +124,8 @@ namespace Game
     {
         std::cout << "GAME::APPLICATION::Finalize" << std::endl;
 
-        Data::EventSystem::GetInstance().Unregister(Data::Event::BTypeID(1), &callback1);
-        Data::EventSystem::GetInstance().Unregister(Data::Event::BTypeID(2), &callback2);
+        Data::EventSystem::GetInstance().Unregister(Data::EventType::FUCK, &callback1);
+        Data::EventSystem::GetInstance().Unregister(Data::EventType::ME, &callback2);
     }
 
     bool Application::RunPhase()

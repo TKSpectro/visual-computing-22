@@ -1,17 +1,20 @@
 #pragma once
 
+#include "data.eventType.h"
+
 namespace Data
 {
     class Event
     {
     public:
-        using BTypeID = int;
+        void SetType(EventType type);
+        EventType GetType() const;
 
-    public:
-        void SetType(BTypeID type);
-        BTypeID GetType() const;
+        void SetData(int data);
+        int GetData() const;
 
     protected:
-        BTypeID typeId;
+        EventType typeId;
+        int data;
     };
 }

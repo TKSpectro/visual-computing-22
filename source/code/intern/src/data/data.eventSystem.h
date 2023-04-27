@@ -3,10 +3,11 @@
 
 #include "data.event.h"
 #include "data.eventListener.h"
+#include "data.eventType.h"
 
 namespace Data
 {
-    using EventListenerPair = std::pair<Event::BTypeID, EventListener*>;
+    using EventListenerPair = std::pair<EventType, EventListener>;
     using EventListenerList = std::list<EventListenerPair>;
 
     class EventSystem
@@ -19,14 +20,19 @@ namespace Data
         };
 
     public:
-        void Register(Event::BTypeID type, EventListener listener);
-        void Unregister(Event::BTypeID type, EventListener listener);
+        void Register(EventType type, EventListener listener);
+        void Unregister(EventType type, EventListener listener);
+
+        void FireEvent(EventType type);
+        void FireEvent(EventType type, int data);
 
     public:
-        Event& MakeEvent();
-        void FireEvent(Event& event);
         void AddEvent(Event& event);
         void ProcessEvents();
+
+    private:
+        void FireEvent(Event& event);
+        void FireEvent(Event& event, int data);
 
     private:
         EventSystem();

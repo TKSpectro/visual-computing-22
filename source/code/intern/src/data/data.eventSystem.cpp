@@ -11,13 +11,13 @@ namespace Data
     EventSystem::~EventSystem()
     {}
 
-    void EventSystem::Register(Event::BTypeID type, EventListener listener)
+    void EventSystem::Register(EventType type, EventListener listener)
     {
         std::cout << "Register Event - Type:" << type << std::endl;
-        eventListeners.push_back(std::make_pair(type, &listener));
+        eventListeners.push_back(std::make_pair(type, listener));
     }
 
-    void EventSystem::Unregister(Event::BTypeID type, EventListener listener)
+    void EventSystem::Unregister(EventType type, EventListener listener)
     {
         std::cout << "Unregister Event - Type:" << type << std::endl;
 
@@ -27,7 +27,7 @@ namespace Data
         {
             assert(it->second != nullptr);
 
-            if (it->second == &listener)
+            if (it->second == listener)
             {
                 eventListeners.erase(it);
 
@@ -37,22 +37,54 @@ namespace Data
 
     }
 
-    Event& EventSystem::MakeEvent()
+    void EventSystem::FireEvent(EventType type)
     {
-        return *(new Event());
+        Event* event = nullptr;
+        try
+        {
+            event = new Event();
+            event->SetType(type);
+            FireEvent(*event);
+        } catch (...)
+        {
+            delete event;
+        }
+    }
+
+    void EventSystem::FireEvent(EventType type, int data)
+    {
+        Event* event = nullptr;
+        try
+        {
+			event = new Event();
+			event->SetType(type);
+			FireEvent(*event, data);
+        } catch (...)
+        {
+			delete event;
+		}
     }
 
     void EventSystem::FireEvent(Event& event)
     {
         for (EventListenerPair listener : eventListeners)
         {
-            assert(listener.second != nullptr);
-
             if (listener.first == event.GetType())
             {
                 (*listener.second)(event);
             }
+        }
+    }
 
+    void EventSystem::FireEvent(Event& event, int data)
+    {
+        for (EventListenerPair listener : eventListeners)
+        {
+            if (listener.first == event.GetType())
+            {
+                event.SetData(data);
+                (*listener.second)(event);
+            }
         }
     }
 

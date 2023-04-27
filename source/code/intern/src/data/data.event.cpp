@@ -2,13 +2,23 @@
 
 namespace Data
 {
-    void Data::Event::SetType(BTypeID type)
+    void Event::SetType(EventType type)
     {
         this->typeId = type;
     }
 
-    Data::Event::BTypeID Data::Event::GetType() const
+    EventType Event::GetType() const
     {
         return this->typeId;
+    }
+
+    void Event::SetData(int data)
+    {
+        this->data = data;
+    }
+    
+    int Event::GetData() const
+    {
+        return this->data;
     }
 }
