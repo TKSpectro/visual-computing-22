@@ -71,6 +71,9 @@ namespace Data
             outHighscoreFile.close();
 
             this->lastRunNewHighscore = true;
+        } else
+        {
+            this->lastRunNewHighscore = false;
         }
 
         return this->lastRunNewHighscore;

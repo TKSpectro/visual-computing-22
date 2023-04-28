@@ -62,7 +62,10 @@ namespace Gfx
         if (highscoreSystem.GetLastRunNewHighscore())
         {
             textLastRunNewHighscore.setString("YOUR LAST RUN WAS A NEW HIGHSCORE!");
-        }
+        } else
+        {
+            textLastRunNewHighscore.setString("");
+        }   
 
         textHighscore.setFont(font);
         textHighscore.setCharacterSize(fontSize);
