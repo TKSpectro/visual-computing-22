@@ -65,7 +65,7 @@ namespace Gfx
         } else
         {
             textLastRunNewHighscore.setString("");
-        }   
+        }
 
         textHighscore.setFont(font);
         textHighscore.setCharacterSize(fontSize);

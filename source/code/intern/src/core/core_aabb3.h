@@ -258,11 +258,11 @@ namespace Core
         assert(IsValid() && _rAABB.IsValid());
 
         return !((m_V[MaxX] < _rAABB.m_V[MinX]) ||
-                 (m_V[MaxY] < _rAABB.m_V[MinY]) ||
-                 (m_V[MaxZ] < _rAABB.m_V[MinZ]) ||
-                 (m_V[MinX] > _rAABB.m_V[MaxX]) ||
-                 (m_V[MinY] > _rAABB.m_V[MaxY]) ||
-                 (m_V[MinZ] > _rAABB.m_V[MaxZ]));
+            (m_V[MaxY] < _rAABB.m_V[MinY]) ||
+            (m_V[MaxZ] < _rAABB.m_V[MinZ]) ||
+            (m_V[MinX] > _rAABB.m_V[MaxX]) ||
+            (m_V[MinY] > _rAABB.m_V[MaxY]) ||
+            (m_V[MinZ] > _rAABB.m_V[MaxZ]));
     }
 
     // -----------------------------------------------------------------------------

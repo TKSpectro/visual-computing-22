@@ -53,14 +53,14 @@ namespace Data
             }
 
             entity.size = Core::Float3(
-               std::stof(sizeStrings[0]),
-               std::stof(sizeStrings[1]),
-               std::stof(sizeStrings[2])
+                std::stof(sizeStrings[0]),
+                std::stof(sizeStrings[1]),
+                std::stof(sizeStrings[2])
             );
             entity.position = Core::Float3(
-               std::stof(positionStrings[0]),
-               std::stof(positionStrings[1]),
-               std::stof(positionStrings[2])
+                std::stof(positionStrings[0]),
+                std::stof(positionStrings[1]),
+                std::stof(positionStrings[2])
             );
             entity.aabb = Core::CAABB3<float>(
                 Core::Float3(entity.position[0], entity.position[1], entity.position[2]),
