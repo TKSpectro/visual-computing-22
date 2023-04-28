@@ -19,6 +19,9 @@
     <ClCompile Include="..\..\src\gui\gui.unloadPhase.cpp">
       <Filter>phases</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\gui\gui.inputSystem.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\gui\gui.loadPhase.h">
@@ -39,10 +42,19 @@
     <ClInclude Include="..\..\src\gui\gui.unloadPhase.h">
       <Filter>phases</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\gui\gui.input.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gui\gui.inputSystem.h">
+      <Filter>input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="phases">
       <UniqueIdentifier>{79bce0c7-8181-4647-b3e5-984471b33013}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input">
+      <UniqueIdentifier>{1dc19b0d-c9fb-478c-b16d-4bba4c9e461b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

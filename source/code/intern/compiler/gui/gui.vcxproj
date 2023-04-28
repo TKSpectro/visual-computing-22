@@ -183,6 +183,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\gui\gui.inputSystem.cpp" />
     <ClCompile Include="..\..\src\gui\gui.loadPhase.cpp" />
     <ClCompile Include="..\..\src\gui\gui.mainMenuPhase.cpp" />
     <ClCompile Include="..\..\src\gui\gui.playPhase.cpp" />
@@ -191,6 +192,8 @@
     <ClCompile Include="..\..\src\gui\gui.unloadPhase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\gui\gui.input.h" />
+    <ClInclude Include="..\..\src\gui\gui.inputSystem.h" />
     <ClInclude Include="..\..\src\gui\gui.loadPhase.h" />
     <ClInclude Include="..\..\src\gui\gui.mainMenuPhase.h" />
     <ClInclude Include="..\..\src\gui\gui.playPhase.h" />

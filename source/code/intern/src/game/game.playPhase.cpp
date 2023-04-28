@@ -23,10 +23,12 @@ namespace Game
     {
         std::cout << "GAME::PLAY::Enter" << std::endl;
 
+        nextRunPhase = Type::PLAY;
+
         Core::Time::Reset();
-        finishedMap = false;
 
         Data::EventSystem::GetInstance().Register(Data::EventType::FINISH_MAP, &FinishMap);
+        Data::EventSystem::GetInstance().Register(Data::EventType::PRESSED_ESCAPE, &Exit);
 
         Data::PointSystem::GetInstance().ResetPoints();
 
@@ -45,19 +47,15 @@ namespace Game
         Gui::PlayPhase::GetInstance().OnRun();
         Gfx::PlayPhase::GetInstance().OnRun();
 
-        if (finishedMap)
-        {
-            return Type::UNLOAD_MAP;
-        }
-
-        return Type::PLAY;
+        return nextRunPhase;
     }
 
     int PlayPhase::InternOnLeave()
     {
         std::cout << "GAME::PLAY::Leave" << std::endl;
 
-        Data::HighscoreSystem::GetInstance().TryWriteHighscore();
+        Data::EventSystem::GetInstance().Unregister(Data::EventType::FINISH_MAP, &FinishMap);
+        Data::EventSystem::GetInstance().Unregister(Data::EventType::PRESSED_ESCAPE, &Exit);
 
         Logic::PlayPhase::GetInstance().OnLeave();
         Gui::PlayPhase::GetInstance().OnLeave();
@@ -68,6 +66,13 @@ namespace Game
 
     void PlayPhase::FinishMap(Data::Event& /* event */)
     {
-        PlayPhase::GetInstance().finishedMap = true;
+        Data::HighscoreSystem::GetInstance().TryWriteHighscore();
+
+        PlayPhase::GetInstance().nextRunPhase = Type::MAIN_MENU;
+    }
+
+    void PlayPhase::Exit(Data::Event& /* event */)
+    {
+        PlayPhase::GetInstance().nextRunPhase = Type::MAIN_MENU;
     }
 }

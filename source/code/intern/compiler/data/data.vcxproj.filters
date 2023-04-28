@@ -120,6 +120,9 @@
     <ClInclude Include="..\..\src\data\data.eventType.h">
       <Filter>events</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\data\data.commandAction.h">
+      <Filter>commands</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="phases">
@@ -136,6 +139,9 @@
     </Filter>
     <Filter Include="player">
       <UniqueIdentifier>{13faa63a-91b2-4695-8781-2981ab5a587c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="commands">
+      <UniqueIdentifier>{4b467f25-053f-4977-9e2a-d365f767ec63}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -2,23 +2,16 @@
 
 #include <SFML/Window/Keyboard.hpp>
 
+#include "gui.inputSystem.h"
+
 namespace Gui
 {
     void MainMenuPhase::OnEnter()
     {}
 
-    int MainMenuPhase::OnRun()
+    void MainMenuPhase::OnRun()
     {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-        {
-            return -1;
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
-        {
-            return 1;
-        }
-
-        return 0;
+        InputSystem::GetInstance().OnRun();
     }
 
     void MainMenuPhase::OnLeave()

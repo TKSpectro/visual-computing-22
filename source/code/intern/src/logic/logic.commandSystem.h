@@ -2,6 +2,7 @@
 
 #include <queue>
 
+#include "../data/data.event.h"
 #include "logic.command.h"
 
 namespace Logic
@@ -25,11 +26,14 @@ namespace Logic
         {};
 
     public:
-        Command& CreateCommand();
         void AddCommand(Command& command);
         Command& GetNextCommand();
         void RemoveNextCommand();
         bool HasCommands() const;
+
+    public:
+        // Callbacks
+        static void DispatchInputToLogic(Data::Event& event);
 
     private:
         CommandQueue commandQueue;

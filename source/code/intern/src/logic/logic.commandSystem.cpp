@@ -3,11 +3,17 @@
 #include <iostream>
 #include <assert.h>
 
+#include "../data/data.event.h"
+
 namespace Logic
 {
-    Command& CommandSystem::CreateCommand()
+    void CommandSystem::DispatchInputToLogic(Data::Event& event)
     {
-        return *(new Command());
+        Command& command = *(new Command());
+
+        command.SetType(Data::CommandType::CommandAction(event.GetData()));
+
+        CommandSystem::GetInstance().AddCommand(command);
     }
 
     void CommandSystem::AddCommand(Command& command)

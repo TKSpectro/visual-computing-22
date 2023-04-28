@@ -31,19 +31,6 @@ namespace Game
     public:
         sf::RenderWindow window;
 
-    private:
-        static void callback1(Data::Event& event)
-        {
-            std::cout << "Callback1() called. Type: " << event.GetType() << std::endl;
-            std::cout << "Callback1() called. Data: " << event.GetData() << std::endl;
-        }
-
-        static void callback2(Data::Event& event)
-        {
-            std::cout << "Callback2() called. Type: " << event.GetType() << std::endl;
-            std::cout << "Callback2() called. Data: " << event.GetData() << std::endl;
-        }
-
     public:
         void Initialize();
         void Run();

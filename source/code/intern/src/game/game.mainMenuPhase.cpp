@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "data/data.mainMenuPhase.h"
+#include "data/data.eventSystem.h"
 #include "gui/gui.mainMenuPhase.h"
 #include "graphics/gfx.mainMenuPhase.h"
 
@@ -11,6 +12,11 @@ namespace Game
     int MainMenuPhase::InternOnEnter()
     {
         std::cout << "GAME::MAINMENU::Enter" << std::endl;
+
+        nextRunPhase = Type::MAIN_MENU;
+
+        Data::EventSystem::GetInstance().Register(Data::EventType::PRESSED_ENTER, &MainMenuPhase::OnStart);
+        Data::EventSystem::GetInstance().Register(Data::EventType::PRESSED_ESCAPE, &MainMenuPhase::OnExit);
 
         Data::MainMenuPhase::GetInstance().OnEnter();
         Gui::MainMenuPhase::GetInstance().OnEnter();
@@ -22,28 +28,33 @@ namespace Game
     int MainMenuPhase::InternOnRun()
     {
         Data::MainMenuPhase::GetInstance().OnRun();
-        int newRunState = Gui::MainMenuPhase::GetInstance().OnRun();
+        Gui::MainMenuPhase::GetInstance().OnRun();
         Gfx::MainMenuPhase::GetInstance().OnRun();
 
-        if (newRunState == -1)
-        {
-            return Type::SHUTDOWN;
-        } else if (newRunState == 1)
-        {
-            return Type::LOAD_MAP;
-        }
-
-        return Type::MAIN_MENU;
+        return nextRunPhase;
     }
 
     int MainMenuPhase::InternOnLeave()
     {
         std::cout << "GAME::MAINMENU::Leave" << std::endl;
 
+        Data::EventSystem::GetInstance().Unregister(Data::EventType::PRESSED_ENTER, &MainMenuPhase::OnStart);
+        Data::EventSystem::GetInstance().Unregister(Data::EventType::PRESSED_ESCAPE, &MainMenuPhase::OnExit);
+
         Data::MainMenuPhase::GetInstance().OnLeave();
         Gui::MainMenuPhase::GetInstance().OnLeave();
         Gfx::MainMenuPhase::GetInstance().OnLeave();
 
         return 0;
+    }
+
+    void MainMenuPhase::OnStart(Data::Event& /* event */)
+    {
+        MainMenuPhase::GetInstance().nextRunPhase = Type::LOAD_MAP;
+    }
+
+    void MainMenuPhase::OnExit(Data::Event& /* event */)
+    {
+        MainMenuPhase::GetInstance().nextRunPhase = Type::SHUTDOWN;
     }
 }

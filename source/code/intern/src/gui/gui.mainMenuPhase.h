@@ -16,7 +16,7 @@ namespace Gui
 
     public:
         void OnEnter();
-        int OnRun();
+        void OnRun();
         void OnLeave();
 
     private:

@@ -1,16 +1,15 @@
 #pragma once
-#include <list>
-
-#include "data.event.h"
-#include "data.eventListener.h"
 
 namespace Data
 {
     enum EventType
     {
         FINISH_MAP,
-        TEST_CB1,
-        TEST_CB2,
+        DISPATCH_EVENT_TO_INPUT,
+        DISPATCH_INPUT_TO_COMMAND,
+
+        PRESSED_ESCAPE,
+        PRESSED_ENTER,
 
         NumberOfMembers,
         Undefined = -1,

@@ -18,8 +18,8 @@ namespace Game
         PlayPhase(const PlayPhase&) = delete;
         PlayPhase& operator = (const PlayPhase&) = delete;
     private:
-        PlayPhase()
-            : finishedMap(false)
+        PlayPhase() :
+            nextRunPhase(Type::PLAY)
         {};
 
     private:
@@ -30,8 +30,9 @@ namespace Game
     public:
         // Callbacks
         static void FinishMap(Data::Event& event);
+        static void Exit(Data::Event& event);
 
     private:
-        bool finishedMap;
+        Type nextRunPhase;
     };
 }

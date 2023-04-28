@@ -37,12 +37,6 @@ namespace Game
     {
         std::cout << "GAME::APPLICATION::Initialize" << std::endl;
 
-        Data::EventSystem::GetInstance().Register(Data::EventType::TEST_CB1, &callback1);
-        Data::EventSystem::GetInstance().Register(Data::EventType::TEST_CB2, &callback2);
-
-        Data::EventSystem::GetInstance().FireEvent(Data::EventType::TEST_CB1, 111);
-        Data::EventSystem::GetInstance().FireEvent(Data::EventType::TEST_CB2, 222);
-
         sf::ContextSettings settings;
         settings.antialiasingLevel = 8;
 
@@ -69,7 +63,6 @@ namespace Game
 
             while (window.pollEvent(event))
             {
-                // "close requested" event: we close the m_window
                 if (event.type == sf::Event::Closed)
                 {
                     window.close();
@@ -82,31 +75,10 @@ namespace Game
                     //window.setView(sf::View(visibleArea));
                 }
 
-                Logic::CommandSystem& commandSystem = Logic::CommandSystem::GetInstance();
-                // Instead of doing events here we dispath them to a function (callback) in the gui project
-                // In there should be a fat switch case for Closed, MouseInput, Button Presses etc.
-                // We also wont direclty handle this but just put in in a queue
-                // default case should just get returned to the os
+                // Instead of doing events here we dispatch them to a function (callback) in the gui project
                 if (event.type == sf::Event::KeyPressed)
                 {
-                    Logic::Command& command = commandSystem.CreateCommand();
-                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-                    {
-                        command.SetType(Logic::CommandType::MoveUp);
-                        commandSystem.AddCommand(command);
-                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-                    {
-                        command.SetType(Logic::CommandType::MoveDown);
-                        commandSystem.AddCommand(command);
-                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-                    {
-                        command.SetType(Logic::CommandType::MoveLeft);
-                        commandSystem.AddCommand(command);
-                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-                    {
-                        command.SetType(Logic::CommandType::MoveRight);
-                        commandSystem.AddCommand(command);
-                    }
+                    Data::EventSystem::GetInstance().FireEvent(Data::EventType::DISPATCH_EVENT_TO_INPUT, event.key.code);
                 }
             }
 
@@ -123,9 +95,6 @@ namespace Game
     void Application::Finalize()
     {
         std::cout << "GAME::APPLICATION::Finalize" << std::endl;
-
-        Data::EventSystem::GetInstance().Unregister(Data::EventType::TEST_CB1, &callback1);
-        Data::EventSystem::GetInstance().Unregister(Data::EventType::TEST_CB2, &callback2);
     }
 
     bool Application::RunPhase()

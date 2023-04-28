@@ -31,16 +31,16 @@ namespace Logic
 
             switch (currentCommand->GetType())
             {
-                case CommandType::MoveUp:
+                case Data::CommandType::CommandAction::MoveUp:
                     MovePlayer(Core::Float2(0.0f, -64.0f));
                     break;
-                case CommandType::MoveDown:
+                case Data::CommandType::CommandAction::MoveDown:
                     MovePlayer(Core::Float2(0.0f, 64.0f));
                     break;
-                case CommandType::MoveRight:
+                case Data::CommandType::CommandAction::MoveRight:
                     MovePlayer(Core::Float2(64.0f, 0.0f));
                     break;
-                case CommandType::MoveLeft:
+                case Data::CommandType::CommandAction::MoveLeft:
                     MovePlayer(Core::Float2(-64.0f, 0.0f));
                     break;
                 default:
