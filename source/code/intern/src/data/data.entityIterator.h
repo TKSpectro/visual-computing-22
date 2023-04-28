@@ -20,7 +20,7 @@ namespace Data
 
     public:
 
-        EntityIterator& operator = (const EntityIterator& other);
+        //EntityIterator& operator = (const EntityIterator& other);
 
         Entity& operator * ();
         Entity* operator -> ();

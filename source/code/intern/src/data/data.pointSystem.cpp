@@ -4,18 +4,18 @@ namespace Data
 {
     int PointSystem::GetPoints()
     {
-        return this->points;
+        return points;
     }
 
     int PointSystem::AddPoints(int _points)
     {
-        this->points += _points;
-        return this->points;
+        points += _points;
+        return points;
     }
 
     int PointSystem::ResetPoints()
     {
-        this->points = 0;
-        return this->points;
+        points = 0;
+        return points;
     }
 }

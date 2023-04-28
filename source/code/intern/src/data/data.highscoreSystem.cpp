@@ -11,17 +11,17 @@ namespace Data
 {
     int HighscoreSystem::GetPoints()
     {
-        return this->points;
+        return points;
     }
 
     double HighscoreSystem::GetTime()
     {
-        return this->time;
+        return time;
     }
 
     bool HighscoreSystem::GetLastRunNewHighscore()
     {
-        return this->lastRunNewHighscore;
+        return lastRunNewHighscore;
     }
 
     bool HighscoreSystem::TryReadHighscore()
@@ -34,11 +34,11 @@ namespace Data
         std::getline(inHighscoreFile, line);
         if (!line.empty())
         {
-            this->points = std::stoi(line);
+            points = std::stoi(line);
             std::getline(inHighscoreFile, line);
             if (!line.empty())
             {
-                this->time = std::stod(line);
+                time = std::stod(line);
 
                 // Could parse the file successfully
                 isSuccess = true;
@@ -49,8 +49,8 @@ namespace Data
 
         if (!isSuccess)
         {
-            this->points = 0;
-            this->time = 0.0;
+            points = 0;
+            time = 0.0;
         }
 
         return isSuccess;
@@ -58,10 +58,10 @@ namespace Data
 
     bool HighscoreSystem::TryWriteHighscore()
     {
-        this->TryReadHighscore();
+        TryReadHighscore();
 
         // Only write new highscore if the current score is higher than the old one and if the score is the same then check the time
-        if (Data::PointSystem::GetInstance().GetPoints() > this->points || (Data::PointSystem::GetInstance().GetPoints() == this->points && Core::Time::GetTime() < this->time))
+        if (Data::PointSystem::GetInstance().GetPoints() > points || (Data::PointSystem::GetInstance().GetPoints() == points && Core::Time::GetTime() < time))
         {
             // Write file with first line points and second line time
             std::ofstream outHighscoreFile;
@@ -70,12 +70,12 @@ namespace Data
             outHighscoreFile << Core::Time::GetTime() << std::endl;
             outHighscoreFile.close();
 
-            this->lastRunNewHighscore = true;
+            lastRunNewHighscore = true;
         } else
         {
-            this->lastRunNewHighscore = false;
+            lastRunNewHighscore = false;
         }
 
-        return this->lastRunNewHighscore;
+        return lastRunNewHighscore;
     }
 }

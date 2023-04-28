@@ -21,7 +21,8 @@ namespace Data
         void SetPlayer(Entity* player);
 
     private:
-        PlayerSystem()
+        PlayerSystem() :
+            player(nullptr)
         {};
 
     private:

@@ -10,10 +10,18 @@ namespace Data
     class MetaEntity
     {
     public:
-        MetaEntity()
+        MetaEntity() :
+            id(-1),
+            name(""),
+            size(0.0f),
+            facetes{ nullptr, nullptr }
         {}
-        MetaEntity(int _id, std::string _name, float _size)
-            :id(_id), name(_name), size(_size)
+
+        MetaEntity(int _id, std::string _name, float _size) :
+            id(_id),
+            name(_name),
+            size(_size),
+            facetes{ nullptr, nullptr }
         {}
 
         friend std::ostream& operator << (std::ostream& os, const MetaEntity& metaEntity)

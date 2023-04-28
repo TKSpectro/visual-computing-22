@@ -18,13 +18,6 @@ namespace Data
         : link(link)
     {}
 
-    EntityIterator& EntityIterator::operator=(const EntityIterator& other)
-    {
-        *this = other;
-
-        return *this;
-    }
-
     Entity& EntityIterator::operator * ()
     {
         assert(link != nullptr);

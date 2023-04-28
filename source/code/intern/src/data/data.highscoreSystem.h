@@ -28,7 +28,10 @@ namespace Data
         bool TryWriteHighscore();
 
     private:
-        HighscoreSystem()
+        HighscoreSystem() :
+            points(0),
+            time(0.0),
+            lastRunNewHighscore(false)
         {};
 
     private:

@@ -20,7 +20,8 @@ namespace Logic
         void OnLeave();
 
     private:
-        PlayPhase()
+        PlayPhase() :
+            nextTurnTime(0.0)
         {};
 
     private:

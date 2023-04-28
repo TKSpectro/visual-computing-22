@@ -20,7 +20,8 @@ namespace Data
         int ResetPoints();
 
     private:
-        PointSystem()
+        PointSystem() :
+            points(0)
         {};
 
     private:
