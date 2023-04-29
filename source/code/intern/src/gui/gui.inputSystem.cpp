@@ -56,6 +56,18 @@ namespace Gui
                     Data::EventSystem::GetInstance().FireEvent(Data::EventType::PRESSED_ENTER);
                     break;
 
+                case sf::Keyboard::Key::Num0:
+                case sf::Keyboard::Key::Num1:
+                case sf::Keyboard::Key::Numpad0:
+                case sf::Keyboard::Key::Numpad1:
+                    Data::EventSystem::GetInstance().FireEvent(Data::EventType::PRESSED_NUMBER, 1);
+                    break;
+
+                case sf::Keyboard::Key::Num2:
+                case sf::Keyboard::Key::Numpad2:
+                    Data::EventSystem::GetInstance().FireEvent(Data::EventType::PRESSED_NUMBER, 2);
+                    break;
+
                 case sf::Keyboard::Key::Up:
                 case sf::Keyboard::Key::W:
                     Data::EventSystem::GetInstance().FireEvent(Data::EventType::DISPATCH_INPUT_TO_COMMAND, Data::CommandAction::MoveUp);

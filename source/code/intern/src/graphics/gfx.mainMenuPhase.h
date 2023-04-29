@@ -36,6 +36,7 @@ namespace Gfx
         sf::Text textHighscore;
         sf::Text textLastRunNewHighscore;
         sf::Text textInstructions;
+        sf::Text textMapSelect;
         sf::Texture backgroundTexture;
         sf::Sprite backgroundSprite;
     };

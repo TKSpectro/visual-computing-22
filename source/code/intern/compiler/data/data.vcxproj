@@ -183,6 +183,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\data\data.mapPickerSystem.cpp" />
     <ClCompile Include="..\..\src\data\data.entityIterator.cpp" />
     <ClCompile Include="..\..\src\data\data.entityLink.cpp" />
     <ClCompile Include="..\..\src\data\data.entityList.cpp" />
@@ -217,6 +218,7 @@
     <ClInclude Include="..\..\src\data\data.loadPhase.h" />
     <ClInclude Include="..\..\src\data\data.mainMenuPhase.h" />
     <ClInclude Include="..\..\src\data\data.map.h" />
+    <ClInclude Include="..\..\src\data\data.mapPickerSystem.h" />
     <ClInclude Include="..\..\src\data\data.metaEntity.h" />
     <ClInclude Include="..\..\src\data\data.metaEntitySystem.h" />
     <ClInclude Include="..\..\src\data\data.playerSystem.h" />
@@ -228,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\..\..\..\bin\data.map-1.xml" />
+    <Xml Include="..\..\..\..\bin\data.map-2.xml" />
     <Xml Include="..\..\..\..\bin\data.meta-entity.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

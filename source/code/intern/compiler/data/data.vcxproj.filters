@@ -49,6 +49,9 @@
     <ClCompile Include="..\..\src\data\data.highscoreSystem.cpp">
       <Filter>player</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\data\data.mapPickerSystem.cpp">
+      <Filter>player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\data\data.startupPhase.h">
@@ -123,6 +126,9 @@
     <ClInclude Include="..\..\src\data\data.commandAction.h">
       <Filter>commands</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\data\data.mapPickerSystem.h">
+      <Filter>player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="phases">
@@ -149,6 +155,9 @@
       <Filter>metaEntity</Filter>
     </Xml>
     <Xml Include="..\..\..\..\bin\data.map-1.xml">
+      <Filter>entity</Filter>
+    </Xml>
+    <Xml Include="..\..\..\..\bin\data.map-2.xml">
       <Filter>entity</Filter>
     </Xml>
   </ItemGroup>

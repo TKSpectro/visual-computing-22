@@ -4,6 +4,7 @@
 #include <tinyxml2.h>
 
 #include "data/data.loadPhase.h"
+#include "data/data.mapPickerSystem.h"
 #include "gui/gui.loadPhase.h"
 #include "logic/logic.loadPhase.h"
 #include "graphics/gfx.loadPhase.h"
@@ -29,7 +30,7 @@ namespace Game
         std::cout << "GAME::LOAD::Run" << std::endl;
 
         XMLDocument* doc = new XMLDocument();
-        doc->LoadFile("data.map-1.xml");
+        doc->LoadFile(Data::MapPickerSystem::GetInstance().GetCurrentMapFileName());
 
         Data::LoadPhase::GetInstance().OnRun(*doc);
         Gui::LoadPhase::GetInstance().OnRun();

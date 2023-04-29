@@ -11,6 +11,7 @@
 #include <game/game.application.h>
 
 #include <data/data.highscoreSystem.h>
+#include <data/data.mapPickerSystem.h>
 
 namespace Gfx
 {
@@ -77,11 +78,17 @@ namespace Gfx
         textLastRunNewHighscore.setFillColor(sf::Color::Black);
         textLastRunNewHighscore.setPosition((app.window.getSize().x - textLastRunNewHighscore.getGlobalBounds().width) / 2, textHighscore.getPosition().y + textHighscore.getGlobalBounds().height + fontSize);
 
+        textMapSelect.setFont(font);
+        textMapSelect.setString("Selected Map:");
+        textMapSelect.setCharacterSize(fontSize);
+        textMapSelect.setFillColor(sf::Color::Black);
+        textMapSelect.setPosition(xOffset, textLastRunNewHighscore.getPosition().y + textLastRunNewHighscore.getGlobalBounds().height + fontSize);
+
         textInstructions.setFont(font);
         textInstructions.setString("Instructions:");
         textInstructions.setCharacterSize(fontSize);
         textInstructions.setFillColor(sf::Color::Black);
-        textInstructions.setPosition(xOffset, textLastRunNewHighscore.getPosition().y + textLastRunNewHighscore.getGlobalBounds().height + (fontSize * 2));
+        textInstructions.setPosition(xOffset, textMapSelect.getPosition().y + textMapSelect.getGlobalBounds().height + fontSize);
 
         textButtons.setFont(font);
         textButtons.setString("Start: Enter\nClose: Escape");
@@ -107,6 +114,9 @@ namespace Gfx
         app.window.draw(textMainMenu);
         app.window.draw(textHighscore);
         app.window.draw(textLastRunNewHighscore);
+
+        textMapSelect.setString("Selected Map: " + std::to_string(Data::MapPickerSystem::GetInstance().GetMapIndex() + 1));
+        app.window.draw(textMapSelect);
 
         app.window.draw(textInstructions);
         app.window.draw(textButtons);

@@ -34,5 +34,6 @@ namespace Game
         // Callbacks
         static void OnStart(Data::Event& event);
         static void OnExit(Data::Event& event);
+        static void OnNumber(Data::Event& event);
     };
 }

@@ -12,6 +12,7 @@ namespace Data
 
             PRESSED_ESCAPE,
             PRESSED_ENTER,
+            PRESSED_NUMBER,
 
             NumberOfMembers,
             Undefined = -1,

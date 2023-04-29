@@ -68,11 +68,11 @@ namespace Game
     {
         Data::HighscoreSystem::GetInstance().TryWriteHighscore();
 
-        PlayPhase::GetInstance().nextRunPhase = Phase::MAIN_MENU;
+        PlayPhase::GetInstance().nextRunPhase = Phase::UNLOAD_MAP;
     }
 
     void PlayPhase::Exit(Data::Event& /* event */)
     {
-        PlayPhase::GetInstance().nextRunPhase = Phase::MAIN_MENU;
+        PlayPhase::GetInstance().nextRunPhase = Phase::UNLOAD_MAP;
     }
 }
