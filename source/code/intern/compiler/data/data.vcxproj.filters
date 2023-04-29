@@ -154,10 +154,10 @@
     <Xml Include="..\..\..\..\bin\data.meta-entity.xml">
       <Filter>metaEntity</Filter>
     </Xml>
-    <Xml Include="..\..\..\..\bin\data.map-1.xml">
+    <Xml Include="..\..\..\..\bin\maps\data.map-1.xml">
       <Filter>entity</Filter>
     </Xml>
-    <Xml Include="..\..\..\..\bin\data.map-2.xml">
+    <Xml Include="..\..\..\..\bin\maps\data.map-2.xml">
       <Filter>entity</Filter>
     </Xml>
   </ItemGroup>

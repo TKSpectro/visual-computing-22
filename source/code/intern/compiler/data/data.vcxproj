@@ -229,9 +229,9 @@
     <ClInclude Include="..\..\src\data\data.unloadPhase.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\..\..\..\bin\data.map-1.xml" />
-    <Xml Include="..\..\..\..\bin\data.map-2.xml" />
     <Xml Include="..\..\..\..\bin\data.meta-entity.xml" />
+    <Xml Include="..\..\..\..\bin\maps\data.map-1.xml" />
+    <Xml Include="..\..\..\..\bin\maps\data.map-2.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

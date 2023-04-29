@@ -14,20 +14,6 @@
       <texture value="wall.png"/>
     </graphics>
   </meta-entity>
-  <meta-entity name="dirt">
-    <data>
-      <size value="16.4"/>
-      <aabb minCorner="0.0;0.0;0.0" maxCorner="64.0;64.0;0.0"></aabb>
-    </data>
-
-    <logic>
-      <can-move value="false"/>
-    </logic>
-
-    <graphics>
-      <texture value="dirt.jpg"/>
-    </graphics>
-  </meta-entity>
   <meta-entity name="player">
     <data>
       <size value="0.0"/>

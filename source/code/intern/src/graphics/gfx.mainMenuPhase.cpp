@@ -30,13 +30,13 @@ namespace Gfx
         app.window.setView(view);
 
         // Load repeated background texture
-        backgroundTexture.loadFromFile("background.png");
+        backgroundTexture.loadFromFile("images/background.png");
         backgroundTexture.setRepeated(true); // repeat tile over sprite height
         sf::IntRect iBounds(0, 0, 1000, 1000);
         backgroundSprite = sf::Sprite(backgroundTexture, iBounds);
         backgroundSprite.setPosition((float)iBounds.left, (float)iBounds.top - 1000.0f + app.GetInstance().window.getView().getSize().y);
 
-        font.loadFromFile("roboto.ttf");
+        font.loadFromFile("fonts/roboto.ttf");
 
         textMainMenu.setFont(font);
         textMainMenu.setString("TURTLE MAZE");

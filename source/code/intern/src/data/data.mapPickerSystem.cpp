@@ -11,7 +11,7 @@ namespace Data
 
     void MapPickerSystem::SetMapIndex(int _mapIndex)
     {
-        if (_mapIndex >= 0 && _mapIndex < std::size(mapFileNames))
+        if (_mapIndex >= 0 && _mapIndex < std::size(mapFilePaths))
         {
             mapIndex = _mapIndex;
         } else
@@ -20,8 +20,8 @@ namespace Data
         }
     }
 
-    const char* MapPickerSystem::GetCurrentMapFileName() const
+    const char* MapPickerSystem::GetCurrentMapFilePath() const
     {
-        return mapFileNames[mapIndex];
+        return mapFilePaths[mapIndex];
     }
 }

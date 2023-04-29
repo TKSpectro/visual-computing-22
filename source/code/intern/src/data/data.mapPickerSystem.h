@@ -20,7 +20,7 @@ namespace Data
         int GetMapIndex();
         void SetMapIndex(int index);
 
-        const char* GetCurrentMapFileName() const;
+        const char* GetCurrentMapFilePath() const;
 
     private:
         MapPickerSystem() :
@@ -29,7 +29,6 @@ namespace Data
 
     private:
         int mapIndex;
-
-        const char* const mapFileNames[2] = { "data.map-1.xml", "data.map-2.xml" };
+        const char* const mapFilePaths[2] = { "maps/data.map-1.xml", "maps/data.map-2.xml" };
     };
 }

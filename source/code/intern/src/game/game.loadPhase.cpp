@@ -30,7 +30,7 @@ namespace Game
         std::cout << "GAME::LOAD::Run" << std::endl;
 
         XMLDocument* doc = new XMLDocument();
-        doc->LoadFile(Data::MapPickerSystem::GetInstance().GetCurrentMapFileName());
+        doc->LoadFile(Data::MapPickerSystem::GetInstance().GetCurrentMapFilePath());
 
         Data::LoadPhase::GetInstance().OnRun(*doc);
         Gui::LoadPhase::GetInstance().OnRun();

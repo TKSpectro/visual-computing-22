@@ -21,7 +21,7 @@ namespace Gfx
 {
     void PlayPhase::OnEnter()
     {
-        font.loadFromFile("roboto.ttf");
+        font.loadFromFile("fonts/roboto.ttf");
 
         textPoints.setFont(font);
         textPoints.setString("Points: 0");

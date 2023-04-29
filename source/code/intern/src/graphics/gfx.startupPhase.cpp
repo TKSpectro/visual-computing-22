@@ -36,7 +36,7 @@ namespace Gfx
             std::string texturePath = graphicsElement->FirstChildElement("texture")->FindAttribute("value")->Value();
 
             sf::Texture* texture = new sf::Texture();
-            if (texture->loadFromFile(texturePath))
+            if (texture->loadFromFile("textures/" + texturePath))
             {
                 metaEntity.facetes[Data::MetaEntity::FacetType::GraphicsFacet] = texture;
             }
