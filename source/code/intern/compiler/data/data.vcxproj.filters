@@ -151,14 +151,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\..\..\..\bin\data.meta-entity.xml">
-      <Filter>metaEntity</Filter>
-    </Xml>
     <Xml Include="..\..\..\..\bin\maps\data.map-1.xml">
       <Filter>entity</Filter>
     </Xml>
     <Xml Include="..\..\..\..\bin\maps\data.map-2.xml">
       <Filter>entity</Filter>
+    </Xml>
+    <Xml Include="..\..\..\..\bin\meta\data.meta-entity.xml">
+      <Filter>metaEntity</Filter>
     </Xml>
   </ItemGroup>
 </Project>

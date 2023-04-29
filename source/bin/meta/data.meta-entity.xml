@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <meta-entities>
-  <meta-entity name="ground_stone">
+  <meta-entity name="wall">
     <data>
       <size value="16.4"/>
       <aabb minCorner="0.0;0.0;0.0" maxCorner="64.0;64.0;0.0"></aabb>
@@ -42,7 +42,7 @@
       <texture value="trophy.png"/>
     </graphics>
   </meta-entity>
-  <meta-entity name="coin">
+  <meta-entity name="melon">
     <data>
       <size value="0.0"/>
       <aabb minCorner="0.0;0.0;0.0" maxCorner="64.0;64.0;0.0"></aabb>
