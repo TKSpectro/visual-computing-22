@@ -19,7 +19,7 @@ namespace Game
         PlayPhase& operator = (const PlayPhase&) = delete;
     private:
         PlayPhase() :
-            nextRunPhase(Type::PLAY)
+            nextRunPhase(Phase::PLAY)
         {};
 
     private:
@@ -33,6 +33,6 @@ namespace Game
         static void Exit(Data::Event& event);
 
     private:
-        Type nextRunPhase;
+        Phase::Type nextRunPhase;
     };
 }

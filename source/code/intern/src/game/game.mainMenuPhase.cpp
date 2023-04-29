@@ -13,7 +13,7 @@ namespace Game
     {
         std::cout << "GAME::MAINMENU::Enter" << std::endl;
 
-        nextRunPhase = Type::MAIN_MENU;
+        nextRunPhase = Phase::MAIN_MENU;
 
         Data::EventSystem::GetInstance().Register(Data::EventType::PRESSED_ENTER, &MainMenuPhase::OnStart);
         Data::EventSystem::GetInstance().Register(Data::EventType::PRESSED_ESCAPE, &MainMenuPhase::OnExit);
@@ -50,11 +50,11 @@ namespace Game
 
     void MainMenuPhase::OnStart(Data::Event& /* event */)
     {
-        MainMenuPhase::GetInstance().nextRunPhase = Type::LOAD_MAP;
+        MainMenuPhase::GetInstance().nextRunPhase = Phase::LOAD_MAP;
     }
 
     void MainMenuPhase::OnExit(Data::Event& /* event */)
     {
-        MainMenuPhase::GetInstance().nextRunPhase = Type::SHUTDOWN;
+        MainMenuPhase::GetInstance().nextRunPhase = Phase::SHUTDOWN;
     }
 }

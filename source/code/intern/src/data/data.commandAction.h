@@ -4,7 +4,7 @@ namespace Data
 {
     struct CommandAction
     {
-        enum CommandActionEnum
+        enum Enum
         {
             MoveUp,
             MoveDown,

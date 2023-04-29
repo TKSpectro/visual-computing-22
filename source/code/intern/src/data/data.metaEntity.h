@@ -46,7 +46,7 @@ namespace Data
 
         struct FacetType
         {
-            enum Facet
+            enum Enum
             {
                 GraphicsFacet,
                 LogicFacet,

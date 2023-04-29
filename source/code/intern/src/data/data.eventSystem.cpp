@@ -11,13 +11,13 @@ namespace Data
     EventSystem::~EventSystem()
     {}
 
-    void EventSystem::Register(EventType type, EventListener listener)
+    void EventSystem::Register(EventType::Enum type, EventListener listener)
     {
         std::cout << "DATA::EVENTSYSTEM::Register     Event - Type:" << type << std::endl;
         eventListeners.push_back(std::make_pair(type, listener));
     }
 
-    void EventSystem::Unregister(EventType type, EventListener listener)
+    void EventSystem::Unregister(EventType::Enum type, EventListener listener)
     {
         std::cout << "DATA::EVENTSYSTEM::Unregister   Event - Type:" << type << std::endl;
 
@@ -37,7 +37,7 @@ namespace Data
 
     }
 
-    void EventSystem::FireEvent(EventType type)
+    void EventSystem::FireEvent(EventType::Enum type)
     {
         Event* event = nullptr;
         try
@@ -51,14 +51,15 @@ namespace Data
         }
     }
 
-    void EventSystem::FireEvent(EventType type, int data)
+    void EventSystem::FireEvent(EventType::Enum type, int data)
     {
         Event* event = nullptr;
         try
         {
             event = new Event();
             event->SetType(type);
-            FireEvent(*event, data);
+            event->SetData(data);
+            FireEvent(*event);
         } catch (...)
         {
             delete event;
@@ -71,18 +72,6 @@ namespace Data
         {
             if (listener.first == event.GetType())
             {
-                (*listener.second)(event);
-            }
-        }
-    }
-
-    void EventSystem::FireEvent(Event& event, int data)
-    {
-        for (EventListenerPair listener : eventListeners)
-        {
-            if (listener.first == event.GetType())
-            {
-                event.SetData(data);
                 (*listener.second)(event);
             }
         }

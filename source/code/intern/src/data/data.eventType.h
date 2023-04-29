@@ -2,16 +2,19 @@
 
 namespace Data
 {
-    enum EventType
+    struct EventType
     {
-        FINISH_MAP,
-        DISPATCH_EVENT_TO_INPUT,
-        DISPATCH_INPUT_TO_COMMAND,
+        enum Enum
+        {
+            FINISH_MAP,
+            DISPATCH_EVENT_TO_INPUT,
+            DISPATCH_INPUT_TO_COMMAND,
 
-        PRESSED_ESCAPE,
-        PRESSED_ENTER,
+            PRESSED_ESCAPE,
+            PRESSED_ENTER,
 
-        NumberOfMembers,
-        Undefined = -1,
+            NumberOfMembers,
+            Undefined = -1,
+        };
     };
 }

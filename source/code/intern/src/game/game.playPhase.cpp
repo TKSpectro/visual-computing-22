@@ -23,7 +23,7 @@ namespace Game
     {
         std::cout << "GAME::PLAY::Enter" << std::endl;
 
-        nextRunPhase = Type::PLAY;
+        nextRunPhase = Phase::PLAY;
 
         Core::Time::Reset();
 
@@ -68,11 +68,11 @@ namespace Game
     {
         Data::HighscoreSystem::GetInstance().TryWriteHighscore();
 
-        PlayPhase::GetInstance().nextRunPhase = Type::MAIN_MENU;
+        PlayPhase::GetInstance().nextRunPhase = Phase::MAIN_MENU;
     }
 
     void PlayPhase::Exit(Data::Event& /* event */)
     {
-        PlayPhase::GetInstance().nextRunPhase = Type::MAIN_MENU;
+        PlayPhase::GetInstance().nextRunPhase = Phase::MAIN_MENU;
     }
 }

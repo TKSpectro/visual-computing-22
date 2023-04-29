@@ -7,7 +7,7 @@
 
 namespace Data
 {
-    using EventListenerPair = std::pair<EventType, EventListener>;
+    using EventListenerPair = std::pair<EventType::Enum, EventListener>;
     using EventListenerList = std::list<EventListenerPair>;
 
     class EventSystem
@@ -20,11 +20,11 @@ namespace Data
         };
 
     public:
-        void Register(EventType type, EventListener listener);
-        void Unregister(EventType type, EventListener listener);
+        void Register(EventType::Enum type, EventListener listener);
+        void Unregister(EventType::Enum type, EventListener listener);
 
-        void FireEvent(EventType type);
-        void FireEvent(EventType type, int data);
+        void FireEvent(EventType::Enum type);
+        void FireEvent(EventType::Enum type, int data);
 
     public:
         void AddEvent(Event& event);
@@ -32,7 +32,6 @@ namespace Data
 
     private:
         void FireEvent(Event& event);
-        void FireEvent(Event& event, int data);
 
     private:
         EventSystem();

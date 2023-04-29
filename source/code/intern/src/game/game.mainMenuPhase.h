@@ -19,11 +19,11 @@ namespace Game
 
     private:
         MainMenuPhase() :
-            nextRunPhase(Type::MAIN_MENU)
+            nextRunPhase(Phase::MAIN_MENU)
         {};
 
     private:
-        Type nextRunPhase;
+        Phase::Type nextRunPhase;
 
     private:
         int InternOnEnter() override;

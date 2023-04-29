@@ -2,12 +2,12 @@
 
 namespace Data
 {
-    void Event::SetType(EventType _type)
+    void Event::SetType(EventType::Enum _type)
     {
         typeId = _type;
     }
 
-    EventType Event::GetType() const
+    EventType::Enum Event::GetType() const
     {
         return typeId;
     }

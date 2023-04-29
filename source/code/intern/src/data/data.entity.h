@@ -19,21 +19,23 @@ namespace Data
     class Entity
     {
     public:
-
-        enum Facet
+        struct Facet
         {
-            GraphicsFacet,
-            LogicFacet,
-            NumberOfFacets
+            enum FacetType
+            {
+                GraphicsFacet,
+                LogicFacet,
+                NumberOfFacets
+            };
         };
 
     public:
 
-        void SetFacet(Facet type, void* facet)
+        void SetFacet(Facet::FacetType type, void* facet)
         {
             facets[type] = facet;
         }
-        void* GetFacet(Facet type)
+        void* GetFacet(Facet::FacetType type)
         {
             return facets[type];
         }
@@ -50,7 +52,7 @@ namespace Data
 
     private:
 
-        using FacetArray = std::array<void*, NumberOfFacets>;
+        using FacetArray = std::array<void*, Facet::NumberOfFacets>;
 
     private:
 

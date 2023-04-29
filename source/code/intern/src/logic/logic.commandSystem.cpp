@@ -11,7 +11,7 @@ namespace Logic
     {
         Command& command = *(new Command());
 
-        command.SetType(Data::CommandAction::CommandActionEnum(event.GetData()));
+        command.SetType(Data::CommandAction::Enum(event.GetData()));
 
         CommandSystem::GetInstance().AddCommand(command);
     }

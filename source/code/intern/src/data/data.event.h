@@ -7,14 +7,14 @@ namespace Data
     class Event
     {
     public:
-        void SetType(EventType type);
-        EventType GetType() const;
+        void SetType(EventType::Enum type);
+        EventType::Enum GetType() const;
 
         void SetData(int data);
         int GetData() const;
 
     protected:
-        EventType typeId;
+        EventType::Enum typeId;
         int data;
     };
 }
