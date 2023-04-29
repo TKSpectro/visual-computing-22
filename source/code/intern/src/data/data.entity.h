@@ -29,8 +29,14 @@ namespace Data
 
     public:
 
-        void SetFacet(Facet type, void* facet);
-        void* GetFacet(Facet type);
+        void SetFacet(Facet type, void* facet)
+        {
+            facets[type] = facet;
+        }
+        void* GetFacet(Facet type)
+        {
+            return facets[type];
+        }
 
     public:
 

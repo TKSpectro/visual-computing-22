@@ -43,6 +43,18 @@ namespace Data
         void* facetes[2];
 
     public:
+
+        struct FacetType
+        {
+            enum Facet
+            {
+                GraphicsFacet,
+                LogicFacet,
+                NumberOfFacets
+            };
+        };
+
+    public:
         std::string toString()
         {
             std::stringstream ss;

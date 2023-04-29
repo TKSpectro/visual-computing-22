@@ -8,20 +8,20 @@ namespace Logic
     {
     public:
         Command() :
-            type(Data::CommandType::CommandAction::Undefined)
+            type(Data::CommandAction::CommandActionEnum::Undefined)
         {};
         ~Command() = default;
 
     private:
-        Data::CommandType::CommandAction type;
+        Data::CommandAction::CommandActionEnum type;
 
     public:
-        void SetType(Data::CommandType::CommandAction _type)
+        void SetType(Data::CommandAction::CommandActionEnum _type)
         {
             type = _type;
         };
 
-        Data::CommandType::CommandAction GetType()
+        Data::CommandAction::CommandActionEnum GetType()
         {
             return type;
         };

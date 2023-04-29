@@ -2,9 +2,9 @@
 
 namespace Data
 {
-    struct CommandType
+    struct CommandAction
     {
-        enum CommandAction
+        enum CommandActionEnum
         {
             MoveUp,
             MoveDown,

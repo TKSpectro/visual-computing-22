@@ -58,22 +58,22 @@ namespace Gui
 
                 case sf::Keyboard::Key::Up:
                 case sf::Keyboard::Key::W:
-                    Data::EventSystem::GetInstance().FireEvent(Data::EventType::DISPATCH_INPUT_TO_COMMAND, Data::CommandType::CommandAction::MoveUp);
+                    Data::EventSystem::GetInstance().FireEvent(Data::EventType::DISPATCH_INPUT_TO_COMMAND, Data::CommandAction::MoveUp);
                     break;
 
                 case sf::Keyboard::Key::Down:
                 case sf::Keyboard::Key::S:
-                    Data::EventSystem::GetInstance().FireEvent(Data::EventType::DISPATCH_INPUT_TO_COMMAND, Data::CommandType::CommandAction::MoveDown);
+                    Data::EventSystem::GetInstance().FireEvent(Data::EventType::DISPATCH_INPUT_TO_COMMAND, Data::CommandAction::MoveDown);
                     break;
 
                 case sf::Keyboard::Key::Left:
                 case sf::Keyboard::Key::A:
-                    Data::EventSystem::GetInstance().FireEvent(Data::EventType::DISPATCH_INPUT_TO_COMMAND, Data::CommandType::CommandAction::MoveLeft);
+                    Data::EventSystem::GetInstance().FireEvent(Data::EventType::DISPATCH_INPUT_TO_COMMAND, Data::CommandAction::MoveLeft);
                     break;
 
                 case sf::Keyboard::Key::Right:
                 case sf::Keyboard::Key::D:
-                    Data::EventSystem::GetInstance().FireEvent(Data::EventType::DISPATCH_INPUT_TO_COMMAND, Data::CommandType::CommandAction::MoveRight);
+                    Data::EventSystem::GetInstance().FireEvent(Data::EventType::DISPATCH_INPUT_TO_COMMAND, Data::CommandAction::MoveRight);
                     break;
 
                 default:

@@ -38,7 +38,7 @@ namespace Gfx
             sf::Texture* texture = new sf::Texture();
             if (texture->loadFromFile(texturePath))
             {
-                metaEntity.facetes[0] = texture;
+                metaEntity.facetes[Data::MetaEntity::FacetType::GraphicsFacet] = texture;
             }
 
             xmlMetaEntity = xmlMetaEntity->NextSiblingElement();

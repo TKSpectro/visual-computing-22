@@ -47,7 +47,7 @@ namespace Gfx
         {
             if (entity != nullptr)
             {
-                sf::Texture* texturePtr = static_cast<sf::Texture*>(entity->metaEntity->facetes[0]);
+                sf::Texture* texturePtr = static_cast<sf::Texture*>(entity->metaEntity->facetes[Data::MetaEntity::FacetType::GraphicsFacet]);
 
                 sf::Sprite sprite;
                 sprite.setTexture(*texturePtr);
