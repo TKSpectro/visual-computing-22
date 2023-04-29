@@ -13,13 +13,13 @@ namespace Data
 
     void EventSystem::Register(EventType type, EventListener listener)
     {
-        std::cout << "Register Event - Type:" << type << std::endl;
+        std::cout << "DATA::EVENTSYSTEM::Register     Event - Type:" << type << std::endl;
         eventListeners.push_back(std::make_pair(type, listener));
     }
 
     void EventSystem::Unregister(EventType type, EventListener listener)
     {
-        std::cout << "Unregister Event - Type:" << type << std::endl;
+        std::cout << "DATA::EVENTSYSTEM::Unregister   Event - Type:" << type << std::endl;
 
         EventListenerList::iterator it;
 

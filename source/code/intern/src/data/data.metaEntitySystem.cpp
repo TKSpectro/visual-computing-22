@@ -51,7 +51,6 @@ namespace Data
             entity.aabb = aabb;
 
             metaEntityCount++;
-            //std::cout << "MetaEntity: " << entity << std::endl;
 
             metaEntity = metaEntity->NextSiblingElement();
         }

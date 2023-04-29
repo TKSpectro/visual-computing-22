@@ -13,7 +13,7 @@ namespace Data
     {
         int entityCount = EntitySystem::GetInstance().Initialize(doc);
 
-        std::cout << "DATA::LOAD::Run " << entityCount << " Entities initialized" << std::endl;
+        std::cout << "DATA::LOAD::Run                 " << entityCount << " Entities initialized" << std::endl;
     }
 
     void LoadPhase::OnLeave()

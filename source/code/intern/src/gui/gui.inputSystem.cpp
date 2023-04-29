@@ -77,7 +77,7 @@ namespace Gui
                     break;
 
                 default:
-                    std::cout << "Unbound key pressed" << std::endl;
+                    std::cout << "GUI::INPUTSYSTEM::OnRun         Unbound key pressed" << std::endl;
                     break;
             }
 

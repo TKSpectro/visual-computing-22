@@ -11,7 +11,7 @@ namespace Data
 
     void UnloadPhase::OnRun()
     {
-        std::cout << "DATA::UNLOAD::Run Clearing Entity System" << std::endl;
+        std::cout << "DATA::UNLOAD::Run               Clearing Entity System" << std::endl;
 
         EntitySystem::GetInstance().DestroyAllEntities();
     }

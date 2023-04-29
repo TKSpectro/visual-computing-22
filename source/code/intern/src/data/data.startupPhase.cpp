@@ -16,7 +16,7 @@ namespace Data
     {
         int metaEntityCount = MetaEntitySystem::GetInstance().Initialize(doc);
 
-        std::cout << "DATA::STARTUP::Run " << metaEntityCount << " MetaEntities initialized" << std::endl;
+        std::cout << "DATA::STARTUP::Run              " << metaEntityCount << " MetaEntities initialized" << std::endl;
     }
 
     void StartupPhase::OnLeave()
