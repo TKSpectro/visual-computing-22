@@ -22,5 +22,5 @@ All texture/sprite assets used are taken from [Pixel Frogs - Pixel Adventure](ht
 
 To easily create maps for the game, a map editor was created. It is written in Javascript and needs Node.js to run. It can be found here: [visual-computing-22-mapgen](https://github.com/TKSpectro/visual-computing-22-mapgen)
 
-There also exists a visual editor, which can be used in addition to the map editor. It is available as a [codepen](https://codepen.io/tkspectro/pen/YzJxNvY)
+There also exists a visual editor, which can be used in addition to the map editor. It is available as a [codepen](https://codepen.io/tkspectro/full/YzJxNvY)
 (For more information check the README of the map editor)
